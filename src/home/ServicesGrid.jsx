@@ -13,7 +13,7 @@ const ServicesGrid = () => {
   };
 
   return (
-    <div className="ssd-wrap">
+    <div className="ssd-wrap ssd-grid-wrap">
       <div className="ssd-grid">
         <div className="ssd-card c1" onClick={() => window.location.href = links.branding}>
           <div className="ssd-card__img-wrap">
