@@ -329,7 +329,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="contact-form-section">
+      <section className="contact-form-section" id="contact">
         <div className="contact-form-inner">
           <div className="contact-form-header">
             <h2>Contact us</h2>

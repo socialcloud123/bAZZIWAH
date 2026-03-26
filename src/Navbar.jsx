@@ -59,14 +59,14 @@ const Navbar = () => {
         <div className="nav-backdrop"></div>
         <div className="nav-inner">
           {/* LOGO (left) */}
-          <a href="https://sripadastudiosdigital.com/" className="logo">
+          <a href="/" className="logo">
             <img src="https://sripadastudiosdigital.com/wp-content/uploads/2024/01/Copy-of-About-Us-Page-SSD-WEBSITE-DESIGN-1366-x-768-px-3.png" alt="Sripada Studios Digital" />
           </a>
 
           {/* DESKTOP LINKS (center) */}
           <ul className="nav-links" id="navLinks">
-            <li><a href="https://sripadastudiosdigital.com/home-03-3/">Home</a></li>
-            <li><a href="https://sripadastudiosdigital.com/about/">About</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
 
             <li id="dd-services" className={openDropdown === 'dd-services' ? 'open' : ''}>
               <button onClick={() => toggleDd('dd-services')}>
@@ -120,7 +120,7 @@ const Navbar = () => {
               </div>
             </li>
 
-            <li><a href="https://sripadastudiosdigital.com/contact/">Contact</a></li>
+            <li><a href="/#contact">Contact</a></li>
           </ul>
 
           {/* RIGHT (right-aligned) */}

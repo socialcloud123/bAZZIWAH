@@ -45,7 +45,7 @@ const DigitalMarketingSection = () => {
         <div className="bbbbb-hero-left">
           <img
             className="bbbbb-hero-person-img"
-            src="https://buzziwah.com/wp-content/uploads/2026/03/SSD_Website-4-scaled.png"
+            src="/SSD_Website 10.png"
             alt="SS Digital — Buzziwah"
           />
 
