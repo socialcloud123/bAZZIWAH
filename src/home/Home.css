@@ -160,12 +160,7 @@ body {
 }
 
 .coverflow-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url('https://sripadastudiosdigital.com/wp-content/uploads/2026/03/BUZZIWAH-CREATIVES-3-scaled.png') right 20% bottom/100vw auto no-repeat;
-  opacity: 1;
-  z-index: 0;
+  display: none;
 }
 
 .coverflow-section > * {
@@ -647,15 +642,23 @@ body {
   position: relative;
 }
 
+.ttt-testimonials-section {
+  background: #0b0b17;
+  /* padding: 60px 20px; */
+  margin-top: 32px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
 .ttt-testimonials-header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 2%;
 }
 
 .ttt-h2 {
   font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 16px;
+
   color: #ffffff;
 }
 
@@ -790,10 +793,147 @@ body {
   }
 }
 
+.parallax-stack {
+  padding: 50px 20px 70px;
+  background: #0b0b0f;
+  color: #ffffff;
+}
+
+.parallax-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.parallax-header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.parallax-header p {
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  font-size: 0.8rem;
+  color: #7b3eff;
+  margin-bottom: 12px;
+}
+
+.parallax-header h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0;
+  color: rgba(255,255,255,0.9);
+  font-family: 'Geom', sans-serif;
+}
+
+.parallax-header h3 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin: 6px 0 0;
+  color: rgba(255,255,255,0.8);
+  font-family: 'Geom', sans-serif;
+}
+
+.parallax-stack-list {
+  position: relative;
+}
+
+.parallax-stack-list .scroll-stack-inner {
+  padding-top: 8vh;
+  padding-bottom: 5rem;
+}
+
+.parallax-card {
+  position: relative;
+  height: 420px;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #0f0f12;
+  box-shadow: 0 12px 28px rgba(17,17,17,0.14);
+  transform-origin: center top;
+  transform: translate3d(0, 0, 0) scale(0.98);
+  transition: box-shadow 0.45s ease, filter 0.45s ease;
+  will-change: transform, filter;
+}
+
+.parallax-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.45) 100%);
+  pointer-events: none;
+}
+
+.parallax-card.is-active {
+  box-shadow: 0 18px 36px rgba(17,17,17,0.18);
+  filter: saturate(1.05);
+}
+
+.parallax-card.is-past {
+  filter: brightness(0.9) saturate(0.9);
+}
+
+.parallax-card.is-future {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.parallax-stack-list .scroll-stack-end {
+  height: 1px;
+}
+
+.parallax-media {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: translateY(var(--parallax, 0px)) scale(1.05);
+  transition: transform 0.2s linear;
+}
+
+.parallax-label {
+  position: absolute;
+  left: 24px;
+  bottom: 20px;
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.8);
+  color: #1b1b1f;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 980px) {
+  .parallax-header h2 {
+    font-size: 2.2rem;
+  }
+  .parallax-header h3 {
+    font-size: 2rem;
+  }
+  .parallax-card {
+    height: 320px;
+  }
+}
+
+@media (max-width: 680px) {
+  .parallax-card {
+    height: 260px;
+  }
+  .parallax-label {
+    left: 16px;
+    bottom: 16px;
+    font-size: 0.75rem;
+  }
+}
+
 .faq-showcase {
   padding: 90px 20px;
-  background: #0b0b17;
-  color: #e9e6ff;
+  background: #f6f3ff;
+  color: #2a213a;
   position: relative;
 }
 
@@ -813,7 +953,7 @@ body {
 .faq-title-block h2 {
   font-size: 2.6rem;
   font-weight: 800;
-  color: #a68cff;
+  color: #6d28d9;
   font-family: 'Geom', sans-serif;
   margin: 0;
 }
@@ -821,13 +961,13 @@ body {
 .faq-title-block h3 {
   font-size: 2.4rem;
   font-weight: 800;
-  color: #c7b3ff;
+  color: #7c3aed;
   font-family: 'Geom', sans-serif;
   margin: 0;
 }
 
 .faq-intro {
-  color: rgba(233, 230, 255, 0.8);
+  color: rgba(42, 33, 58, 0.78);
   max-width: 520px;
 }
 
@@ -837,12 +977,31 @@ body {
   gap: 20px;
 }
 
+.faq-columns {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.faq-column {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .faq-card {
-  background: #7b3eff;
-  color: #ffffff;
+  background: #ffffff;
+  color: #2a213a;
   border-radius: 14px;
   padding: 18px 20px 16px;
-  box-shadow: 0 16px 30px rgba(123,62,255,0.25);
+  box-shadow: 0 16px 30px rgba(109,40,217,0.12);
+  border: 1px solid rgba(109,40,217,0.12);
+}
+
+.faq-column .faq-card {
+  width: 100%;
 }
 
 .faq-question {
@@ -866,7 +1025,7 @@ body {
 .faq-answer {
   font-size: 0.85rem;
   line-height: 1.5;
-  color: rgba(255,255,255,0.9);
+  color: rgba(42,33,58,0.78);
   max-height: 0;
   overflow: hidden;
   opacity: 0;
@@ -889,6 +1048,9 @@ body {
   }
   .faq-grid {
     grid-template-columns: 1fr;
+  }
+  .faq-columns {
+    flex-direction: column;
   }
 }
 
@@ -1035,21 +1197,21 @@ body {
 }
 
 .contact-form-section {
-  padding: 90px 20px;
+  padding: 90px 30px;
   background:
-    url("/SSD_Website%20(14).png") left bottom/520px auto no-repeat,
+    url("/SSD_Website%20(14).png") left 40px bottom/420px auto no-repeat,
     #e9f1d6;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   color: #1b1b1b;
 }
 
 .contact-form-inner {
-  max-width: 860px;
+  max-width: 900px;
   margin: 0;
   width: 100%;
-  padding: 0 40px;
+  padding: 0 24px;
   display: grid;
   gap: 28px;
 }
@@ -1787,6 +1949,28 @@ body {
   position: absolute;
   left: 0;
   color: #83cd15;
+}
+
+.content-sales-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  padding: 12px 28px;
+  border-radius: 999px;
+  background: #83cd15;
+  color: #0b0b0f;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.content-sales-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(131,205,21,0.35);
 }
 
 .content-sales-image {

@@ -227,6 +227,7 @@ const Home = () => {
             );
           })()}
 
+          <section className="ttt-testimonials-section">
           <div className="ttt-testimonials-container">
             <div className="ttt-testimonials-header">
               <h2 className="ttt-h2">What people say</h2>
@@ -296,6 +297,7 @@ const Home = () => {
               </div>
             </div>
           </div>
+          </section>
         </div>
       </section>
 
@@ -481,4 +483,3 @@ const Home = () => {
 };
 
 export default Home;
-

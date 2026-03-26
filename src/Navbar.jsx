@@ -77,7 +77,7 @@ const Navbar = () => {
               </button>
               <div className="dropdown">
                 <div className="dropdown-grid">
-                  <a className="dropdown-item" href="https://sripadastudiosdigital.com/social-media-management/">
+                  <a className="dropdown-item" href="/social-media">
                     <div className="dropdown-icon"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div>
                     <div className="dropdown-copy"><strong>Social Media</strong><span>Grow & engage your audience</span></div>
                   </a>
@@ -85,9 +85,13 @@ const Navbar = () => {
                     <div className="dropdown-icon"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
                     <div className="dropdown-copy"><strong>Performance Marketing</strong><span>ROI-driven paid campaigns</span></div>
                   </a>
-                  <a className="dropdown-item" href="https://sripadastudiosdigital.com/branding-re-branding/">
+                  <a className="dropdown-item" href="/branding">
                     <div className="dropdown-icon"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
                     <div className="dropdown-copy"><strong>Branding</strong><span>Identity & visual systems</span></div>
+                  </a>
+                  <a className="dropdown-item" href="/branding">
+                    <div className="dropdown-icon"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg></div>
+                    <div className="dropdown-copy"><strong>Branding Page</strong><span>See our branding work</span></div>
                   </a>
                   <a className="dropdown-item" href="https://sripadastudiosdigital.com/website-development/">
                     <div className="dropdown-icon"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
@@ -105,7 +109,7 @@ const Navbar = () => {
                     <div className="dropdown-icon"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
                     <div className="dropdown-copy"><strong>Influencer Marketing</strong><span>Authentic creator partnerships</span></div>
                   </a>
-                  <a className="dropdown-item" href="https://sripadastudiosdigital.com/content-solutions/">
+                  <a className="dropdown-item" href="/content-solution">
                     <div className="dropdown-icon"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
                     <div className="dropdown-copy"><strong>Content Solutions</strong><span>Strategy, copy & creative assets</span></div>
                   </a>
@@ -120,7 +124,7 @@ const Navbar = () => {
               </div>
             </li>
 
-            <li><a href="/contact">Contact</a></li>
+          <li><a href="/contact">Contact</a></li>
           </ul>
 
           {/* RIGHT (right-aligned) */}
@@ -146,8 +150,8 @@ const Navbar = () => {
       {/* MOBILE PANEL */}
       <div className={`mobile-panel ${mobileOpen ? 'open' : ''}`} id="mobilePanel">
         <ul className="mobile-links" id="mobileLinks">
-          <li><a href="https://sripadastudiosdigital.com/home-03-3/">Home</a></li>
-          <li><a href="https://sripadastudiosdigital.com/about/">About</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
           <li>
             <button onClick={toggleMobileSub}>
               Services
@@ -156,17 +160,18 @@ const Navbar = () => {
               </svg>
             </button>
             <div className={`mobile-sub ${openMobileSub ? 'open' : ''}`}>
-              <a href="https://sripadastudiosdigital.com/social-media-management/"><span className="mobile-sub-dot"></span>Social Media Management</a>
+              <a href="/social-media"><span className="mobile-sub-dot"></span>Social Media Management</a>
               <a href="https://sripadastudiosdigital.com/performances-marketing/"><span className="mobile-sub-dot"></span>Performance Marketing</a>
               <a href="https://sripadastudiosdigital.com/branding-re-branding/"><span className="mobile-sub-dot"></span>Branding & Re-Branding</a>
+              <a href="/branding"><span className="mobile-sub-dot"></span>Branding Page</a>
               <a href="https://sripadastudiosdigital.com/website-development/"><span className="mobile-sub-dot"></span>Website Development</a>
               <a href="https://sripadastudiosdigital.com/video-production/"><span className="mobile-sub-dot"></span>Video Production</a>
               <a href="https://sripadastudiosdigital.com/home-02/"><span className="mobile-sub-dot"></span>Search Engine Optimization</a>
               <a href="https://sripadastudiosdigital.com/influencer-marketing/"><span className="mobile-sub-dot"></span>Influencer Marketing</a>
-              <a href="https://sripadastudiosdigital.com/content-solutions/"><span className="mobile-sub-dot"></span>Content Solutions</a>
+              <a href="/content-solution"><span className="mobile-sub-dot"></span>Content Solutions</a>
             </div>
           </li>
-          <li><a href="https://sripadastudiosdigital.com/contact/">Contact</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
         <div className="mobile-footer">
           <a href="https://sripadastudiosdigital.com/contact/" className="btn-cta">Get Started →</a>

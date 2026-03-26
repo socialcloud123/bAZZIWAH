@@ -259,9 +259,13 @@ nav.scrolled .nav-backdrop {
   transition: color 0.2s, border-color 0.2s, background 0.2s;
   white-space: nowrap;
 }
-.phone-btn:hover { color: var(--text); border-color: rgba(0,0,0,0.14); background: rgba(0,0,0,0.03); }
+.phone-btn:hover {
+  color: rgba(255,255,255,0.95);
+  border-color: rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.06);
+}
 .phone-btn svg { opacity: 0.5; flex-shrink: 0; }
-.phone-btn:hover svg { opacity: 0.9; }
+.phone-btn:hover svg { opacity: 1; }
 
 .btn-cta,
 a.btn-cta,
@@ -323,7 +327,7 @@ a.btn-cta,
   cursor: pointer;
   padding: 9px 10px;
   border-radius: 8px;
-  margin-left: 4px;
+  margin-left: 0;
   transition: border-color 0.2s, background 0.2s;
 }
 .hamburger:hover { background: rgba(0,0,0,0.04); }
@@ -381,6 +385,7 @@ a.btn-cta,
 .mobile-sub-dot { width: 4px; height: 4px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
 
 .mobile-footer { margin-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+.mobile-footer .btn-cta { display: flex !important; }
 .mobile-footer .btn-cta { width: 100%; justify-content: center; padding: 14px; border-radius: 10px; font-size: 12px; }
 .mobile-footer .phone-btn { justify-content: center; padding: 12px; }
 
@@ -396,5 +401,5 @@ a.btn-cta,
   .mobile-panel { display: block; }
 }
 @media (max-width: 480px) {
-  .nav-inner { padding: 0 18px; }
+  .nav-inner { padding: 0 20px; }
 }

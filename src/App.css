@@ -61,3 +61,120 @@ h1, h2, h3, h4, h5, h6 {
 .team-card:hover .team-img.hover {
   opacity: 1;
 }
+
+.flipbk-section {
+  padding: 80px 20px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  gap: 24px;
+}
+
+.flipbk-container {
+  position: relative;
+  width: min(520px, 90vw);
+  height: 520px;
+  perspective: 1200px;
+  margin: 0 auto;
+  align-self: center;
+}
+
+.flipbk-page {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  transition: transform 0.7s ease;
+  transform-style: preserve-3d;
+}
+
+.flipbk-front,
+.flipbk-back {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  border-radius: 18px;
+  backface-visibility: hidden;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.2);
+}
+
+.flipbk-front {
+  background-color: #ffffff;
+}
+
+.flipbk-back {
+  transform: rotateY(180deg);
+}
+
+.flipbk-flip {
+  transform: rotateY(-180deg);
+}
+
+.flipbk-flip::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  border-radius: 0 18px 18px 0;
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.flipbk-controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  align-items: center;
+}
+
+.flipbk-section button {
+  border: 1px solid rgba(17, 17, 17, 0.15);
+  background: linear-gradient(180deg, #ffffff 0%, #f3f4f6 100%);
+  color: #111111;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 10px 24px rgba(17, 17, 17, 0.12);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.flipbk-section button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(17, 17, 17, 0.2);
+  background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+.flipbk-section button:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(17, 17, 17, 0.16);
+}
+
+.flipbk-cover {
+  background-color: #ffcb63;
+  font-family: calibri;
+  text-align: left;
+  padding: 0 30px;
+}
+
+.flipbk-cover h1 {
+  color: #fff;
+  margin-top: 40px;
+}
+
+.flipbk-cover p {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 14px;
+}
+
+@media (max-width: 920px) {
+  .flipbk-container {
+    height: 460px;
+  }
+}

@@ -72,19 +72,7 @@ const HeroSection = () => {
           </a>
         </div>
 
-        <div className="hz-proof">
-          <div className="hz-avatars">
-            {[11, 22, 35, 47].map((n) => (
-              <div className="hz-av" key={n}>
-                <img src={`https://i.pravatar.cc/64?img=${n}`} alt="" />
-              </div>
-            ))}
-          </div>
-          <div className="hz-proof-text">
-            <div className="hz-stars">★★★★★</div>
-            Trusted by <strong>120+ brands</strong> & film studios
-          </div>
-        </div>
+        
       </div>
 
       {/* RIGHT */}

@@ -18,6 +18,9 @@ const ContentSalesSection = ({ image = '/SSD_Website 9.png' }) => {
             <li>300% Of Organic Content</li>
             <li>Best In Market</li>
           </ul>
+          <a className="content-sales-btn" href="/contact">
+            Get Started
+          </a>
         </div>
 
         <div className="content-sales-image">
