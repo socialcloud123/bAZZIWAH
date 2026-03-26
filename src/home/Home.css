@@ -267,9 +267,10 @@ body {
 
 .clientele-marquee {
   display: grid;
-  gap: 12px;
-  max-width: 1400px;
-  margin: 0 auto;
+  gap: 6px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
 }
 
 .clientele-row {
@@ -278,12 +279,12 @@ body {
   border-radius: 999px;
   border: 0;
   background: transparent;
-  padding: 12px 0;
+  padding: 6px 0;
 }
 
 .clientele-track {
   display: flex;
-  gap: 8px;
+  gap: 4px;
   width: max-content;
   animation: marquee-left var(--duration, 180s) linear infinite;
   will-change: transform;
@@ -307,20 +308,19 @@ body {
 }
 
 .clientele-logo {
-  width: 220px;
-  height: 120px;
+  width: 280px;
+  height: 150px;
   object-fit: contain;
-  filter: brightness(0);
   opacity: 1;
 }
 
 @keyframes marquee-left {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to { transform: translateX(-100%); }
 }
 
 @keyframes marquee-right {
-  from { transform: translateX(-50%); }
+  from { transform: translateX(-100%); }
   to { transform: translateX(0); }
 }
 
@@ -338,6 +338,10 @@ body {
     padding: 12px 18px;
     font-size: 0.8rem;
   }
+  .clientele-logo {
+    width: 200px;
+    height: 110px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -348,8 +352,28 @@ body {
 
 .case-studies-section {
   padding: 70px 20px 90px;
-  background: url("/SSD_Website%20(12).png") center/cover no-repeat;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(24, 24, 48, 0.45), transparent 42%),
+    #0b0b17;
   color: #ffffff;
+  position: relative;
+}
+
+.case-studies-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 70px 70px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.case-studies-section > * {
+  position: relative;
+  z-index: 1;
 }
 
 .case-studies-inner {
@@ -377,7 +401,7 @@ body {
   width: 100vw;
   margin: 0;
   overflow: hidden;
-  background: url("/SSD_Website%20(12).png") center/cover no-repeat;
+  background: url("/SSD_Website (12).png") center/cover no-repeat;
 }
 
 .case-studies-track {
@@ -610,142 +634,167 @@ body {
 
 .visibility-section {
   padding: 90px 20px;
-  background: url("/SSD_Website%20(12).png") center/cover no-repeat;
+  background: url("/SSD_Website (12).png") center/cover no-repeat;
   color: #2b2b2b;
   text-align: center;
 }
 
-.visibility-inner {
-  max-width: 980px;
-  margin: 0 auto;
-}
-
-.visibility-kicker {
-  font-size: 0.8rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #6f6f6f;
-  margin-bottom: 6px;
-}
-
-.visibility-title {
-  font-size: 2.6rem;
-  font-weight: 800;
-  color: #7b3eff;
-  margin-bottom: 10px;
-}
-
-.visibility-subtitle {
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.9);
-  margin-bottom: 24px;
-}
-
-.visibility-list {
-  margin: 0 auto 28px;
-  padding-left: 18px;
-  display: grid;
-  gap: 10px;
-  text-align: left;
-  max-width: 720px;
-  color: rgba(255,255,255,0.9);
-}
-
-.visibility-cta {
-  display: flex;
-  justify-content: center;
-}
-
-.visibility-button {
-  border: none;
-  background: #7b3eff;
-  color: #ffffff;
-  padding: 12px 24px;
-  border-radius: 999px;
-  font-weight: 700;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.testimonials-section {
-  padding: 90px 20px;
-  background: linear-gradient(180deg, #9253f8, #5520aa, #5520aa);
-  color: #ffffff;
-  text-align: center;
-}
-
-.testimonials-inner {
+.ttt-testimonials-container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 30px auto 0;
+  padding: 48px 28px;
+  overflow: hidden;
+  position: relative;
 }
 
-.testimonials-title {
-  font-size: 2.6rem;
-  font-weight: 800;
-  margin-bottom: 8px;
-  color: #d8ff7f;
+.ttt-testimonials-header {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.testimonials-subtitle {
-  color: rgba(255,255,255,0.8);
-  margin-bottom: 36px;
-}
-
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
-  align-items: stretch;
-}
-
-.testimonial-card {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.4);
-  border-radius: 14px;
-  padding: 26px 24px;
-  text-align: left;
-  backdrop-filter: blur(6px);
-}
-
-.testimonial-card.featured {
-  transform: translateY(-10px);
-}
-
-.testimonial-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.9);
-  margin-bottom: 12px;
-}
-
-.testimonial-name {
-  font-size: 1rem;
+.ttt-h2 {
+  font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
+  color: #ffffff;
 }
 
-.testimonial-text {
-  color: rgba(255,255,255,0.85);
-  font-size: 0.95rem;
+.ttt-p {
+  font-size: 1.125rem;
+  color: #ffffff;
+  max-width: 600px;
+  margin: 0 auto;
   line-height: 1.5;
 }
 
-@media (max-width: 980px) {
-  .testimonials-grid {
-    grid-template-columns: 1fr;
+.ttt-p span {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.ttt-testimonials-slider {
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+}
+
+.ttt-testimonials-track {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  animation: ttt-scroll 20s linear infinite;
+}
+
+.ttt-testimonial-card {
+  background: rgba(12, 11, 23, 0.9);
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(109, 40, 217, 0.45);
+  margin-bottom: 100px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ttt-testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(109, 40, 217, 0.25);
+}
+
+.ttt-testimonial-card.ttt-highlight {
+  border-color: #6d28d9;
+  box-shadow: 0 6px 12px rgba(109, 40, 217, 0.3);
+}
+
+.ttt-testimonial-content {
+  margin-bottom: 20px;
+}
+
+.ttt-testimonial-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+.ttt-highlight-text {
+  background-color: rgba(109, 40, 217, 0.1);
+  color: #6d28d9;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.ttt-testimonial-rating {
+  margin-bottom: 16px;
+  color: #6d28d9;
+  font-size: 1.2rem;
+}
+
+.ttt-testimonial-author {
+  display: flex;
+  align-items: center;
+}
+
+.ttt-author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 12px;
+  border: 2px solid #6d28d9;
+}
+
+.ttt-author-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ttt-author-info h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.ttt-author-info p {
+  font-size: 0.875rem;
+  color: #ffffff;
+}
+
+@keyframes ttt-scroll {
+  from {
+    transform: translateY(0);
   }
-  .testimonial-card.featured {
-    transform: none;
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@media (max-width: 980px) {
+  .ttt-testimonials-track {
+    flex-direction: column;
+    align-items: center;
+    animation: ttt-scroll 24s linear infinite;
+  }
+
+  .ttt-testimonial-card {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .ttt-testimonials-slider {
+    height: auto;
   }
 }
 
 .faq-showcase {
   padding: 90px 20px;
-  background: #ffffff;
-  color: #1d1d1f;
+  background: #0b0b17;
+  color: #e9e6ff;
+  position: relative;
 }
 
 .faq-inner {
@@ -764,7 +813,7 @@ body {
 .faq-title-block h2 {
   font-size: 2.6rem;
   font-weight: 800;
-  color: #7b3eff;
+  color: #a68cff;
   font-family: 'Geom', sans-serif;
   margin: 0;
 }
@@ -772,13 +821,13 @@ body {
 .faq-title-block h3 {
   font-size: 2.4rem;
   font-weight: 800;
-  color: #7b3eff;
+  color: #c7b3ff;
   font-family: 'Geom', sans-serif;
   margin: 0;
 }
 
 .faq-intro {
-  color: #4a4a4a;
+  color: rgba(233, 230, 255, 0.8);
   max-width: 520px;
 }
 
@@ -899,20 +948,22 @@ body {
 
 .social-follow {
   padding: 90px 20px;
-  background: url("/SSD_Website%20(12).png") center/cover no-repeat;
+  background: url("/SSD_Website (12).png") center/cover no-repeat;
   color: #111111;
 }
 
 .social-follow-inner {
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .social-title {
   text-align: center;
   font-size: 2.3rem;
   font-weight: 800;
-  color: #6a2fff;
+  color: #8b5cf6;
   margin-bottom: 16px;
 }
 
@@ -985,13 +1036,20 @@ body {
 
 .contact-form-section {
   padding: 90px 20px;
-  background: url("/Copy%20of%20BUZZIWAH_PORTFOLIO.png") center/cover no-repeat;
+  background:
+    url("/SSD_Website%20(14).png") left bottom/520px auto no-repeat,
+    #e9f1d6;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   color: #1b1b1b;
 }
 
 .contact-form-inner {
   max-width: 860px;
-  margin: 0 auto;
+  margin: 0;
+  width: 100%;
+  padding: 0 40px;
   display: grid;
   gap: 28px;
 }
@@ -1661,7 +1719,7 @@ body {
     right: 1px;
   }
 
-  .content-sales-section .content-sales-inner {
+.content-sales-section .content-sales-inner {
     flex-direction: column;
   }
 
@@ -1734,6 +1792,9 @@ body {
 .content-sales-image {
   width: 50%;
   align-self: flex-end;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .content-sales-image img {
@@ -1745,7 +1806,8 @@ body {
   object-fit: contain;
   margin-left: auto;
   display: block;
-  transform: translateY(60px) scale(1.08);
+  margin-top: -60px;
+  transform: scale(1.08);
   filter: drop-shadow(0 30px 60px rgba(0,0,0,0.35));
 }
 
@@ -1762,7 +1824,8 @@ body {
 
   .content-sales-image img {
     max-width: 560px;
-    transform: translateY(20px) scale(1);
+    margin-top: -20px;
+    transform: scale(1);
     margin: 0 auto;
   }
 }

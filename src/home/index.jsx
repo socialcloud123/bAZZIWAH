@@ -6,6 +6,7 @@ import CoverflowSection from './CoverflowSection';
 import ContentSalesSection from './ContentSalesSection';
 import DigitalMarketingSection from './DigitalMarketingSection';
 import ClienteleSection from './ClienteleSection';
+import VisibleOnlineSection from './VisibleOnlineSection';
 
 const Home = () => {
   const [openFaqIndex, setOpenFaqIndex] = React.useState(0);
@@ -136,64 +137,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="visibility-section">
-        <div className="visibility-inner">
-          <p className="visibility-kicker">Digital Growth Starts Here</p>
-          <h2 className="visibility-title">Make Your Business Visible Online</h2>
-          <p className="visibility-subtitle">
-            Buzziwah blends filmmaking creativity with digital expertise to deliver complete growth
-            solutions for films and brands.
-          </p>
-
-          <ul className="visibility-list">
-            <li>Digital Filmmaking — Creative storytelling powered by smart digital promotion.</li>
-            <li>Film Promotion — Teasers, motion posters, influencer marketing & theatre campaigns.</li>
-            <li>Brand Identity — Impactful websites, visuals, videos, and social strategies.</li>
-            <li>Performance Marketing — Scalable, data-driven campaigns that accelerate growth.</li>
-            <li>One Partner — Film promotions or brand strategy — everything under one roof.</li>
-          </ul>
-
-          <div className="visibility-cta">
-            <button className="visibility-button" type="button">
-              Start a Project <span aria-hidden="true">→</span>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section className="testimonials-section">
-        <div className="testimonials-inner">
-          <h2 className="testimonials-title">What people say</h2>
-          <p className="testimonials-subtitle">Voices of our happy clients.</p>
-
-          <div className="testimonials-grid">
-            <div className="testimonial-card">
-              <div className="testimonial-avatar" />
-              <h3 className="testimonial-name">Sachin Rajan</h3>
-              <p className="testimonial-text">
-                Creativity! Team work! Hard work! Are the core strengths of sripada team!
-              </p>
-            </div>
-
-            <div className="testimonial-card featured">
-              <div className="testimonial-avatar" />
-              <h3 className="testimonial-name">Chitra</h3>
-              <p className="testimonial-text">
-                Good quality of work and excellent work with professional service.
-              </p>
-            </div>
-
-            <div className="testimonial-card">
-              <div className="testimonial-avatar" />
-              <h3 className="testimonial-name">Shiva</h3>
-              <p className="testimonial-text">
-                Creative bunch of people working passionately for all your digital marketing
-                queries. A client-friendly workspace.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <VisibleOnlineSection />
 
       <section className="faq-showcase">
         <div className="faq-inner">
@@ -282,6 +226,76 @@ const Home = () => {
               </div>
             );
           })()}
+
+          <div className="ttt-testimonials-container">
+            <div className="ttt-testimonials-header">
+              <h2 className="ttt-h2">What people say</h2>
+              <p className="ttt-p">
+                Voices of our happy clients <span>about Buzzivah</span>
+              </p>
+            </div>
+
+            <div className="ttt-testimonials-slider">
+              <div className="ttt-testimonials-track">
+                {(() => {
+                  const items = [
+                    {
+                      text: "We've reduced project timelines by 70%, delivering high-quality UIs effortlessly.",
+                      highlight: true,
+                      name: 'Alex Rivera',
+                      role: 'UX/UI Lead',
+                      avatar: 'https://i.pravatar.cc/48?img=1',
+                    },
+                    {
+                      text: 'A must-have for any product designer. Easy to customize.',
+                      highlight: false,
+                      name: 'Emily Chen',
+                      role: 'Product Designer',
+                      avatar: 'https://i.pravatar.cc/48?img=2',
+                    },
+                    {
+                      text: 'Customers love the experience and engagement has increased.',
+                      highlight: true,
+                      name: 'Carlos Gomez',
+                      role: 'Marketing Specialist',
+                      avatar: 'https://i.pravatar.cc/48?img=3',
+                    },
+                    {
+                      text: 'The design feedback has been overwhelmingly positive!',
+                      highlight: false,
+                      name: 'Sofia Patel',
+                      role: 'Founder',
+                      avatar: 'https://i.pravatar.cc/48?img=4',
+                    },
+                  ];
+
+                  const looped = [...items, ...items];
+
+                  return looped.map(({ text, highlight, name, role, avatar }, idx) => (
+                    <div className={`ttt-testimonial-card ${highlight ? 'ttt-highlight' : ''}`} key={`ttt-${idx}`}>
+                      <div className="ttt-testimonial-rating">★★★★★</div>
+                      <div className="ttt-testimonial-content">
+                        <p>
+                          "
+                          {highlight ? <span className="ttt-highlight-text">{text}</span> : text}
+                          "
+                        </p>
+                      </div>
+                      <div className="ttt-testimonial-author">
+                        <div className="ttt-author-avatar">
+                          <img src={avatar} alt={name} />
+                        </div>
+                        <div className="ttt-author-info">
+                          <h4>{name}</h4>
+                          <p>{role}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ));
+                })()}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -467,3 +481,4 @@ const Home = () => {
 };
 
 export default Home;
+

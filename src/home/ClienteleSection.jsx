@@ -82,16 +82,6 @@ const ClienteleSection = () => {
                     />
                   </div>
                 ))}
-                {rowItems.map((item, idx) => (
-                  <div className="clientele-card" key={`${item}-${idx}-b`}>
-                    <img
-                      className="clientele-logo"
-                      src={encodeURI(`/clientlogos/${item}`)}
-                      alt="Client logo"
-                      loading="lazy"
-                    />
-                  </div>
-                ))}
               </div>
             </div>
           );
