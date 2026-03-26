@@ -10,7 +10,7 @@ const HeroSection = () => {
         muted
         playsInline
       >
-        <source src="https://sripadastudiosdigital.com/wp-content/uploads/2025/09/Showreel_SSD.mp4" type="video/mp4" />
+        <source src="/Showreel_SSD.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </section>

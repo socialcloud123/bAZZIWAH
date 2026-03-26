@@ -1,11 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react';
 
 const images = [
-  'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-3.png',
-  'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-4.png',
-  'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-5.png',
-  'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-3.png',
-  'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-4.png',
+  '/SSD_Performance-Marketing-Webpage-3.png',
+  '/SSD_Performance-Marketing-Webpage-4.png',
+  '/SSD_Performance-Marketing-Webpage-5.png',
+  '/SSD_Performance-Marketing-Webpage-3.png',
+  '/SSD_Performance-Marketing-Webpage-4.png',
 ];
 
 const mod = (n, m) => ((n % m) + m) % m;

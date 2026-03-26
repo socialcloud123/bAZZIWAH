@@ -22,11 +22,11 @@ body {
 }
 
 .ssd-hero {
-  background: url("/SSD_Website (12).png") center/cover no-repeat;
+  background: url("/SSD_Website%20(12).png") center/cover no-repeat;
 }
 
 .ssd-grid-wrap {
-  background: url("/SSD_Website (12).png") center/cover no-repeat;
+  background: url("/SSD_Website%20(12).png") center/cover no-repeat;
 }
 
 .ssd-center {
@@ -163,8 +163,8 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('https://sripadastudiosdigital.com/wp-content/uploads/2026/03/BUZZIWAH-CREATIVES-3-scaled.png') right 20% top/cover no-repeat;
-  opacity: 0.55;
+  background: url('https://sripadastudiosdigital.com/wp-content/uploads/2026/03/BUZZIWAH-CREATIVES-3-scaled.png') right 20% bottom/100vw auto no-repeat;
+  opacity: 1;
   z-index: 0;
 }
 
@@ -229,7 +229,7 @@ body {
 
 .clientele-section {
   padding: 80px 20px 90px;
-  background: url("/Copy of BUZZIWAH_PORTFOLIO.png") center/cover no-repeat;
+  background: url("/Copy%20of%20BUZZIWAH_PORTFOLIO.png") center/cover no-repeat;
   border-top: 0;
   border-bottom: 0;
   color: #fff;
@@ -348,7 +348,7 @@ body {
 
 .case-studies-section {
   padding: 70px 20px 90px;
-  background: url("/SSD_Website (12).png") center/cover no-repeat;
+  background: url("/SSD_Website%20(12).png") center/cover no-repeat;
   color: #ffffff;
 }
 
@@ -377,7 +377,7 @@ body {
   width: 100vw;
   margin: 0;
   overflow: hidden;
-  background: url("/SSD_Website (12).png") center/cover no-repeat;
+  background: url("/SSD_Website%20(12).png") center/cover no-repeat;
 }
 
 .case-studies-track {
@@ -498,7 +498,7 @@ body {
 
 .growth-section {
   padding: 80px 20px;
-  background: url("/SSD_Website (10).png") center/cover no-repeat;
+  background: url("/SSD_Website%20(10).png") center/cover no-repeat;
   color: #1b1b1b;
   height: 80vh;
   display: flex;
@@ -610,7 +610,7 @@ body {
 
 .visibility-section {
   padding: 90px 20px;
-  background: url("/SSD_Website (12).png") center/cover no-repeat;
+  background: url("/SSD_Website%20(12).png") center/cover no-repeat;
   color: #2b2b2b;
   text-align: center;
 }
@@ -845,7 +845,7 @@ body {
 
 .contact-cta {
   padding: 90px 20px;
-  background: url("/Copy of BUZZIWAH_PORTFOLIO.png") center/cover no-repeat;
+  background: url("/Copy%20of%20BUZZIWAH_PORTFOLIO.png") center/cover no-repeat;
   color: #111111;
 }
 
@@ -899,7 +899,7 @@ body {
 
 .social-follow {
   padding: 90px 20px;
-  background: url("/SSD_Website (12).png") center/cover no-repeat;
+  background: url("/SSD_Website%20(12).png") center/cover no-repeat;
   color: #111111;
 }
 
@@ -985,7 +985,7 @@ body {
 
 .contact-form-section {
   padding: 90px 20px;
-  background: url("/Copy of BUZZIWAH_PORTFOLIO.png") center/cover no-repeat;
+  background: url("/Copy%20of%20BUZZIWAH_PORTFOLIO.png") center/cover no-repeat;
   color: #1b1b1b;
 }
 
@@ -999,7 +999,10 @@ body {
 .contact-form-header h2 {
   font-size: 2.4rem;
   font-weight: 800;
-  color: #6a2fff;
+  background: radial-gradient(circle at 0% 0%, #8b5cf6, #5520aa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   margin-bottom: 8px;
   text-align: center;
 }
@@ -1083,9 +1086,10 @@ body {
 }
 
 .site-footer {
-  background: url("/SSD_Website (12).png") center/cover no-repeat;
+  background: url("/SSD_Website%20(12).png") center/cover no-repeat;
   color: #ffffff;
   padding: 70px 20px 40px;
+  width: 100%;
 }
 
 .footer-cta {
