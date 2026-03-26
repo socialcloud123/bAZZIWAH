@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const ContentSolutionPage = () => (
   <>
-    <section className="w-full m-0 p-0 leading-none">
+    <section className="w-full m-0 p-0 leading-none mt-14">
       <img
         src="https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-53.png"
         alt="Content Solution"
@@ -51,6 +51,7 @@ const ContentSolutionPage = () => (
     <CSSection3 />
     <CSWhyChooseUs />
     <CSFAQ />
+    <CSFooter />
   </>
 );
 
@@ -218,81 +219,79 @@ const CSWhyChooseUs = () => (
   </section>
 );
 
-const csFaqs = [
+const csFaqItems = [
   {
-    q: 'What is Sripada Studios Digital?',
-    a: 'Sripada Studios Digital is a Bengaluru-based conglomerate specializing in filmmaking, digital marketing, and research. We deliver creative and strategic solutions across three core verticals to help brands and individuals connect meaningfully with their audiences.',
+    question: 'What is Sripada Studios Digital?',
+    answer: 'Sripada Studios Digital is a Bengaluru-based conglomerate specializing in filmmaking, digital marketing, and research. We deliver creative and strategic solutions across three core verticals to help brands and individuals connect meaningfully with their audiences.',
   },
   {
-    q: 'What services do you offer?',
-    a: 'We deliver end-to-end digital solutions including filmmaking, digital marketing, brand strategy, and research-driven growth planning tailored to your goals.',
+    question: 'What services do you offer?',
+    answer: 'We deliver end-to-end digital solutions including filmmaking, digital marketing, brand strategy, and research-driven growth planning tailored to your goals.',
   },
   {
-    q: 'How long does a typical project take?',
-    a: 'Timelines depend on scope and deliverables, but we share a clear plan up front and keep you updated at every milestone.',
+    question: 'How long does a typical project take?',
+    answer: 'Timelines depend on scope and deliverables, but we share a clear plan up front and keep you updated at every milestone.',
   },
   {
-    q: 'Do you work with startups and SMEs?',
-    a: 'Yes. We collaborate with startups, SMEs, and enterprises, scaling our approach to match your budget and growth stage.',
+    question: 'Do you work with startups and SMEs?',
+    answer: 'Yes. We collaborate with startups, SMEs, and enterprises, scaling our approach to match your budget and growth stage.',
   },
   {
-    q: 'How do we get started?',
-    a: 'Share your goals and we will schedule a quick discovery call to craft the right strategy and timeline.',
+    question: 'How do we get started?',
+    answer: 'Share your goals and we will schedule a quick discovery call to craft the right strategy and timeline.',
   },
   {
-    q: 'Do you provide ongoing support?',
-    a: 'Absolutely. We offer ongoing marketing, performance tracking, and optimization packages for long-term growth.',
+    question: 'Do you provide ongoing support?',
+    answer: 'Absolutely. We offer ongoing marketing, performance tracking, and optimization packages for long-term growth.',
   },
   {
-    q: 'Can you handle launch campaigns?',
-    a: 'Yes. We plan and execute launch campaigns with creative, media, and performance tracking baked in.',
+    question: 'Can you handle launch campaigns?',
+    answer: 'Yes. We plan and execute launch campaigns with creative, media, and performance tracking baked in.',
   },
   {
-    q: 'Do you offer custom packages?',
-    a: 'Every package is tailored. We build a scope that matches your outcomes, timeline, and budget.',
+    question: 'Do you offer custom packages?',
+    answer: 'Every package is tailored. We build a scope that matches your outcomes, timeline, and budget.',
   },
   {
-    q: 'What industries do you specialize in?',
-    a: 'We have experience across media, retail, hospitality, education, and tech, with strategies tailored per sector.',
+    question: 'What industries do you specialize in?',
+    answer: 'We have experience across media, retail, hospitality, education, and tech, with strategies tailored per sector.',
   },
   {
-    q: 'How is pricing determined?',
-    a: 'Pricing is based on scope, complexity, and timelines. We provide transparent quotes and options.',
+    question: 'How is pricing determined?',
+    answer: 'Pricing is based on scope, complexity, and timelines. We provide transparent quotes and options.',
   },
 ];
 
 const CSFAQ = () => {
-  const [open, setOpen] = useState(null);
+  const [openFaqIndex, setOpenFaqIndex] = useState(0);
 
   return (
-    <section className="bg-[#f2fde4] px-10 py-20">
-      <div className="mx-auto max-w-[800px]">
-        <p className="mb-2 text-center font-['Geom'] text-xs font-bold uppercase tracking-[0.1em] text-[#7c3aed]">
-          Got questions?
-        </p>
-        <h2 className="mb-12 text-center font-['Geom'] text-[clamp(24px,3vw,40px)] font-extrabold text-[#1a0533]">
-          Frequently Asked Questions
-        </h2>
-        <div className="flex flex-col gap-3">
-          {csFaqs.map((f, i) => (
-            <div
-              key={i}
-              className={`overflow-hidden rounded-xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)] ${
-                open === i ? 'border border-[#7c3aed]' : 'border border-transparent'
-              }`}
-            >
+    <section className="faq-showcase">
+      <div className="faq-inner">
+        <div className="faq-header">
+          <div className="faq-title-block">
+            <h2>Any questions?</h2>
+            <h3>We got you.</h3>
+          </div>
+          <p className="faq-intro">
+            Have something on your mind? Whether it's about our services, process, timelines, or
+            pricing — we've answered the most common questions to help you move forward with
+            clarity and confidence.
+          </p>
+        </div>
+        <div className="faq-grid">
+          {csFaqItems.map((item, idx) => (
+            <div className={`faq-card ${openFaqIndex === idx ? 'open' : ''}`} key={item.question}>
               <button
-                onClick={() => setOpen(open === i ? null : i)}
-                className={`flex w-full items-center justify-between gap-3 px-5 py-4 text-left font-['Geom'] text-[15px] font-bold ${
-                  open === i ? 'text-[#7c3aed]' : 'text-[#1a0533]'
-                }`}
+                className="faq-question"
+                type="button"
+                onClick={() => setOpenFaqIndex(openFaqIndex === idx ? -1 : idx)}
+                aria-expanded={openFaqIndex === idx}
               >
-                {f.q}
-                <span className="text-xl text-[#7c3aed]">{open === i ? '−' : '+'}</span>
+                <span>{`${idx + 1}. ${item.question}`}</span>
+                <span className="faq-arrow">⌄</span>
               </button>
-              {open === i && (
-                <div className="px-5 pb-4 text-sm leading-[1.75] text-[#444] font-['Google Sans']">{f.a}</div>
-              )}
+              <div className="faq-answer">{item.answer}</div>
             </div>
           ))}
         </div>
@@ -300,5 +299,75 @@ const CSFAQ = () => {
     </section>
   );
 };
+
+const CSFooter = () => (
+  <footer className="site-footer">
+      <div className="footer-cta">
+        <img
+          className="footer-logo"
+          src="https://sripadastudiosdigital.com/wp-content/uploads/2024/01/Copy-of-About-Us-Page-SSD-WEBSITE-DESIGN-1366-x-768-px-3.png"
+          alt="Sripada Studios Digital"
+        />
+        <div className="footer-cta-text">Ready To Get Started</div>
+        <button className="footer-cta-button" type="button">Get Started →</button>
+      </div>
+
+      <div className="footer-divider" />
+
+      <div className="footer-grid">
+        <div className="footer-col">
+          <h4>SUBSCRIBE TO OUR NEWSLETTER</h4>
+          <input className="footer-input" type="text" placeholder="Name" />
+          <input className="footer-input" type="email" placeholder="Email Address" />
+          <button className="footer-subscribe" type="button">Subscribe</button>
+        </div>
+        <div className="footer-col">
+          <h4>SERVICES</h4>
+          <ul>
+            <li>Performance Marketing</li>
+            <li>Social Media Management</li>
+            <li>Website Development</li>
+            <li>Branding and Re-branding</li>
+          </ul>
+        </div>
+        <div className="footer-col">
+          <h4>ABOUT</h4>
+          <ul>
+            <li>Our Story</li>
+            <li>Benefits</li>
+            <li>Team</li>
+            <li>Careers</li>
+          </ul>
+        </div>
+        <div className="footer-col">
+          <h4>NAVIGATION</h4>
+          <ul>
+            <li>Content Solution</li>
+            <li>Video Production</li>
+            <li>Search Engine Optimization</li>
+            <li>Influencer Marketing</li>
+          </ul>
+        </div>
+        <div className="footer-col">
+          <h4>HELP</h4>
+          <ul>
+            <li>FAQs</li>
+            <li>Contact Us</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="footer-divider" />
+
+      <div className="footer-bottom">
+        <div className="footer-socials">
+          <span className="footer-social">f</span>
+          <span className="footer-social">ig</span>
+          <span className="footer-social">yt</span>
+        </div>
+        <div className="footer-copy">2026 Buzziwah.com | All Rights Reserved</div>
+      </div>
+    </footer>
+);
 
 export default ContentSolutionPage;

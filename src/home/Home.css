@@ -931,7 +931,7 @@ body {
 }
 
 .faq-showcase {
-  padding: 90px 20px;
+  padding: 30px 20px;
   background: #f6f3ff;
   color: #2a213a;
   position: relative;
@@ -945,13 +945,13 @@ body {
 .faq-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 40px;
+  gap: 24px;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 
 .faq-title-block h2 {
-  font-size: 2.6rem;
+  font-size: 2rem;
   font-weight: 800;
   color: #6d28d9;
   font-family: 'Geom', sans-serif;
@@ -959,7 +959,7 @@ body {
 }
 
 .faq-title-block h3 {
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   font-weight: 800;
   color: #7c3aed;
   font-family: 'Geom', sans-serif;
@@ -969,12 +969,13 @@ body {
 .faq-intro {
   color: rgba(42, 33, 58, 0.78);
   max-width: 520px;
+  font-size: 0.9rem;
 }
 
 .faq-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
+  gap: 12px;
 }
 
 .faq-columns {
@@ -995,7 +996,7 @@ body {
   background: #ffffff;
   color: #2a213a;
   border-radius: 14px;
-  padding: 18px 20px 16px;
+  padding: 12px 16px;
   box-shadow: 0 16px 30px rgba(109,40,217,0.12);
   border: 1px solid rgba(109,40,217,0.12);
 }
@@ -1056,13 +1057,26 @@ body {
 
 .contact-cta {
   padding: 90px 20px;
-  background: url("/Copy%20of%20BUZZIWAH_PORTFOLIO.png") center/cover no-repeat;
+  background: #e9f1d6;
+  position: relative;
   color: #111111;
+  overflow: hidden;
+}
+
+.contact-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("/Copy%20of%20BUZZIWAH_PORTFOLIO.png") center/cover no-repeat;
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 .contact-cta-inner {
-  max-width: 1200px;
+  max-width: 900px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: 40px;
@@ -1197,23 +1211,42 @@ body {
 }
 
 .contact-form-section {
-  padding: 90px 30px;
-  background:
-    url("/SSD_Website%20(14).png") left 40px bottom/420px auto no-repeat,
-    #e9f1d6;
+  padding: 40px 30px 0;
+  background: #e9f1d6;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   color: #1b1b1b;
+  min-height: 90vh;
 }
 
 .contact-form-inner {
-  max-width: 900px;
-  margin: 0;
+  max-width: 1200px;
   width: 100%;
-  padding: 0 24px;
   display: grid;
-  gap: 28px;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: flex-end;
+}
+
+.contact-form-header {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-form-image {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.contact-form-image img {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  object-fit: contain;
 }
 
 .contact-form-header h2 {
@@ -1224,12 +1257,11 @@ body {
   background-clip: text;
   color: transparent;
   margin-bottom: 8px;
-  text-align: center;
 }
 
 .contact-form-header p {
   color: #4b4b4b;
-  text-align: center;
+  margin-bottom: 0;
 }
 
 .contact-form {
@@ -1239,7 +1271,7 @@ body {
   box-shadow: 0 24px 50px rgba(106,47,255,0.15);
   border: 1px solid rgba(106,47,255,0.15);
   max-width: 760px;
-  margin: 0 auto;
+  margin: 0 auto 60px;
 }
 
 .form-row {
@@ -1297,6 +1329,9 @@ body {
 }
 
 @media (max-width: 900px) {
+  .contact-form-inner {
+    grid-template-columns: 1fr;
+  }
   .form-row.two {
     grid-template-columns: 1fr;
   }
@@ -1376,9 +1411,9 @@ body {
 
 .footer-input {
   width: 100%;
-  background: #111111;
+  background: rgba(17,17,17,0.15);
   border: 1px solid rgba(255,255,255,0.2);
-  color: #ffffff;
+  color: #111111;
   padding: 10px 12px;
   border-radius: 6px;
   margin-bottom: 12px;

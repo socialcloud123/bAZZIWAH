@@ -5,32 +5,30 @@ import Contact from './contact';
 import Branding from './branding';
 import SocialMedia from './social-media';
 import ContentSolution from './content-solution';
+import InfluencerPage from './influencer';
+import VideoProductionPage from './video-production';
+import WebsiteDevelopment from './website-development';
+import PerformanceMarketing from './performance-marketing';
+import SEO from './seo';
 import './App.css'
 
 function App() {
   const path = window.location.pathname.replace(/\/$/, '');
-  const isAbout = path === '/about';
-  const isContact = path === '/contact';
-  const isBranding = path === '/branding';
-  const isSocialMedia = path === '/social-media';
-  const isContentSolution = path === '/content-solution';
 
   return (
     <>
       <Navbar />
-      {isAbout ? (
-        <About />
-      ) : isContact ? (
-        <Contact />
-      ) : isBranding ? (
-        <Branding />
-      ) : isSocialMedia ? (
-        <SocialMedia />
-      ) : isContentSolution ? (
-        <ContentSolution />
-      ) : (
-        <Home />
-      )}
+      {path === '/about' ? <About />
+      : path === '/contact' ? <Contact />
+      : path === '/branding' ? <Branding />
+      : path === '/social-media' ? <SocialMedia />
+      : path === '/content-solution' ? <ContentSolution />
+      : path === '/influencer-marketing' ? <InfluencerPage />
+      : path === '/video-production' ? <VideoProductionPage />
+      : path === '/website-development' ? <WebsiteDevelopment />
+      : path === '/performance-marketing' ? <PerformanceMarketing />
+      : path === '/seo' ? <SEO />
+      : <Home />}
     </>
   )
 }

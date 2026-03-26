@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
+import '../home/Home.css';
 
 const SocialMediaPage = () => {
   return (
@@ -133,7 +134,71 @@ const SocialMediaPage = () => {
       <Section9 />
       <Section10 />
       <Section11 />
-      <Section12 />
+      <SMFaq />
+
+      <footer className="site-footer">
+        <div className="footer-cta">
+          <img
+            className="footer-logo"
+            src="https://sripadastudiosdigital.com/wp-content/uploads/2024/01/Copy-of-About-Us-Page-SSD-WEBSITE-DESIGN-1366-x-768-px-3.png"
+            alt="Sripada Studios Digital"
+          />
+          <div className="footer-cta-text">Ready To Get Started</div>
+          <button className="footer-cta-button" type="button">Get Started →</button>
+        </div>
+        <div className="footer-divider" />
+        <div className="footer-grid">
+          <div className="footer-col">
+            <h4>SUBSCRIBE TO OUR NEWSLETTER</h4>
+            <input className="footer-input" type="text" placeholder="Name" />
+            <input className="footer-input" type="email" placeholder="Email Address" />
+            <button className="footer-subscribe" type="button">Subscribe</button>
+          </div>
+          <div className="footer-col">
+            <h4>SERVICES</h4>
+            <ul>
+              <li>Performance Marketing</li>
+              <li>Social Media Management</li>
+              <li>Website Development</li>
+              <li>Branding and Re-branding</li>
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h4>ABOUT</h4>
+            <ul>
+              <li>Our Story</li>
+              <li>Benefits</li>
+              <li>Team</li>
+              <li>Careers</li>
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h4>NAVIGATION</h4>
+            <ul>
+              <li>Content Solution</li>
+              <li>Video Production</li>
+              <li>Search Engine Optimization</li>
+              <li>Influencer Marketing</li>
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h4>HELP</h4>
+            <ul>
+              <li>FAQs</li>
+              <li>Contact Us</li>
+            </ul>
+          </div>
+        </div>
+        <div className="footer-divider" />
+        <div className="footer-bottom">
+          <div className="footer-socials">
+            <span className="footer-social">f</span>
+            <span className="footer-social">ig</span>
+            <span className="footer-social">yt</span>
+          </div>
+          <div className="footer-copy">2026 Buzziwah.com | All Rights Reserved</div>
+        </div>
+      </footer>
     </>
   );
 };
@@ -728,43 +793,38 @@ const Section11 = () => (
   </section>
 );
 
-const Section12 = () => {
-  const [open, setOpen] = useState(null);
-
+const SMFaqCard = ({ f, i }) => {
+  const [open, setOpen] = useState(false);
   return (
-    <section className="bg-[#f2fde4] px-10 py-20">
-      <div className="mx-auto max-w-[800px]">
-        <p className="mb-2 text-center font-['Syne'] text-xs font-bold uppercase tracking-[0.1em] text-[#7c3aed]">Got questions?</p>
-        <h2 className="mb-12 text-center font-['Syne'] text-[clamp(24px,3vw,40px)] font-extrabold text-[#1a0533]">
-          Frequently Asked Questions
-        </h2>
-
-        <div className="flex flex-col gap-3">
-          {faqs.map((f, i) => (
-            <div
-              key={i}
-              className={`overflow-hidden rounded-xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)] ${
-                open === i ? 'border border-[#7c3aed]' : 'border border-transparent'
-              }`}
-            >
-              <button
-                onClick={() => setOpen(open === i ? null : i)}
-                className={`flex w-full items-center justify-between gap-3 px-5 py-4 text-left font-['Syne'] text-[15px] font-bold ${
-                  open === i ? 'text-[#7c3aed]' : 'text-[#1a0533]'
-                }`}
-              >
-                {f.q}
-                <span className="text-xl text-[#7c3aed]">{open === i ? '−' : '+'}</span>
-              </button>
-              {open === i && (
-                <div className="px-5 pb-4 text-sm leading-[1.75] text-[#444]">{f.a}</div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <div className={`faq-card ${open ? 'open' : ''}`}>
+      <button className="faq-question" type="button" onClick={() => setOpen(!open)} aria-expanded={open}>
+        <span>{`${i + 1}. ${f.q}`}</span>
+        <span className="faq-arrow">⌄</span>
+      </button>
+      <div className="faq-answer">{f.a}</div>
+    </div>
   );
 };
+
+const SMFaq = () => (
+  <section className="faq-showcase">
+    <div className="faq-inner">
+      <div className="faq-header">
+        <div className="faq-title-block">
+          <h2>Any questions?</h2>
+          <h3>We got you.</h3>
+        </div>
+        <p className="faq-intro">
+          Have something on your mind? Whether it's about our services, process, timelines, or
+          pricing — we've answered the most common questions to help you move forward with
+          clarity and confidence.
+        </p>
+      </div>
+      <div className="faq-grid">
+        {faqs.map((f, i) => <SMFaqCard key={i} f={f} i={i} />)}
+      </div>
+    </div>
+  </section>
+);
 
 export default SocialMediaPage;

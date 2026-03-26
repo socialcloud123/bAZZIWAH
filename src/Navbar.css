@@ -161,7 +161,7 @@ nav.scrolled .nav-backdrop {
 /* ── DROPDOWN ── */
 .dropdown {
   position: absolute;
-  top: calc(100% + 14px);
+  top: calc(100% + 4px);
   left: 50%;
   transform: translateX(-50%) translateY(10px);
   background: #ffffff;
@@ -177,12 +177,11 @@ nav.scrolled .nav-backdrop {
 .dropdown::before {
   content: '';
   position: absolute;
-  top: -5px; left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-  width: 10px; height: 10px;
-  background: #ffffff;
-  border-top: 1px solid var(--border);
-  border-left: 1px solid var(--border);
+  top: -14px;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background: transparent;
 }
 .nav-links > li.open .dropdown {
   opacity: 1;

@@ -318,6 +318,9 @@ const Home = () => {
 
           <div className="contact-right">
             <h3 className="contact-subscribe">Subscribe To Our Newsletter!</h3>
+            <input className="footer-input" type="text" placeholder="Name" />
+            <input className="footer-input" type="email" placeholder="Email Address" />
+            <button className="footer-subscribe" type="button">Subscribe</button>
           </div>
         </div>
       </section>
@@ -346,60 +349,66 @@ const Home = () => {
       </section>
 
       <section className="contact-form-section" id="contact">
+        <div className="contact-form-header">
+          <h2>Contact us</h2>
+          <p>Tell us about your project and we will get back to you quickly.</p>
+        </div>
         <div className="contact-form-inner">
-          <div className="contact-form-header">
-            <h2>Contact us</h2>
-            <p>Tell us about your project and we will get back to you quickly.</p>
+          <div className="contact-form-image">
+            <img src="/SSD_Website (14).png" alt="Contact" />
           </div>
 
-          <form className="contact-form">
-            <div className="form-row two">
-              <label className="form-field">
-                <span>Name *</span>
-                <input type="text" placeholder="First" required />
-              </label>
-              <label className="form-field">
-                <span>&nbsp;</span>
-                <input type="text" placeholder="Last" required />
-              </label>
-            </div>
+          <div>
 
-            <div className="form-row two">
-              <label className="form-field">
-                <span>Email *</span>
-                <input type="email" placeholder="Email" required />
-              </label>
-              <label className="form-field">
-                <span>Numbers</span>
-                <input type="tel" placeholder="Phone" />
-              </label>
-            </div>
+            <form className="contact-form">
+              <div className="form-row two">
+                <label className="form-field">
+                  <span>Name *</span>
+                  <input type="text" placeholder="First" required />
+                </label>
+                <label className="form-field">
+                  <span>&nbsp;</span>
+                  <input type="text" placeholder="Last" required />
+                </label>
+              </div>
 
-            <div className="form-row">
-              <label className="form-field">
-                <span>Select your Services *</span>
-                <select required>
-                  <option value="">Select your Services</option>
-                  <option>Branding</option>
-                  <option>Digital Marketing</option>
-                  <option>Performance Marketing</option>
-                  <option>Film Promotion</option>
-                  <option>Web Design</option>
-                </select>
-              </label>
-            </div>
+              <div className="form-row two">
+                <label className="form-field">
+                  <span>Email *</span>
+                  <input type="email" placeholder="Email" required />
+                </label>
+                <label className="form-field">
+                  <span>Numbers</span>
+                  <input type="tel" placeholder="Phone" />
+                </label>
+              </div>
 
-            <div className="form-row">
-              <label className="form-field">
-                <span>Message *</span>
-                <textarea rows="5" placeholder="Comment or Message" required />
-              </label>
-            </div>
+              <div className="form-row">
+                <label className="form-field">
+                  <span>Select your Services *</span>
+                  <select required>
+                    <option value="">Select your Services</option>
+                    <option>Branding</option>
+                    <option>Digital Marketing</option>
+                    <option>Performance Marketing</option>
+                    <option>Film Promotion</option>
+                    <option>Web Design</option>
+                  </select>
+                </label>
+              </div>
 
-            <div className="form-actions">
-              <button type="submit">Submit</button>
-            </div>
-          </form>
+              <div className="form-row">
+                <label className="form-field">
+                  <span>Message *</span>
+                  <textarea rows="5" placeholder="Comment or Message" required />
+                </label>
+              </div>
+
+              <div className="form-actions">
+                <button type="submit">Submit</button>
+              </div>
+            </form>
+          </div>
         </div>
       </section>
 
