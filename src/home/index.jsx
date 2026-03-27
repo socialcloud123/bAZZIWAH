@@ -109,14 +109,14 @@ const Home = () => {
       <section className="growth-section">
         <div className="growth-inner">
           <div className="growth-content">
-            <p className="growth-kicker">Driven by Passion. Quality. Dedication.</p>
-            <h2 className="growth-title">Grow Your Business</h2>
-            <h3 className="growth-title-secondary">with Sripada Studios</h3>
-            <p className="growth-lead">
+            <p className="growth-kicker bbbbb-fiu" style={{ '--fiu-delay': '0.05s' }}>Driven by Passion. Quality. Dedication.</p>
+            <h2 className="growth-title bbbbb-fiu" style={{ '--fiu-delay': '0.18s' }}>Grow Your Business</h2>
+            <h3 className="growth-title-secondary bbbbb-fiu" style={{ '--fiu-delay': '0.26s' }}>with Sripada Studios</h3>
+            <p className="growth-lead bbbbb-fiu" style={{ '--fiu-delay': '0.36s' }}>
               You’re focused on growth — we help you achieve it through powerful digital solutions.
             </p>
 
-            <ul className="growth-list">
+            <ul className="growth-list bbbbb-fiu" style={{ '--fiu-delay': '0.46s' }}>
               <li>Stay digitally visible to your customers anytime</li>
               <li>Build strong brand reputation and credibility</li>
               <li>Get cost-effective marketing with better ROI</li>
@@ -124,7 +124,7 @@ const Home = () => {
               <li>Improve faster with data-driven analytics</li>
             </ul>
 
-            <div className="growth-cta">
+            <div className="growth-cta bbbbb-fiu" style={{ '--fiu-delay': '0.58s' }}>
               <button className="growth-button" type="button">
                 Start a Project <span aria-hidden="true">→</span>
               </button>
@@ -161,49 +161,39 @@ const Home = () => {
                   'Sripada Studios Digital is a Bengaluru-based conglomerate specializing in filmmaking, digital marketing, and research. We deliver creative and strategic solutions across three core verticals to help brands and individuals connect meaningfully with their audiences.',
               },
               {
-                question: 'What services do you offer?',
+                question: 'What services does Sripada Studios Digital offer?',
                 answer:
-                  'We deliver end-to-end digital solutions including filmmaking, digital marketing, brand strategy, and research-driven growth planning tailored to your goals.',
+                  'Filmmaking: Short films, documentaries, promotional videos, and corporate films. Digital Marketing: Social media management, performance marketing, content creation, branding, and online reputation management. Research & Reach: Data-driven audience analysis, campaign planning, and customized strategies for better outreach.',
               },
               {
-                question: 'How long does a typical project take?',
+                question: 'Who are your clients?',
                 answer:
-                  'Timelines depend on scope and deliverables, but we share a clear plan up front and keep you updated at every milestone.',
+                  'We cater to small businesses, multinational corporations, startups, personal branding clients, and large-scale brands across industries.',
               },
               {
-                question: 'Do you work with startups and SMEs?',
+                question: 'What makes Sripada Studios Digital unique?',
                 answer:
-                  'Yes. We collaborate with startups, SMEs, and enterprises, scaling our approach to match your budget and growth stage.',
+                  'We combine creativity with strategy to deliver innovative solutions tailored to each project. Our young, dynamic team excels at breaking monotony and crafting imaginative campaigns that resonate deeply with the target audience.',
               },
               {
-                question: 'How do we get started?',
+                question: 'Do you specialize in Kannada film promotions?',
                 answer:
-                  'Share your goals and we will schedule a quick discovery call to craft the right strategy and timeline.',
+                  'Yes. Under Sripada Studios Designs, we focus exclusively on Kannada films, handling logo creation, promotional videos, posters, social media management, event coverage, and more to align with filmmakers’ vision and audience.',
               },
               {
-                question: 'Do you provide ongoing support?',
+                question: 'Can you handle end-to-end digital marketing campaigns?',
                 answer:
-                  'Absolutely. We offer ongoing marketing, performance tracking, and optimization packages for long-term growth.',
+                  'Absolutely. From social media marketing and performance ads to website design and content marketing, we provide end-to-end digital marketing solutions customized to your goals.',
               },
               {
-                question: 'Can you handle launch campaigns?',
+                question: 'How experienced is your team?',
                 answer:
-                  'Yes. We plan and execute launch campaigns with creative, media, and performance tracking baked in.',
+                  'Our team includes creative writers, editors, filmmakers, and digital marketing professionals with years of experience, all driven by a shared passion for storytelling and impactful campaigns.',
               },
               {
-                question: 'Do you offer custom packages?',
+                question: 'Do you have examples of your past work?',
                 answer:
-                  'Every package is tailored. We build a scope that matches your outcomes, timeline, and budget.',
-              },
-              {
-                question: 'What industries do you specialize in?',
-                answer:
-                  'We have experience across media, retail, hospitality, education, and tech, with strategies tailored per sector.',
-              },
-              {
-                question: 'How is pricing determined?',
-                answer:
-                  'Pricing is based on scope, complexity, and timelines. We provide transparent quotes and options.',
+                  'Yes. We’ve completed 500+ projects for 100+ clients. Check out our portfolio for case studies and success stories that showcase our expertise.',
               },
             ];
 
@@ -217,7 +207,7 @@ const Home = () => {
                       onClick={() => setOpenFaqIndex(openFaqIndex === idx ? -1 : idx)}
                       aria-expanded={openFaqIndex === idx}
                     >
-                      <span>{`1. ${item.question}`}</span>
+                      <span>{`${idx + 1}. ${item.question}`}</span>
                       <span className="faq-arrow">⌄</span>
                     </button>
                     <div className="faq-answer">{item.answer}</div>
@@ -226,6 +216,9 @@ const Home = () => {
               </div>
             );
           })()}
+
+        </div>
+      </section>
 
           <section className="ttt-testimonials-section">
           <div className="ttt-testimonials-container">
@@ -298,8 +291,6 @@ const Home = () => {
             </div>
           </div>
           </section>
-        </div>
-      </section>
 
       <section className="contact-cta">
         <div className="contact-cta-inner">

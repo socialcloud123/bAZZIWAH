@@ -129,9 +129,9 @@ const WDFaqCard = ({ faq, idx }) => {
 
 const WebsiteDevelopment = () => (
   <div className="wd-page">
-    <section style={{ width: '100%', margin: 0, padding: 0, lineHeight: 0 }}>
+    <section style={{ width: '100%', margin: 0, padding: 0, lineHeight: 0, position: 'relative', zIndex: 2 }}>
       <img
-        src="/banners/WD.png"
+        src="/banners/SSD_Banners (1).png"
         alt="Website Development"
         style={{ width: '100%', height: 'auto', display: 'block' }}
       />
@@ -142,21 +142,21 @@ const WebsiteDevelopment = () => (
       <div className="wd-services-container">
         <div className="wd-service-card">
           <div className="wd-icon-box">
-            <i className="fas fa-chart-line"></i>
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6D28D9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
           <h3 className="wd-service-title">DEVELOPMENT</h3>
           <p className="wd-service-desc">Your brand can be you or your company. We research deeply and develop the perfect website solution—static or dynamic.</p>
         </div>
         <div className="wd-service-card">
           <div className="wd-icon-box">
-            <i className="fas fa-pencil-ruler"></i>
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6D28D9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
           </div>
           <h3 className="wd-service-title">DESIGNING</h3>
           <p className="wd-service-desc">We craft digital experiences that leave lasting impressions. Whether startup or brand, we make your website stand out.</p>
         </div>
         <div className="wd-service-card">
           <div className="wd-icon-box">
-            <i className="fas fa-truck"></i>
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6D28D9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
           </div>
           <h3 className="wd-service-title">DELIVERY</h3>
           <p className="wd-service-desc">With creativity and affordability, we deliver high-quality websites along with hosting and complete support.</p>
@@ -245,7 +245,7 @@ const WebsiteDevelopment = () => (
         <div className="wd-project-right">
           <section className="cs-banner">
             <span>CASE STUDY 02</span>
-            <h1 className="cs-float-heading">WMN Doctors</h1>
+            <h1>WMN Doctors</h1>
             <p>Improving accessibility and digital trust in modern healthcare.</p>
           </section>
           <section className="cs-intro">
@@ -303,7 +303,7 @@ const WebsiteDevelopment = () => (
     </section>
 
     <section className="wd-banner-bottom">
-      <img src="https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-42.png" alt="Banner" />
+      <img src="/banners/SSD_Banners (1).png" alt="Banner" />
     </section>
 
     <footer className="site-footer">

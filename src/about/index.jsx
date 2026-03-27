@@ -35,9 +35,9 @@ const About = () => {
         </div>
       </section>
 
-      <section className="w-full bg-gradient-to-b from-[#eaffc6] to-[#fafafa] py-16 px-6">
+      <section className="w-full py-16 px-6" style={{ background: "url('/SSD_Website (10).png') center/cover no-repeat" }}>
         <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
-          <div className="flex justify-center">
+          <div className="flex justify-center fade-up" style={{ '--delay': '0s' }}>
             <img
               className="w-full max-w-md rounded-2xl object-cover"
               src="/about page/SSD_Performance-Marketing-Webpage-17.png"
@@ -45,11 +45,11 @@ const About = () => {
             />
           </div>
 
-          <div className="font-google-sans text-[#1f1f1f]">
-            <h2 className="font-geom text-3xl font-extrabold text-[#5b21b6] md:text-4xl">
+          <div className="boys-card font-google-sans text-[#1f1f1f] fade-up" style={{ '--delay': '0.1s' }}>
+            <h2 className="boys-title">
               THE BOYS STORY!
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-[#2b2b2b]">
+            <p className="boys-body">
               P V Phani Srivatsa &amp; Satish MS quit their 10-to-7 jobs, believing Sripada Studios
               as their dream and goal, trusting their talent completely. Both are passionate about
               cinema and digital marketing, which eventually led to the development of this
@@ -57,7 +57,7 @@ const About = () => {
               with these individuals who will astound you with their immense potential and
               delightful sense of humour.
             </p>
-            <button className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#5b21b6] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#7c3aed] hover:translate-x-1">
+            <button className="boys-btn">
               Know More <span aria-hidden="true">→</span>
             </button>
           </div>
@@ -71,12 +71,14 @@ const About = () => {
           </h2>
 
           <div className="mt-10 grid gap-10 md:grid-cols-3">
-            <div className="text-center">
-              <img
-                className="mx-auto aspect-[4/3] w-full max-w-sm overflow-hidden rounded-2xl object-cover"
-                src="/about%20page/team/WEBSITE-PAGE-7.png"
-                alt="P V Phani Srivatsa"
-              />
+            <div className="text-center fade-up" style={{ '--delay': '0.08s' }}>
+              <div className="mgmt-img-wrap mx-auto max-w-sm">
+                <img
+                  className="aspect-[4/3] w-full object-cover"
+                  src="/about%20page/team/WEBSITE-PAGE-7.png"
+                  alt="P V Phani Srivatsa"
+                />
+              </div>
               <h3 className="mt-4 font-geom text-lg font-bold text-[#5b21b6]">
                 P V PHANI SRIVATSA
               </h3>
@@ -85,24 +87,28 @@ const About = () => {
               </p>
             </div>
 
-            <div className="text-center">
-              <img
-                className="mx-auto aspect-[4/3] w-full max-w-sm overflow-hidden rounded-2xl object-cover"
-                src="/about%20page/team/WEBSITE-PAGE-8.png"
-                alt="Satish M S"
-              />
+            <div className="text-center fade-up" style={{ '--delay': '0.16s' }}>
+              <div className="mgmt-img-wrap mx-auto max-w-sm">
+                <img
+                  className="aspect-[4/3] w-full object-cover"
+                  src="/about%20page/team/WEBSITE-PAGE-8.png"
+                  alt="Satish M S"
+                />
+              </div>
               <h3 className="mt-4 font-geom text-lg font-bold text-[#5b21b6]">SATISH M S</h3>
               <p className="font-google-sans text-sm text-[#2f2f2f]">
                 Co-Founder | Head of Operations
               </p>
             </div>
 
-            <div className="text-center">
-              <img
-                className="mx-auto aspect-[4/3] w-full max-w-sm overflow-hidden rounded-2xl object-cover"
-                src="/about%20page/team/WEBSITE-PAGE-9.png"
-                alt="Sathwik N J"
-              />
+            <div className="text-center fade-up" style={{ '--delay': '0.24s' }}>
+              <div className="mgmt-img-wrap mx-auto max-w-sm">
+                <img
+                  className="aspect-[4/3] w-full object-cover"
+                  src="/about%20page/team/WEBSITE-PAGE-9.png"
+                  alt="Sathwik N J"
+                />
+              </div>
               <h3 className="mt-4 font-geom text-lg font-bold text-[#5b21b6]">SATHWIK N J</h3>
               <p className="font-google-sans text-sm text-[#2f2f2f]">
                 Head of Human Resource
@@ -111,24 +117,28 @@ const About = () => {
           </div>
 
           <div className="mt-12 grid gap-10 md:grid-cols-2 md:justify-items-center">
-            <div className="text-center w-full max-w-sm">
-              <img
-                className="mx-auto aspect-[4/3] w-full overflow-hidden rounded-2xl object-cover"
-                src="/about%20page/team/WEBSITE-PAGE-10.png"
-                alt="Raksha S"
-              />
+            <div className="text-center w-full max-w-sm fade-up" style={{ '--delay': '0.32s' }}>
+              <div className="mgmt-img-wrap">
+                <img
+                  className="aspect-[4/3] w-full object-cover"
+                  src="/about%20page/team/WEBSITE-PAGE-10.png"
+                  alt="Raksha S"
+                />
+              </div>
               <h3 className="mt-4 font-geom text-lg font-bold text-[#5b21b6]">RAKSHA S</h3>
               <p className="font-google-sans text-sm text-[#2f2f2f]">
                 Head of Strategic Management
               </p>
             </div>
 
-            <div className="text-center w-full max-w-sm">
-              <img
-                className="mx-auto aspect-[4/3] w-full overflow-hidden rounded-2xl object-cover"
-                src="/about%20page/team/WEBSITE-PAGE-11.png"
-                alt="Goutham Srinag P V"
-              />
+            <div className="text-center w-full max-w-sm fade-up" style={{ '--delay': '0.4s' }}>
+              <div className="mgmt-img-wrap">
+                <img
+                  className="aspect-[4/3] w-full object-cover"
+                  src="/about%20page/team/WEBSITE-PAGE-11.png"
+                  alt="Goutham Srinag P V"
+                />
+              </div>
               <h3 className="mt-4 font-geom text-lg font-bold text-[#5b21b6]">
                 GOUTHAM SRINAG P V
               </h3>
@@ -144,7 +154,7 @@ const About = () => {
       >
         <div className="mx-auto flex h-full max-w-6xl items-center px-6">
           <div className="w-full gap-24 text-white md:flex md:justify-between">
-            <div>
+            <div className="fade-in-left">
               <h3 className="font-geom text-3xl font-extrabold text-[#b7ff4a]">VISION</h3>
               <div className="mt-2 h-[2px] w-48 bg-gradient-to-b from-[#83bf2f]/60 via-[#83bf2f]/60 to-[#aaf539]/90" />
               <p className="mt-4 max-w-xs font-google-sans text-sm leading-relaxed text-white/90">
@@ -153,7 +163,7 @@ const About = () => {
               </p>
             </div>
 
-            <div>
+            <div className="fade-in-right">
               <h3 className="font-geom text-3xl font-extrabold text-[#b7ff4a]">MISSION</h3>
               <div className="mt-2 h-[2px] w-48 bg-gradient-to-b from-[#83bf2f]/60 via-[#83bf2f]/60 to-[#aaf539]/90" />
               <p className="mt-4 max-w-xs font-google-sans text-sm leading-relaxed text-white/90">
@@ -271,60 +281,65 @@ const About = () => {
       </section>
 
       <section className="contact-form-section" id="contact">
+        <div className="contact-form-header">
+          <h2>Contact us</h2>
+          <p>Tell us about your project and we will get back to you quickly.</p>
+        </div>
         <div className="contact-form-inner">
-          <div className="contact-form-header">
-            <h2>Contact us</h2>
-            <p>Tell us about your project and we will get back to you quickly.</p>
+          <div className="contact-form-image">
+            <img src="/SSD_Website (14).png" alt="Contact" />
           </div>
 
-          <form className="contact-form">
-            <div className="form-row two">
-              <label className="form-field">
-                <span>Name *</span>
-                <input type="text" placeholder="First" required />
-              </label>
-              <label className="form-field">
-                <span>&nbsp;</span>
-                <input type="text" placeholder="Last" required />
-              </label>
-            </div>
+          <div>
+            <form className="contact-form">
+              <div className="form-row two">
+                <label className="form-field">
+                  <span>Name *</span>
+                  <input type="text" placeholder="First" required />
+                </label>
+                <label className="form-field">
+                  <span>&nbsp;</span>
+                  <input type="text" placeholder="Last" required />
+                </label>
+              </div>
 
-            <div className="form-row two">
-              <label className="form-field">
-                <span>Email *</span>
-                <input type="email" placeholder="Email" required />
-              </label>
-              <label className="form-field">
-                <span>Numbers</span>
-                <input type="tel" placeholder="Phone" />
-              </label>
-            </div>
+              <div className="form-row two">
+                <label className="form-field">
+                  <span>Email *</span>
+                  <input type="email" placeholder="Email" required />
+                </label>
+                <label className="form-field">
+                  <span>Numbers</span>
+                  <input type="tel" placeholder="Phone" />
+                </label>
+              </div>
 
-            <div className="form-row">
-              <label className="form-field">
-                <span>Select your Services *</span>
-                <select required>
-                  <option value="">Select your Services</option>
-                  <option>Branding</option>
-                  <option>Digital Marketing</option>
-                  <option>Performance Marketing</option>
-                  <option>Film Promotion</option>
-                  <option>Web Design</option>
-                </select>
-              </label>
-            </div>
+              <div className="form-row">
+                <label className="form-field">
+                  <span>Select your Services *</span>
+                  <select required>
+                    <option value="">Select your Services</option>
+                    <option>Branding</option>
+                    <option>Digital Marketing</option>
+                    <option>Performance Marketing</option>
+                    <option>Film Promotion</option>
+                    <option>Web Design</option>
+                  </select>
+                </label>
+              </div>
 
-            <div className="form-row">
-              <label className="form-field">
-                <span>Message *</span>
-                <textarea rows="5" placeholder="Comment or Message" required />
-              </label>
-            </div>
+              <div className="form-row">
+                <label className="form-field">
+                  <span>Message *</span>
+                  <textarea rows="5" placeholder="Comment or Message" required />
+                </label>
+              </div>
 
-            <div className="form-actions">
-              <button type="submit">Submit</button>
-            </div>
-          </form>
+              <div className="form-actions">
+                <button type="submit">Submit</button>
+              </div>
+            </form>
+          </div>
         </div>
       </section>
 

@@ -15,23 +15,23 @@ const DigitalMarketingSection = () => {
     <section className="bbbbb-hero-section">
       <div className="bbbbb-hero-main">
         <div className="bbbbb-headline-wrap">
-          <div className="bbbbb-kicker">
+          <div className="bbbbb-kicker bbbbb-fiu" style={{ '--fiu-delay': '0.05s' }}>
             <span className="bbbbb-kicker-line" />
             Bengaluru&apos;s Digital Partner
           </div>
 
-          <h1 className="bbbbb-h1">
+          <h1 className="bbbbb-h1 bbbbb-fiu" style={{ '--fiu-delay': '0.2s' }}>
             Step Into
             <span className="bbbbb-accent">Digital</span>
             <span className="bbbbb-dim-word">Marketing</span>
           </h1>
 
-          <p className="bbbbb-sub">
+          <p className="bbbbb-sub bbbbb-fiu" style={{ '--fiu-delay': '0.38s' }}>
             SS Digital — the creative and performance marketing arm of Sripada Studios. Bold
             branding, sharp campaigns, and cinema-to-digital expertise. All in one place.
           </p>
 
-          <div className="bbbbb-cta-row">
+          <div className="bbbbb-cta-row bbbbb-fiu" style={{ '--fiu-delay': '0.52s' }}>
             <a className="bbbbb-cta-primary" href="#">
               Start a Project →
             </a>

@@ -10,6 +10,7 @@ import VideoProductionPage from './video-production';
 import WebsiteDevelopment from './website-development';
 import PerformanceMarketing from './performance-marketing';
 import SEO from './seo';
+import Services from './services';
 import './App.css'
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
       : path === '/website-development' ? <WebsiteDevelopment />
       : path === '/performance-marketing' ? <PerformanceMarketing />
       : path === '/seo' ? <SEO />
+      : path === '/services' ? <Services />
       : <Home />}
     </>
   )

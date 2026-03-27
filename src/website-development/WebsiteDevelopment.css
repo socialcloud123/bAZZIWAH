@@ -36,6 +36,10 @@
 
 .wd-services {
   padding: 80px 20px;
+  margin-top: -200px;
+  padding-top: 210px;
+  position: relative;
+  z-index: 1;
   text-align: center;
 }
 
@@ -58,8 +62,8 @@
   padding: 30px 25px;
   border-radius: 20px;
   backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid #6D28D9;
+  background: rgba(255, 255, 255, 0.80);
+  border: none;
   transition: 0.4s ease;
   text-align: center;
 }
@@ -470,7 +474,7 @@
 }
 
 .cs-highlights li::before {
-  content: "★";
+  content: "•";
   position: absolute;
   left: 0;
   color: #83cd15;
@@ -627,7 +631,6 @@
 .uiuioouuo-cta:hover { background: #F5FFE5; }
 
 .cs-float-heading {
-  animation: csFloat 4s infinite ease-in-out;
 }
 
 @keyframes csFloat {

@@ -13,12 +13,19 @@ const SocialMediaPage = () => {
       </section>
 
       <section className="relative z-[1] -mt-[200px] bg-gradient-to-br from-[#1a0533] via-[#2d1b69] to-[#1a0533] px-10 pb-10 pt-[210px]">
-        <div className="mx-auto flex max-w-[1200px] justify-end">
-          <div className="max-w-[580px] text-left">
-            <h2 className="mb-5 font-['Syne'] text-[clamp(24px,3vw,40px)] font-bold leading-tight text-white">
+        <div className="mx-auto flex max-w-[1200px] items-center gap-12">
+          <div className="flex-1 flex justify-center items-end">
+            <img
+              src="https://sripadastudiosdigital.com/wp-content/uploads/2026/03/Social-Media-Management.png"
+              alt="Social Media Management"
+              className="w-full max-w-[480px] h-auto object-contain translate-y-10"
+            />
+          </div>
+          <div className="max-w-[580px] text-left translate-y-10 bbbbb-fiu" style={{ '--fiu-delay': '0.1s' }}>
+            <h2 className="mb-5 font-['Montserrat'] text-[clamp(24px,3vw,40px)] font-bold leading-tight text-[#83cd15]">
               Social Media Management
             </h2>
-            <p className="mb-9 text-[16px] font-medium leading-[1.8] text-white/85">
+            <p className="mb-9 text-[16px] font-medium leading-[1.8] text-white text-justify">
               We all know it's not just about posting; it's about crafting messages that resonate deeply
               with your audience. The real magic lies in the right form of communication and the strategy
               behind it, tailored to capture attention and inspire action. The key to building lasting
@@ -30,7 +37,7 @@ const SocialMediaPage = () => {
               href="http://linkedin.com/in/satish-ms-b7842a8b"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md bg-gradient-to-br from-[#7c3aed] to-[#9333ea] px-7 py-3 font-['Syne'] text-xs font-bold uppercase tracking-[0.08em] text-white"
+              className="inline-flex items-center gap-2 rounded-md px-7 py-3 font-['Montserrat'] text-xs font-bold uppercase tracking-[0.08em] text-white border-2 border-transparent transition-all duration-200 hover:text-[#68a311] hover:border-white" style={{ background: 'linear-gradient(135deg,#7c3aed,#9333ea)', transition: 'background 0.2s, color 0.2s, border-color 0.2s' }} onMouseEnter={e => e.currentTarget.style.background='#ffffff'} onMouseLeave={e => e.currentTarget.style.background='linear-gradient(135deg,#7c3aed,#9333ea)'}
             >
               Know More
             </a>
@@ -48,6 +55,8 @@ const SocialMediaPage = () => {
             </div>
             <div className="relative z-0 grid grid-cols-2 gap-5">
               <FeatureCard
+                className="smm-fade"
+                style={{ '--fx': '-16px', '--fy': '-16px', '--delay': '0s' }}
                 icon={
                   <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -60,6 +69,8 @@ const SocialMediaPage = () => {
                 desc="Objective based content for you."
               />
               <FeatureCard
+                className="smm-fade"
+                style={{ '--fx': '16px', '--fy': '-16px', '--delay': '0.08s' }}
                 icon={
                   <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -70,6 +81,8 @@ const SocialMediaPage = () => {
                 desc="Relevancy and personalization is everything."
               />
               <FeatureCard
+                className="smm-fade"
+                style={{ '--fx': '-16px', '--fy': '16px', '--delay': '0.16s' }}
                 icon={
                   <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="3" />
@@ -80,6 +93,8 @@ const SocialMediaPage = () => {
                 desc="Maintain your Brand voice daily."
               />
               <FeatureCard
+                className="smm-fade"
+                style={{ '--fx': '16px', '--fy': '16px', '--delay': '0.24s' }}
                 icon={
                   <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
@@ -96,25 +111,25 @@ const SocialMediaPage = () => {
 
           <div>
             <div className="mb-6 h-[2px] w-12 bg-gradient-to-r from-[#fdba74] to-[#a855f7]" />
-            <h2 className="mb-4 font-['Syne'] text-[clamp(24px,3vw,36px)] font-extrabold leading-tight text-[#7fc52b]">
+            <h2 className="mb-4 font-['Montserrat'] text-[clamp(24px,3vw,36px)] font-extrabold leading-tight text-[#7fc52b]">
               Gotcha! We're here for it.
             </h2>
-            <p className="mb-9 text-[15px] font-medium leading-[1.85] text-[#333]">
+            <p className="mb-9 text-[15px] font-medium leading-[1.85] text-[#333] text-justify">
               Let us be your brand's voice on social media, weaving your unique stories in ways that captivate
               and engage. Our social media management service focuses on creating content that speaks directly
               to your audience's needs and interests. What works for your audience is what makes them pause,
               engage, and ultimately, choose you. We're all about driving the right conversations that lead to
               real connections, turning your social media presence into a powerful conversion tool.
             </p>
-            <p className="mb-1 font-['Syne'] text-xs font-bold uppercase tracking-[0.08em] text-[#7fc52b]">
+            <p className="mb-1 font-['Montserrat'] text-xs font-bold uppercase tracking-[0.08em] text-[#7fc52b]">
               We are with
             </p>
-            <p className="mb-9 font-['Syne'] text-[clamp(52px,6vw,76px)] font-extrabold leading-none tracking-[-2px] text-[#7fc52b]">
+            <p className="mb-9 font-['Montserrat'] text-[clamp(32px,4vw,48px)] font-extrabold leading-none tracking-[-2px] text-[#7fc52b]">
               60+ Brands
             </p>
             <a
               href="#"
-              className="inline-flex items-center gap-2 rounded-full bg-[#7fc52b] px-7 py-3 font-['Syne'] text-xs font-bold uppercase tracking-[0.08em] text-black"
+              className="inline-flex items-center gap-2 rounded-full px-7 py-3 font-['Montserrat'] text-xs font-bold uppercase tracking-[0.08em] text-black" style={{ background: '#7fc52b', transition: 'background 0.2s, color 0.2s, border-color 0.2s' }} onMouseEnter={e => { e.currentTarget.style.background='#4a1a98'; e.currentTarget.style.color='#ffffff'; e.currentTarget.style.borderColor='#ffffff'; }} onMouseLeave={e => { e.currentTarget.style.background='#7fc52b'; e.currentTarget.style.color='#000000'; e.currentTarget.style.borderColor='transparent'; }}
             >
               EXPLORE MORE
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -126,14 +141,51 @@ const SocialMediaPage = () => {
         </div>
       </section>
 
+      <section className="bg-black px-6 py-12">
+        <div className="mx-auto max-w-[1200px]">
+          <h2 className="mb-8 text-left font-['Montserrat'] text-[clamp(24px,3vw,36px)] font-extrabold text-white">
+            MOVIE POSTER
+          </h2>
+          <div className="grid gap-8 lg:grid-cols-3">
+            {[
+              'https://sripadastudiosdigital.com/wp-content/uploads/2025/05/Gx_fXOiJ4X0-HD-1.jpg',
+              'https://sripadastudiosdigital.com/wp-content/uploads/2025/05/G9_The-Judgement_1080-1350-instagram_English.png',
+              'https://sripadastudiosdigital.com/wp-content/uploads/2025/05/Song_02.png',
+            ].map((src, idx) => (
+              <div
+                key={src}
+                className="smm-fade overflow-hidden rounded-3xl border border-white/5 bg-[#0f0f0f] shadow-[0_18px_40px_rgba(0,0,0,0.35)]"
+                style={{ '--fx': idx === 0 ? '-18px' : idx === 2 ? '18px' : '0px', '--fy': '18px', '--delay': `${idx * 0.08}s` }}
+              >
+                <img src={src} alt={`Movie poster ${idx + 1}`} className="h-full w-full object-cover transition-transform duration-500 hover:scale-[1.02]" />
+                {idx === 0 && (
+                  <div className="p-4">
+                    <a
+                      href={src}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full bg-[#8dd01c] px-4 py-2 text-sm font-semibold text-black transition duration-200 hover:bg-white hover:text-[#68a311] border-2 border-transparent hover:border-white"
+                    >
+                      Click here
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                      </svg>
+                    </a>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <Section4 />
       <Section5 />
       <Section6 />
       <Section7 />
       <Section8 />
-      <Section9 />
-      <Section10 />
-      <Section11 />
+      <Section9 />
       <SMFaq />
 
       <footer className="site-footer">
@@ -203,8 +255,11 @@ const SocialMediaPage = () => {
   );
 };
 
-const FeatureCard = ({ icon, title, desc }) => (
-  <div className="flex flex-col items-center gap-3 rounded-3xl bg-white px-6 py-8 text-center shadow-[0_2px_16px_rgba(0,0,0,0.06)]">
+const FeatureCard = ({ icon, title, desc, className = '', style }) => (
+  <div
+    className={`flex flex-col items-center gap-3 rounded-3xl bg-white px-6 py-8 text-center shadow-[0_2px_16px_rgba(0,0,0,0.06)] ${className}`.trim()}
+    style={style}
+  >
     {icon}
     <h3 className="whitespace-pre-line text-[15px] font-bold leading-snug text-[#8b5cf6]">{title}</h3>
     <p className="text-[13px] leading-relaxed text-[#555]">{desc}</p>
@@ -261,7 +316,7 @@ const Section4 = () => {
   return (
     <section className="bg-[#111] px-5 py-16">
       <div className="mx-auto mb-10 max-w-[1440px] text-center">
-        <h2 className="font-['Syne'] text-[clamp(24px,3vw,40px)] font-extrabold text-[#c8f03d]">
+        <h2 className="font-['Montserrat'] text-[clamp(24px,3vw,40px)] font-extrabold text-[#c8f03d]">
           We're Here To Change Your Business Look
         </h2>
         <p className="text-sm text-[#aaa]">Click to watch the Digital Journey of progression.</p>
@@ -347,7 +402,7 @@ const IgPhone = () => {
 };
 
 const Section5 = () => (
-  <section className="bg-[#f5f5f5] px-10 py-16">
+  <section className="px-10 py-16" style={{ background: "url('/SSD_Website (10).png') center/cover no-repeat" }}>
     <div className="mb-12 text-center">
       <p className="text-[15px] leading-[1.7] text-[#333]">
         Creating a brand and establishing is quite a job.<br />
@@ -356,16 +411,16 @@ const Section5 = () => (
       </p>
     </div>
 
-    <div className="mx-auto flex max-w-[1100px] flex-wrap items-start justify-center gap-16">
+    <div className="mx-auto grid max-w-[1100px] grid-cols-2 items-start gap-16">
       <div className="flex flex-col items-start gap-6">
-        <h2 className="font-['Syne'] text-[clamp(52px,8vw,96px)] font-black leading-[0.95] text-[#7c3aed]">
-          YOUR<br />POST
+        <h2 className="font-['Montserrat'] text-[clamp(28px,3.5vw,48px)] font-black leading-[0.95] text-[#7c3aed]">
+          YOUR POST
         </h2>
         <IgPhone />
       </div>
 
-      <div className="flex flex-1 flex-col gap-3">
-        <h3 className="mb-2 text-center font-['Syne'] text-lg font-bold text-[#7c3aed]">
+      <div className="flex flex-col gap-3">
+        <h3 className="mb-2 text-center font-['Montserrat'] text-lg font-bold text-[#7c3aed]">
           Instagram Carousel Strategy By Sripada Studios Digital
         </h3>
         {strategyCards.map((c, i) => (
@@ -438,9 +493,9 @@ const StoryPhone = () => {
 
 const Section6 = () => (
   <section className="bg-[#0a0a0a] px-10 py-16">
-    <div className="mx-auto flex max-w-[1100px] flex-wrap items-start justify-center gap-16">
-      <div className="flex flex-1 flex-col gap-3">
-        <h3 className="mb-2 text-center font-['Syne'] text-lg font-bold text-[#7c3aed]">
+    <div className="mx-auto grid max-w-[1100px] grid-cols-2 items-start gap-16">
+      <div className="flex flex-col gap-3">
+        <h3 className="mb-2 text-center font-['Montserrat'] text-lg font-bold text-[#7c3aed]">
           Instagram Stories by Sripada Studios Digital
         </h3>
         {storiesCards.map((c, i) => (
@@ -456,7 +511,7 @@ const Section6 = () => (
       </div>
 
       <div className="flex flex-col items-start gap-6">
-        <h2 className="font-['Syne'] text-[clamp(52px,8vw,96px)] font-black leading-[0.95] text-[#c8f03d]">
+        <h2 className="font-['Montserrat'] text-[clamp(52px,8vw,96px)] font-black leading-[0.95] text-[#c8f03d]">
           STORY
         </h2>
         <StoryPhone />
@@ -533,16 +588,16 @@ const ReelPhone = () => {
 };
 
 const Section7 = () => (
-  <section className="bg-[#f2fde4] px-10 py-16">
-    <div className="mx-auto flex max-w-[1100px] flex-wrap items-start justify-center gap-16">
+  <section className="px-10 py-16" style={{ background: "url('/SSD_Website (10).png') center/cover no-repeat" }}>
+    <div className="mx-auto grid max-w-[1100px] grid-cols-2 items-start gap-16">
       <div className="flex flex-col items-start gap-6">
-        <h2 className="font-['Syne'] text-[clamp(52px,8vw,96px)] font-black leading-[0.95] text-[#7c3aed]">
+        <h2 className="font-['Montserrat'] text-[clamp(52px,8vw,96px)] font-black leading-[0.95] text-[#7c3aed]">
           REEL
         </h2>
         <ReelPhone />
       </div>
-      <div className="flex flex-1 flex-col gap-3">
-        <h3 className="mb-2 text-center font-['Syne'] text-lg font-bold text-[#7c3aed]">
+      <div className="flex flex-col gap-3">
+        <h3 className="mb-2 text-center font-['Montserrat'] text-lg font-bold text-[#7c3aed]">
           Instagram Reels By Sripada Studios Digital
         </h3>
         {reelsCards.map((c, i) => (
@@ -579,27 +634,30 @@ const carouselImages = [
 ];
 
 const Section8 = () => (
-  <section className="bg-white pt-16">
+  <section className="py-16" style={{ background: "url('/SSD_Website (18).png') center/cover no-repeat" }}>
     <div className="mb-10 px-10 text-center">
-      <h2 className="font-['Syne'] text-[clamp(24px,4vw,48px)] font-black text-[#7c3aed]">
+      <h2 className="font-['Montserrat'] text-[clamp(24px,4vw,48px)] font-black text-[#7c3aed]">
         SPECIAL DAY CREATIVE
       </h2>
     </div>
 
-    <div className="mx-auto mb-16 flex max-w-[1100px] flex-wrap items-start gap-12 px-10">
-      <div className="flex-1">
-        <h3 className="mb-5 font-['Syne'] text-[22px] font-extrabold text-[#7fc52b]">
+    <div className="mx-auto grid max-w-[1200px] grid-cols-2 items-center gap-12 px-10">
+      <div>
+        <h3 className="mb-5 font-['Montserrat'] text-[22px] font-extrabold text-[#7fc52b]">
           PRODUCTION HOUSE MANAGEMENT
         </h3>
-        <p className="mb-4 text-[15px] leading-[1.85] text-[#333]">
+        <p className="mb-4 text-[15px] leading-[1.85] text-white text-justify">
           At Sripada Studios, we specialize in <strong>social media management for film production houses</strong>, delivering consistent and impactful digital presence year-round. From managing high-engagement campaigns during peak <strong>film release seasons</strong> to keeping audiences captivated with <strong>behind-the-scenes trivia</strong>, <strong>interactive challenges</strong>, <strong>special day celebrations</strong>, and curated <strong>social media campaigns</strong>, we ensure every production house remains relevant and connected. Our strategic approach not only boosts online engagement but also strengthens <strong>brand sustainability</strong> in the competitive entertainment industry.
         </p>
-        <p className="mb-7 text-[15px] leading-[1.85] text-[#333]">
+        <p className="mb-7 text-[15px] leading-[1.85] text-white text-justify">
           Trusted by renowned names like <strong>Suraj Production</strong>, <strong>G9 CME</strong>, <strong>Garuda Motion Pictures</strong>, <strong>EK Entertainers</strong>, and <strong>EK Pictures</strong>, Sripada Studios continues to be a leading partner in <strong>digital marketing for the film industry</strong>.
         </p>
         <a
           href="#"
-          className="inline-flex items-center gap-2 rounded-full bg-[#c8f03d] px-7 py-3 font-['Syne'] text-xs font-bold uppercase tracking-[0.08em] text-black"
+          className="inline-flex items-center gap-2 rounded-full px-7 py-3 font-['Montserrat'] text-xs font-bold uppercase tracking-[0.08em] text-black"
+          style={{ background: '#c8f03d', transition: 'background 0.2s, color 0.2s, border-color 0.2s' }}
+          onMouseEnter={e => { e.currentTarget.style.background='#4a1a98'; e.currentTarget.style.color='#ffffff'; e.currentTarget.style.borderColor='#ffffff'; }}
+          onMouseLeave={e => { e.currentTarget.style.background='#c8f03d'; e.currentTarget.style.color='#000000'; e.currentTarget.style.borderColor='transparent'; }}
         >
           EXPLORE MORE
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -609,29 +667,16 @@ const Section8 = () => (
         </a>
       </div>
 
-      <div className="flex flex-1 gap-3">
-        <img
-          src="https://buzziwah.com/wp-content/uploads/2025/05/24-04-2025-1.png"
-          alt="Production 1"
-          className="w-1/2 rounded-xl object-cover [aspect-ratio:3/4]"
-        />
-        <img
-          src="https://buzziwah.com/wp-content/uploads/2025/05/45-TEASER-POSTERS-1.jpg"
-          alt="Production 2"
-          className="w-1/2 rounded-xl object-cover [aspect-ratio:3/4]"
-        />
-      </div>
-    </div>
-
-    <div className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-[2] w-1/5 bg-gradient-to-r from-white to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-[2] w-1/5 bg-gradient-to-l from-white to-transparent" />
-      <div className="aaaa-animate flex w-max">
-        {[...carouselImages, ...carouselImages].map((img, i) => (
-          <div key={i} className="h-[450px] w-[370px] flex-shrink-0">
-            <img src={img.src} alt={img.alt} className="h-full w-full object-cover" />
-          </div>
-        ))}
+      <div className="relative overflow-hidden rounded-xl">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-[2] w-[10%]" style={{ background: 'linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0))' }} />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-[2] w-[10%]" style={{ background: 'linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0))' }} />
+        <div className="flex w-max" style={{ animation: 'aaaa-scroll 45s linear infinite' }}>
+          {[...carouselImages, ...carouselImages].map((img, i) => (
+            <div key={i} className="h-[420px] w-[280px] flex-shrink-0">
+              <img src={img.src} alt={img.alt} className="h-full w-full object-cover" />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -676,7 +721,7 @@ const VideoCarousel = () => {
             playsInline
             loop
             preload="metadata"
-            className="h-[360px] min-w-full bg-black object-cover"
+            className="h-[520px] min-w-full bg-black object-cover"
           />
         ))}
       </div>
@@ -693,25 +738,28 @@ const VideoCarousel = () => {
 const Section9 = () => (
   <section className="bg-[#0a0a0a] px-10 py-16">
     <div className="mx-auto max-w-[1100px]">
-      <h2 className="mb-12 text-center font-['Syne'] text-[clamp(24px,4vw,48px)] font-black text-white">
+      <h2 className="mb-12 text-center font-['Montserrat'] text-[clamp(24px,4vw,48px)] font-black text-white">
         &amp; IT IS <span className="text-[#c8f03d]">VIRAL NOW</span>
       </h2>
 
-      <div className="flex flex-wrap items-start gap-16">
-        <div className="flex-1">
-          <h3 className="mb-5 font-['Syne'] text-[28px] font-black text-white">REELS</h3>
-          <p className="mb-4 text-[15px] leading-[1.85] text-[#ccc]">
+      <div className="grid grid-cols-2 items-start gap-16">
+        <div>
+          <h3 className="mb-5 font-['Montserrat'] text-[28px] font-black text-[#83cd15]">REELS</h3>
+          <p className="mb-4 text-[15px] leading-[1.85] text-white/90 text-justify">
             At Sripada Studios Digital, <strong className="text-white">virality is at the core of our content strategy</strong>. We specialize in crafting <strong className="text-white">reels, videos, and carousels</strong> that don't just perform—they <strong className="text-white">go viral</strong>, helping brands gain massive visibility and organic growth. Our expert team blends <strong className="text-white">social media trends, meme culture</strong>, and <strong className="text-white">strategic video editing</strong> to create content that resonates with the audience and drives results.
           </p>
-          <p className="mb-4 text-[15px] leading-[1.85] text-[#ccc]">
+          <p className="mb-4 text-[15px] leading-[1.85] text-white/90 text-justify">
             In 2024 alone, our <strong className="text-white">social media management and video editing services</strong> contributed to over <strong className="text-white">200 million+ views</strong> across various platforms. One standout success is the <strong className="text-white">Samrat Restaurant's "The Hunger Reel"</strong>, which exploded on Instagram with <strong className="text-white">40 million+ views in just 25 days</strong>, bringing in <strong className="text-white">over 8,000 new followers</strong> within the same timeframe. So what made it viral? We tapped into popular <strong className="text-white">food memes</strong>, referenced iconic <strong className="text-white">film scenes</strong>, and used <strong className="text-white">relatable, slang-driven captions</strong> to make the content fun, shareable, and culturally relevant.
           </p>
-          <p className="mb-7 text-[15px] leading-[1.85] text-[#ccc]">
+          <p className="mb-7 text-[15px] leading-[1.85] text-white/90 text-justify">
             With over <strong className="text-white">15+ viral reels</strong> on a single page, Sripada Studios Digital is your go-to for <strong className="text-white">viral marketing, Instagram reel strategy</strong>, and <strong className="text-white">branded content that breaks the internet</strong>.
           </p>
           <a
             href="#"
-            className="inline-flex items-center gap-2 rounded-full bg-[#c8f03d] px-7 py-3 font-['Syne'] text-xs font-bold uppercase tracking-[0.08em] text-black"
+            className="inline-flex items-center gap-2 rounded-full px-7 py-3 font-['Montserrat'] text-xs font-bold uppercase tracking-[0.08em] text-black"
+            style={{ background: '#c8f03d', transition: 'background 0.2s, color 0.2s, border-color 0.2s' }}
+            onMouseEnter={e => { e.currentTarget.style.background='#350c79'; e.currentTarget.style.color='#ffffff'; e.currentTarget.style.borderColor='#ffffff'; }}
+            onMouseLeave={e => { e.currentTarget.style.background='#c8f03d'; e.currentTarget.style.color='#000000'; e.currentTarget.style.borderColor='transparent'; }}
           >
             EXPLORE MORE
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -723,25 +771,6 @@ const Section9 = () => (
 
         <VideoCarousel />
       </div>
-    </div>
-  </section>
-);
-
-const Section10 = () => (
-  <section className="bg-[#f2fde4] px-10 py-16">
-    <div className="mx-auto flex max-w-[1100px] flex-wrap justify-center gap-10">
-      {[
-        { src: 'https://buzziwah.com/wp-content/uploads/2025/05/AK-1-1.png', name: 'DEEPTHI PRASHANTH' },
-        { src: 'https://buzziwah.com/wp-content/uploads/2025/05/AK-9.png', name: 'RAMESH ARAVIND' },
-      ].map((p) => (
-        <div key={p.name} className="flex flex-1 flex-col items-center gap-4">
-          <img src={p.src} alt={p.name} className="w-full rounded-xl object-cover" />
-          <h3 className="font-['Syne'] text-[22px] font-extrabold text-[#7c3aed]">{p.name}</h3>
-          <a href="#" className="inline-flex items-center gap-2 rounded-md bg-[#c8f03d] px-6 py-2 font-['Syne'] text-xs font-bold text-black">
-            Click here →
-          </a>
-        </div>
-      ))}
     </div>
   </section>
 );
@@ -763,35 +792,6 @@ const faqs = [
   { q: 'What makes Buzziwah different from other agencies?', a: "We combine deep cultural understanding, meme-driven creativity, and data-backed strategy. We don't just post — we craft content that resonates and converts." },
   { q: 'How do I get started with Buzziwah?', a: 'Simply click "Get Started" or reach out via our contact page. We\'ll schedule a discovery call to understand your brand and build a custom strategy.' },
 ];
-
-const Section11 = () => (
-  <section className="bg-[#1a0533] px-10 py-20">
-    <div className="mx-auto max-w-[1100px]">
-      <p className="mb-2 text-center font-['Syne'] text-xs font-bold uppercase tracking-[0.1em] text-[#c8f03d]">What clients say</p>
-      <h2 className="mb-12 text-center font-['Syne'] text-[clamp(24px,3vw,40px)] font-extrabold text-white">
-        Real Results, Real Stories
-      </h2>
-
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
-        {testimonials.map((t, i) => (
-          <div
-            key={i}
-            className={`flex flex-col gap-3 rounded-2xl border-l-4 px-6 py-7 ${
-              i % 2 === 0 ? 'bg-[#2d1b69]' : 'bg-[#1e0a40]'
-            }`}
-            style={{ borderLeftColor: '#c8f03d' }}
-          >
-            <p className="text-sm italic leading-[1.75] text-white/85">"{t.text}"</p>
-            <div>
-              <p className="font-['Syne'] text-sm font-bold text-[#c8f03d]">{t.name}</p>
-              <p className="text-xs text-white/50">{t.role}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
 
 const SMFaqCard = ({ f, i }) => {
   const [open, setOpen] = useState(false);

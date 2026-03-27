@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './PerformanceMarketing.css';
 import '../home/Home.css';
 
@@ -6,7 +6,7 @@ const XyxyxyCarousel = ({ slides }) => {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    const t = setInterval(() => setCurrent(c => (c + 1) % slides.length), 3000);
+    const t = setInterval(() => setCurrent((c) => (c + 1) % slides.length), 3000);
     return () => clearInterval(t);
   }, [slides.length]);
 
@@ -22,7 +22,11 @@ const XyxyxyCarousel = ({ slides }) => {
         </div>
         <div className="xyxyxy-dots">
           {slides.map((_, i) => (
-            <span key={i} className={`xyxyxy-dot${i === current ? ' active' : ''}`} onClick={() => setCurrent(i)} />
+            <span
+              key={i}
+              className={`xyxyxy-dot${i === current ? ' active' : ''}`}
+              onClick={() => setCurrent(i)}
+            />
           ))}
         </div>
       </div>
@@ -38,7 +42,8 @@ const FlipCard = ({ src, alt }) => {
     const y = e.clientY - rect.top;
     const rotateX = ((y - rect.height / 2) / rect.height) * -15;
     const rotateY = ((x - rect.width / 2) / rect.width) * 15;
-    ref.current.querySelector('.pm-flip-card').style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    ref.current.querySelector('.pm-flip-card').style.transform =
+      `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
   };
   const handleLeave = () => {
     ref.current.querySelector('.pm-flip-card').style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
@@ -72,32 +77,130 @@ const lilbeezSlides = [
 ];
 
 const services = [
-  { img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-32.png', title: 'Social Media Marketing', desc: 'We help you grow online presence by creating engaging content and reaching the right audience. With smart strategies and creative posts, we turn scrolls into stops and likes into customers.' },
-  { img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-33.png', title: 'Account Audit and Strategy', desc: 'Stay ahead with our Account Audit & Strategy services. We analyze your digital presence, spot gaps, and refine your strategy to get the most out of your marketing budget.' },
-  { img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-34.png', title: 'Search Engine Marketing', desc: 'From search to click to sale—our SEM campaigns guide your audience every step of the way. Be the first name they see, and the only one they remember.' },
-  { img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-35.png', title: 'Dynamic Remarketing & Product Listing Ads', desc: 'Bring back lost visitors and boost sales with Dynamic Remarketing and Product Listing Ads. We create tailored ad experiences that re-engage your audience and turn interest into action.' },
-  { img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-36.png', title: 'Catalogue And Shopping Ads', desc: 'Put your products in front of buyers with Shopping and Catalogue Ads. We highlight key details like price and image to capture attention when customers are ready to purchase.' },
-  { img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-37.png', title: 'WhatsApp Marketing', desc: 'Connect instantly with your audience through WhatsApp Marketing—personalized messages, real-time updates, and higher engagement that drives conversions.' },
-  { img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-38.png', title: 'Conversion Rate Optimization', desc: "Boost your website's performance with our expert CRO services. We analyze usability, design, copy, and user journey to improve conversions and drive more results from your traffic." },
-  { img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-39.png', title: 'YouTube Ads', desc: 'Reach your audience with high-impact YouTube ad campaigns. Our experts use data-driven strategies, creative planning, and detailed performance tracking to deliver results tailored to your business goals.' },
-  { img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-40.png', title: 'LinkedIn Ads', desc: 'Target the right decision-makers with cost-effective LinkedIn ad campaigns. We help B2B brands reach professionals across industries using precise targeting and strategic ad placements.' },
+  {
+    title: 'Social Media Marketing',
+    desc: "We build your brand's presence through strategic content and targeted campaigns that convert casual scrollers into loyal customers.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 11V7a2 2 0 0 1 2-2h1l11-4v22l-11-4H5a2 2 0 0 1-2-2v-4Z" />
+        <path d="M15 5.5v13" />
+        <path d="M7 7v10" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Account Audit & Strategy',
+    desc: 'We audit your digital footprint, uncover inefficiencies, and craft a focused strategy that stretches every rupee of your marketing budget.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M9 5H7a2 2 0 0 0-2 2v12" />
+        <path d="M5 19h4" />
+        <path d="M9 13H7" />
+        <path d="M17 3a2 2 0 0 1 2 2v14l-4-2-4 2V5a2 2 0 0 1 2-2Z" />
+        <path d="m9 9.4 6-2.4 6 2.5" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Search Engine Marketing',
+    desc: 'Our SEM campaigns place your brand at the top of every relevant search — guiding prospects from discovery to purchase, every time.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="11" cy="11" r="7" />
+        <path d="m21 21-4.3-4.3" />
+        <path d="M11 8v3l2 2" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Dynamic Remarketing & Product Listing Ads',
+    desc: 'We re-engage high-intent visitors with personalised ad experiences that bring them back and turn browsing into buying.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="17 1 21 5 17 9" />
+        <path d="M3 11v-1a7 7 0 0 1 12-5l4 4" />
+        <polyline points="7 23 3 19 7 15" />
+        <path d="M21 13v1a7 7 0 0 1-12 5l-4-4" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Catalogue & Shopping Ads',
+    desc: 'We put your products in front of ready-to-buy customers — with the right image, price, and detail at the exact moment it matters.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 5h18l-1 7H4z" />
+        <path d="M16 13a4 4 0 1 1-8 0" />
+        <path d="M5 5 4 2H2" />
+        <circle cx="9" cy="18" r="1" />
+        <circle cx="15" cy="18" r="1" />
+      </svg>
+    ),
+  },
+  {
+    title: 'WhatsApp Marketing',
+    desc: "We deliver personalised, real-time messages directly to your audience's hands — driving engagement and conversions where attention is highest.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 20l1.2-3.6A8 8 0 1 1 4 12" />
+        <path d="M8 12a5 5 0 0 0 5 5h1l2 2" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Conversion Rate Optimisation',
+    desc: 'We analyse your user journey — copy, design, and flow — to remove friction and turn more of your existing traffic into revenue.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 4v16" />
+        <path d="m8 14 4 4 4-4" />
+        <path d="m16 10-4-4-4 4" />
+        <path d="M4 20h16" />
+      </svg>
+    ),
+  },
+  {
+    title: 'YouTube Ads',
+    desc: 'We create data-led video campaigns that capture attention, tell your story, and drive measurable results across every stage of the funnel.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 8s-.2-1.4-.8-2a3.1 3.1 0 0 0-2.2-.8C16 5 12 5 12 5s-4 0-7 .2A3.1 3.1 0 0 0 2.8 6c-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.6C2 14.4 2.2 16 2.8 16.6a3.1 3.1 0 0 0 2.2.8C8 17 12 17 12 17s4 0 7-.2a3.1 3.1 0 0 0 2.2-.8c.6-.6.8-2 .8-2s.2-1.6.2-3.2-.2-3.2-.2-3.2Z" />
+        <path d="m10 9 5 3-5 3V9Z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'LinkedIn Ads',
+    desc: 'We connect B2B brands with the right decision-makers using precise targeting and strategic placements that make every impression count.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 7h4v12H4z" />
+        <path d="M2 4a2 2 0 1 1 4 0 2 2 0 0 1-4 0" />
+        <path d="M12 11a4 4 0 0 1 8 0v8h-4v-7a2 2 0 0 0-4 0v7h-4V7h4z" />
+      </svg>
+    ),
+  },
 ];
 
 const zigzagSteps = [
-  { title: '01. Strategy Planning', desc: 'Define goals, KPIs, audience, and funnel direction.' },
-  { title: '02. Channel Selection', desc: 'Select platforms like Google Ads, Meta, YouTube, and more.' },
-  { title: '03. Ad Creative', desc: 'Create engaging visuals and ad copy that convert.' },
-  { title: '04. Campaign Execution', desc: 'Launch optimized campaigns with proper targeting and budgets.' },
-  { title: '05. Tracking & Analytics', desc: 'Use pixels, UTM tracking, and tools like GA4, Meta Pixel.' },
-  { title: '06. Optimization', desc: 'Test creatives, refine bids, and enhance audience targeting.' },
-  { title: '07. Scaling', desc: 'Scale high-performing campaigns for growth and profit.' },
+  { title: 'Strategy Planning', desc: 'Define goals, KPIs, audience, and funnel direction.' },
+  { title: 'Channel Selection', desc: 'Select platforms like Google Ads, Meta, YouTube, and more.' },
+  { title: 'Ad Creative', desc: 'Create engaging visuals and ad copy that convert.' },
+  { title: 'Campaign Execution', desc: 'Launch optimized campaigns with proper targeting and budgets.' },
+  { title: 'Tracking & Analytics', desc: 'Use pixels, UTM tracking, and tools like GA4, Meta Pixel.' },
+  { title: 'Optimization', desc: 'Test creatives, refine bids, and enhance audience targeting.' },
+  { title: 'Scaling', desc: 'Scale high-performing campaigns for growth and profit.' },
 ];
 
 const pmFaqs = [
-  { q: 'Can You Redesign Or Develop A Website For My Brand?', a: 'Absolutely. We handle everything from scratch — concept, design, development, and launch — tailored to your brand identity and goals.' },
-  { q: 'Do You Offer SEO Services?', a: 'Yes. Every website we build is SEO-optimized with proper structure, meta tags, performance tuning, and mobile responsiveness baked in.' },
-  { q: 'What Kind Of Support Do You Offer After A Campaign Is Launched?', a: 'We provide ongoing monitoring, A/B testing, performance reports, and optimization to ensure your campaigns keep delivering results.' },
-  { q: 'Why Should I Choose SS Digital For My Digital Marketing Needs?', a: 'We combine creative strategy, data-driven execution, and transparent reporting to deliver measurable ROI for businesses of all sizes.' },
+  { q: 'What is Sripada Studios Digital?', a: 'Sripada Studios Digital is a Bengaluru-based conglomerate specializing in filmmaking, digital marketing, and research. We deliver creative and strategic solutions across three core verticals to help brands and individuals connect meaningfully with their audiences.' },
+  { q: 'What services does Sripada Studios Digital offer?', a: 'Filmmaking: Short films, documentaries, promotional videos, and corporate films. Digital Marketing: Social media management, performance marketing, content creation, branding, and online reputation management. Research & Reach: Data-driven audience analysis, campaign planning, and customized strategies for better outreach.' },
+  { q: 'Who are your clients?', a: 'We cater to small businesses, multinational corporations, startups, personal branding clients, and large-scale brands across industries.' },
+  { q: 'What makes Sripada Studios Digital unique?', a: 'We combine creativity with strategy to deliver innovative solutions tailored to each project. Our young, dynamic team excels at breaking monotony and crafting imaginative campaigns that resonate deeply with the target audience.' },
+  { q: 'Do you specialize in Kannada film promotions?', a: 'Yes. Under Sripada Studios Designs, we focus exclusively on Kannada films, handling logo creation, promotional videos, posters, social media management, event coverage, and more to align with filmmakers’ vision and audience.' },
+  { q: 'Can you handle end-to-end digital marketing campaigns?', a: 'Absolutely. From social media marketing and performance ads to website design and content marketing, we provide end-to-end digital marketing solutions customized to your goals.' },
+  { q: 'How experienced is your team?', a: 'Our team includes creative writers, editors, filmmakers, and digital marketing professionals with years of experience, all driven by a shared passion for storytelling and impactful campaigns.' },
+  { q: 'Do you have examples of your past work?', a: 'Yes. We’ve completed 500+ projects for 100+ clients. Check out our portfolio for case studies and success stories that showcase our expertise.' },
 ];
 
 const PMFaqCard = ({ faq, idx }) => {
@@ -106,7 +209,7 @@ const PMFaqCard = ({ faq, idx }) => {
     <div className={`faq-card ${open ? 'open' : ''}`}>
       <button className="faq-question" type="button" onClick={() => setOpen(!open)} aria-expanded={open}>
         <span>{`${idx + 1}. ${faq.q}`}</span>
-        <span className="faq-arrow">⌄</span>
+        <span className="faq-arrow">ƒO,</span>
       </button>
       <div className="faq-answer">{faq.a}</div>
     </div>
@@ -114,10 +217,10 @@ const PMFaqCard = ({ faq, idx }) => {
 };
 
 const PerformanceMarketing = () => (
-  <div className="pm-page">
+  <div className="pm-page im-font">
 
-    <section className="pm-banner">
-      <img src="https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-52.png" alt="Performance Marketing Banner" />
+    <section className="relative z-[2] m-0 w-full p-0 leading-none">
+      <img src="/banners/SSD_Banners.png" alt="Performance Marketing Banner" className="block h-auto w-full" />
     </section>
 
     <section className="pm-section2">
@@ -164,9 +267,11 @@ const PerformanceMarketing = () => (
       <div className="pm-services-grid">
         {services.map((s, i) => (
           <div className="pm-service-card" key={i}>
-            <img src={s.img} alt={s.title} />
-            <h3>{s.title}</h3>
-            <p>{s.desc}</p>
+            <div className="pm-service-icon" aria-hidden="true">{s.icon}</div>
+            <div>
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -217,24 +322,31 @@ const PerformanceMarketing = () => (
       </div>
     </section>
 
-    <section className="pm-bottom-banner">
-      <img src="https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SEO-F.png" alt="Bottom Banner" />
-    </section>
-
     <footer className="site-footer">
       <div className="footer-cta">
-        <img className="footer-logo" src="https://sripadastudiosdigital.com/wp-content/uploads/2024/01/Copy-of-About-Us-Page-SSD-WEBSITE-DESIGN-1366-x-768-px-3.png" alt="Sripada Studios Digital" />
+        <img
+          className="footer-logo"
+          src="https://sripadastudiosdigital.com/wp-content/uploads/2024/01/Copy-of-About-Us-Page-SSD-WEBSITE-DESIGN-1366-x-768-px-3.png"
+          alt="Sripada Studios Digital"
+        />
         <div className="footer-cta-text">Ready To Get Started</div>
-        <button className="footer-cta-button" type="button">Get Started →</button>
+        <button className="footer-cta-button" type="button">
+          Get Started →
+        </button>
       </div>
+
       <div className="footer-divider" />
+
       <div className="footer-grid">
         <div className="footer-col">
           <h4>SUBSCRIBE TO OUR NEWSLETTER</h4>
           <input className="footer-input" type="text" placeholder="Name" />
           <input className="footer-input" type="email" placeholder="Email Address" />
-          <button className="footer-subscribe" type="button">Subscribe</button>
+          <button className="footer-subscribe" type="button">
+            Subscribe
+          </button>
         </div>
+
         <div className="footer-col">
           <h4>SERVICES</h4>
           <ul>
@@ -244,6 +356,7 @@ const PerformanceMarketing = () => (
             <li>Branding and Re-branding</li>
           </ul>
         </div>
+
         <div className="footer-col">
           <h4>ABOUT</h4>
           <ul>
@@ -253,6 +366,7 @@ const PerformanceMarketing = () => (
             <li>Careers</li>
           </ul>
         </div>
+
         <div className="footer-col">
           <h4>NAVIGATION</h4>
           <ul>
@@ -262,6 +376,7 @@ const PerformanceMarketing = () => (
             <li>Influencer Marketing</li>
           </ul>
         </div>
+
         <div className="footer-col">
           <h4>HELP</h4>
           <ul>
@@ -270,7 +385,9 @@ const PerformanceMarketing = () => (
           </ul>
         </div>
       </div>
+
       <div className="footer-divider" />
+
       <div className="footer-bottom">
         <div className="footer-socials">
           <span className="footer-social">f</span>
@@ -280,7 +397,6 @@ const PerformanceMarketing = () => (
         <div className="footer-copy">2026 Buzziwah.com | All Rights Reserved</div>
       </div>
     </footer>
-
   </div>
 );
 

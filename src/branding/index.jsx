@@ -110,18 +110,16 @@ const Branding = () => {
 
   return (
     <>
-      <section className="w-full bg-white">
-        <div className="mx-auto w-full">
-          <img
-            className="w-full object-contain shadow-[0_18px_40px_rgba(0,0,0,0.14)]"
-            src="/banners/BRB.png"
-            alt="Branding banner"
-          />
-        </div>
+      <section className="relative z-[2] m-0 w-full p-0 leading-none">
+        <img
+          className="block h-auto w-full"
+          src="/banners/SSD_Banners (2).png"
+          alt="Branding banner"
+        />
       </section>
 
       <section
-        className="py-10 text-center"
+        className="relative z-[1] -mt-[200px] px-10 pb-10 pt-[210px] text-center"
         style={{
           backgroundImage: "url('/SSD_Website%20(16).png')",
           backgroundSize: 'cover',

@@ -11,9 +11,42 @@ const seoServices = [
 ];
 
 const howCards = [
-  { img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-32.png', title: 'Social Media Marketing', desc: 'We specialize in conducting in-depth evaluations that help identify opportunities to analyse and develop strategies for improving performance — driving growth and achieving higher search engine rankings.' },
-  { img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-32.png', title: 'Action-Driven Strategy', desc: 'Along with creative strategies, we at Sripada studios deliver and execute solutions that fix all critical issues and fuel exponential growth. Our Innovative, location specific approach does not just drive success but ensures your brand is remembered.' },
-  { img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-32.png', title: 'Continuous Enhancement', desc: 'Through continuous tracking, insightful reporting, and smart strategy updates, we ensure long-term growth and stable rankings in every target location.' },
+  {
+    title: 'Social Media Marketing',
+    desc: 'We specialize in conducting in-depth evaluations that help identify opportunities to analyse and develop strategies for improving performance - driving growth and achieving higher search engine rankings.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 11V7a2 2 0 0 1 2-2h1l11-4v22l-11-4H5a2 2 0 0 1-2-2v-4Z" />
+        <path d="M15 5.5v13" />
+        <path d="M7 7v10" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Action-Driven Strategy',
+    desc: 'Along with creative strategies, we at Sripada studios deliver and execute solutions that fix all critical issues and fuel exponential growth. Our innovative, location specific approach does not just drive success but ensures your brand is remembered.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <circle cx="12" cy="12" r="6" />
+        <path d="m12 6 1.5 5H18l-4 3 1.5 5-3.5-2.5L8 19l1.5-5-4-3h4.5Z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Continuous Enhancement',
+    desc: 'Through continuous tracking, insightful reporting, and smart strategy updates, we ensure long-term growth and stable rankings in every target location.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 2v6h-6" />
+        <path d="M3 22v-6h6" />
+        <path d="M3 16 9.5 9.5" />
+        <path d="m14.5 14.5 6.5-6.5" />
+        <path d="M21 12a9 9 0 0 1-9 9A9 9 0 0 1 3 12" />
+        <path d="M3 12a9 9 0 0 1 9-9 9 9 0 0 1 9 9" />
+      </svg>
+    ),
+  },
 ];
 
 const seoFaqs = [
@@ -40,12 +73,14 @@ const SEO = () => (
   <div className="seo-page">
 
     <section className="seo-banner">
-      <img src="https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-46.png" alt="SEO Banner" />
+      <img src="/banners/SSD_Banners (5).png" alt="SEO Banner" />
     </section>
 
     <section className="seo-section2">
       <div className="seo-s2-left">
-        <img src="https://sripadastudiosdigital.com/wp-content/uploads/2026/03/Social-Media-Management-3.png" alt="SEO" />
+        <div className="seo-s2-image-shell">
+          <img src="https://sripadastudiosdigital.com/wp-content/uploads/2026/03/Social-Media-Management-3.png" alt="SEO" />
+        </div>
       </div>
       <div className="seo-s2-right">
         <div className="iuuui-section">
@@ -121,7 +156,7 @@ const SEO = () => (
       <div className="seo-how-grid">
         {howCards.map((c, i) => (
           <div className="seo-how-card" key={i}>
-            <img src={c.img} alt={c.title} />
+            <div className="seo-how-icon" aria-hidden="true">{c.icon}</div>
             <h3>{c.title}</h3>
             <p>{c.desc}</p>
           </div>

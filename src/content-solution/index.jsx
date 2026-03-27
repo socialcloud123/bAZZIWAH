@@ -2,18 +2,18 @@ import { useState } from 'react';
 
 const ContentSolutionPage = () => (
   <>
-    <section className="w-full m-0 p-0 leading-none mt-14">
+    <section className="relative z-[2] m-0 w-full p-0 leading-none">
       <img
-        src="https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-53.png"
+        src="/banners/SSD_Banners (6).png"
         alt="Content Solution"
         className="block w-full h-auto"
       />
     </section>
 
     <section
-      className="bg-[#f5f5f5] px-10 py-16"
+      className="relative z-[1] -mt-[200px] bg-[#f5f5f5] px-10 pb-16 pt-[210px]"
       style={{
-        backgroundImage: "url('/SSD_Website%20(16).png')",
+        backgroundImage: "url('/SSD_Website%20(10).png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -27,8 +27,8 @@ const ContentSolutionPage = () => (
             className="max-h-[460px] w-full object-contain"
           />
         </div>
-        <div className="w-full max-w-[520px] overflow-hidden rounded-lg border-l-[8px] border-l-[#83cd15] bg-white shadow-[0_0_20px_rgba(0,0,0,0.05)]">
-          <div className="bg-[#83cd15] px-8 py-5 text-[clamp(16px,2vw,26px)] font-bold uppercase text-white font-['Geom']">
+        <div className="w-full max-w-[520px] overflow-hidden rounded-lg border-l-[8px] border-l-[#5b21b6] bg-white shadow-[0_0_20px_rgba(0,0,0,0.05)]">
+          <div className="bg-[#5b21b6] px-8 py-5 text-[clamp(16px,2vw,26px)] font-bold uppercase text-white font-['Geom']">
             Why Content Marketing?
           </div>
           <div className="px-8 py-7">
@@ -58,9 +58,9 @@ const ContentSolutionPage = () => (
 const csCards = [
   {
     title: '1. SOCIAL MEDIA CONTENT',
-    borderBottom: '#ffa500',
+    borderBottom: '#5b21b6',
     intro: 'We create scroll stopping content that turns your audience into customers.',
-    labelColor: '#83cd15',
+    labelColor: '#5b21b6',
     items: [
       { label: 'A. Content Creation:', desc: 'From planning to execution, we create scroll-stopping content that turns your audience into customers.' },
       { label: 'B. Copywriting & Captions:', desc: "Our brainstorming copies don't just attract an audience — they keep them hooked with purpose-driven messaging." },
@@ -69,9 +69,9 @@ const csCards = [
   },
   {
     title: '2. WEBSITE CONTENT',
-    borderBottom: '#83cd15',
+    borderBottom: '#5b21b6',
     intro: 'We give life to your imagination through words',
-    labelColor: '#009688',
+    labelColor: '#5b21b6',
     items: [
       { label: 'A. Website Copywriting:', desc: 'Clear, compelling, conversion-focused content tailored to your brand.' },
       { label: 'B. Landing Pages & Product Descriptions:', desc: 'Targeted messaging that drives action.' },
@@ -80,9 +80,9 @@ const csCards = [
   },
   {
     title: '3. ADVERTISEMENT CONTENT',
-    borderBottom: '#ffa500',
+    borderBottom: '#5b21b6',
     intro: "At Sripada Studios, our creative and sassy advertisements don't just grab attention — they own it.",
-    labelColor: '#83cd15',
+    labelColor: '#5b21b6',
     items: [
       { label: 'A. Social Media Campaigns:', desc: 'Scroll-stopping content made for every platform.' },
       { label: 'B. Ad Films & Promos:', desc: 'Slick, creative, and built to convert.' },
@@ -91,9 +91,9 @@ const csCards = [
   },
   {
     title: '4. BLOG CONTENT',
-    borderBottom: '#ffa500',
+    borderBottom: '#5b21b6',
     intro: 'From long-form depth to short-form punch, we excel at crafting content that delivers impact.',
-    labelColor: '#83cd15',
+    labelColor: '#5b21b6',
     items: [
       { label: 'A. Thought Leadership:', desc: "In-depth insights from your brand's perspective and establish authority in your niche." },
       { label: 'B. Brand Stories & Case Studies:', desc: 'Real-world success stories and behind-the-scenes insights.' },
@@ -104,7 +104,7 @@ const csCards = [
 
 const CSSection3 = () => (
   <section className="bg-[#0d0d0d] px-10 py-16">
-    <h2 className="mb-12 text-center font-['Geom'] text-[clamp(24px,3vw,42px)] font-black text-[#ffa500]">
+    <h2 className="mb-12 text-center font-['Geom'] text-[clamp(24px,3vw,42px)] font-black text-white">
       Why Do You Need Content Marketing?
     </h2>
     <div className="mx-auto grid max-w-[1200px] grid-cols-[repeat(auto-fit,minmax(440px,1fr))] gap-6">
@@ -112,10 +112,10 @@ const CSSection3 = () => (
         <div
           key={card.title}
           className="rounded-2xl bg-white px-7 py-8 shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
-          style={{ borderLeft: '8px solid #83cd15' }}
+          style={{ borderLeft: '8px solid #5b21b6' }}
         >
           <div
-            className="mb-4 pb-2 text-[clamp(16px,2vw,22px)] font-['Geom'] font-bold text-[#83cd15]"
+            className="mb-4 pb-2 text-[clamp(16px,2vw,22px)] font-['Geom'] font-bold text-[#5b21b6]"
             style={{ borderBottom: `2px solid ${card.borderBottom}` }}
           >
             {card.title}
@@ -124,7 +124,7 @@ const CSSection3 = () => (
           <ul className="flex flex-col gap-4">
             {card.items.map((item) => (
               <li key={item.label} className="relative rounded-xl bg-[#f9f9f9] px-4 py-3 pl-9">
-                <span className="absolute left-3 top-3 text-2xl leading-none text-[#ffa500]">•</span>
+                <span className="absolute left-3 top-3 text-2xl leading-none text-[#5b21b6]">•</span>
                 <span className="mb-1 block text-sm font-semibold" style={{ color: card.labelColor }}>
                   {item.label}
                 </span>
@@ -180,14 +180,14 @@ const CSWhyChooseUs = () => (
   <section
     className="bg-gradient-to-br from-[#1a0533] via-[#2d1b69] to-[#1a0533] px-10 py-20"
     style={{
-      backgroundImage: "url('/SSD_Website%20(16).png')",
+      backgroundImage: "url('/SSD_Website%20(10).png')",
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
     }}
   >
     <div className="mx-auto max-w-[1200px]">
-      <h2 className="mb-10 text-center font-['Geom'] text-[clamp(24px,3vw,40px)] font-extrabold text-white">
+      <h2 className="mb-10 text-center font-['Geom'] text-[clamp(24px,3vw,40px)] font-extrabold text-[#5b21b6]">
         Why Choose Us
       </h2>
       <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-6">

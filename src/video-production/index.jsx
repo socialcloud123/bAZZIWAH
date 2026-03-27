@@ -23,7 +23,7 @@ const VPSection2 = () => {
   ];
 
   return (
-    <section style={{ background: '#f2fde4', padding: '80px 40px' }}>
+    <section style={{ background: '#f2fde4', padding: '80px 40px', marginTop: '-200px', paddingTop: '210px', position: 'relative', zIndex: 1 }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', gap: '60px', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
         <div onMouseMove={handleMove} onMouseLeave={handleLeave} style={{ perspective: '1000px', flex: '1 1 400px', maxWidth: '560px' }}>
           <div ref={cardRef} style={{ borderRadius: '12px', overflow: 'hidden', boxShadow: '0 8px 24px rgba(0,0,0,0.2)', transition: 'transform 0.6s ease-out', transformStyle: 'preserve-3d', height: '360px' }}>
@@ -46,10 +46,9 @@ const VPSection2 = () => {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
             {features.map((f) => (
-              <div key={f.title} style={{ background: '#1a1a1a', borderLeft: '5px solid #7c3aed', borderRadius: '12px', padding: '20px 16px', position: 'relative' }}>
-                <span style={{ position: 'absolute', top: '14px', right: '14px', color: '#c8f03d', fontSize: '14px' }}>★</span>
-                <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: '14px', fontWeight: 700, color: '#c8f03d', margin: '0 0 8px' }}>{f.title}</h3>
-                <p style={{ fontSize: '13px', color: '#ccc', margin: 0, lineHeight: 1.6 }}>{f.desc}</p>
+              <div key={f.title} style={{ background: 'rgba(255,255,255,0.85)', borderLeft: '5px solid #7c3aed', borderRadius: '12px', padding: '20px 16px', position: 'relative' }}>
+                <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: '14px', fontWeight: 700, color: '#7c3aed', margin: '0 0 8px' }}>{f.title}</h3>
+                <p style={{ fontSize: '13px', color: 'rgba(0,0,0,0.95)', margin: 0, lineHeight: 1.6 }}>{f.desc}</p>
               </div>
             ))}
           </div>
@@ -229,9 +228,9 @@ const VPFaqCard = ({ item, idx }) => {
 
 const VideoProductionPage = () => (
   <>
-    <section style={{ width: '100%', margin: 0, padding: 0, lineHeight: 0 }}>
+    <section style={{ width: '100%', margin: 0, padding: 0, lineHeight: 0, position: 'relative', zIndex: 2 }}>
       <img
-        src="https://buzziwah.com/wp-content/uploads/2026/03/Video-Production-Editing-1.png"
+        src="/banners/SSD_Banners (3).png"
         alt="Video Production & Editing"
         style={{ width: '100%', height: 'auto', display: 'block' }}
       />

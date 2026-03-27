@@ -146,6 +146,10 @@ nav.scrolled .nav-backdrop {
   color: var(--text);
   background: rgba(0,0,0,0.04);
 }
+.nav-links > li.active-link > button {
+  color: var(--text);
+  background: rgba(0,0,0,0.04);
+}
 
 /* chevron */
 .chev {

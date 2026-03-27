@@ -1,9 +1,25 @@
 import { useRef, useState } from 'react';
 import '../home/Home.css';
 
+const SearchIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+  </svg>
+);
+const ChartIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+  </svg>
+);
+const EditIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#83cd15" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+  </svg>
+);
+
 const tiles = [
   {
-    icon: '🔍', step: 'Step 01', heading: 'Influencer Discovery & Vetting',
+    icon: <SearchIcon />, step: 'Step 01', heading: 'Influencer Discovery & Vetting',
     items: [
       "Finding influencers who align with your brand's goals, target audience and industry",
       'Filtering by niche — demographics, follower count, content type and aesthetic',
@@ -11,7 +27,7 @@ const tiles = [
     ],
   },
   {
-    icon: '📊', step: 'Step 02', heading: 'Campaign Strategy & Planning',
+    icon: <ChartIcon />, step: 'Step 02', heading: 'Campaign Strategy & Planning',
     items: [
       'Strategies that align with your brand voice, create impact and drive business success',
       'Market research and trend analysis to understand and operate based on numbers',
@@ -19,7 +35,7 @@ const tiles = [
     ],
   },
   {
-    icon: '✍️', step: 'Step 03', heading: 'Content Management', lime: true,
+    icon: <EditIcon />, step: 'Step 03', heading: 'Content Management', lime: true,
     items: [
       "From creating content to executing it — ensuring it's trending, timely and accurate",
       'Content calendar to plan, organise and schedule across various platforms',
@@ -53,12 +69,6 @@ const IMProcess = () => (
     <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '48px', flexWrap: 'wrap', gap: '32px' }}>
         <div>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(91,33,182,0.25)', border: '1px solid rgba(91,33,182,0.45)', borderRadius: '100px', padding: '5px 14px 5px 7px', marginBottom: '16px' }}>
-            <div style={{ width: '20px', height: '20px', borderRadius: '50%', background: '#5b21b6', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <div style={{ width: '7px', height: '7px', background: '#fff', borderRadius: '50%' }} />
-            </div>
-            <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#fff' }}>Welcome Creative Agency</span>
-          </div>
           <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(36px, 5vw, 60px)', fontWeight: 900, color: '#fff', lineHeight: 1.06, letterSpacing: '-0.02em' }}>
             Influencer<br /><em style={{ color: '#83cd15', fontStyle: 'italic' }}>Marketing</em> Process
           </h2>
@@ -109,26 +119,17 @@ const IMProcess = () => (
         <div style={{ position: 'absolute', right: '-50px', top: '-50px', width: '240px', height: '240px', borderRadius: '50%', background: 'rgba(131,205,21,0.13)', pointerEvents: 'none' }} />
         <div style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ display: 'inline-block', background: 'rgba(131,205,21,0.18)', border: '1px solid rgba(131,205,21,0.35)', borderRadius: '100px', padding: '4px 12px', fontSize: '10px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: '#83cd15', marginBottom: '12px' }}>Step 04 — Final Stage</div>
-          <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '22px', fontWeight: 700, color: '#fff', lineHeight: 1.2, marginBottom: '8px' }}>Performance Tracking & Reporting</h3>
+          <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '22px', fontWeight: 700, color: '#fff', lineHeight: 1.2, marginBottom: '8px' }}>Performance Tracking &amp; Reporting</h3>
           <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.6 }}>From the first post to the final metric — every campaign, fully measured.</p>
         </div>
         <ul style={{ listStyle: 'none', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '14px 22px', position: 'relative', zIndex: 1 }}>
           {bannerPoints.map((p, i) => (
             <li key={i} style={{ display: 'flex', gap: '9px', alignItems: 'flex-start', fontSize: '13px', color: 'rgba(255,255,255,0.85)', lineHeight: 1.55 }}>
-              <span style={{ color: '#83cd15', fontWeight: 700, flexShrink: 0 }}>↗</span>
+              <span style={{ color: '#83cd15', fontWeight: 700, flexShrink: 0 }}>&#8599;</span>
               <span>{p}</span>
             </li>
           ))}
         </ul>
-      </div>
-
-      <div style={{ marginTop: '22px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <span style={{ fontSize: '12px', fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)' }}>Sripada Studios Digital · 2026</span>
-        <div style={{ display: 'flex', gap: '7px' }}>
-          {['Strategy', 'Content', 'Impact'].map((tag, i) => (
-            <span key={tag} style={{ fontSize: '11px', fontWeight: 500, padding: '5px 13px', borderRadius: '100px', letterSpacing: '0.06em', background: i === 1 ? 'rgba(131,205,21,0.15)' : 'rgba(91,33,182,0.25)', color: i === 1 ? '#83cd15' : '#c4b5fd', border: `1px solid ${i === 1 ? 'rgba(131,205,21,0.35)' : 'rgba(91,33,182,0.45)'}` }}>{tag}</span>
-          ))}
-        </div>
       </div>
     </div>
   </section>
@@ -146,7 +147,7 @@ const whyCards = [
   {
     num: '2', title: 'Performance-Driven Campaigns',
     points: [
-      'We focus on outcomes — boosting performance, traffic, and brand growth. With real-time optimization and insights, we ensure every campaign delivers maximum ROI.',
+      'We focus on outcomes â€” boosting performance, traffic, and brand growth. With real-time optimization and insights, we ensure every campaign delivers maximum ROI.',
     ],
     lime: true,
   },
@@ -169,9 +170,9 @@ const whyCards = [
 ];
 
 const WhyChooseUs = () => (
-  <section style={{ background: '#1a0533', padding: '60px 40px' }}>
+  <section style={{ background: '#f2fde4', padding: '60px 40px' }}>
     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-      <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 800, color: '#fff', textAlign: 'center', marginBottom: '48px' }}>
+      <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 800, color: '#83cd15', textAlign: 'center', marginBottom: '48px' }}>
         Why Choose Us
       </h2>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '28px' }}>
@@ -229,58 +230,118 @@ const IMVideos = () => (
 const imFaqs = [
   { q: 'What services does Buzziwah Studio offer?', a: 'We offer end-to-end social media management including content strategy, reel creation, carousel design, Instagram stories, special day creatives, and performance analytics.' },
   { q: 'Which platforms do you manage?', a: 'We primarily focus on Instagram, but also manage Facebook, YouTube Shorts, and LinkedIn depending on your brand needs.' },
-  { q: 'How long does it take to see results?', a: 'Most clients see measurable engagement growth within 30–60 days. Viral results like our Samrat campaign can happen much faster with the right strategy.' },
+  { q: 'How long does it take to see results?', a: 'Most clients see measurable engagement growth within 30â€“60 days. Viral results like our Samrat campaign can happen much faster with the right strategy.' },
   { q: 'Do you work with small businesses?', a: 'Absolutely. We work with everyone from local restaurants and pre-schools to production houses and celebrity pages. Every brand deserves great content.' },
-  { q: "What makes Buzziwah different from other agencies?", a: "We combine deep cultural understanding, meme-driven creativity, and data-backed strategy. We don't just post — we craft content that resonates and converts." },
+  { q: "What makes Buzziwah different from other agencies?", a: "We combine deep cultural understanding, meme-driven creativity, and data-backed strategy. We don't just post â€” we craft content that resonates and converts." },
   { q: 'How do I get started with Buzziwah?', a: "Simply click 'Get Started' or reach out via our contact page. We'll schedule a discovery call to understand your brand and build a custom strategy." },
 ];
 
-const IMFAQ = () => {
-  const [open, setOpen] = useState(null);
+const IMFAQCard = ({ f, i }) => {
+  const [open, setOpen] = useState(false);
   return (
-    <section style={{ background: '#f2fde4', padding: '80px 40px' }}>
-      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-        <p style={{ fontFamily: "'Syne', sans-serif", fontSize: '13px', fontWeight: 700, color: '#7c3aed', textTransform: 'uppercase', letterSpacing: '0.1em', textAlign: 'center', marginBottom: '8px' }}>Got questions?</p>
-        <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 'clamp(24px, 3vw, 40px)', fontWeight: 800, color: '#1a0533', textAlign: 'center', marginBottom: '48px' }}>
-          Frequently Asked Questions
-        </h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          {imFaqs.map((f, i) => (
-            <div key={i} style={{ background: '#fff', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.06)', border: open === i ? '1px solid #7c3aed' : '1px solid transparent' }}>
-              <button onClick={() => setOpen(open === i ? null : i)} style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '18px 20px', background: 'none', border: 'none', cursor: 'pointer', fontFamily: "'Syne', sans-serif", fontSize: '15px', fontWeight: 700, color: open === i ? '#7c3aed' : '#1a0533', textAlign: 'left', gap: '12px' }}>
-                {f.q}
-                <span style={{ fontSize: '20px', color: '#7c3aed', flexShrink: 0, lineHeight: 1 }}>{open === i ? '−' : '+'}</span>
-              </button>
-              {open === i && <div style={{ padding: '0 20px 18px', fontSize: '14px', color: '#444', lineHeight: 1.75 }}>{f.a}</div>}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <div className={`faq-card ${open ? 'open' : ''}`}>
+      <button className="faq-question" type="button" onClick={() => setOpen(!open)} aria-expanded={open}>
+        <span>{`${i + 1}. ${f.q}`}</span>
+        <span className="faq-arrow">&#8964;</span>
+      </button>
+      <div className="faq-answer">{f.a}</div>
+    </div>
   );
 };
 
+const IMFAQ = () => (
+  <section className="faq-showcase">
+    <div className="faq-inner">
+      <div className="faq-header">
+        <div className="faq-title-block">
+          <h2>Any questions?</h2>
+          <h3>We got you.</h3>
+        </div>
+        <p className="faq-intro">
+          Have something on your mind? Whether it's about our services, process, timelines, or
+          pricing — we've answered the most common questions to help you move forward with
+          clarity and confidence.
+        </p>
+      </div>
+      <div className="faq-grid">
+        {imFaqs.map((f, i) => <IMFAQCard key={i} f={f} i={i} />)}
+      </div>
+    </div>
+  </section>
+);
+
 const InfluencerPage = () => (
-  <>
-    <section style={{ width: '100%', margin: 0, padding: 0, lineHeight: 0 }}>
+  <div className="im-font">
+    <section style={{ width: '100%', margin: 0, padding: 0, lineHeight: 0, position: 'relative', zIndex: 2 }}>
       <img
-        src="https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-52.png"
+        src="/banners/SSD_Banners (4).png"
         alt="Influencer Marketing"
         style={{ width: '100%', height: 'auto', display: 'block' }}
       />
     </section>
 
-    <section style={{ background: 'linear-gradient(135deg, #5b21b6 0%, #7c3aed 50%, #5b21b6 100%)', padding: '80px 40px', position: 'relative', overflow: 'hidden' }}>
+    <section style={{ background: 'linear-gradient(135deg, #5b21b6 0%, #7c3aed 50%, #5b21b6 100%)', padding: '80px 40px', position: 'relative', overflow: 'hidden', marginTop: '-200px', paddingTop: '210px', zIndex: 1 }}>
       <div style={{ position: 'absolute', left: '-60px', top: '50%', transform: 'translateY(-50%)', width: '220px', height: '220px', background: 'rgba(131,205,21,0.15)', borderRadius: '50%', filter: 'blur(40px)' }} />
       <div style={{ position: 'absolute', right: '-60px', top: '50%', transform: 'translateY(-50%)', width: '220px', height: '220px', background: 'rgba(131,205,21,0.15)', borderRadius: '50%', filter: 'blur(40px)' }} />
-      <div style={{ maxWidth: '700px', marginLeft: 'auto', marginRight: '10%', position: 'relative', zIndex: 1 }}>
-        <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 'clamp(26px, 3vw, 42px)', fontWeight: 800, color: '#fff', marginBottom: '16px', lineHeight: 1.25 }}>
-          Why Influencer Marketing Is Needed?
-        </h2>
-        <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.9)', lineHeight: 1.8, marginBottom: '28px' }}>
-          Influencer marketing builds authentic trust by connecting your brand with voices your audience already follows. It drives higher engagement, targeted reach, and real conversions that traditional ads often miss.
-        </p>
-        <a href="#" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 24px', background: '#83cd15', color: '#000', borderRadius: '50px', textDecoration: 'none', fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: '13px' }}>Know More ⊕</a>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1, display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(320px,1fr))', gap: '36px', alignItems: 'center' }}>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div style={{ position: 'relative', maxWidth: '520px', width: '100%', borderRadius: '26px', overflow: 'hidden', boxShadow: '0 24px 60px rgba(0,0,0,0.35)', background: '#14092e' }}>
+            <img
+              src="/SSD_Performance%20Marketing%20Webpage%20(5).png"
+              alt="Influencer marketing visual"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            />
+          </div>
+        </div>
+
+        <div style={{ color: '#fff', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '6px 14px', borderRadius: '999px', background: 'rgba(255,255,255,0.65)', border: '1px solid rgba(255,255,255,0.4)', width: 'fit-content', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', fontSize: '11px', color: '#1a0533' }}>
+            Why Influencer Marketing Is Needed?
+          </div>
+          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: 800, lineHeight: 1.25, margin: 0 }}>
+            Build trust with voices your audience already follows.
+          </h2>
+          <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'rgba(255,255,255,0.9)', margin: 0, textAlign: 'justify' }}>
+            Influencer marketing connects your brand to communities through authentic storytellers. It sparks higher engagement, delivers targeted reach, and drives conversions that traditional ads struggle to match.
+          </p>
+          <ul style={{ margin: '6px 0 0', padding: 0, listStyle: 'none', display: 'grid', gap: '8px', color: 'rgba(255,255,255,0.85)', fontSize: '14px' }}>
+            {[
+              'Credibility through trusted creators',
+              'Precision targeting with niche audiences',
+              'Content that blends seamlessly into feeds',
+              'Actionable insights and measurable growth',
+            ].map((item) => (
+              <li key={item} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#c8f041' }} />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <div style={{ marginTop: '10px' }}>
+            <a
+              href="#"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '12px 24px',
+                borderRadius: '50px',
+                background: '#83cd15',
+                color: '#000',
+                fontFamily: "'Montserrat', sans-serif",
+                fontWeight: 700,
+                fontSize: '13px',
+                textDecoration: 'none',
+                border: '2px solid transparent',
+                transition: 'background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease',
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = '#ffffff'; e.currentTarget.style.color = '#68a311'; e.currentTarget.style.borderColor = '#ffffff'; e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 22px rgba(104,163,17,0.25)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = '#83cd15'; e.currentTarget.style.color = '#000'; e.currentTarget.style.borderColor = 'transparent'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
+            >
+              Know More ⊕
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -289,8 +350,8 @@ const InfluencerPage = () => (
     <IMVideos />
     <IMFAQ />
 
-    <section style={{ width: '100%', lineHeight: 0, marginTop: '-200px', position: 'relative', zIndex: 1 }}>
-      <img src="https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-54.png" alt="Influencer Marketing Banner" style={{ width: '100%', height: 'auto', display: 'block' }} />
+    <section style={{ width: '100%', lineHeight: 0, marginTop: '0', position: 'relative', zIndex: 1, background: '#f2fde4' }}>
+      <img src="/banners/SSD_Banners (4).png" alt="Influencer Marketing Banner" style={{ width: '100%', height: 'auto', display: 'block' }} />
     </section>
 
     <footer className="site-footer">
@@ -301,7 +362,7 @@ const InfluencerPage = () => (
           alt="Sripada Studios Digital"
         />
         <div className="footer-cta-text">Ready To Get Started</div>
-        <button className="footer-cta-button" type="button">Get Started →</button>
+        <button className="footer-cta-button" type="button">Get Started â†’</button>
       </div>
 
       <div className="footer-divider" />
@@ -351,16 +412,16 @@ const InfluencerPage = () => (
 
       <div className="footer-divider" />
 
-      <div className="footer-bottom">
-        <div className="footer-socials">
-          <span className="footer-social">f</span>
-          <span className="footer-social">ig</span>
-          <span className="footer-social">yt</span>
+        <div className="footer-bottom">
+          <div className="footer-socials">
+            <span className="footer-social">f</span>
+            <span className="footer-social">ig</span>
+            <span className="footer-social">yt</span>
+          </div>
+          <div className="footer-copy">2026 Buzziwah.com | All Rights Reserved</div>
         </div>
-        <div className="footer-copy">2026 Buzziwah.com | All Rights Reserved</div>
-      </div>
-    </footer>
-  </>
+      </footer>
+  </div>
 );
 
 export default InfluencerPage;

@@ -178,6 +178,7 @@
   position: relative;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
+  border: 2px solid transparent;
 }
 .von-cta-primary::before {
   content: "";
@@ -186,7 +187,13 @@
   opacity: 0;
   transition: opacity 0.3s;
 }
-.von-cta-primary:hover { transform: translateY(-3px); box-shadow: 0 18px 50px rgba(118,184,18,0.45); }
+.von-cta-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 50px rgba(118,184,18,0.45);
+  background: #ffffff;
+  color: #68a311;
+  border-color: #ffffff;
+}
 .von-cta-primary:hover::before { opacity: 1; }
 
 .von-arr {
