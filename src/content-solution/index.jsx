@@ -75,7 +75,7 @@ const Section10 = () => {
   }, [pageCount]);
 
   return (
-    <section className="section10-container" style={{ background: '#0d0d1a', padding: '24px 6% 72px', boxSizing: 'border-box', position: 'relative', overflow: 'hidden', minHeight: '600px', display: 'flex', alignItems: 'center' }}>
+    <section className="section10-container" style={{ background: '#0d0d1a', padding: '16px 6% 72px', boxSizing: 'border-box', position: 'relative', overflow: 'hidden', minHeight: '580px', display: 'flex', alignItems: 'center' }}>
       <div style={{ position: 'absolute', top: '15%', left: '1%', width: 120, height: 120, borderRadius: '50%', background: 'rgba(124,58,237,0.25)', filter: 'blur(40px)', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: '10%', right: '2%', width: 90, height: 90, borderRadius: '50%', background: 'rgba(124,58,237,0.2)', filter: 'blur(30px)', pointerEvents: 'none' }} />
       <div className="section10-inner" style={{ display: 'flex', alignItems: 'center', gap: 78, width: '100%', maxWidth: 1800, margin: '0 auto' }}>
@@ -102,7 +102,7 @@ const Section10 = () => {
       </div>
       <style>{`
         @media (max-width: 1024px) {
-          .section10-container { padding: 16px 6% 48px !important; height: auto !important; display: block !important; }
+          .section10-container { padding: 12px 6% 48px !important; height: auto !important; display: block !important; }
           .section10-inner { flex-direction: column !important; gap: 40px !important; }
           .section10-logo-col { width: 100% !important; margin-bottom: 20px !important; }
           .section10-logo { width: 100px !important; }
@@ -390,7 +390,7 @@ const services = [
 
 const cmStyles = `
   @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap');
-  .cm-root { background:#0d0b1a; min-height:auto; width:100%; font-family:'Barlow',sans-serif; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:88px 20px 56px; position:relative; overflow:hidden; }
+  .cm-root { background:#0d0b1a; min-height:auto; width:100%; font-family:'Barlow',sans-serif; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:88px 20px 42px; position:relative; overflow:hidden; }
   .cm-bg-lines { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
   .cm-bg-lines svg { position:absolute; top:0; left:0; width:100%; height:100%; }
   .cm-header { text-align:center; margin-bottom:72px; position:relative; z-index:2; }
@@ -637,14 +637,14 @@ const WhyChooseUs = () => {
           .wcu-timeline { display: none !important; }
           .wcu-cards { flex-direction: column !important; }
           .wcu-container { padding: 0 10px !important; }
-          .wcu-section { padding: 20px 24px 28px !important; min-height: auto !important; }
+          .wcu-section { padding: 16px 24px 24px !important; min-height: auto !important; }
         }
       `}</style>
 
       <section
         className="wcu-section"
         style={{
-          minHeight: "100vh",
+          minHeight: "auto",
           width: "100%",
           background:
             "radial-gradient(ellipse 88% 52% at 50% -4%, #2e0d52 0%, #100920 58%, #0b0817 100%)",
@@ -652,7 +652,7 @@ const WhyChooseUs = () => {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          padding: "20px 48px 32px",
+          padding: "14px 48px 24px",
           position: "relative",
           overflow: "hidden",
         }}
@@ -678,7 +678,7 @@ const WhyChooseUs = () => {
           style={{
             textAlign: "center",
             maxWidth: "780px",
-            marginBottom: "20px",
+            marginBottom: "14px",
             position: "relative",
             zIndex: 1,
             padding: '0 20px'
@@ -699,7 +699,7 @@ const WhyChooseUs = () => {
           </h1>
           <p
             style={{
-              marginTop: "20px",
+              marginTop: "16px",
               fontFamily: "'Space Grotesk', sans-serif",
               fontWeight: 400,
               fontSize: "clamp(0.88rem, 1.4vw, 0.98rem)",
@@ -734,7 +734,7 @@ const WhyChooseUs = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              marginBottom: "26px",
+              marginBottom: "18px",
               position: "relative",
             }}
           >
