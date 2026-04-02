@@ -56,10 +56,10 @@ const IMFAQ = () => (
     <div className="faq-inner">
       <div className="faq-header">
         <div className="faq-title-block">
-          <h2>Any questions?</h2>
-          <h3>We got you.</h3>
+          <h2 style={{ color: '#000' }}>Any questions?</h2>
+          <h3 style={{ color: '#000' }}>We got you.</h3>
         </div>
-        <p className="faq-intro">Have something on your mind? Whether it's about our services, process, timelines, or pricing — we've answered the most common questions to help you move forward with clarity and confidence.</p>
+        <p className="faq-intro" style={{ color: '#000' }}>Have something on your mind? Whether it's about our services, process, timelines, or pricing — we've answered the most common questions to help you move forward with clarity and confidence.</p>
       </div>
       <div className="faq-grid">
         {imFaqs.map((f, i) => <IMFAQCard key={i} f={f} i={i} />)}
@@ -70,6 +70,13 @@ const IMFAQ = () => (
 
 const InfluencerPage = () => (
   <div className="im-font">
+    <style>{`
+      @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800;900&display=swap');
+      .im-font,
+      .im-font * {
+        font-family: 'Nunito Sans', sans-serif !important;
+      }
+    `}</style>
     <section style={{ width: '100%', margin: 0, padding: 0, lineHeight: 0, position: 'relative', zIndex: 2 }}>
       <img src="/banners/influencer-marketing-page-banner.png" alt="Influencer Marketing" style={{ width: '100%', height: 'auto', display: 'block' }} />
     </section>
@@ -81,32 +88,59 @@ const InfluencerPage = () => (
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <img src="/influencer-marketing-hero-illustration.png" alt="Influencer marketing visual" style={{ width: '100%', maxWidth: '520px', height: 'auto', display: 'block', borderRadius: '26px', objectFit: 'cover' }} />
         </div>
-        <div style={{ color: '#fff', display: 'flex', flexDirection: 'column', gap: '14px' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '6px 14px', borderRadius: '999px', background: 'rgba(255,255,255,0.65)', border: '1px solid rgba(255,255,255,0.4)', width: 'fit-content', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', fontSize: '11px', color: '#1a0533' }}>
+        <div style={{ color: '#fff', display: 'flex', flexDirection: 'column', gap: '18px', fontFamily: "'Nunito Sans', sans-serif" }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '6px 14px', borderRadius: '999px', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.25)', width: 'fit-content', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', fontSize: '11px', color: '#ffffff' }}>
             Why Influencer Marketing Is Needed?
           </div>
-          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: 800, lineHeight: 1.25, margin: 0 }}>
+          <h2 style={{ fontFamily: "'Nunito Sans', sans-serif", fontSize: 'clamp(22px, 2.1vw, 30px)', fontWeight: 800, lineHeight: 1.1, margin: 0, color: '#98dd2d', maxWidth: '24ch' }}>
             Build trust with voices your audience already follows.
           </h2>
-          <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'rgba(255,255,255,0.9)', margin: 0, textAlign: 'justify' }}>
+          <p style={{ fontSize: '18px', lineHeight: 1.6, color: 'rgba(255,255,255,0.92)', margin: 0 }}>
             Influencer marketing connects your brand to communities through authentic storytellers. It sparks higher engagement, delivers targeted reach, and drives conversions that traditional ads struggle to match.
           </p>
-          <ul style={{ margin: '6px 0 0', padding: 0, listStyle: 'none', display: 'grid', gap: '8px', color: 'rgba(255,255,255,0.85)', fontSize: '14px' }}>
+          <ul style={{ margin: '4px 0 0', padding: 0, listStyle: 'none', display: 'grid', gap: '12px', color: 'rgba(255,255,255,0.95)', fontSize: '16px' }}>
             {['Credibility through trusted creators', 'Precision targeting with niche audiences', 'Content that blends seamlessly into feeds', 'Actionable insights and measurable growth'].map((item) => (
-              <li key={item} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#c8f041' }} />
-                <span>{item}</span>
+              <li
+                key={item}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '14px',
+                  padding: '16px 18px',
+                  borderRadius: '18px',
+                  background: 'linear-gradient(180deg, rgba(100,66,170,0.34), rgba(76,44,148,0.34))',
+                  border: '1px solid rgba(255,255,255,0.12)',
+                }}
+              >
+                <span
+                  style={{
+                    width: '40px',
+                    height: '40px',
+                    borderRadius: '50%',
+                    background: 'rgba(120,120,160,0.45)',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#c8f041',
+                    fontSize: '18px',
+                    lineHeight: 1,
+                    flexShrink: 0,
+                  }}
+                >
+                  ✦
+                </span>
+                <span style={{ fontWeight: 600 }}>{item}</span>
               </li>
             ))}
           </ul>
-          <div style={{ marginTop: '10px' }}>
+          <div style={{ marginTop: '16px' }}>
             <a
               href="#"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 24px', borderRadius: '50px', background: '#83cd15', color: '#000', fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: '13px', textDecoration: 'none', border: '2px solid transparent', transition: 'background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease' }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = '#ffffff'; e.currentTarget.style.color = '#68a311'; e.currentTarget.style.borderColor = '#ffffff'; e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 22px rgba(104,163,17,0.25)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = '#83cd15'; e.currentTarget.style.color = '#000'; e.currentTarget.style.borderColor = 'transparent'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '16px 36px', borderRadius: '14px', background: 'linear-gradient(135deg, #7a36ea, #b13cf2)', color: '#fff', fontFamily: "'Nunito Sans', sans-serif", fontWeight: 800, fontSize: 'clamp(13px, 1.1vw, 18px)', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.18)', letterSpacing: '0.06em', textTransform: 'uppercase', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 14px 24px rgba(122,54,234,0.35)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
             >
-              Know More ⊕
+              Know More
             </a>
           </div>
         </div>

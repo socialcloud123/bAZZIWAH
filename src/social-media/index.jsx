@@ -618,7 +618,11 @@ const Section6 = () => (
 
       <div
         className="flex flex-col items-start gap-6"
-        style={{ width: '100%', paddingLeft: 'clamp(12px, 4vw, 30px)' }}
+        style={{
+          width: '100%',
+          paddingLeft: 'clamp(34px, 8vw, 104px)',
+          transform: 'translateX(clamp(6px, 2.8vw, 44px))',
+        }}
       >
         <h2
           className="font-['Montserrat'] font-black leading-[0.95] text-[#c8f03d]"
