@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Btn from './Btn';
-import BackgroundRemovedVideo from './BackgroundRemovedVideo';
 
 
 const Section3 = () => {
@@ -23,8 +22,9 @@ const Section3 = () => {
 
   return (
     <section style={{
-      background: '#f5ffe8',
+      background: '#ffffff',
       padding: '90px 6% 32px',
+      height: '100vh',
       boxSizing: 'border-box',
       position: 'relative',
       overflow: 'hidden',
@@ -78,9 +78,20 @@ const Section3 = () => {
           transform: 'translateY(-52px)',
           background: 'transparent',
         }}>
-          <BackgroundRemovedVideo
+          <video
             src="/webdev-demo.mp4"
-            maxWidth={840}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            style={{
+              width: '100%',
+              maxWidth: 840,
+              height: 'auto',
+              display: 'block',
+              background: 'transparent',
+            }}
           />
         </div>
 

@@ -22,7 +22,7 @@ const Section4 = () => {
       padding: '72px 6% 105px',
       boxSizing: 'border-box',
       position: 'relative',
-      overflow: 'hidden',
+      overflow: 'visible',
     }}>
       <video
         src="/section 4 bg an video.mp4"
@@ -58,8 +58,10 @@ const Section4 = () => {
       {/* Top Header */}
       <div className="section4-top-header" style={{
         textAlign: 'center',
+        marginTop: -50,
         marginBottom: 70,
         position: 'relative',
+        top: 0,
         zIndex: 1
       }}>
         <h5 style={{
