@@ -1,28 +1,44 @@
 import { useState } from 'react';
-import Btn from './Btn';
 import LearnMoreBtn from './LearnMoreBtn';
-import { CaseBadge, KnowMoreBtn } from './Section3';
 
 
 const Section4 = () => {
   const highlights = [
-    'User-Focused Website Structure',
-    'Showcases Acting Courses & Faculty',
-    'Clean Visual Storytelling',
-    'Responsive Design for Mobile Users',
-    'Minimalistic UI that Reflects Artistic Values',
+    <>USER-FOCUSED WEBSITE STRUCTURE</>,
+    <>SHOWCASES ACTING COURSES &<br />FACULTY</>,
+    <>CLEAN VISUAL STORYTELLING</>,
+    <>RESPONSIVE DESIGN FOR MOBILE<br />USERS</>,
+    <>MINIMALISTIC UI THAT REFLECTS<br />ARTISTIC VALUES</>,
   ];
   const outcomes = [
-    'Boosted Visibility Among Aspiring Actors',
-    'Stronger Digital Brand Presence',
-    'Lasting Impression in Performing Arts Education',
-    'Easy Navigation & CTA Engagement',
-    'Reflects Artistic Values',
+    <>BOOSTED VISIBILITY AMONG<br />ASPIRING ACTORS</>,
+    <>STRONGER DIGITAL BRAND PRESENCE</>,
+    <>LASTING IMPRESSION IN PERFORMING<br />ARTS EDUCATION</>,
+    <>EASY NAVIGATION & CTA<br />ENGAGEMENT</>,
+    <>AT REFLECTS ARTISTIC VALUES</>,
   ];
 
   return (
     <section style={{
-      background: '#0d0d1a',
+      backgroundColor: '#05081c',
+      backgroundImage: `
+        radial-gradient(circle at 85% 16%, rgba(124,58,237,0.25), transparent 42%),
+        radial-gradient(circle at 8% 84%, rgba(124,58,237,0.22), transparent 28%),
+        repeating-linear-gradient(
+          0deg,
+          transparent 0,
+          transparent 168px,
+          rgba(64, 76, 140, 0.2) 170px,
+          rgba(64, 76, 140, 0.2) 171px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0,
+          transparent 168px,
+          rgba(64, 76, 140, 0.2) 170px,
+          rgba(64, 76, 140, 0.2) 171px
+        )
+      `,
       padding: '90px 6% 105px',
       boxSizing: 'border-box',
       position: 'relative',
@@ -36,7 +52,7 @@ const Section4 = () => {
       {/* Top Header */}
       <div className="section4-top-header" style={{
         textAlign: 'center',
-        marginBottom: 90,
+        marginBottom: 70,
         position: 'relative',
         zIndex: 1
       }}>
@@ -54,13 +70,16 @@ const Section4 = () => {
       </div>
 
       <div className="section4-main-row" style={{
-        display: 'flex', alignItems: 'center',
-        gap: 90, flexWrap: 'wrap',
+        display: 'flex',
+        alignItems: 'flex-start',
+        gap: 60,
+        flexWrap: 'nowrap',
       }}>
 
         {/* LEFT — Video */}
         <div className="section4-video-col" style={{
-          flex: '1 1 720px',
+          flex: '0 0 52%',
+          maxWidth: '52%',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -75,34 +94,68 @@ const Section4 = () => {
             playsInline
             style={{
               width: '100%',
-              maxWidth: 870,
+              maxWidth: 800,
               display: 'block',
-              borderRadius: 18,
-              boxShadow: '0 30px 90px rgba(0,0,0,0.6)',
+              background: 'transparent',
+              borderRadius: 0,
+              boxShadow: 'none',
             }}
           />
         </div>
 
         {/* RIGHT — Info */}
-        <div className="section4-content-col" style={{ flex: '1 1 510px', maxWidth: 690 }}>
-          <CaseBadge dark scale={1.5} />
+        <div className="section4-content-col" style={{ flex: '0 0 48%', maxWidth: '48%' }}>
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 12,
+            background: '#76b813',
+            borderRadius: 999,
+            padding: '9px 18px 9px 9px',
+            marginBottom: 24,
+          }}>
+            <div style={{
+              width: 36,
+              height: 36,
+              borderRadius: '50%',
+              border: '1px solid rgba(255,255,255,0.9)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxSizing: 'border-box',
+            }}>
+              <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#101010' }} />
+            </div>
+            <span style={{
+              color: '#111',
+              fontFamily: "'Nunito Sans', sans-serif",
+              fontWeight: 700,
+              fontSize: 14,
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+              lineHeight: 1,
+            }}>
+              CASE STUDIES
+            </span>
+          </div>
 
           <h2 className="section4-headline" style={{
-            fontFamily: "'Syne', sans-serif",
+            fontFamily: "'Nunito Sans', sans-serif",
             fontWeight: 900,
-            color: '#c8ff00',
-            textTransform: 'uppercase',
+            color: '#76b813',
             lineHeight: 1.1,
-            margin: '0 0 30px',
-            letterSpacing: '-0.02em'
+            margin: '0 0 18px',
+            letterSpacing: '-0.01em',
+            whiteSpace: 'nowrap',
           }}>
-            PIVOTCALL BUSINESS WEBSITE
+            PivotCall Business Website
           </h2>
 
           <p className="section4-para" style={{
-            fontSize: 21, color: 'rgba(255,255,255,0.75)', lineHeight: 1.8,
-            margin: '0 0 42px', maxWidth: 600,
-            fontFamily: "'DM Sans', sans-serif",
+            fontSize: 22.5, color: 'rgba(255,255,255,0.93)', lineHeight: 1.6,
+            margin: '0 0 22px', maxWidth: 650,
+            fontFamily: "'Nunito Sans', sans-serif",
+            fontWeight: 500,
           }}>
             Developed a high-performance business website for PivotCall, focused on
             lead generation and showcasing trading expertise, contributing to ₹25Cr
@@ -110,22 +163,23 @@ const Section4 = () => {
           </p>
 
           {/* Two-col highlights */}
-          <div style={{ display: 'flex', gap: 42, flexWrap: 'wrap' }}>
+          <div className="section4-lists" style={{ display: 'flex', gap: 30, flexWrap: 'nowrap' }}>
             <div style={{ flex: '1 1 240px' }}>
               <h4 style={{
-                fontFamily: "'Syne', sans-serif",
-                fontSize: 16.5, fontWeight: 800,
-                color: '#c8ff00', textTransform: 'uppercase',
-                letterSpacing: '0.1em', margin: '0 0 18px',
+                fontFamily: "'Nunito Sans', sans-serif",
+                fontSize: 18, fontWeight: 600,
+                color: '#76b813',
+                letterSpacing: '0.03em', margin: '0 0 12px',
+                whiteSpace: 'nowrap',
               }}>Project Highlights</h4>
               <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
                 {highlights.map((item, i) => (
                   <li key={i} style={{
                     display: 'flex', alignItems: 'flex-start', gap: 10.5,
-                    fontSize: 16.5, color: 'rgba(255,255,255,0.7)', lineHeight: 1.55,
-                    marginBottom: 10.5, fontFamily: "'DM Sans', sans-serif",
+                    fontSize: 15, color: 'rgba(255,255,255,0.95)', lineHeight: 1.45,
+                    marginBottom: 8, fontFamily: "'Nunito Sans', sans-serif", fontWeight: 500,
                   }}>
-                    <span style={{ color: '#c8ff00', marginTop: 2, flexShrink: 0 }}>•</span>
+                    <span style={{ color: '#fff', marginTop: 0, flexShrink: 0 }}>•</span>
                     {item}
                   </li>
                 ))}
@@ -133,19 +187,20 @@ const Section4 = () => {
             </div>
             <div style={{ flex: '1 1 240px' }}>
               <h4 style={{
-                fontFamily: "'Syne', sans-serif",
-                fontSize: 16.5, fontWeight: 800,
-                color: '#c8ff00', textTransform: 'uppercase',
-                letterSpacing: '0.1em', margin: '0 0 18px',
+                fontFamily: "'Nunito Sans', sans-serif",
+                fontSize: 18, fontWeight: 600,
+                color: '#76b813',
+                letterSpacing: '0.03em', margin: '0 0 12px',
+                whiteSpace: 'nowrap',
               }}>Outcome</h4>
               <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
                 {outcomes.map((item, i) => (
                   <li key={i} style={{
                     display: 'flex', alignItems: 'flex-start', gap: 10.5,
-                    fontSize: 16.5, color: 'rgba(255,255,255,0.7)', lineHeight: 1.55,
-                    marginBottom: 10.5, fontFamily: "'DM Sans', sans-serif",
+                    fontSize: 15, color: 'rgba(255,255,255,0.95)', lineHeight: 1.45,
+                    marginBottom: 8, fontFamily: "'Nunito Sans', sans-serif", fontWeight: 500,
                   }}>
-                    <span style={{ color: '#c8ff00', marginTop: 2, flexShrink: 0 }}>•</span>
+                    <span style={{ color: '#fff', marginTop: 0, flexShrink: 0 }}>•</span>
                     {item}
                   </li>
                 ))}
@@ -153,12 +208,56 @@ const Section4 = () => {
             </div>
           </div>
 
-          <KnowMoreBtn dark scale={1.5} />
+          <button
+            type="button"
+            style={{
+              marginTop: 28,
+              border: 'none',
+              borderRadius: 999,
+              background: '#76b813',
+              color: '#0f0f0f',
+              fontFamily: "'Nunito Sans', sans-serif",
+              fontWeight: 800,
+              fontSize: 18,
+              textTransform: 'uppercase',
+              letterSpacing: '0.04em',
+              padding: '16px 40px',
+              cursor: 'pointer',
+            }}
+          >
+            Know More
+          </button>
         </div>
       </div>
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700;800;900&display=swap');
         .section4-headline {
-          font-size: clamp(36px, 5.25vw, 63px);
+          font-size: clamp(24px, 2.1vw, 34px);
+        }
+        @media (min-width: 1025px) and (max-width: 1366px) {
+          .section4-headline {
+            font-size: 24px !important;
+          }
+        }
+        @media (min-width: 1025px) {
+          .section4-main-row {
+            display: flex !important;
+            flex-wrap: nowrap !important;
+            align-items: flex-start !important;
+          }
+          .section4-video-col {
+            flex: 0 0 52% !important;
+            max-width: 52% !important;
+          }
+          .section4-content-col {
+            flex: 0 0 48% !important;
+            max-width: 48% !important;
+          }
+          .section4-lists {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            column-gap: 28px !important;
+          }
         }
         @media (max-width: 1024px) {
           .section4-top-header {
@@ -167,17 +266,23 @@ const Section4 = () => {
           .section4-main-row {
             flex-direction: column !important;
             gap: 40px !important;
+            flex-wrap: wrap !important;
           }
           .section4-video-col, .section4-content-col {
             flex: 1 1 100% !important;
             max-width: 100% !important;
           }
+          .section4-lists {
+            display: flex !important;
+            flex-wrap: wrap !important;
+          }
           .section4-headline {
-            font-size: 32px !important;
+            font-size: 28px !important;
+            white-space: nowrap !important;
           }
           .section4-para {
-            font-size: 18px !important;
-            line-height: 1.6 !important;
+            font-size: 20px !important;
+            line-height: 1.55 !important;
           }
         }
       `}</style>
@@ -254,16 +359,30 @@ const ServiceCard = ({ icon, title, desc }) => {
       onMouseLeave={() => setH(false)}
       className="service-card-responsive"
       style={{
-        background: '#0d0d1a',
+        backgroundColor: '#070a1f',
+        backgroundImage: `
+          repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 84px,
+            rgba(74, 90, 170, 0.12) 85px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 84px,
+            rgba(74, 90, 170, 0.12) 85px
+          )
+        `,
         border: `1.5px solid ${h ? '#c8ff00' : 'rgba(200,255,0,0.1)'}`,
-        borderRadius: 24,
-        display: 'flex', flexDirection: 'column', gap: 24,
+        borderRadius: 16,
+        display: 'flex', flexDirection: 'column', gap: 14,
         cursor: 'default',
         transition: 'all 0.3s ease',
-        transform: h ? 'translateY(-9px)' : 'none',
+        transform: h ? 'translateY(-6px)' : 'none',
         boxShadow: h
-          ? '0 30px 75px rgba(200,255,0,0.15)'
-          : '0 6px 22px rgba(0,0,0,0.2)',
+          ? '0 22px 50px rgba(200,255,0,0.14)'
+          : '0 8px 24px rgba(0,0,0,0.22)',
         position: 'relative',
         overflow: 'hidden'
       }}
@@ -276,27 +395,26 @@ const ServiceCard = ({ icon, title, desc }) => {
 
       {/* Icon */}
       <div style={{
-        marginBottom: 12,
+        marginBottom: 2,
         transition: 'all 0.3s ease',
       }}>
         {icon}
       </div>
 
       <h3 style={{
-        fontFamily: "'Syne', sans-serif",
-        fontSize: 21, fontWeight: 700,
-        color: '#c8ff00',
+        fontSize: 16, fontWeight: 700,
+        color: '#7ed316',
         textTransform: 'uppercase',
-        letterSpacing: '0.08em',
+        letterSpacing: '0.03em',
         margin: 0,
       }}>
         {title}
       </h3>
 
       <p style={{
-        fontSize: 19.5, color: 'rgba(255,255,255,0.7)',
-        lineHeight: 1.6, margin: '21px 0 30px',
-        fontFamily: "'DM Sans', sans-serif",
+        fontSize: 12, color: 'rgba(255,255,255,0.9)',
+        lineHeight: 1.55, margin: '6px 0 14px',
+        fontWeight: 500,
       }}>
         {desc}
       </p>
@@ -305,12 +423,14 @@ const ServiceCard = ({ icon, title, desc }) => {
       <LearnMoreBtn />
       <style>{`
         .service-card-responsive {
-          padding: 54px 42px 48px;
+          min-height: 286px;
+          padding: 18px 18px 16px;
         }
         @media (max-width: 768px) {
           .service-card-responsive {
-            padding: 30px 20px !important;
-            gap: 16px !important;
+            min-height: auto !important;
+            padding: 18px 16px !important;
+            gap: 12px !important;
           }
         }
       `}</style>

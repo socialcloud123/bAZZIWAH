@@ -51,7 +51,7 @@ const Section3 = () => {
       {/* Category label */}
       <p style={{
         textAlign: 'center',
-        fontFamily: "'Syne', sans-serif",
+        fontFamily: "'Nunito Sans', sans-serif",
         fontSize: 16.5, fontWeight: 700,
         letterSpacing: '0.18em', textTransform: 'uppercase',
         color: '#888', marginBottom: 72,
@@ -62,14 +62,15 @@ const Section3 = () => {
       {/* Main row */}
       <div className="section3-main-row" style={{
         display: 'flex',
-        alignItems: 'center',
-        gap: 90,
-        flexWrap: 'wrap',
+        alignItems: 'flex-start',
+        gap: 56,
+        flexWrap: 'nowrap',
       }}>
 
         {/* ── LEFT: Video ── */}
         <div className="section3-video-col" style={{
-          flex: '1 1 540px',
+          flex: '0 0 50%',
+          maxWidth: '50%',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -90,16 +91,17 @@ const Section3 = () => {
         </div>
 
         {/* ── RIGHT: Case study info ── */}
-        <div className="section3-content-col" style={{ flex: '1 1 540px', maxWidth: 720 }}>
+        <div className="section3-content-col" style={{ flex: '0 0 50%', maxWidth: '50%' }}>
           <CaseBadge scale={1.5} />
 
           <h2 className="section3-headline" style={{
-            fontFamily: "'Syne', sans-serif",
-            fontWeight: 900,
+            fontFamily: "'Nunito Sans', sans-serif",
+            fontWeight: 500,
             color: '#7c3aed',
             textTransform: 'uppercase',
             lineHeight: 1.2,
             margin: '0 0 21px',
+            whiteSpace: 'nowrap',
           }}>
             Kovedaa Skincare Website
           </h2>
@@ -107,7 +109,7 @@ const Section3 = () => {
           <p className="section3-para" style={{
             color: '#444', lineHeight: 1.6,
             margin: '0 0 48px', maxWidth: 690,
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "'Nunito Sans', sans-serif",
           }}>
             Designed and developed a modern eCommerce<br />
             website for Kovedaa, blending Ayurvedic heritage<br />
@@ -115,12 +117,12 @@ const Section3 = () => {
           </p>
 
           {/* Two-column highlights */}
-          <div style={{ display: 'flex', gap: 48, flexWrap: 'wrap' }}>
+          <div className="section3-lists" style={{ display: 'flex', gap: 32, flexWrap: 'nowrap' }}>
             {/* Project Highlights */}
             <div style={{ flex: '1 1 270px' }}>
               <h4 style={{
-                fontFamily: "'Syne', sans-serif",
-                fontSize: 18, fontWeight: 800,
+                fontFamily: "'Nunito Sans', sans-serif",
+                fontSize: 16, fontWeight: 500,
                 color: '#7c3aed', textTransform: 'uppercase',
                 letterSpacing: '0.1em', margin: '0 0 18px',
               }}>
@@ -130,9 +132,10 @@ const Section3 = () => {
                 {highlights.map((item, i) => (
                   <li key={i} style={{
                     display: 'flex', alignItems: 'flex-start', gap: 10.5,
-                    fontSize: 18, color: '#333', lineHeight: 1.55,
-                    marginBottom: 10.5,
-                    fontFamily: "'DM Sans', sans-serif",
+                    fontSize: 14, color: '#333', lineHeight: 1.45,
+                    marginBottom: 8,
+                    fontFamily: "'Nunito Sans', sans-serif",
+                    fontWeight: 500,
                   }}>
                     <span style={{ color: '#7c3aed', marginTop: 2, flexShrink: 0 }}>•</span>
                     {item}
@@ -144,8 +147,8 @@ const Section3 = () => {
             {/* Outcome */}
             <div style={{ flex: '1 1 270px' }}>
               <h4 style={{
-                fontFamily: "'Syne', sans-serif",
-                fontSize: 18, fontWeight: 800,
+                fontFamily: "'Nunito Sans', sans-serif",
+                fontSize: 16, fontWeight: 500,
                 color: '#7c3aed', textTransform: 'uppercase',
                 letterSpacing: '0.1em', margin: '0 0 18px',
               }}>
@@ -155,9 +158,10 @@ const Section3 = () => {
                 {outcomes.map((item, i) => (
                   <li key={i} style={{
                     display: 'flex', alignItems: 'flex-start', gap: 10.5,
-                    fontSize: 18, color: '#333', lineHeight: 1.55,
-                    marginBottom: 10.5,
-                    fontFamily: "'DM Sans', sans-serif",
+                    fontSize: 14, color: '#333', lineHeight: 1.45,
+                    marginBottom: 8,
+                    fontFamily: "'Nunito Sans', sans-serif",
+                    fontWeight: 500,
                   }}>
                     <span style={{ color: '#7c3aed', marginTop: 2, flexShrink: 0 }}>•</span>
                     {item}
@@ -172,24 +176,49 @@ const Section3 = () => {
       </div>
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;900&family=DM+Sans:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
         .section3-headline {
-          font-size: clamp(33px, 4.2vw, 51px);
+          font-size: clamp(24px, 2.5vw, 36px);
         }
         .section3-para {
           font-size: 22.5px;
+        }
+        @media (min-width: 1025px) {
+          .section3-main-row {
+            display: flex !important;
+            flex-wrap: nowrap !important;
+            align-items: flex-start !important;
+          }
+          .section3-video-col {
+            flex: 0 0 50% !important;
+            max-width: 50% !important;
+          }
+          .section3-content-col {
+            flex: 0 0 50% !important;
+            max-width: 50% !important;
+          }
+          .section3-lists {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            column-gap: 24px !important;
+          }
         }
         @media (max-width: 1024px) {
           .section3-main-row {
             flex-direction: column !important;
             gap: 40px !important;
+            flex-wrap: wrap !important;
           }
           .section3-video-col, .section3-content-col {
             flex: 1 1 100% !important;
             max-width: 100% !important;
           }
+          .section3-lists {
+            display: flex !important;
+            flex-wrap: wrap !important;
+          }
           .section3-headline {
-            font-size: 32px !important;
+            font-size: 24px !important;
           }
           .section3-para {
             font-size: 18px !important;
@@ -228,9 +257,9 @@ const CaseBadge = ({ dark = false, scale = 1 }) => (
       color: '#fff',
       fontSize: 10 * scale, fontWeight: 700,
       letterSpacing: '0.12em', textTransform: 'uppercase',
-      fontFamily: "'Syne', sans-serif",
+      fontFamily: "'Nunito Sans', sans-serif",
     }}>
-      CASE STUIFDS
+      CASE STUDIES
     </span>
   </div>
 );
@@ -248,13 +277,13 @@ const KnowMoreBtn = ({ dark = false, scale = 1 }) => {
         border: 'none',
         borderRadius: 50 * scale,
         padding: `${14 * scale}px ${40 * scale}px`,
-        fontSize: 12 * scale, fontWeight: 800,
+        fontSize: 10.5 * scale, fontWeight: 800,
         letterSpacing: '0.12em', textTransform: 'uppercase',
         cursor: 'pointer',
         transition: 'all 0.3s ease',
         transform: h ? `translateY(${-3 * scale}px)` : 'none',
         boxShadow: h ? `0 ${10 * scale}px ${25 * scale}px rgba(124,58,237,0.5)` : `0 ${4 * scale}px ${15 * scale}px rgba(124,58,237,0.3)`,
-        fontFamily: "'Syne', sans-serif",
+        fontFamily: "'Nunito Sans', sans-serif",
         marginTop: 32 * scale,
       }}
     >

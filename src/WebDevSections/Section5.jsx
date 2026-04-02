@@ -5,8 +5,12 @@ import { services, ServiceCard } from './Section4';
 
 const Section5 = () => (
   <section style={{
-    background: '#f5ffe8',
-    padding: '96px 6% 108px',
+    backgroundColor: '#e8f1dc',
+    backgroundImage: `
+      radial-gradient(circle at -8% 38%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 22%, transparent 44%),
+      linear-gradient(180deg, rgba(12,15,44,0.95) 0px, rgba(12,15,44,0.95) 16px, transparent 16px)
+    `,
+    padding: '72px 6% 88px',
     boxSizing: 'border-box',
     position: 'relative',
     overflow: 'hidden',
@@ -26,20 +30,18 @@ const Section5 = () => (
     }} />
 
     {/* Header */}
-    <div style={{ textAlign: 'center', marginBottom: 90, position: 'relative', zIndex: 1 }}>
+    <div style={{ textAlign: 'center', marginBottom: 52, position: 'relative', zIndex: 1 }}>
       <p style={{
-        fontFamily: "'Syne', sans-serif",
-        fontSize: 21, fontWeight: 800, color: '#7c3aed',
-        letterSpacing: '0.2em', textTransform: 'uppercase',
-        marginBottom: 30,
+        fontSize: 35, fontWeight: 800, color: '#7c4dff',
+        letterSpacing: '0.06em', textTransform: 'uppercase',
+        marginBottom: 18,
       }}>
         What We Offer
       </p>
       <p style={{
-        fontSize: 'clamp(27px, 3.75vw, 33px)',
-        color: '#1a1a1a', lineHeight: 1.6,
-        maxWidth: 1020, margin: '0 auto',
-        fontFamily: "'DM Sans', sans-serif",
+        fontSize: 'clamp(22px, 2.8vw, 34px)',
+        color: '#161616', lineHeight: 1.42,
+        maxWidth: 930, margin: '0 auto',
         fontWeight: 500
       }}>
         We align strategy with digital innovation to propel your success.
@@ -50,7 +52,7 @@ const Section5 = () => (
     {/* 3×2 Grid */}
     <div className="section5-grid" style={{
       display: 'grid',
-      maxWidth: 1710,
+      maxWidth: 1420,
       margin: '0 auto',
     }}>
       {services.map((s, i) => (
@@ -59,15 +61,14 @@ const Section5 = () => (
     </div>
 
     <style>{`
-      @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;900&family=DM+Sans:wght@400;600&display=swap');
       .section5-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 36px;
+        gap: 30px;
       }
       @media (max-width: 1024px) {
         .section5-grid {
           grid-template-columns: repeat(2, 1fr) !important;
-          gap: 24px !important;
+          gap: 20px !important;
         }
       }
       @media (max-width: 768px) {

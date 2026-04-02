@@ -6,20 +6,19 @@ const Section7 = () => {
 
   return (
     <section style={{
-      background: '#f5ffe8',
-      padding: '80px 5% 120px',
+      background: '#dfead2',
+      padding: '58px 1.8% 86px',
       textAlign: 'center',
       position: 'relative',
       overflow: 'hidden'
     }}>
       <h2 style={{
-        fontFamily: "'Syne', sans-serif",
-        fontSize: 18,
+        fontSize: 34,
         fontWeight: 800,
-        color: '#7c3aed',
+        color: '#6c2ecf',
         textTransform: 'uppercase',
-        letterSpacing: '0.15em',
-        marginBottom: 10
+        letterSpacing: '0.05em',
+        marginBottom: 4
       }}>
         PROCESS TIMELINE
       </h2>
@@ -29,28 +28,21 @@ const Section7 = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: 15,
-        marginBottom: 70
+        gap: 14,
+        marginBottom: 44
       }}>
-        <div style={{ height: 1, width: 100, borderBottom: '2px solid rgba(124,58,237,0.3)' }} />
-        <div style={{
-          width: 34, height: 34,
-          border: '2.5px solid #7c3aed',
-          transform: 'rotate(45deg)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center'
-        }}>
-          <div style={{ width: 14, height: 14, background: '#7c3aed' }} />
-        </div>
-        <div style={{ height: 1, width: 100, borderBottom: '2px solid rgba(124,58,237,0.3)' }} />
+        <div style={{ height: 1, width: 300, background: 'rgba(108,46,207,0.45)' }} />
+        <div style={{ color: '#6c2ecf', fontSize: 18, lineHeight: 1 }}>✤</div>
+        <div style={{ height: 1, width: 300, background: 'rgba(108,46,207,0.45)' }} />
       </div>
 
       {/* Chevron Timeline */}
-      <div style={{
+      <div className="timeline-row" style={{
         display: 'flex',
-        flexWrap: 'wrap',
+        flexWrap: 'nowrap',
         justifyContent: 'center',
-        gap: 6,
-        maxWidth: 1500,
+        gap: 0,
+        maxWidth: 1440,
         margin: '0 auto'
       }}>
         {steps.map((text, i) => {
@@ -77,36 +69,44 @@ const Section7 = () => {
 
       <style>{`
         .timeline-step {
-          background: #7c3aed;
+          background: #6428c4;
           color: #fff;
-          padding: 32px 50px 32px 60px;
-          fontSize: 18px;
-          fontWeight: 800;
-          fontFamily: 'Syne', sans-serif;
-          letter-spacing: 0.05em;
-          flex: 1 1 240px;
-          min-width: 200px;
+          padding: 0 42px;
+          font-size: 36px;
+          font-weight: 700;
+          letter-spacing: 0.03em;
+          height: 92px;
+          width: 260px;
           text-align: center;
-          margin: 10px -5px;
-          cursor: pointer;
-          transition: all 0.3s ease;
+          margin: 0 -7px 0 0;
           display: flex;
           align-items: center;
           justify-content: center;
         }
-        .timeline-step:hover {
-          background: #5b21b6;
-          transform: translateY(-5px);
-          filter: drop-shadow(0 15px 25px rgba(124,58,237,0.35));
+        @media (max-width: 1200px) {
+          .timeline-row {
+            flex-wrap: wrap !important;
+            gap: 12px !important;
+          }
+          .timeline-step {
+            width: 220px !important;
+            height: 78px !important;
+            font-size: 28px !important;
+            margin: 0 !important;
+          }
         }
         @media (max-width: 768px) {
+          .timeline-row {
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 10px !important;
+          }
           .timeline-step {
+            width: min(92vw, 360px) !important;
+            height: 66px !important;
+            font-size: 22px !important;
             clip-path: none !important;
-            border-radius: 12px !important;
-            padding: 24px 30px !important;
-            margin: 8px 0 !important;
-            flex: 1 1 100% !important;
-            width: 100% !important;
+            border-radius: 10px !important;
           }
         }
       `}</style>

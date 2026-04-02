@@ -10,7 +10,14 @@ import Section9 from './Section9';
 import Section10 from './Section10';
 
 const WebDevPage = () => (
-  <>
+  <div className="webdev-page-font">
+    <style>{`
+      @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800;900&display=swap');
+      .webdev-page-font,
+      .webdev-page-font * {
+        font-family: 'Nunito Sans', sans-serif !important;
+      }
+    `}</style>
     <Section1 />
     <Section2 />
     <Section3 />
@@ -21,7 +28,7 @@ const WebDevPage = () => (
     <Section8 />
     <Section9 />
     <Section10 />
-  </>
+  </div>
 );
 
 export default WebDevPage;

@@ -3,63 +3,63 @@
 
 const Section9 = () => (
   <section style={{
-    background: '#fff',
-    padding: '108px 6% 120px',
+    background: '#ececec',
+    padding: '44px 5% 66px',
     boxSizing: 'border-box',
   }}>
     {/* Section label + decorative divider */}
-    <div style={{ textAlign: 'center', marginBottom: 78 }}>
+    <div style={{ textAlign: 'center', marginBottom: 34 }}>
       <p style={{
-        fontFamily: "'Syne', sans-serif",
-        fontSize: 19.5, fontWeight: 800,
-        color: '#7c3aed',
-        letterSpacing: '0.22em', textTransform: 'uppercase',
-        marginBottom: 27,
+        fontSize: 34,
+        fontWeight: 800,
+        color: '#6f34d2',
+        letterSpacing: '0.05em',
+        textTransform: 'uppercase',
+        marginBottom: 8,
       }}>
         What We Do
       </p>
-      {/* Decorative diamond divider */}
+      {/* Decorative center divider */}
       <div style={{
         display: 'flex', alignItems: 'center',
-        justifyContent: 'center', gap: 21, marginBottom: 0,
+        justifyContent: 'center', gap: 10, marginBottom: 0,
       }}>
-        <div style={{ height: 1, width: 165, borderBottom: '3px solid rgba(124,58,237,0.3)' }} />
-        <div style={{
-          width: 45, height: 45,
-          border: '3.75px solid #7c3aed',
-          transform: 'rotate(45deg)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center'
-        }}>
-          <div style={{ width: 18, height: 18, background: '#7c3aed' }} />
-        </div>
-        <div style={{ height: 1, width: 165, borderBottom: '3px solid rgba(124,58,237,0.3)' }} />
+        <div style={{ height: 1, width: 260, background: 'rgba(111,52,210,0.5)' }} />
+        <span style={{ color: '#6f34d2', fontSize: 18, lineHeight: 1 }}>❈</span>
+        <div style={{ height: 1, width: 260, background: 'rgba(111,52,210,0.5)' }} />
       </div>
     </div>
 
     {/* Two-column header */}
     <div style={{
-      display: 'flex', gap: 72, flexWrap: 'wrap',
-      maxWidth: 1650, margin: '0 auto 84px',
+      display: 'grid',
+      gridTemplateColumns: '1fr 1.35fr',
+      gap: 30,
+      maxWidth: 1420, margin: '0 auto 46px',
       alignItems: 'flex-start',
     }}>
-      <div style={{ flex: '1 1 480px' }}>
+      <div>
         <p style={{
-          fontFamily: "'Syne', sans-serif",
-          fontSize: 'clamp(30px, 3.6vw, 42px)',
-          fontWeight: 900, color: '#1a1a1a',
-          lineHeight: 1.25, margin: 0,
+          fontSize: 'clamp(26px, 2.1vw, 38px)',
+          fontWeight: 700,
+          color: '#111',
+          lineHeight: 1.25,
+          margin: 0,
         }}>
           Our Work Delivers{' '}
-          <span style={{ color: '#7c3aed' }}>Innovative Solutions and Impressive Results</span>
+          <span style={{ color: '#5f2cb8' }}>Innovative Solutions and Impressive Results</span>
         </p>
       </div>
-      <div style={{ flex: '1 1 480px' }}>
+      <div>
         <p style={{
-          fontSize: 22.5, color: '#333', lineHeight: 1.8,
-          fontFamily: "'DM Sans', sans-serif", margin: 0, fontWeight: 500,
+          fontSize: 24,
+          color: '#111',
+          lineHeight: 1.32,
+          margin: 0,
+          fontWeight: 700,
         }}>
           Our portfolio highlights creative{' '}
-          <span style={{ color: '#7c3aed', fontWeight: 700 }}>web design, high-conversion e-commerce platforms, and impactful digital marketing</span>.
+          <span style={{ color: '#5f2cb8', fontWeight: 700 }}>web design, high-conversion e-commerce platforms, and impactful digital marketing</span>.
           {' '}Each project reflects our passion for excellence, strategic execution, and commitment to
           achieving client success with bold, innovative solutions.
         </p>
@@ -69,7 +69,7 @@ const Section9 = () => (
     {/* Grid Content */}
     <div className="section9-grid" style={{
       display: 'grid',
-      maxWidth: 1600,
+      maxWidth: 1560,
       margin: '0 auto',
       position: 'relative',
       zIndex: 1,
@@ -84,29 +84,46 @@ const Section9 = () => (
       ].map((src, i) => (
         <div key={i} className="portfolio-item" style={{
           position: 'relative',
-          borderRadius: 21,
+          borderRadius: 12,
           overflow: 'hidden',
-          boxShadow: '0 15px 45px rgba(0,0,0,0.4)',
-          border: '1px solid rgba(255,255,255,0.05)',
-          background: '#0d0d1a',
-          cursor: 'pointer',
-          aspectRatio: '16/10',
+          boxShadow: 'none',
+          border: 'none',
+          background: 'transparent',
+          aspectRatio: '16/9.2',
         }}>
           <img
             src={src}
             alt={`Portfolio ${i + 1}`}
             style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+              width: '112%',
+              height: '112%',
+              objectFit: 'contain',
+              borderRadius: 12,
+              marginLeft: '-6%',
+              marginTop: '-6%',
             }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.08)'}
-            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
           />
         </div>
       ))}
     </div>
+    <style>{`
+      .section9-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px 16px;
+      }
+      @media (max-width: 1200px) {
+        .section9-grid {
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 18px !important;
+        }
+      }
+      @media (max-width: 1024px) {
+        .section9-grid {
+          grid-template-columns: 1fr !important;
+          gap: 16px !important;
+        }
+      }
+    `}</style>
   </section>
 );
 /* ════════════════════════════════════════════
