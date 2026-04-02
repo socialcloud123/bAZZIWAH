@@ -109,17 +109,17 @@ const Branding = () => {
   }, []);
 
   return (
-    <>
+    <div className="branding-page">
       <section className="relative z-[2] m-0 w-full p-0 leading-none">
         <img
-          className="block h-auto w-full"
+          className="block w-full h-[190px] object-cover sm:h-[190px] md:h-[420px] lg:h-[720px]"
           src="/banners/branding-page-banner.png"
           alt="Branding banner"
         />
       </section>
 
       <section
-        className="relative z-[1] -mt-[200px] px-10 pb-10 pt-[210px] text-center"
+        className="relative z-[1] -mt-[120px] px-5 pb-8 pt-[140px] text-center sm:px-8 sm:pt-[170px] md:-mt-[200px] md:px-10 md:pb-10 md:pt-[210px]"
         style={{
           backgroundImage: "url('/shared-purple-grid-bg.png')",
           backgroundSize: 'cover',
@@ -128,7 +128,7 @@ const Branding = () => {
         }}
       >
         <div
-          className="relative mx-auto mb-6 h-[600px] w-[700px] max-w-[90vw]"
+          className="relative mx-auto mb-6 h-[420px] w-[90vw] max-w-[520px] sm:h-[500px] sm:max-w-[600px] md:h-[600px] md:w-[700px] md:max-w-[90vw]"
           style={{ perspective: '1200px' }}
         >
           {pages.map((page, idx) => (
@@ -149,8 +149,8 @@ const Branding = () => {
                 }
               />
               {page.cover ? (
-                <figure className="absolute inset-0 overflow-hidden bg-[#ffcb63] [backface-visibility:hidden] rounded-r-[10px] shadow-[2px_2px_15px_-2px_rgba(0,0,0,0.2)] text-left px-8 py-10">
-                  <h1 className="text-2xl font-semibold tracking-wide text-white">
+                <figure className="absolute inset-0 overflow-hidden bg-[#ffcb63] [backface-visibility:hidden] rounded-r-[10px] shadow-[2px_2px_15px_-2px_rgba(0,0,0,0.2)] text-left px-6 py-8 sm:px-8 sm:py-10">
+                  <h1 className="text-xl font-semibold tracking-wide text-white sm:text-2xl">
                     SRIPADA STUDIOS
                   </h1>
                   <p className="mt-2 text-xs uppercase tracking-[0.28em] text-black/80">
@@ -167,18 +167,18 @@ const Branding = () => {
           ))}
         </div>
 
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex items-center justify-center gap-3 sm:gap-4">
           <button
             type="button"
             onClick={flipLeft}
-            className="inline-flex items-center rounded-full border border-white/40 bg-white/15 px-6 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-[0_10px_24px_rgba(0,0,0,0.2)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/20"
+            className="inline-flex items-center rounded-full border border-white/40 bg-white/15 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white shadow-[0_10px_24px_rgba(0,0,0,0.2)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/20 sm:px-6 sm:text-xs"
           >
             Prev
           </button>
           <button
             type="button"
             onClick={flipRight}
-            className="inline-flex items-center rounded-full border border-white/40 bg-white/15 px-6 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-[0_10px_24px_rgba(0,0,0,0.2)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/20"
+            className="inline-flex items-center rounded-full border border-white/40 bg-white/15 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white shadow-[0_10px_24px_rgba(0,0,0,0.2)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/20 sm:px-6 sm:text-xs"
           >
             Next
           </button>
@@ -205,19 +205,19 @@ const Branding = () => {
             parallaxStrength={0}
           >
             {[
-              '/branding images/SSD_Performance-Marketing-Webpage-2.png',
-              '/branding images/SSD_Performance-Marketing-Webpage-45.png',
-              '/branding images/SSD_Performance-Marketing-Webpage-50.png',
-              '/branding images/SSD_Performance-Marketing-Webpage-48.png',
-              '/branding images/SSD_Performance-Marketing-Webpage-46.png',
-              '/branding images/SSD_Performance-Marketing-Webpage-49.png',
-              '/branding images/SSD_Performance-Marketing-Webpage-47.png',
-            ].map((src, idx) => (
-              <ScrollStackItem itemClassName="parallax-card" key={`parallax-${src}`}>
-                <div className="parallax-media" style={{ backgroundImage: `url('${src}')` }} />
+              { src: '/branding images/SSD_Performance-Marketing-Webpage-2.png', label: 'Brand Strategy' },
+              { src: '/branding images/SSD_Performance-Marketing-Webpage-45.png', label: 'Competitive Analysis' },
+              { src: '/branding images/SSD_Performance-Marketing-Webpage-50.png', label: 'Brand Guidelines' },
+              { src: '/branding images/SSD_Performance-Marketing-Webpage-48.png', label: 'Tone of Voice & Messaging Frameworks' },
+              { src: '/branding images/SSD_Performance-Marketing-Webpage-46.png', label: 'Strategic Planning & Alignment' },
+              { src: '/branding images/SSD_Performance-Marketing-Webpage-49.png', label: 'Branding & Packaging Design' },
+              { src: '/branding images/SSD_Performance-Marketing-Webpage-47.png', label: 'Final Brand Deliverables' },
+            ].map((item, idx) => (
+              <ScrollStackItem itemClassName="parallax-card" key={`parallax-${item.src}`}>
+                <div className="parallax-media" style={{ backgroundImage: `url('${item.src}')` }} />
                 <div className="parallax-label">
                   <span>{`0${idx + 1}`}</span>
-                  <span>Project</span>
+                  <span>{item.label}</span>
                 </div>
               </ScrollStackItem>
             ))}
@@ -477,7 +477,7 @@ const Branding = () => {
           <div className="footer-copy">2026 Buzziwah.com | All Rights Reserved</div>
         </div>
       </footer>
-    </>
+    </div>
   );
 };
 

@@ -2,8 +2,81 @@ import { useRef, useState, useEffect } from 'react';
 import '../home/Home.css';
 
 const SocialMediaPage = () => {
+  const [brandCount, setBrandCount] = useState(0);
+  const brandCounterRef = useRef(null);
+  const hasAnimatedRef = useRef(false);
+
+  useEffect(() => {
+    const el = brandCounterRef.current;
+    if (!el || hasAnimatedRef.current) return;
+
+    const target = 60;
+    let rafId = 0;
+
+    const startCount = () => {
+      if (hasAnimatedRef.current) return;
+      hasAnimatedRef.current = true;
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (reducedMotion) {
+        setBrandCount(target);
+        return;
+      }
+
+      const duration = 1600;
+      const start = performance.now();
+
+      const tick = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = Math.round(eased * target);
+        setBrandCount(value);
+
+        if (progress < 1) {
+          rafId = requestAnimationFrame(tick);
+        }
+      };
+
+      rafId = requestAnimationFrame(tick);
+    };
+
+    const startIfVisible = () => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= window.innerHeight * 0.8 && rect.bottom >= 0) {
+        startCount();
+        return true;
+      }
+      return false;
+    };
+
+    if (startIfVisible()) return;
+
+    if (typeof IntersectionObserver === 'undefined') {
+      startCount();
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          startCount();
+          observer.disconnect();
+        }
+      },
+      { threshold: 0, rootMargin: '0px 0px -10% 0px' }
+    );
+
+    observer.observe(el);
+
+    return () => {
+      observer.disconnect();
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, []);
+
   return (
-    <>
+    <div className="social-media-page">
       <section className="relative z-[2] m-0 w-full p-0 leading-none">
         <img
           src="https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-4-1-scaled.png"
@@ -12,16 +85,16 @@ const SocialMediaPage = () => {
         />
       </section>
 
-      <section className="relative z-[1] -mt-[200px] bg-gradient-to-br from-[#1a0533] via-[#2d1b69] to-[#1a0533] px-10 pb-10 pt-[210px]">
-        <div className="mx-auto flex max-w-[1200px] items-center gap-12">
+      <section className="relative z-[1] -mt-[200px] bg-gradient-to-br from-[#1a0533] via-[#2d1b69] to-[#1a0533] px-5 pb-10 pt-[210px] sm:px-10">
+        <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-12 lg:flex-row">
           <div className="flex-1 flex justify-center items-end">
             <img
               src="https://sripadastudiosdigital.com/wp-content/uploads/2026/03/Social-Media-Management.png"
               alt="Social Media Management"
-              className="w-full max-w-[480px] h-auto object-contain translate-y-10"
+              className="w-full max-w-[480px] h-auto object-contain translate-y-6 lg:translate-y-10"
             />
           </div>
-          <div className="max-w-[580px] text-left translate-y-10 bbbbb-fiu" style={{ '--fiu-delay': '0.1s' }}>
+          <div className="max-w-[580px] text-left translate-y-6 lg:translate-y-10 bbbbb-fiu" style={{ '--fiu-delay': '0.1s' }}>
             <h2 className="mb-5 font-['Montserrat'] text-[clamp(24px,3vw,40px)] font-bold leading-tight text-[#83cd15]">
               Social Media Management
             </h2>
@@ -45,15 +118,15 @@ const SocialMediaPage = () => {
         </div>
       </section>
 
-      <section className="bg-[#f2fde4] px-10 py-20">
-        <div className="mx-auto grid max-w-[1200px] grid-cols-[repeat(auto-fit,minmax(480px,1fr))] items-center gap-16">
+      <section className="bg-[#f2fde4] px-5 py-16 sm:px-10 sm:py-20">
+        <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-16 lg:grid-cols-[repeat(auto-fit,minmax(480px,1fr))]">
           <div className="relative">
             <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
                 <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" fill="#eab308" />
               </svg>
             </div>
-            <div className="relative z-0 grid grid-cols-2 gap-5">
+            <div className="relative z-0 grid grid-cols-1 gap-5 sm:grid-cols-2">
               <FeatureCard
                 className="smm-fade"
                 style={{ '--fx': '-16px', '--fy': '-16px', '--delay': '0s' }}
@@ -124,8 +197,12 @@ const SocialMediaPage = () => {
             <p className="mb-1 font-['Montserrat'] text-xs font-bold uppercase tracking-[0.08em] text-[#7fc52b]">
               We are with
             </p>
-            <p className="mb-9 font-['Montserrat'] text-[clamp(32px,4vw,48px)] font-extrabold leading-none tracking-[-2px] text-[#7fc52b]">
-              60+ Brands
+            <p
+              className="mb-9 font-['Montserrat'] text-[clamp(32px,4vw,48px)] font-extrabold leading-none tracking-[-2px] text-[#7fc52b]"
+              style={{ fontVariantNumeric: 'tabular-nums' }}
+              ref={brandCounterRef}
+            >
+              {brandCount}+ Brands
             </p>
             <a
               href="#"
@@ -141,12 +218,16 @@ const SocialMediaPage = () => {
         </div>
       </section>
 
-      <section className="bg-black px-6 py-12">
-        <div className="mx-auto max-w-[1200px]">
+      <section className="smm-hero-bg relative overflow-hidden px-5 py-12 sm:px-6">
+        <div className="smm-orb smm-orb-1" />
+        <div className="smm-orb smm-orb-2" />
+        <div className="smm-orb smm-orb-3" />
+        <div className="smm-mesh" />
+        <div className="relative z-[1] mx-auto max-w-[1200px]">
           <h2 className="mb-8 text-left font-['Montserrat'] text-[clamp(24px,3vw,36px)] font-extrabold text-white">
             MOVIE POSTER
           </h2>
-          <div className="grid gap-8 lg:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
               'https://sripadastudiosdigital.com/wp-content/uploads/2025/05/Gx_fXOiJ4X0-HD-1.jpg',
               'https://sripadastudiosdigital.com/wp-content/uploads/2025/05/G9_The-Judgement_1080-1350-instagram_English.png',
@@ -185,73 +266,9 @@ const SocialMediaPage = () => {
       <Section6 />
       <Section7 />
       <Section8 />
-      <Section9 />
       <SMFaq />
-
-      <footer className="site-footer">
-        <div className="footer-cta">
-          <img
-            className="footer-logo"
-            src="https://sripadastudiosdigital.com/wp-content/uploads/2024/01/Copy-of-About-Us-Page-SSD-WEBSITE-DESIGN-1366-x-768-px-3.png"
-            alt="Sripada Studios Digital"
-          />
-          <div className="footer-cta-text">Ready To Get Started</div>
-          <button className="footer-cta-button" type="button">Get Started →</button>
-        </div>
-        <div className="footer-divider" />
-        <div className="footer-grid">
-          <div className="footer-col">
-            <h4>SUBSCRIBE TO OUR NEWSLETTER</h4>
-            <input className="footer-input" type="text" placeholder="Name" />
-            <input className="footer-input" type="email" placeholder="Email Address" />
-            <button className="footer-subscribe" type="button">Subscribe</button>
-          </div>
-          <div className="footer-col">
-            <h4>SERVICES</h4>
-            <ul>
-              <li>Performance Marketing</li>
-              <li>Social Media Management</li>
-              <li>Website Development</li>
-              <li>Branding and Re-branding</li>
-            </ul>
-          </div>
-          <div className="footer-col">
-            <h4>ABOUT</h4>
-            <ul>
-              <li>Our Story</li>
-              <li>Benefits</li>
-              <li>Team</li>
-              <li>Careers</li>
-            </ul>
-          </div>
-          <div className="footer-col">
-            <h4>NAVIGATION</h4>
-            <ul>
-              <li>Content Solution</li>
-              <li>Video Production</li>
-              <li>Search Engine Optimization</li>
-              <li>Influencer Marketing</li>
-            </ul>
-          </div>
-          <div className="footer-col">
-            <h4>HELP</h4>
-            <ul>
-              <li>FAQs</li>
-              <li>Contact Us</li>
-            </ul>
-          </div>
-        </div>
-        <div className="footer-divider" />
-        <div className="footer-bottom">
-          <div className="footer-socials">
-            <span className="footer-social">f</span>
-            <span className="footer-social">ig</span>
-            <span className="footer-social">yt</span>
-          </div>
-          <div className="footer-copy">2026 Buzziwah.com | All Rights Reserved</div>
-        </div>
-      </footer>
-    </>
+      <Section9 />
+    </div>
   );
 };
 
@@ -292,7 +309,7 @@ const FlipCard = ({ src, alt }) => {
     >
       <div
         ref={cardRef}
-        className="relative h-[400px] w-full cursor-pointer overflow-hidden rounded-xl shadow-[0_8px_15px_rgba(0,0,0,0.2)] transition-transform duration-500"
+        className="relative h-[260px] w-full cursor-pointer overflow-hidden rounded-xl shadow-[0_8px_15px_rgba(0,0,0,0.2)] transition-transform duration-500 sm:h-[320px] lg:h-[400px]"
         style={{ transformStyle: 'preserve-3d' }}
       >
         <img src={src} alt={alt} className="h-full w-full object-cover object-center" />
@@ -319,7 +336,7 @@ const Section4 = () => {
         <h2 className="font-['Montserrat'] text-[clamp(24px,3vw,40px)] font-extrabold text-[#c8f03d]">
           We're Here To Change Your Business Look
         </h2>
-        <p className="text-sm text-[#aaa]">Click to watch the Digital Journey of progression.</p>
+        
       </div>
       <div className="mx-auto flex max-w-[1440px] flex-col gap-8">
         {rows.map((row, i) => (
@@ -402,7 +419,7 @@ const IgPhone = () => {
 };
 
 const Section5 = () => (
-  <section className="px-10 py-16" style={{ background: "url('/shared-light-pattern-bg.png') center/cover no-repeat" }}>
+  <section className="px-5 py-14 sm:px-10 sm:py-16" style={{ background: "url('/shared-light-pattern-bg.png') center/cover no-repeat" }}>
     <div className="mb-12 text-center">
       <p className="text-[15px] leading-[1.7] text-[#333]">
         Creating a brand and establishing is quite a job.<br />
@@ -411,7 +428,7 @@ const Section5 = () => (
       </p>
     </div>
 
-    <div className="mx-auto grid max-w-[1100px] grid-cols-2 items-start gap-16">
+    <div className="mx-auto grid max-w-[1100px] grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
       <div className="flex flex-col items-start gap-6">
         <h2 className="font-['Montserrat'] text-[clamp(28px,3.5vw,48px)] font-black leading-[0.95] text-[#7c3aed]">
           YOUR POST
@@ -421,7 +438,7 @@ const Section5 = () => (
 
       <div className="flex flex-col gap-3">
         <h3 className="mb-2 text-center font-['Montserrat'] text-lg font-bold text-[#7c3aed]">
-          Instagram Carousel Strategy By Sripada Studios Digital
+          Instagram Carousel Strategy By Buzziwah
         </h3>
         {strategyCards.map((c, i) => (
           <div
@@ -450,7 +467,7 @@ const sssImages = [
 ];
 
 const storiesCards = [
-  { heading: 'Engaging & On-Brand Stories', text: 'At Sripada Studios Digital, we create engaging, on-brand Stories that connect instantly with your audience. From product launches to behind-the-scenes, our Stories boost interaction and amplify your digital presence.' },
+  { heading: 'Engaging & On-Brand Stories', text: 'At Buzziwah, we create engaging, on-brand Stories that connect instantly with your audience. From product launches to behind-the-scenes, our Stories boost interaction and amplify your digital presence.' },
   { heading: 'Goal-Driven Concept Development', text: 'We begin with your objectives and craft creative strategies that align with your brand. Every concept is built to drive engagement, boost performance, and achieve measurable results.' },
   { heading: 'Consistent Brand Integration', text: 'By highlighting your brand in all the creatives, we ensure it echoes across all the platforms on social media.' },
   { heading: 'Mobile-Optimized Design', text: 'We create mobile-first experiences that prioritize speed, usability, and seamless navigation. From UI to content flow, every element is tailored for smaller screens without compromising impact.' },
@@ -492,11 +509,15 @@ const StoryPhone = () => {
 };
 
 const Section6 = () => (
-  <section className="bg-[#0a0a0a] px-10 py-16">
-    <div className="mx-auto grid max-w-[1100px] grid-cols-2 items-start gap-16">
+  <section className="smm-hero-bg relative overflow-hidden px-5 py-14 sm:px-10 sm:py-16">
+    <div className="smm-orb smm-orb-1" />
+    <div className="smm-orb smm-orb-2" />
+    <div className="smm-orb smm-orb-3" />
+    <div className="smm-mesh" />
+    <div className="relative z-[1] mx-auto grid max-w-[1100px] grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
       <div className="flex flex-col gap-3">
         <h3 className="mb-2 text-center font-['Montserrat'] text-lg font-bold text-[#7c3aed]">
-          Instagram Stories by Sripada Studios Digital
+          Instagram Stories by Buzziwah
         </h3>
         {storiesCards.map((c, i) => (
           <div
@@ -530,7 +551,7 @@ const reelVideos = [
 ];
 
 const reelsCards = [
-  { heading: 'Engaging Reels That Convert', text: 'At Sripada Studios Digital, we craft scroll-stopping Reels that boost brand visibility and engagement. From product highlights to behind-the-scenes clips, our content blends creativity with strategy to tell your brand story and grow your community.' },
+  { heading: 'Engaging Reels That Convert', text: 'At Buzziwah, we craft scroll-stopping Reels that boost brand visibility and engagement. From product highlights to behind-the-scenes clips, our content blends creativity with strategy to tell your brand story and grow your community.' },
   { heading: 'Content Strategy & Hook Planning', text: 'We begin with your goals—be it reach, sales, or traffic—and build tailored storyboards and scripts using trending hooks and audience insights to maximize impact and engagement.' },
   { heading: 'Brand-Integrated Visuals', text: 'Each Reel is tailored to reflect your visual identity—logo, colors, fonts, and tone—ensuring consistency across your digital presence.' },
   { heading: 'Narrative-Driven Creativity', text: "We blend storytelling with structure, delivering Reels that take your audience on a clear, compelling journey—whether it's 15 seconds or a full 60." },
@@ -588,8 +609,8 @@ const ReelPhone = () => {
 };
 
 const Section7 = () => (
-  <section className="px-10 py-16" style={{ background: "url('/shared-light-pattern-bg.png') center/cover no-repeat" }}>
-    <div className="mx-auto grid max-w-[1100px] grid-cols-2 items-start gap-16">
+  <section className="px-5 py-14 sm:px-10 sm:py-16" style={{ background: "url('/shared-light-pattern-bg.png') center/cover no-repeat" }}>
+    <div className="mx-auto grid max-w-[1100px] grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
       <div className="flex flex-col items-start gap-6">
         <h2 className="font-['Montserrat'] text-[clamp(52px,8vw,96px)] font-black leading-[0.95] text-[#7c3aed]">
           REEL
@@ -598,7 +619,7 @@ const Section7 = () => (
       </div>
       <div className="flex flex-col gap-3">
         <h3 className="mb-2 text-center font-['Montserrat'] text-lg font-bold text-[#7c3aed]">
-          Instagram Reels By Sripada Studios Digital
+          Instagram Reels By Buzziwah
         </h3>
         {reelsCards.map((c, i) => (
           <div
@@ -634,18 +655,20 @@ const carouselImages = [
 ];
 
 const Section8 = () => (
-  <section className="py-16" style={{ background: "url('/social-media-viral-section-bg.png') center/cover no-repeat" }}>
-    <div className="mb-10 px-10 text-center">
+  <section className="smm-hero-bg relative overflow-hidden py-14 sm:py-16">
+    <div className="smm-orb smm-orb-1" />
+    <div className="smm-orb smm-orb-2" />
+    <div className="smm-orb smm-orb-3" />
+    <div className="smm-mesh" />
+    <div className="relative z-[1] mb-10 px-10 text-center">
       <h2 className="font-['Montserrat'] text-[clamp(24px,4vw,48px)] font-black text-[#7c3aed]">
-        SPECIAL DAY CREATIVE
+        PRODUCTION HOUSE MANAGEMENT
       </h2>
     </div>
 
-    <div className="mx-auto grid max-w-[1200px] grid-cols-2 items-center gap-12 px-10">
+    <div className="relative z-[1] mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-12 px-5 sm:px-10 lg:grid-cols-2">
       <div>
-        <h3 className="mb-5 font-['Montserrat'] text-[22px] font-extrabold text-[#7fc52b]">
-          PRODUCTION HOUSE MANAGEMENT
-        </h3>
+
         <p className="mb-4 text-[15px] leading-[1.85] text-white text-justify">
           At Sripada Studios, we specialize in <strong>social media management for film production houses</strong>, delivering consistent and impactful digital presence year-round. From managing high-engagement campaigns during peak <strong>film release seasons</strong> to keeping audiences captivated with <strong>behind-the-scenes trivia</strong>, <strong>interactive challenges</strong>, <strong>special day celebrations</strong>, and curated <strong>social media campaigns</strong>, we ensure every production house remains relevant and connected. Our strategic approach not only boosts online engagement but also strengthens <strong>brand sustainability</strong> in the competitive entertainment industry.
         </p>
@@ -736,23 +759,27 @@ const VideoCarousel = () => {
 };
 
 const Section9 = () => (
-  <section className="bg-[#0a0a0a] px-10 py-16">
-    <div className="mx-auto max-w-[1100px]">
+  <section className="smm-hero-bg relative overflow-hidden px-5 py-14 sm:px-10 sm:py-16">
+    <div className="smm-orb smm-orb-1" />
+    <div className="smm-orb smm-orb-2" />
+    <div className="smm-orb smm-orb-3" />
+    <div className="smm-mesh" />
+    <div className="relative z-[1] mx-auto max-w-[1100px]">
       <h2 className="mb-12 text-center font-['Montserrat'] text-[clamp(24px,4vw,48px)] font-black text-white">
         &amp; IT IS <span className="text-[#c8f03d]">VIRAL NOW</span>
       </h2>
 
-      <div className="grid grid-cols-2 items-start gap-16">
+      <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <h3 className="mb-5 font-['Montserrat'] text-[28px] font-black text-[#83cd15]">REELS</h3>
           <p className="mb-4 text-[15px] leading-[1.85] text-white/90 text-justify">
-            At Sripada Studios Digital, <strong className="text-white">virality is at the core of our content strategy</strong>. We specialize in crafting <strong className="text-white">reels, videos, and carousels</strong> that don't just perform—they <strong className="text-white">go viral</strong>, helping brands gain massive visibility and organic growth. Our expert team blends <strong className="text-white">social media trends, meme culture</strong>, and <strong className="text-white">strategic video editing</strong> to create content that resonates with the audience and drives results.
+            At Buzziwah, <strong className="text-white">virality is at the core of our content strategy</strong>. We specialize in crafting <strong className="text-white">reels, videos, and carousels</strong> that don't just perform—they <strong className="text-white">go viral</strong>, helping brands gain massive visibility and organic growth. Our expert team blends <strong className="text-white">social media trends, meme culture</strong>, and <strong className="text-white">strategic video editing</strong> to create content that resonates with the audience and drives results.
           </p>
           <p className="mb-4 text-[15px] leading-[1.85] text-white/90 text-justify">
             In 2024 alone, our <strong className="text-white">social media management and video editing services</strong> contributed to over <strong className="text-white">200 million+ views</strong> across various platforms. One standout success is the <strong className="text-white">Samrat Restaurant's "The Hunger Reel"</strong>, which exploded on Instagram with <strong className="text-white">40 million+ views in just 25 days</strong>, bringing in <strong className="text-white">over 8,000 new followers</strong> within the same timeframe. So what made it viral? We tapped into popular <strong className="text-white">food memes</strong>, referenced iconic <strong className="text-white">film scenes</strong>, and used <strong className="text-white">relatable, slang-driven captions</strong> to make the content fun, shareable, and culturally relevant.
           </p>
           <p className="mb-7 text-[15px] leading-[1.85] text-white/90 text-justify">
-            With over <strong className="text-white">15+ viral reels</strong> on a single page, Sripada Studios Digital is your go-to for <strong className="text-white">viral marketing, Instagram reel strategy</strong>, and <strong className="text-white">branded content that breaks the internet</strong>.
+            With over <strong className="text-white">15+ viral reels</strong> on a single page, Buzziwah is your go-to for <strong className="text-white">viral marketing, Instagram reel strategy</strong>, and <strong className="text-white">branded content that breaks the internet</strong>.
           </p>
           <a
             href="#"
