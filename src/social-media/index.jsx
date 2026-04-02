@@ -77,6 +77,74 @@ const SocialMediaPage = () => {
 
   return (
     <div className="social-media-page">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
+
+        .social-media-page,
+        .social-media-page * {
+          font-family: 'Nunito Sans', sans-serif !important;
+        }
+
+        .smm-visible-bg {
+          position: relative;
+          overflow: hidden;
+          background: #060612;
+        }
+
+        .smm-visible-orb {
+          position: absolute;
+          border-radius: 50%;
+          pointer-events: none;
+          filter: blur(80px);
+        }
+
+        .smm-visible-orb-1 {
+          width: 680px;
+          height: 680px;
+          background: radial-gradient(circle, rgba(123,92,255,0.22), transparent 70%);
+          top: -200px;
+          left: -180px;
+          animation: von-drift1 14s ease-in-out infinite alternate;
+        }
+
+        .smm-visible-orb-2 {
+          width: 600px;
+          height: 600px;
+          background: radial-gradient(circle, rgba(0,210,255,0.18), transparent 70%);
+          bottom: -180px;
+          right: -120px;
+          animation: von-drift2 16s ease-in-out infinite alternate;
+        }
+
+        .smm-visible-orb-3 {
+          width: 300px;
+          height: 300px;
+          background: radial-gradient(circle, rgba(167,139,250,0.12), transparent 70%);
+          top: 40%;
+          left: 40%;
+          animation: von-drift1 10s ease-in-out infinite alternate;
+        }
+
+        .smm-visible-mesh {
+          position: absolute;
+          inset: 0;
+          background-image:
+            linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+          background-size: 60px 60px;
+          pointer-events: none;
+        }
+
+        @keyframes von-drift1 {
+          0% { transform: translate(0, 0) scale(1); }
+          100% { transform: translate(40px, 30px) scale(1.08); }
+        }
+
+        @keyframes von-drift2 {
+          0% { transform: translate(0, 0) scale(1); }
+          100% { transform: translate(-30px, -40px) scale(1.05); }
+        }
+      `}</style>
       <section className="relative z-[2] m-0 w-full p-0 leading-none">
         <img
           src="https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-4-1-scaled.png"
@@ -89,7 +157,7 @@ const SocialMediaPage = () => {
         <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-12 lg:flex-row">
           <div className="flex-1 flex justify-center items-end">
             <img
-              src="https://sripadastudiosdigital.com/wp-content/uploads/2026/03/Social-Media-Management.png"
+              src="/social media.png"
               alt="Social Media Management"
               className="w-full max-w-[480px] h-auto object-contain translate-y-6 lg:translate-y-10"
             />
@@ -98,14 +166,28 @@ const SocialMediaPage = () => {
             <h2 className="mb-5 font-['Montserrat'] text-[clamp(24px,3vw,40px)] font-bold leading-tight text-[#83cd15]">
               Social Media Management
             </h2>
-            <p className="mb-9 text-[16px] font-medium leading-[1.8] text-white text-justify">
-              We all know it's not just about posting; it's about crafting messages that resonate deeply
-              with your audience. The real magic lies in the right form of communication and the strategy
-              behind it, tailored to capture attention and inspire action. The key to building lasting
-              social media relationships with your ideal customers is found in a perfect blend of technical
-              expertise and creative strategy. By engaging authentically and providing value-driven content,
-              you foster trust and loyalty, transforming followers into brand advocates.
+            <p className="mb-6 text-[16px] font-medium leading-[1.8] text-white/90">
+              We all know it&apos;s not just about posting; it&apos;s about crafting messages that resonate
+              deeply with your audience and move them to action.
             </p>
+            <ul className="growth-list mb-9 !max-w-none">
+              <li>
+                <span className="growth-list-icon" aria-hidden="true">✦</span>
+                <span>The real magic lies in the right communication and strategy, tailored to capture attention and inspire action.</span>
+              </li>
+              <li>
+                <span className="growth-list-icon" aria-hidden="true">✦</span>
+                <span>Lasting social media relationships are built through a blend of technical expertise and creative thinking.</span>
+              </li>
+              <li>
+                <span className="growth-list-icon" aria-hidden="true">✦</span>
+                <span>By engaging authentically and sharing value-driven content, you foster trust, loyalty, and stronger brand recall.</span>
+              </li>
+              <li>
+                <span className="growth-list-icon" aria-hidden="true">✦</span>
+                <span>That consistency transforms followers into brand advocates who engage, return, and convert.</span>
+              </li>
+            </ul>
             <a
               href="http://linkedin.com/in/satish-ms-b7842a8b"
               target="_blank"
@@ -138,7 +220,7 @@ const SocialMediaPage = () => {
                     <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                   </svg>
                 }
-                title="Clear Strategy\nWith Goals"
+                title="Clear Strategy and Goals"
                 desc="Objective based content for you."
               />
               <FeatureCard
@@ -150,7 +232,7 @@ const SocialMediaPage = () => {
                     <polyline points="22,6 12,13 2,6" />
                   </svg>
                 }
-                title="Understanding\nTarget Audience"
+                title="Understanding and Target Audience"
                 desc="Relevancy and personalization is everything."
               />
               <FeatureCard
@@ -162,7 +244,7 @@ const SocialMediaPage = () => {
                     <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
                   </svg>
                 }
-                title="Consistent &\nEngaging Content"
+                title="Consistent and Engaging Content"
                 desc="Maintain your Brand voice daily."
               />
               <FeatureCard
@@ -176,7 +258,7 @@ const SocialMediaPage = () => {
                     <path d="M6 11l3-3 3 3 6-6" />
                   </svg>
                 }
-                title="Analytics &\nOptimization"
+                title="Analytics and Optimization"
                 desc="Get ready to see viral numbers."
               />
             </div>
@@ -331,14 +413,17 @@ const Section4 = () => {
   ];
 
   return (
-    <section className="bg-[#111] px-5 py-16">
-      <div className="mx-auto mb-10 max-w-[1440px] text-center">
+    <section className="smm-visible-bg px-5 py-16">
+      <div className="smm-visible-orb smm-visible-orb-1" />
+      <div className="smm-visible-orb smm-visible-orb-2" />
+      <div className="smm-visible-orb smm-visible-orb-3" />
+      <div className="smm-visible-mesh" />
+      <div className="relative z-[1] mx-auto mb-10 max-w-[1440px] text-center">
         <h2 className="font-['Montserrat'] text-[clamp(24px,3vw,40px)] font-extrabold text-[#c8f03d]">
           We're Here To Change Your Business Look
         </h2>
-        
       </div>
-      <div className="mx-auto flex max-w-[1440px] flex-col gap-8">
+      <div className="relative z-[1] mx-auto flex max-w-[1440px] flex-col gap-8">
         {rows.map((row, i) => (
           <div key={i} className="flex flex-wrap justify-center gap-8">
             {row.map((card) => (
@@ -531,11 +616,19 @@ const Section6 = () => (
         ))}
       </div>
 
-      <div className="flex flex-col items-start gap-6">
-        <h2 className="font-['Montserrat'] text-[clamp(52px,8vw,96px)] font-black leading-[0.95] text-[#c8f03d]">
+      <div
+        className="flex flex-col items-start gap-6"
+        style={{ width: '100%', paddingLeft: 'clamp(12px, 4vw, 30px)' }}
+      >
+        <h2
+          className="font-['Montserrat'] font-black leading-[0.95] text-[#c8f03d]"
+          style={{ fontSize: 'clamp(32px, 6vw, 96px)' }}
+        >
           STORY
         </h2>
-        <StoryPhone />
+        <div style={{ marginLeft: 'clamp(8px, 2vw, 18px)' }}>
+          <StoryPhone />
+        </div>
       </div>
     </div>
   </section>
