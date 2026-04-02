@@ -75,7 +75,7 @@ const Section10 = () => {
   }, [pageCount]);
 
   return (
-    <section className="section10-container" style={{ background: '#0d0d1a', padding: '16px 6% 72px', boxSizing: 'border-box', position: 'relative', overflow: 'hidden', minHeight: '580px', display: 'flex', alignItems: 'center' }}>
+    <section className="section10-container" style={{ background: '#0d0d1a', padding: '28px 6% 88px', boxSizing: 'border-box', position: 'relative', overflow: 'hidden', minHeight: '620px', display: 'flex', alignItems: 'center' }}>
       <div style={{ position: 'absolute', top: '15%', left: '1%', width: 120, height: 120, borderRadius: '50%', background: 'rgba(124,58,237,0.25)', filter: 'blur(40px)', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: '10%', right: '2%', width: 90, height: 90, borderRadius: '50%', background: 'rgba(124,58,237,0.2)', filter: 'blur(30px)', pointerEvents: 'none' }} />
       <div className="section10-inner" style={{ display: 'flex', alignItems: 'center', gap: 78, width: '100%', maxWidth: 1800, margin: '0 auto' }}>
@@ -102,7 +102,7 @@ const Section10 = () => {
       </div>
       <style>{`
         @media (max-width: 1024px) {
-          .section10-container { padding: 12px 6% 48px !important; height: auto !important; display: block !important; }
+          .section10-container { padding: 20px 6% 60px !important; height: auto !important; display: block !important; }
           .section10-inner { flex-direction: column !important; gap: 40px !important; }
           .section10-logo-col { width: 100% !important; margin-bottom: 20px !important; }
           .section10-logo { width: 100px !important; }
@@ -138,6 +138,7 @@ const PillBtn = ({ children, filled = false, onClick }) => {
         transform: h ? 'translateY(-2px)' : 'none',
         boxShadow: h ? '0 8px 24px rgba(124,58,237,0.4)' : 'none',
         fontFamily: "'Syne', sans-serif",
+        whiteSpace: 'nowrap',
       }}
     >
       {!filled && (
@@ -172,9 +173,9 @@ const Section1 = () => (
       .cm-hero-subtitle,
       .cm-hero-text,
       .cm-hero-actions button { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; }
-      .cm-hero-image { flex: 1 1 380px; display: flex; justify-content: center; align-items: center; min-height: 320px; margin-right: 20%; }
+      .cm-hero-image { flex: 1 1 380px; display: flex; justify-content: center; align-items: center; min-height: 320px; margin-right: 20%; transform: translateY(40px); }
       .cm-hero-image img { width: 100%; max-width: 460px; height: auto; display: block; }
-      .cm-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+      .cm-hero-actions { display: flex; gap: 16px; flex-wrap: nowrap; align-items: center; margin-left: -10px; }
       @media (max-width: 768px) {
         .cm-hero { padding: 92px 5% 20px !important; gap: 28px !important; min-height: auto !important; }
         .cm-banner { gap: 1.5rem !important; padding: 1.75rem 1.5rem !important; }
@@ -185,9 +186,9 @@ const Section1 = () => (
         .cm-hero-title { font-size: 30px !important; margin-bottom: 20px !important; }
         .cm-hero-subtitle { font-size: 17px !important; margin-bottom: 14px !important; }
         .cm-hero-text { font-size: 12.5px !important; line-height: 1.65 !important; }
-        .cm-hero-image { min-height: 240px !important; margin-right: 0 !important; }
+        .cm-hero-image { min-height: 240px !important; margin-right: 0 !important; transform: translateY(18px) !important; }
         .cm-hero-image img { max-width: 320px !important; }
-        .cm-hero-actions { gap: 12px !important; }
+        .cm-hero-actions { gap: 12px !important; margin-left: 0 !important; }
       }
     `}</style>
     {/* Hero */}
@@ -264,7 +265,7 @@ const Section1 = () => (
 
       {/* RIGHT — image */}
       <div className="cm-hero-image">
-        <img src="/shared-web-content-hero-illustration.png" alt="Content Marketing" />
+        <img src="/content solutions.png" alt="Content Marketing" />
       </div>
 
       <style>{`
@@ -353,47 +354,47 @@ const services = [
   {
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>,
     title: "ADVERTISING CONTENT",
-    intro: "WE CREATE SCROLL STOPPING CONTENT THAT TURNS YOUR AUDIENCE INTO CUSTOMERS.",
-    bullets: ["CONTENT CREATION: FROM PLANNING TO EXECUTION, WE CREATE SCROLL-STOPPING CONTENT THAT TURNS YOUR AUDIENCE INTO CUSTOMERS.", "COPYWRITING & CAPTIONS: OUR COPIES DON'T JUST ATTRACT — THEY KEEP THEM HOOKED WITH PURPOSE-DRIVEN MESSAGING."],
+    intro: "We create scroll-stopping content that turns your audience into customers.",
+    bullets: ["Content creation: From planning to execution, we create scroll-stopping content that turns your audience into customers.", "Copywriting and captions: Our copies don't just attract — they keep people hooked with purpose-driven messaging."],
     size: "outer",
   },
   {
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>,
     title: "BLOG CONTENT",
-    intro: "FROM LONG-FORM DEPTH TO SHORT-FORM PUNCH, WE EXCEL AT CRAFTING CONTENT THAT DELIVERS RESULTS.",
-    bullets: ["CONTENT CREATION: FROM PLANNING TO EXECUTION, WE CREATE SCROLL-STOPPING CONTENT THAT TURNS YOUR AUDIENCE INTO CUSTOMERS.", "COPYWRITING & CAPTIONS: OUR BRAINSTORMING COPIES DON'T JUST ATTRACT AN AUDIENCE — THEY KEEP THEM HOOKED.", "STRATEGY & PLANNING: WE BUILD, PLAN, AND GROW USING DATA AND INSIGHT."],
+    intro: "From long-form depth to short-form punch, we excel at crafting content that delivers results.",
+    bullets: ["Content creation: From planning to execution, we create scroll-stopping content that turns your audience into customers.", "Copywriting and captions: Our brainstorming copies don't just attract an audience — they keep them hooked.", "Strategy and planning: We build, plan, and grow using data and insight."],
     size: "mid",
   },
   {
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>,
     title: "SOCIAL MEDIA CONTENT",
-    intro: "WE CREATE SCROLL STOPPING CONTENT THAT TURNS YOUR AUDIENCE INTO CUSTOMERS.",
-    bullets: ["CONTENT CREATION: FROM PLANNING TO EXECUTION, WE CREATE SCROLL-STOPPING CONTENT THAT TURNS YOUR AUDIENCE INTO CUSTOMERS.", "COPYWRITING & CAPTIONS: OUR BRAINSTORMING COPIES DON'T JUST ATTRACT AN AUDIENCE — THEY KEEP THEM HOOKED WITH PURPOSE-DRIVEN MESSAGING.", "STRATEGY & PLANNING: WITH GROWTH IN MIND, WE DON'T JUST POST AND PRAY — WE BUILD, PLAN, AND GROW USING DATA AND INSIGHT."],
+    intro: "We create scroll-stopping content that turns your audience into customers.",
+    bullets: ["Content creation: From planning to execution, we create scroll-stopping content that turns your audience into customers.", "Copywriting and captions: Our brainstorming copies don't just attract an audience — they keep them hooked with purpose-driven messaging.", "Strategy and planning: With growth in mind, we don't just post and pray — we build, plan, and grow using data and insight."],
     featured: true,
     size: "center",
   },
   {
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>,
     title: "WEBSITE CONTENT",
-    intro: "WE GIVE LIFE TO YOUR IMAGINATION THROUGH WORDS",
-    bullets: ["CONTENT CREATION: FROM PLANNING TO EXECUTION, WE CREATE SCROLL-STOPPING CONTENT THAT TURNS YOUR AUDIENCE INTO CUSTOMERS.", "COPYWRITING & CAPTIONS: OUR BRAINSTORMING COPIES DON'T JUST ATTRACT AN AUDIENCE — THEY KEEP THEM HOOKED.", "STRATEGY & PLANNING: WE BUILD, PLAN, AND GROW USING DATA AND INSIGHT."],
+    intro: "We give life to your imagination through words.",
+    bullets: ["Content creation: From planning to execution, we create scroll-stopping content that turns your audience into customers.", "Copywriting and captions: Our brainstorming copies don't just attract an audience — they keep them hooked.", "Strategy and planning: We build, plan, and grow using data and insight."],
     size: "mid",
   },
   {
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>,
     title: "ADVERTISING CONTENT",
-    intro: "WE CREATE SCROLL STOPPING CONTENT THAT TURNS YOUR AUDIENCE INTO CUSTOMERS.",
-    bullets: ["CONTENT CREATION: FROM PLANNING TO EXECUTION, WE CREATE SCROLL-STOPPING CONTENT THAT TURNS YOUR AUDIENCE INTO CUSTOMERS.", "COPYWRITING & CAPTIONS: OUR COPIES DON'T JUST ATTRACT — THEY KEEP THEM HOOKED WITH PURPOSE-DRIVEN MESSAGING."],
+    intro: "We create scroll-stopping content that turns your audience into customers.",
+    bullets: ["Content creation: From planning to execution, we create scroll-stopping content that turns your audience into customers.", "Copywriting and captions: Our copies don't just attract — they keep people hooked with purpose-driven messaging."],
     size: "outer",
   },
 ];
 
 const cmStyles = `
   @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap');
-  .cm-root { background:#0d0b1a; min-height:auto; width:100%; font-family:'Barlow',sans-serif; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:88px 20px 42px; position:relative; overflow:hidden; }
+  .cm-root { background:#0d0b1a; min-height:auto; width:100%; font-family:'Barlow',sans-serif; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:96px 20px 58px; position:relative; overflow:hidden; }
   .cm-bg-lines { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
   .cm-bg-lines svg { position:absolute; top:0; left:0; width:100%; height:100%; }
-  .cm-header { text-align:center; margin-bottom:72px; position:relative; z-index:2; }
+  .cm-header { text-align:center; margin-bottom:80px; position:relative; z-index:2; }
   .cm-header h1 { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(28px,4vw,48px); color:#ffffff; letter-spacing:0.02em; text-transform:uppercase; margin-bottom:16px; }
   .cm-header p { font-size:clamp(14px,1.5vw,18px); color:#c0b8d8; line-height:1.5; max-width:520px; margin:0 auto; }
   .cm-cards-row { display:flex; align-items:flex-end; gap:12px; position:relative; z-index:2; max-width:1400px; width:100%; justify-content:center; }
@@ -409,9 +410,9 @@ const cmStyles = `
   .cm-card.size-center .cm-card-title { font-size:16px; }
   .cm-card.size-mid .cm-card-title { font-size:14px; }
   .cm-divider { height:1px; background:#e8e0f0; width:100%; flex-shrink:0; }
-  .cm-card-intro { font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:600; color:#3a2a5e; letter-spacing:0.05em; text-transform:uppercase; line-height:1.4; }
+  .cm-card-intro { font-family:'Barlow',sans-serif; font-size:11px; font-weight:600; color:#3a2a5e; letter-spacing:0.01em; text-transform:none; line-height:1.5; }
   .cm-bullets { list-style:disc; padding-left:14px; display:flex; flex-direction:column; gap:6px; }
-  .cm-bullets li { font-family:'Barlow Condensed',sans-serif; font-size:9px; font-weight:600; color:#3a2a5e; letter-spacing:0.04em; text-transform:uppercase; line-height:1.4; }
+  .cm-bullets li { font-family:'Barlow',sans-serif; font-size:10px; font-weight:500; color:#3a2a5e; letter-spacing:0.01em; text-transform:none; line-height:1.45; }
   .cm-btn { margin-top:8px; align-self:flex-start; background:#7ac143; color:#0d0b1a; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; border:none; border-radius:6px; padding:8px 18px; cursor:pointer; transition:background 0.15s ease,transform 0.1s ease; white-space:nowrap; }
   .cm-btn:hover { background:#8fd44f; transform:scale(1.03); }
   .cm-card.size-center .cm-btn { padding:10px 24px; font-size:12px; }
@@ -637,7 +638,7 @@ const WhyChooseUs = () => {
           .wcu-timeline { display: none !important; }
           .wcu-cards { flex-direction: column !important; }
           .wcu-container { padding: 0 10px !important; }
-          .wcu-section { padding: 16px 24px 24px !important; min-height: auto !important; }
+          .wcu-section { padding: 28px 24px 36px !important; min-height: auto !important; }
         }
       `}</style>
 
@@ -652,7 +653,7 @@ const WhyChooseUs = () => {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          padding: "14px 48px 24px",
+          padding: "28px 48px 42px",
           position: "relative",
           overflow: "hidden",
         }}
@@ -678,7 +679,7 @@ const WhyChooseUs = () => {
           style={{
             textAlign: "center",
             maxWidth: "780px",
-            marginBottom: "14px",
+            marginBottom: "24px",
             position: "relative",
             zIndex: 1,
             padding: '0 20px'
@@ -734,7 +735,7 @@ const WhyChooseUs = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              marginBottom: "18px",
+              marginBottom: "26px",
               position: "relative",
             }}
           >
@@ -811,10 +812,20 @@ const WhyChooseUs = () => {
 /* ── Combined export ── */
 const ContentMarketingPage = () => (
   <>
+    <style>{`
+      @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
+
+      .content-solution-page,
+      .content-solution-page * {
+        font-family: 'Nunito Sans', sans-serif !important;
+      }
+    `}</style>
+    <div className="content-solution-page">
     <Section1 />
     <Section3Cards />
     <WhyChooseUs />
     <Section10 />
+    </div>
   </>
 );
 

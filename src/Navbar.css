@@ -251,13 +251,13 @@ nav.scrolled .nav-backdrop {
 .phone-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
   padding: 8px 16px;
   border-radius: 8px;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.82);
   text-decoration: none;
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 700;
   border: 1px solid var(--border);
   transition: color 0.2s, border-color 0.2s, background 0.2s;
   white-space: nowrap;
@@ -267,7 +267,7 @@ nav.scrolled .nav-backdrop {
   border-color: rgba(255,255,255,0.25);
   background: rgba(255,255,255,0.06);
 }
-.phone-btn svg { opacity: 0.5; flex-shrink: 0; }
+.phone-btn svg { opacity: 0.82; flex-shrink: 0; width: 16px; height: 16px; }
 .phone-btn:hover svg { opacity: 1; }
 
 .btn-cta,

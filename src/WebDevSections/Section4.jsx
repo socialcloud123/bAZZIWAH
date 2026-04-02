@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import LearnMoreBtn from './LearnMoreBtn';
-
-
 const Section4 = () => {
   const highlights = [
     <>USER-FOCUSED WEBSITE STRUCTURE</>,
@@ -21,29 +19,37 @@ const Section4 = () => {
   return (
     <section style={{
       backgroundColor: '#05081c',
-      backgroundImage: `
-        radial-gradient(circle at 85% 16%, rgba(124,58,237,0.25), transparent 42%),
-        radial-gradient(circle at 8% 84%, rgba(124,58,237,0.22), transparent 28%),
-        repeating-linear-gradient(
-          0deg,
-          transparent 0,
-          transparent 168px,
-          rgba(64, 76, 140, 0.2) 170px,
-          rgba(64, 76, 140, 0.2) 171px
-        ),
-        repeating-linear-gradient(
-          90deg,
-          transparent 0,
-          transparent 168px,
-          rgba(64, 76, 140, 0.2) 170px,
-          rgba(64, 76, 140, 0.2) 171px
-        )
-      `,
-      padding: '90px 6% 105px',
+      padding: '72px 6% 105px',
       boxSizing: 'border-box',
       position: 'relative',
       overflow: 'hidden',
     }}>
+      <video
+        src="/section 4 bg an video.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          opacity: 0.38,
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(90deg, rgba(5,8,28,0) 0%, rgba(5,8,28,0.02) 46%, rgba(5,8,28,0.34) 76%, rgba(5,8,28,0.5) 100%)',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
       {/* Purple blob decorations */}
       <div style={{ position: 'absolute', top: '50%', left: '50%', width: 900, height: 900, borderRadius: '50%', background: 'radial-gradient(circle, rgba(124,58,237,0.35) 0%, transparent 70%)', filter: 'blur(150px)', transform: 'translate(-50%, -50%)', pointerEvents: 'none', zIndex: 0 }} />
       <div style={{ position: 'absolute', top: '10%', right: '10%', width: 225, height: 225, borderRadius: '50%', background: 'rgba(124,58,237,0.25)', filter: 'blur(60px)', pointerEvents: 'none', zIndex: 0 }} />
@@ -72,39 +78,24 @@ const Section4 = () => {
       <div className="section4-main-row" style={{
         display: 'flex',
         alignItems: 'flex-start',
+        justifyContent: 'flex-end',
         gap: 60,
         flexWrap: 'nowrap',
       }}>
 
-        {/* LEFT — Video */}
-        <div className="section4-video-col" style={{
+        {/* RIGHT — Info */}
+        <div className="section4-content-col" style={{
           flex: '0 0 52%',
           maxWidth: '52%',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
           position: 'relative',
-          zIndex: 1,
+          zIndex: 2,
+          padding: '24px 26px',
+          borderRadius: 24,
+          background: 'rgba(5,8,28,0.42)',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255,255,255,0.08)',
+          boxShadow: '0 20px 50px rgba(0,0,0,0.2)',
         }}>
-          <video
-            src="/webdev-demo2.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            style={{
-              width: '100%',
-              maxWidth: 800,
-              display: 'block',
-              background: 'transparent',
-              borderRadius: 0,
-              boxShadow: 'none',
-            }}
-          />
-        </div>
-
-        {/* RIGHT — Info */}
-        <div className="section4-content-col" style={{ flex: '0 0 48%', maxWidth: '48%' }}>
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',

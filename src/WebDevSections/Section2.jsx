@@ -3,7 +3,7 @@ const Section2 = () => {
 
   return (
     <section style={{
-      background: '#0d0d1a',
+      background: "url('/performance-marketing-process-bg.png') center/cover no-repeat",
       padding: '0',
       overflow: 'hidden',
       position: 'relative',

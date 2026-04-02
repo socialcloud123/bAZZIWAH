@@ -1,17 +1,56 @@
 import '../home/Home.css';
 
+const footerSections = [
+  {
+    title: 'SERVICES',
+    links: [
+      { label: 'Performance Marketing', href: '/performance-marketing' },
+      { label: 'Social Media Management', href: '/social-media' },
+      { label: 'Website Development', href: '/website-development' },
+      { label: 'Branding and Re-branding', href: '/branding' },
+    ],
+  },
+  {
+    title: 'ABOUT',
+    links: [
+      { label: 'Our Story', href: '/about' },
+      { label: 'Benefits', href: '/about' },
+      { label: 'Team', href: '/about' },
+      { label: 'Careers', href: '/about' },
+    ],
+  },
+  {
+    title: 'NAVIGATION',
+    links: [
+      { label: 'Content Solution', href: '/content-solution' },
+      { label: 'Video Production', href: '/video-production' },
+      { label: 'Search Engine Optimization', href: '/seo' },
+      { label: 'Influencer Marketing', href: '/influencer-marketing' },
+    ],
+  },
+  {
+    title: 'HELP',
+    links: [
+      { label: 'FAQs', href: '/#faq' },
+      { label: 'Contact Us', href: '/contact' },
+    ],
+  },
+];
+
 const FooterOnly = () => (
   <footer className="site-footer">
     <div className="footer-cta">
-      <img
-        className="footer-logo"
-        src="https://sripadastudiosdigital.com/wp-content/uploads/2024/01/Copy-of-About-Us-Page-SSD-WEBSITE-DESIGN-1366-x-768-px-3.png"
-        alt="Sripada Studios Digital"
-      />
+      <a href="/" aria-label="Buzziwah home">
+        <img
+          className="footer-logo"
+          src="https://sripadastudiosdigital.com/wp-content/uploads/2024/01/Copy-of-About-Us-Page-SSD-WEBSITE-DESIGN-1366-x-768-px-3.png"
+          alt="Sripada Studios Digital"
+        />
+      </a>
       <div className="footer-cta-text">Ready To Get Started</div>
-      <button className="footer-cta-button" type="button">
+      <a className="footer-cta-button" href="/contact">
         Get Started →
-      </button>
+      </a>
     </div>
 
     <div className="footer-divider" />
@@ -26,43 +65,18 @@ const FooterOnly = () => (
         </button>
       </div>
 
-      <div className="footer-col">
-        <h4>SERVICES</h4>
-        <ul>
-          <li>Performance Marketing</li>
-          <li>Social Media Management</li>
-          <li>Website Development</li>
-          <li>Branding and Re-branding</li>
-        </ul>
-      </div>
-
-      <div className="footer-col">
-        <h4>ABOUT</h4>
-        <ul>
-          <li>Our Story</li>
-          <li>Benefits</li>
-          <li>Team</li>
-          <li>Careers</li>
-        </ul>
-      </div>
-
-      <div className="footer-col">
-        <h4>NAVIGATION</h4>
-        <ul>
-          <li>Content Solution</li>
-          <li>Video Production</li>
-          <li>Search Engine Optimization</li>
-          <li>Influencer Marketing</li>
-        </ul>
-      </div>
-
-      <div className="footer-col">
-        <h4>HELP</h4>
-        <ul>
-          <li>FAQs</li>
-          <li>Contact Us</li>
-        </ul>
-      </div>
+      {footerSections.map((section) => (
+        <div className="footer-col" key={section.title}>
+          <h4>{section.title}</h4>
+          <ul>
+            {section.links.map((link) => (
+              <li key={link.label}>
+                <a href={link.href}>{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
 
     <div className="footer-divider" />

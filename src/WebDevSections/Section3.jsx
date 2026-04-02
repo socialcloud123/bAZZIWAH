@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Btn from './Btn';
+import BackgroundRemovedVideo from './BackgroundRemovedVideo';
 
 
 const Section3 = () => {
@@ -23,7 +24,7 @@ const Section3 = () => {
   return (
     <section style={{
       background: '#f5ffe8',
-      padding: '90px 6% 105px',
+      padding: '90px 6% 32px',
       boxSizing: 'border-box',
       position: 'relative',
       overflow: 'hidden',
@@ -52,9 +53,9 @@ const Section3 = () => {
       <p style={{
         textAlign: 'center',
         fontFamily: "'Nunito Sans', sans-serif",
-        fontSize: 16.5, fontWeight: 700,
+        fontSize: 22, fontWeight: 800,
         letterSpacing: '0.18em', textTransform: 'uppercase',
-        color: '#888', marginBottom: 72,
+        color: '#111', marginBottom: 72,
       }}>
         Ecommerce Website
       </p>
@@ -74,19 +75,12 @@ const Section3 = () => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          transform: 'translateY(-52px)',
+          background: 'transparent',
         }}>
-          <video
+          <BackgroundRemovedVideo
             src="/webdev-demo.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            style={{
-              width: '100%',
-              maxWidth: 840,
-              display: 'block',
-              mixBlendMode: 'multiply',
-            }}
+            maxWidth={840}
           />
         </div>
 

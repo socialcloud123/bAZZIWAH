@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -6,7 +6,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Section8 = () => {
   const sectionRef = useRef(null);
-  const rightRef = useRef(null);
+  const headerRef = useRef(null);
+  const cardsRef = useRef([]);
 
   const features = [
     { title: "Custom Web Design", desc: "Pixel-perfect, brand-focused designs crafted to convert visitors into customers." },
@@ -15,42 +16,43 @@ const Section8 = () => {
     { title: "Mobile-First Approach", desc: "Responsive designs that look stunning on every device." },
     { title: "Secure & Reliable", desc: "We follow best practices to ensure security, stability, and uptime." },
     { title: "Conversion-Focused", desc: "Every element is designed to drive engagement and maximize conversions." },
-    { title: "Ongoing Support", desc: "We stay with you post-launch for updates, scaling, and improvements." },
   ];
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
-      ScrollTrigger.matchMedia({
-        // Desktop
-        "(min-width: 1024px)": function() {
-          const section = sectionRef.current;
-          const right = rightRef.current;
-          if (!section || !right) return;
+    const ctx = gsap.context(() => {
+      const headerItems = headerRef.current?.querySelectorAll(".wc8-anim-head");
+      const cards = cardsRef.current.filter(Boolean);
 
-          const scrollDistance = right.scrollHeight - window.innerHeight + 50;
+      gsap.set(headerItems, { opacity: 0, y: 28 });
+      gsap.set(cards, { opacity: 0, y: 36, scale: 0.97 });
 
-          ScrollTrigger.create({
-            trigger: section,
-            start: "top top",
-            end: `+=${scrollDistance}`,
-            pin: true,
-            scrub: true,
-            anticipatePin: 1,
-          });
-
-          gsap.to(right, {
-            y: -scrollDistance,
-            ease: "none",
-            scrollTrigger: {
-              trigger: section,
-              start: "top top",
-              end: `+=${scrollDistance}`,
-              scrub: true,
-            },
-          });
-        }
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 72%",
+          toggleActions: "play none none reverse",
+        },
       });
-    });
+
+      tl.to(headerItems, {
+        opacity: 1,
+        y: 0,
+        duration: 0.75,
+        stagger: 0.1,
+        ease: "power3.out",
+      }).to(
+        cards,
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.7,
+          stagger: 0.09,
+          ease: "power3.out",
+        },
+        "-=0.3"
+      );
+    }, sectionRef);
 
     return () => ctx.revert();
   }, []);
@@ -58,9 +60,8 @@ const Section8 = () => {
   return (
     <section
       ref={sectionRef}
-      className="wc8-section w-full lg:h-screen min-h-screen overflow-hidden lg:overflow-hidden py-16 lg:py-0"
+      className="wc8-section"
       style={{
-        overflow: "visible",
         backgroundColor: "#05081f",
         backgroundImage: `
           radial-gradient(circle at 14% 22%, rgba(110, 54, 170, 0.45), transparent 34%),
@@ -80,21 +81,51 @@ const Section8 = () => {
             rgba(64, 80, 145, 0.2) 151px
           )
         `,
+        padding: "84px 6% 96px",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
-      <div className="w-full px-6 lg:px-24 h-full flex flex-col lg:flex-row gap-20 lg:gap-32 justify-center">
-
-        {/* LEFT SIDE */}
-        <div className="w-full lg:w-2/5 flex flex-col justify-start pt-10 lg:pt-32">
-          <p className="text-xs lg:text-base font-semibold tracking-widest text-white/90 mb-4 lg:mb-6">
+      <div style={{ maxWidth: 1220, margin: "0 auto", position: "relative", zIndex: 1 }}>
+        <div
+          ref={headerRef}
+          className="wc8-header"
+          style={{ textAlign: "center", maxWidth: 860, margin: "0 auto 56px" }}
+        >
+          <p
+            className="wc8-anim-head"
+            style={{
+              margin: "0 0 14px",
+              fontSize: 15,
+              fontWeight: 700,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "rgba(255,255,255,0.82)",
+            }}
+          >
             Web Development
           </p>
-
-          <h2 className="font-bold text-3xl lg:text-6xl leading-tight mb-6 lg:mb-10 text-white">
+          <h2
+            className="wc8-anim-head"
+            style={{
+              margin: "0 0 18px",
+              fontSize: "clamp(32px, 5vw, 64px)",
+              fontWeight: 800,
+              lineHeight: 1.02,
+              color: "#ffffff",
+            }}
+          >
             Why Choose Us
           </h2>
-
-          <p className="text-base lg:text-[22px] leading-relaxed max-w-md text-white/80">
+          <p
+            className="wc8-anim-head"
+            style={{
+              margin: 0,
+              fontSize: "clamp(16px, 1.8vw, 22px)",
+              lineHeight: 1.7,
+              color: "rgba(255,255,255,0.78)",
+            }}
+          >
             We leverage our profound expertise in web design and e-commerce,
             providing tailored services that prioritize your success. Our
             innovative solutions challenge the norm, supported by a proven track
@@ -102,50 +133,88 @@ const Section8 = () => {
           </p>
         </div>
 
-        {/* RIGHT SIDE */}
-        <div
-          ref={rightRef}
-          className="w-full lg:w-3/5 flex flex-col gap-12 lg:gap-16 py-16 lg:py-48"
-        >
-          {features.map((f, i) => (
-            <div
-              key={i}
-              className="wc8-card w-full rounded-2xl border border-white/10 transition-all duration-300 hover:scale-[1.01]"
+        <div className="wc8-grid">
+          {features.map((feature, index) => (
+            <article
+              key={feature.title}
+              ref={(el) => {
+                cardsRef.current[index] = el;
+              }}
+              className="wc8-card"
             >
-              {/* INNER CONTENT */}
-              <div className="px-8 py-10 lg:px-14 lg:py-12 w-full text-center">
-
-                <h3 className="text-2xl lg:text-[44px] font-bold mb-2 lg:mb-3 text-white tracking-wide">
-                  Custom Web Design
-                </h3>
-
-                <p className="text-sm lg:text-xl opacity-80 leading-relaxed text-white/85 mx-auto max-w-2xl">
-                  Pixel-perfect, brand-focused designs crafted to convert visitors into customers.
-                </p>
-
-              </div>
-            </div>
+              <div className="wc8-card-number">{String(index + 1).padStart(2, "0")}</div>
+              <h3>{feature.title}</h3>
+              <p>{feature.desc}</p>
+            </article>
           ))}
         </div>
-
       </div>
+
       <style>{`
+        .wc8-section,
+        .wc8-section * {
+          font-family: 'Nunito Sans', sans-serif !important;
+        }
+        .wc8-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 22px;
+        }
         .wc8-card {
+          position: relative;
+          border-radius: 24px;
+          padding: 28px 28px 26px;
           background:
             radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px),
-            linear-gradient(135deg, rgba(120, 72, 180, 0.78), rgba(101, 67, 164, 0.78));
+            linear-gradient(135deg, rgba(120, 72, 180, 0.82), rgba(101, 67, 164, 0.82));
           background-size: 10px 10px, 100% 100%;
-          max-width: 690px;
-          margin: 0 auto;
-          box-shadow: 0 18px 48px rgba(0, 0, 0, 0.3);
+          border: 1px solid rgba(255,255,255,0.1);
+          box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+          transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
         }
-        .wc8-section h2,
-        .wc8-section h3 {
-          font-family: 'Nunito Sans', sans-serif !important;
+        .wc8-card:hover {
+          transform: translateY(-6px);
+          border-color: rgba(202,255,90,0.28);
+          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
         }
-        .wc8-section p {
-          font-family: 'Nunito Sans', sans-serif !important;
-          font-weight: 500;
+        .wc8-card-number {
+          margin-bottom: 16px;
+          font-size: 12px;
+          font-weight: 800;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: rgba(202,255,90,0.96);
+        }
+        .wc8-card h3 {
+          margin: 0 0 10px;
+          font-size: clamp(24px, 2.6vw, 36px);
+          line-height: 1.1;
+          font-weight: 800;
+          color: #ffffff;
+        }
+        .wc8-card p {
+          margin: 0;
+          font-size: 16px;
+          line-height: 1.7;
+          color: rgba(255,255,255,0.84);
+          max-width: 34ch;
+        }
+        @media (max-width: 900px) {
+          .wc8-grid {
+            grid-template-columns: 1fr;
+          }
+          .wc8-header {
+            margin-bottom: 34px !important;
+          }
+          .wc8-card {
+            padding: 24px 20px 22px;
+          }
+          .wc8-card h3 {
+            font-size: 26px;
+          }
+          .wc8-card p {
+            font-size: 15px;
+          }
         }
       `}</style>
     </section>

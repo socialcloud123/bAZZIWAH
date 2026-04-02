@@ -4,7 +4,8 @@ const Section1 = () => (
     style={{
       background: "#0d0d1a",
       display: "flex",
-      alignItems: "stretch",
+      alignItems: "center",
+      justifyContent: "center",
       gap: 48,
       flexWrap: "wrap",
       minHeight: "80vh",
@@ -56,6 +57,7 @@ const Section1 = () => (
         fontFamily: "'Segoe UI', sans-serif",
         position: "relative",
         zIndex: 1,
+        margin: "0 auto",
       }}
     >
       {/* Top badge */}
@@ -206,10 +208,11 @@ const Section1 = () => (
         boxSizing: "border-box",
         position: "relative",
         zIndex: 1,
+        margin: "0 auto",
       }}
     >
       <img
-        src="/shared-web-content-hero-illustration.png"
+        src="/website dev.png"
         alt="Web Development Illustration"
         style={{
           width: "100%",

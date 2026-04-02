@@ -161,22 +161,46 @@ export default function Contact() {
           .contact-layout {
             grid-template-columns: 1fr !important;
           }
+          .contact-banner {
+            min-height: 180px !important;
+            margin-top: 36px !important;
+          }
+          .contact-banner-image {
+            object-position: center 72% !important;
+            transform: scale(1.16) !important;
+          }
+        }
+
+        @media (min-width: 901px) and (max-width: 1400px) {
+          .contact-banner-image {
+            object-position: center 68% !important;
+            transform: scale(1.14) !important;
+          }
+        }
+
+        @media (min-width: 1401px) {
+          .contact-banner-image {
+            object-position: center 64% !important;
+            transform: scale(1.12) !important;
+          }
         }
       `}</style>
 
       {/* ═══════════════════ HERO BANNER ═══════════════════ */}
       <section
         ref={heroRef}
+        className="contact-banner"
         style={{
           position: "relative",
           overflow: "hidden",
           textAlign: "center",
-          minHeight: "clamp(190px, 24vw, 300px)",
+          minHeight: "clamp(180px, 26vw, 320px)",
           marginTop: 48,
         }}
       >
         <img
-          src="/contact page2.png"
+          className="contact-banner-image"
+          src="/contact us bannnerpng.png"
           alt="Contact Us"
           style={{
             position: "absolute",
@@ -184,8 +208,8 @@ export default function Contact() {
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            objectPosition: "center 42%",
-            transform: "scale(1.14)",
+            objectPosition: "center center",
+            transform: "scale(1.02)",
           }}
         />
       </section>

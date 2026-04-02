@@ -164,7 +164,7 @@ const Home = () => {
 
       <VisibleOnlineSection />
 
-      <section className="faq-showcase">
+      <section className="faq-showcase" id="faq">
         <div className="faq-inner">
           <div className="faq-header">
             <div className="faq-title-block">
