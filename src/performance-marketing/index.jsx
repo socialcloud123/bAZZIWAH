@@ -1,36 +1,457 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import './PerformanceMarketing.css';
 import '../home/Home.css';
 
-const XyxyxyCarousel = ({ slides }) => {
-  const [current, setCurrent] = useState(0);
+const useReveal = (threshold = 0.18) => {
+  const ref = useRef(null);
+  const [vis, setVis] = useState(0);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return undefined;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVis((prev) => prev + 1 || 1);
+        }
+      },
+      { threshold }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [threshold]);
+  return [ref, vis > 0];
+};
+
+const useParallax = () => {
+  const ref = useRef(null);
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+
+  const handleMove = useCallback((e) => {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    setOffset({
+      x: ((e.clientX - centerX) / rect.width) * 14,
+      y: ((e.clientY - centerY) / rect.height) * 14,
+    });
+  }, []);
+
+  const reset = useCallback(() => setOffset({ x: 0, y: 0 }), []);
+  return [ref, offset, handleMove, reset];
+};
+
+const VideoPlayer = ({ videoSrc, poster, accentFrom, accentTo }) => {
+  const videoRef = useRef(null);
+  const [playing, setPlaying] = useState(true);
+  const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
-    const t = setInterval(() => setCurrent((c) => (c + 1) % slides.length), 3000);
-    return () => clearInterval(t);
-  }, [slides.length]);
+    const video = videoRef.current;
+    if (!video) return undefined;
+    video.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+    return undefined;
+  }, [videoSrc]);
+
+  const toggle = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (playing) {
+      video.pause();
+      setPlaying(false);
+    } else {
+      video.play().then(() => setPlaying(true)).catch(() => {});
+    }
+  };
 
   return (
-    <div className="xyxyxy-frame">
-      <div className="xyxyxy-carousel-container">
-        <div className="xyxyxy-carousel" style={{ transform: `translateX(-${current * 100}%)` }}>
-          {slides.map((s, i) =>
-            s.type === 'video'
-              ? <video key={i} src={s.src} autoPlay muted loop playsInline />
-              : <img key={i} src={s.src} alt={`Slide ${i + 1}`} />
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onClick={toggle}
+      style={{
+        position: 'relative',
+        width: '100%',
+        aspectRatio: '16 / 11.5',
+        borderRadius: 20,
+        overflow: 'hidden',
+        cursor: 'pointer',
+        background: '#0a0a0f',
+        boxShadow: hovered
+          ? `0 30px 80px -10px ${accentFrom}55, 0 0 0 1px ${accentFrom}22`
+          : '0 20px 60px -15px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04)',
+        transform: hovered ? 'scale(1.008)' : 'scale(1)',
+        transition: 'all 0.5s cubic-bezier(0.22, 1, 0.36, 1)',
+      }}
+    >
+      <div
+        style={{
+          position: 'absolute',
+          inset: -1,
+          borderRadius: 21,
+          padding: 1,
+          background: `linear-gradient(135deg, ${accentFrom}44, transparent 50%, ${accentTo}44)`,
+          WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+          WebkitMaskComposite: 'xor',
+          maskComposite: 'exclude',
+          zIndex: 2,
+          pointerEvents: 'none',
+        }}
+      />
+
+      <video
+        ref={videoRef}
+        src={videoSrc}
+        poster={poster}
+        loop
+        muted
+        playsInline
+        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+      />
+
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          background: playing && !hovered ? 'transparent' : 'rgba(0,0,0,0.25)',
+          opacity: playing && !hovered ? 0 : 1,
+          transition: 'opacity 0.4s ease',
+          zIndex: 3,
+        }}
+      >
+        <div
+          style={{
+            width: 72,
+            height: 72,
+            borderRadius: '50%',
+            background: `linear-gradient(135deg, ${accentFrom}, ${accentTo})`,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: `0 8px 32px ${accentFrom}66`,
+            transform: hovered ? 'scale(1.1)' : 'scale(1)',
+            transition: 'transform 0.3s ease',
+          }}
+        >
+          {playing ? (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+              <rect x="6" y="5" width="4" height="14" rx="1" />
+              <rect x="14" y="5" width="4" height="14" rx="1" />
+            </svg>
+          ) : (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+              <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z" />
+            </svg>
           )}
-        </div>
-        <div className="xyxyxy-dots">
-          {slides.map((_, i) => (
-            <span
-              key={i}
-              className={`xyxyxy-dot${i === current ? ' active' : ''}`}
-              onClick={() => setCurrent(i)}
-            />
-          ))}
         </div>
       </div>
     </div>
+  );
+};
+
+const CaseSection = ({
+  dark,
+  reversed,
+  title,
+  subtitle,
+  heading,
+  points,
+  videoSrc,
+  poster,
+  accentFrom,
+  accentTo,
+  tag,
+  ctaLabel,
+  backgroundImage,
+}) => {
+  const [sectionRef, show] = useReveal();
+  const [parallaxRef, offset, onMove, onLeave] = useParallax();
+
+  const anim = (name, delay = 0) =>
+    show ? `${name} 0.9s ${delay}ms cubic-bezier(0.22, 1, 0.36, 1) both` : 'none';
+
+  const textBlock = (
+    <div
+      style={{
+        flex: '1 1 460px',
+        maxWidth: 580,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 18,
+        opacity: show ? 1 : 0,
+      }}
+    >
+      <div style={{ animation: anim('fadeUp', 100), opacity: 0 }}>
+        <span
+          style={{
+            display: 'inline-block',
+            padding: '6px 16px',
+            borderRadius: 100,
+            fontSize: 11,
+            fontWeight: 600,
+            letterSpacing: 1.8,
+            textTransform: 'uppercase',
+            color: accentFrom,
+            border: `1px solid ${accentFrom}33`,
+            background: `${accentFrom}0a`,
+          }}
+        >
+          {tag}
+        </span>
+      </div>
+
+      <h2
+        style={{
+          fontSize: 'clamp(34px, 5vw, 46px)',
+          fontWeight: 800,
+          lineHeight: 1.08,
+          margin: 0,
+          color: dark ? '#fff' : '#1a1a2e',
+          letterSpacing: '-1.5px',
+          animation: anim('fadeUp', 200),
+          opacity: 0,
+        }}
+      >
+        {title}
+      </h2>
+
+      <p
+        style={{
+          fontSize: 14,
+          lineHeight: 1.7,
+          margin: 0,
+          color: dark ? 'rgba(255,255,255,0.45)' : 'rgba(26,26,46,0.45)',
+          animation: anim('fadeUp', 280),
+          opacity: 0,
+        }}
+      >
+        {subtitle}
+      </p>
+
+      <div
+        style={{
+          width: 48,
+          height: 3,
+          borderRadius: 2,
+          background: `linear-gradient(90deg, ${accentFrom}, ${accentTo})`,
+          animation: anim('scaleX', 350),
+          opacity: 0,
+          transformOrigin: 'left',
+        }}
+      />
+
+      <h3
+        style={{
+          fontSize: 20,
+          fontWeight: 700,
+          lineHeight: 1.4,
+          margin: 0,
+          color: dark ? 'rgba(255,255,255,0.92)' : 'rgba(26,26,46,0.9)',
+          whiteSpace: 'nowrap',
+          animation: anim('fadeUp', 400),
+          opacity: 0,
+        }}
+      >
+        {heading}
+      </h3>
+
+      <ul
+        style={{
+          margin: 0,
+          padding: 0,
+          listStyle: 'none',
+          display: 'grid',
+          gap: 12,
+          animation: anim('fadeUp', 480),
+          opacity: 0,
+        }}
+      >
+        {points.map((point) => (
+          <li
+            key={point}
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '28px minmax(0, 1fr)',
+              gap: 12,
+              alignItems: 'start',
+              padding: '14px 16px',
+              borderRadius: 18,
+              background: dark
+                ? 'linear-gradient(180deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.03) 100%)'
+                : 'linear-gradient(180deg, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.48) 100%)',
+              border: dark
+                ? '1px solid rgba(255,255,255,0.08)'
+                : `1px solid ${accentFrom}22`,
+              backdropFilter: 'blur(10px)',
+            }}
+          >
+            <span
+              style={{
+                width: 28,
+                height: 28,
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: 999,
+                background: dark ? `${accentFrom}26` : `${accentFrom}18`,
+                color: accentFrom,
+                fontSize: '0.85rem',
+                lineHeight: 1,
+                marginTop: 1,
+              }}
+              aria-hidden="true"
+            >
+              ✦
+            </span>
+            <span
+              style={{
+                fontSize: 15,
+                lineHeight: 1.8,
+                color: dark ? 'rgba(255,255,255,0.78)' : 'rgba(26,26,46,0.74)',
+              }}
+            >
+              {point}
+            </span>
+          </li>
+        ))}
+      </ul>
+
+      <a
+        href="#"
+        className="pm-case-cta"
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: 10,
+          width: 'fit-content',
+          padding: '14px 22px',
+          borderRadius: 999,
+          background: `linear-gradient(135deg, ${accentFrom}, ${accentTo})`,
+          color: '#fff',
+          textDecoration: 'none',
+          fontSize: 13,
+          fontWeight: 700,
+          letterSpacing: '0.08em',
+          textTransform: 'uppercase',
+          boxShadow: `0 14px 34px ${accentFrom}33`,
+          animation: anim('fadeUp', 540),
+          opacity: 0,
+        }}
+      >
+        {ctaLabel}
+      </a>
+    </div>
+  );
+
+  const videoBlock = (
+    <div
+      ref={parallaxRef}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      style={{
+        flex: '1 1 620px',
+        maxWidth: 680,
+        opacity: show ? 1 : 0,
+        animation: anim(reversed ? 'slideLeft' : 'slideRight', 250),
+        transform: `translate(${offset.x}px, ${offset.y}px)`,
+        transition: 'transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)',
+      }}
+    >
+      <VideoPlayer
+        videoSrc={videoSrc}
+        poster={poster}
+        accentFrom={accentFrom}
+        accentTo={accentTo}
+      />
+    </div>
+  );
+
+  return (
+    <section
+      className="pm-case-study"
+      ref={sectionRef}
+      style={{
+        position: 'relative',
+        padding: '100px 48px',
+        minHeight: 580,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        overflow: 'hidden',
+        background: backgroundImage
+          ? `url("${backgroundImage}") center/cover no-repeat`
+          : dark
+            ? '#0c0c14'
+            : 'linear-gradient(180deg, #f3eff8 0%, #ece5f3 100%)',
+      }}
+    >
+      {dark && (
+        <>
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              backgroundImage:
+                'linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)',
+              backgroundSize: '72px 72px',
+              opacity: show ? 1 : 0,
+              transition: 'opacity 1.5s ease',
+            }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              width: 500,
+              height: 500,
+              borderRadius: '50%',
+              background: `radial-gradient(circle, ${accentFrom}08 0%, transparent 70%)`,
+              top: '20%',
+              left: reversed ? '70%' : '-5%',
+              filter: 'blur(60px)',
+              pointerEvents: 'none',
+            }}
+          />
+        </>
+      )}
+      {!dark && (
+        <div
+          style={{
+            position: 'absolute',
+            width: 600,
+            height: 600,
+            borderRadius: '50%',
+            background: `radial-gradient(circle, ${accentFrom}0c 0%, transparent 60%)`,
+            top: '-10%',
+            right: reversed ? 'auto' : '-10%',
+            left: reversed ? '-10%' : 'auto',
+            filter: 'blur(80px)',
+            pointerEvents: 'none',
+          }}
+        />
+      )}
+
+      <div
+        style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 32,
+        maxWidth: 1340,
+        width: '100%',
+        position: 'relative',
+        zIndex: 1,
+          flexDirection: reversed ? 'row-reverse' : 'row',
+        }}
+      >
+        {textBlock}
+        {videoBlock}
+      </div>
+    </section>
   );
 };
 
@@ -59,137 +480,186 @@ const FlipCard = ({ src, alt }) => {
   );
 };
 
-const gymSlides = [
-  { type: 'img', src: 'https://sripadastudiosdigital.com/wp-content/uploads/2025/05/Untitled-design-38.png' },
-  { type: 'img', src: 'https://sripadastudiosdigital.com/wp-content/uploads/2025/05/Untitled-design-39.png' },
-  { type: 'video', src: 'https://sripadastudiosdigital.com/wp-content/uploads/2025/05/gym1-mp4.mp4' },
-  { type: 'img', src: 'https://sripadastudiosdigital.com/wp-content/uploads/2025/05/Untitled-design-41.png' },
-  { type: 'video', src: 'https://sripadastudiosdigital.com/wp-content/uploads/2025/05/gym-mp4.mp4' },
-  { type: 'img', src: 'https://sripadastudiosdigital.com/wp-content/uploads/2025/05/Untitled-design-45.png' },
-];
-
-const lilbeezSlides = [
-  { type: 'img', src: 'https://sripadastudiosdigital.com/wp-content/uploads/2025/05/Untitled-design-59.png' },
-  { type: 'video', src: 'https://sripadastudiosdigital.com/wp-content/uploads/2025/05/lilbeez1-mp4-2.mp4' },
-  { type: 'img', src: 'https://sripadastudiosdigital.com/wp-content/uploads/2025/05/Untitled-design-56.png' },
-  { type: 'video', src: 'https://sripadastudiosdigital.com/wp-content/uploads/2025/05/lilbeez1-mp4-3.mp4' },
-  { type: 'img', src: 'https://sripadastudiosdigital.com/wp-content/uploads/2025/05/Untitled-design-55.png' },
-];
-
 const services = [
   {
+    num: '01',
     title: 'Social Media Marketing',
     desc: "We build your brand's presence through strategic content and targeted campaigns that convert casual scrollers into loyal customers.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 11V7a2 2 0 0 1 2-2h1l11-4v22l-11-4H5a2 2 0 0 1-2-2v-4Z" />
-        <path d="M15 5.5v13" />
-        <path d="M7 7v10" />
-      </svg>
-    ),
+    img: 'https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-32.png',
   },
   {
+    num: '02',
     title: 'Account Audit & Strategy',
     desc: 'We audit your digital footprint, uncover inefficiencies, and craft a focused strategy that stretches every rupee of your marketing budget.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9 5H7a2 2 0 0 0-2 2v12" />
-        <path d="M5 19h4" />
-        <path d="M9 13H7" />
-        <path d="M17 3a2 2 0 0 1 2 2v14l-4-2-4 2V5a2 2 0 0 1 2-2Z" />
-        <path d="m9 9.4 6-2.4 6 2.5" />
-      </svg>
-    ),
+    img: 'https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-33.png',
   },
   {
+    num: '03',
     title: 'Search Engine Marketing',
     desc: 'Our SEM campaigns place your brand at the top of every relevant search — guiding prospects from discovery to purchase, every time.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="11" cy="11" r="7" />
-        <path d="m21 21-4.3-4.3" />
-        <path d="M11 8v3l2 2" />
-      </svg>
-    ),
+    img: 'https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-34.png',
   },
   {
+    num: '04',
     title: 'Dynamic Remarketing & Product Listing Ads',
     desc: 'We re-engage high-intent visitors with personalised ad experiences that bring them back and turn browsing into buying.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="17 1 21 5 17 9" />
-        <path d="M3 11v-1a7 7 0 0 1 12-5l4 4" />
-        <polyline points="7 23 3 19 7 15" />
-        <path d="M21 13v1a7 7 0 0 1-12 5l-4-4" />
-      </svg>
-    ),
+    img: 'https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-35.png',
   },
   {
+    num: '05',
     title: 'Catalogue & Shopping Ads',
     desc: 'We put your products in front of ready-to-buy customers — with the right image, price, and detail at the exact moment it matters.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 5h18l-1 7H4z" />
-        <path d="M16 13a4 4 0 1 1-8 0" />
-        <path d="M5 5 4 2H2" />
-        <circle cx="9" cy="18" r="1" />
-        <circle cx="15" cy="18" r="1" />
-      </svg>
-    ),
+    img: 'https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-36.png',
   },
   {
+    num: '06',
     title: 'WhatsApp Marketing',
     desc: "We deliver personalised, real-time messages directly to your audience's hands — driving engagement and conversions where attention is highest.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 20l1.2-3.6A8 8 0 1 1 4 12" />
-        <path d="M8 12a5 5 0 0 0 5 5h1l2 2" />
-      </svg>
-    ),
+    img: 'https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-37.png',
   },
   {
+    num: '07',
     title: 'Conversion Rate Optimisation',
     desc: 'We analyse your user journey — copy, design, and flow — to remove friction and turn more of your existing traffic into revenue.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 4v16" />
-        <path d="m8 14 4 4 4-4" />
-        <path d="m16 10-4-4-4 4" />
-        <path d="M4 20h16" />
-      </svg>
-    ),
+    img: 'https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-38.png',
   },
   {
+    num: '08',
     title: 'YouTube Ads',
     desc: 'We create data-led video campaigns that capture attention, tell your story, and drive measurable results across every stage of the funnel.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 8s-.2-1.4-.8-2a3.1 3.1 0 0 0-2.2-.8C16 5 12 5 12 5s-4 0-7 .2A3.1 3.1 0 0 0 2.8 6c-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.6C2 14.4 2.2 16 2.8 16.6a3.1 3.1 0 0 0 2.2.8C8 17 12 17 12 17s4 0 7-.2a3.1 3.1 0 0 0 2.2-.8c.6-.6.8-2 .8-2s.2-1.6.2-3.2-.2-3.2-.2-3.2Z" />
-        <path d="m10 9 5 3-5 3V9Z" />
-      </svg>
-    ),
+    img: 'https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-39.png',
   },
   {
+    num: '09',
     title: 'LinkedIn Ads',
     desc: 'We connect B2B brands with the right decision-makers using precise targeting and strategic placements that make every impression count.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 7h4v12H4z" />
-        <path d="M2 4a2 2 0 1 1 4 0 2 2 0 0 1-4 0" />
-        <path d="M12 11a4 4 0 0 1 8 0v8h-4v-7a2 2 0 0 0-4 0v7h-4V7h4z" />
-      </svg>
-    ),
+    img: 'https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-40.png',
   },
 ];
 
+const ServiceCard = ({ service }) => {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className={`service-card${hovered ? ' beam-active' : ''}`}
+      style={{
+        background: hovered ? '#ffffff' : '#f9f9f9',
+        transition: 'all 0.45s cubic-bezier(.25,.46,.45,.94)',
+      }}
+    >
+      <svg className="border-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <rect className="border-rect" x="0" y="0" rx="16" ry="16" width="100%" height="100%" />
+      </svg>
+
+      <div
+        style={{
+          marginBottom: 24,
+          transform: hovered ? 'scale(1.08) rotate(-3deg)' : 'scale(1) rotate(0)',
+          position: 'relative',
+          zIndex: 1,
+          transition: 'transform 0.4s ease',
+        }}
+      >
+        <img
+          src={service.img}
+          alt={service.title}
+          style={{
+            width: 100,
+            height: 100,
+            objectFit: 'contain',
+          }}
+        />
+      </div>
+
+      <h3
+        style={{
+          fontSize: 18,
+          fontWeight: 700,
+          color: '#a855f7',
+          marginBottom: 14,
+          lineHeight: 1.35,
+          letterSpacing: '-0.2px',
+          minHeight: 48,
+          display: 'flex',
+          alignItems: 'center',
+          position: 'relative',
+          zIndex: 1,
+        }}
+      >
+        {service.title}
+      </h3>
+
+      <p
+        style={{
+          fontSize: 14,
+          lineHeight: 1.75,
+          color: '#5a5a5a',
+          margin: 0,
+          position: 'relative',
+          zIndex: 1,
+        }}
+      >
+        {service.desc}
+      </p>
+    </div>
+  );
+};
+
 const zigzagSteps = [
-  { title: 'Strategy Planning', desc: 'Define goals, KPIs, audience, and funnel direction.' },
-  { title: 'Channel Selection', desc: 'Select platforms like Google Ads, Meta, YouTube, and more.' },
-  { title: 'Ad Creative', desc: 'Create engaging visuals and ad copy that convert.' },
-  { title: 'Campaign Execution', desc: 'Launch optimized campaigns with proper targeting and budgets.' },
-  { title: 'Tracking & Analytics', desc: 'Use pixels, UTM tracking, and tools like GA4, Meta Pixel.' },
-  { title: 'Optimization', desc: 'Test creatives, refine bids, and enhance audience targeting.' },
-  { title: 'Scaling', desc: 'Scale high-performing campaigns for growth and profit.' },
+  {
+    title: 'Strategy Planning',
+    desc: 'Define goals, KPIs, audience, and funnel direction. We map out every stage of your customer journey so campaigns launch with clarity and purpose.',
+  },
+  {
+    title: 'Channel Selection',
+    desc: 'Select platforms like Google Ads, Meta, YouTube, and more. We match each channel to your audience behaviour and business objectives.',
+  },
+  {
+    title: 'Ad Creative',
+    desc: 'Create engaging visuals and ad copy that convert. Every asset is designed to stop the scroll and drive meaningful action.',
+  },
+  {
+    title: 'Campaign Execution',
+    desc: 'Launch optimized campaigns with proper targeting and budgets. We set precise parameters to maximise reach and minimise waste.',
+  },
+  {
+    title: 'Tracking & Analytics',
+    desc: 'Use pixels, UTM tracking, and tools like GA4, Meta Pixel. Every click and conversion is measured to guide smarter decisions.',
+  },
+  {
+    title: 'Optimization',
+    desc: 'Test creatives, refine bids, and enhance audience targeting. Continuous improvement turns good campaigns into great ones.',
+  },
+  {
+    title: 'Scaling',
+    desc: "Scale high-performing campaigns for growth and profit. We expand what works and cut what doesn't — driving predictable returns.",
+  },
+];
+
+const pmHighlights = [
+  {
+    title: 'Instant Visibility. Immediate Results.',
+    desc: "Get to the top of search engine results the moment your campaign goes live, reaching high-intent audiences exactly when they're ready to act.",
+    imageFirst: false,
+  },
+  {
+    title: 'Reach the Right People, Every Time.',
+    desc: 'Go beyond broad targeting. Pinpoint your ideal audience by location, demographics, interests, and behavior so every impression has purpose.',
+    imageFirst: true,
+  },
+  {
+    title: 'Scale Further. Convert Smarter.',
+    desc: 'Expand your reach beyond organic limits. Paid marketing puts your brand in front of more of the right people, generating quality leads and driving sales.',
+    imageFirst: false,
+  },
+  {
+    title: 'Track Better. Improve Faster.',
+    desc: 'Monitor every click, lead, and conversion with clear reporting, then optimize campaigns continuously for stronger ROI and long-term growth.',
+    imageFirst: true,
+  },
 ];
 
 const pmFaqs = [
@@ -216,63 +686,375 @@ const PMFaqCard = ({ faq, idx }) => {
   );
 };
 
+const WorkflowStepCard = ({ step, index }) => {
+  const isEven = index % 2 === 1;
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold: 0.2 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className="step-row"
+      style={{
+        maxWidth: 1100,
+        margin: '0 auto',
+        padding: '20px 40px',
+        display: 'flex',
+        justifyContent: isEven ? 'flex-end' : 'flex-start',
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(40px)',
+        transition: 'all 0.7s cubic-bezier(.25,.46,.45,.94)',
+      }}
+    >
+      <div
+        style={{
+          maxWidth: 520,
+          textAlign: 'center',
+        }}
+      >
+        <span
+          style={{
+            display: 'inline-block',
+            fontSize: 13,
+            fontWeight: 700,
+            color: '#a855f7',
+            background: 'rgba(168,85,247,0.1)',
+            borderRadius: 20,
+            padding: '5px 16px',
+            marginBottom: 16,
+            letterSpacing: '1px',
+          }}
+        >
+          STEP {String(index + 1).padStart(2, '0')}
+        </span>
+
+        <h3
+          style={{
+            fontSize: 'clamp(22px, 3vw, 30px)',
+            fontWeight: 700,
+            color: '#7c3aed',
+            margin: '0 0 14px',
+            lineHeight: 1.2,
+            letterSpacing: '-0.3px',
+          }}
+        >
+          {step.title}
+        </h3>
+
+        <p
+          style={{
+            fontSize: 15,
+            lineHeight: 1.8,
+            color: '#4a4a4a',
+            margin: '0 0 18px',
+          }}
+        >
+          {step.desc}
+        </p>
+
+        <div
+          style={{
+            width: '100%',
+            aspectRatio: '16/6',
+            borderRadius: 14,
+            background: 'linear-gradient(145deg, #e8f5e9, #f1f8e9, #dcedc8)',
+            border: '1px solid rgba(168,85,247,0.08)',
+            position: 'relative',
+            overflow: 'hidden',
+          }}
+        >
+          <svg
+            viewBox="0 0 400 150"
+            style={{ width: '100%', height: '100%', position: 'absolute', bottom: 0 }}
+            preserveAspectRatio="xMidYMax slice"
+          >
+            <rect width="400" height="150" fill="#e3f2fd" opacity="0.5" />
+            <ellipse cx="90" cy="40" rx="30" ry="12" fill="white" opacity="0.7" />
+            <ellipse cx="110" cy="37" rx="22" ry="10" fill="white" opacity="0.7" />
+            <ellipse cx="270" cy="30" rx="25" ry="10" fill="white" opacity="0.6" />
+            <ellipse cx="200" cy="180" rx="260" ry="80" fill="#8bc34a" opacity="0.3" />
+            <ellipse cx="90" cy="185" rx="190" ry="70" fill="#689f38" opacity="0.4" />
+            <ellipse cx="310" cy="188" rx="170" ry="65" fill="#558b2f" opacity="0.35" />
+          </svg>
+
+          <span
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              fontSize: 50,
+              fontWeight: 800,
+              color: 'rgba(168,85,247,0.07)',
+              userSelect: 'none',
+            }}
+          >
+            {String(index + 1).padStart(2, '0')}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const PerformanceMarketing = () => (
   <div className="pm-page im-font">
+    <style>{`
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(36px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes slideRight {
+        from { opacity: 0; transform: translateX(60px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+      @keyframes slideLeft {
+        from { opacity: 0; transform: translateX(-60px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+      @keyframes scaleX {
+        from { opacity: 0; transform: scaleX(0); }
+        to { opacity: 1; transform: scaleX(1); }
+      }
+      @keyframes pmCtaGlow {
+        0%, 100% { box-shadow: 0 14px 34px rgba(124, 58, 237, 0.22); }
+        50% { box-shadow: 0 20px 42px rgba(124, 58, 237, 0.34); }
+      }
+      .pm-page .pm-case-cta {
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+        animation: pmCtaGlow 2.8s ease-in-out infinite;
+      }
+      .pm-page .pm-case-cta::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.28) 45%, transparent 70%);
+        transform: translateX(-140%);
+        transition: transform 0.55s ease;
+      }
+      .pm-page .pm-case-cta:hover {
+        transform: translateY(-3px) scale(1.02);
+        filter: brightness(1.04);
+      }
+      .pm-page .pm-case-cta:hover::after {
+        transform: translateX(140%);
+      }
+      @media (max-width: 900px) {
+        .pm-page .pm-case-study {
+          padding: 72px 20px !important;
+          min-height: auto !important;
+        }
+      }
+    `}</style>
 
     <section className="relative z-[2] m-0 w-full p-0 leading-none">
       <img src="/banners/performance-marketing-page-banner.png" alt="Performance Marketing Banner" className="block h-auto w-full" />
     </section>
 
     <section className="pm-section2">
-      <div className="pm-section2-left">
-        <img src="/performance-marketing-section2-illustration.png" alt="SEO" />
+      <div className="pm-section2-header">
+        <p className="pm-section2-kicker">Why Performance Marketing</p>
+        <h2>Why do you need Performance Marketing?</h2>
       </div>
-      <div className="pm-section2-right">
-        <div className="paid-marketing-section">
-          <h2>Why do you need Performances Marketing?</h2>
-          <ul>
-            <li><span>Rank on the top of the search engine results page and start driving results instantly after setting up an ad campaign.</span></li>
-            <li><span>Be in front of those who need you. Target relevant audiences based on location, demographic, interest, and more.</span></li>
-            <li><span>Reach more people and generate quality leads, increase your sales, and achieve goals with paid marketing.</span></li>
-            <li><span>Track results, analyse, and get insight into what ad is working best for your target audience.</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section className="pm-section3">
-      <div className="pm-section3-left">
-        <XyxyxyCarousel slides={gymSlides} />
-      </div>
-      <div className="pm-section3-right">
-        <h2 className="pm-case-title">PERFORMANCE MARKETING</h2>
-        <p>The performance marketing campaign for <strong>Fitness Factory</strong> was strategically crafted to engage Bengaluru's health and fitness-conscious audience. With a sharp focus on compelling creative direction, targeted ad placement, and real-time performance tracking, the campaign drove high-quality leads and boosted membership sign-ups. Not only did it meet expectations—it exceeded them with measurable results, improved ROI, and scalable growth potential.</p>
-        <a href="#" className="pm-explore-btn">EXPLORE MORE →</a>
+      <div className="pm-section2-grid">
+        {pmHighlights.map((item, index) => (
+          <article
+            key={item.title}
+            className={`pm-highlight-card ${index % 2 === 1 ? 'pm-highlight-card-offset' : ''} ${item.imageFirst ? 'pm-highlight-card-image-first' : ''}`}
+          >
+            <div className="pm-highlight-copy">
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
+            </div>
+            <div className="pm-highlight-visual">
+              <img src="/performance-marketing-section2-illustration.png" alt={item.title} />
+            </div>
+          </article>
+        ))}
       </div>
     </section>
 
-    <section className="pm-section4">
-      <div className="pm-section4-left">
-        <h2 className="pm-case-title">PERFORMANCE MARKETING</h2>
-        <p>The performance marketing campaign for <strong>Lilbeez Pre-school Academic Partner</strong>, under NIECCE EDU SOLUTIONS PVT LTD, was precisely engineered for Bengaluru's target education audience. With a clear focus on creative direction, ad precision, and consistent monitoring, the campaign produced strong lead quality and profitability. Not only were expectations met—they were surpassed with measurable, scalable results.</p>
-        <a href="#" className="pm-explore-btn">EXPLORE →</a>
-      </div>
-      <div className="pm-section4-right">
-        <XyxyxyCarousel slides={lilbeezSlides} />
-      </div>
-    </section>
+    <CaseSection
+      dark={true}
+      reversed={false}
+      tag="Performance Marketing"
+      title={
+        <>
+          <span style={{ whiteSpace: 'nowrap' }}>
+            <span style={{ color: '#7C3AED' }}>Growth of </span>
+            <span style={{ color: '#c8f041' }}>Fitness Factory</span>
+          </span>
+        </>
+      }
+      subtitle="From strategy to execution, we helped Fitness Factory grow."
+      heading="How We Scaled Fitness Factory's Growth with Performance Marketing."
+      points={[
+        "Strategically crafted to engage Bengaluru's health and fitness-conscious audience.",
+        'Focused on compelling creative direction and targeted ad placement.',
+        'Used real-time performance tracking to drive high-quality leads and membership sign-ups.',
+        'Exceeded expectations with measurable results, improved ROI, and scalable growth potential.',
+      ]}
+      videoSrc="https://sripadastudiosdigital.com/wp-content/uploads/2025/05/gym1-mp4.mp4"
+      poster="https://sripadastudiosdigital.com/wp-content/uploads/2025/05/Untitled-design-38.png"
+      accentFrom="#8B5CF6"
+      accentTo="#A78BFA"
+      ctaLabel="Explore More"
+    />
+
+    <CaseSection
+      dark={false}
+      reversed={true}
+      tag="Performance Marketing"
+      title={
+        <>
+          <span style={{ whiteSpace: 'nowrap' }}>
+            <span style={{ color: '#7C3AED' }}>Growth of </span>
+            <span style={{ color: '#111111' }}>Lilbeez Pre-school</span>
+          </span>
+        </>
+      }
+      subtitle="From strategy to execution, we helped Lilbeez Pre-school Academic grow."
+      heading="How We Scaled Lilbeez's Growth with Performance Marketing."
+      points={[
+        "Precisely engineered for Bengaluru's target education audience.",
+        'Built with a clear focus on creative direction, ad precision, and consistent monitoring.',
+        'Delivered strong lead quality and better campaign profitability.',
+        'Surpassed expectations with measurable and scalable performance results.',
+      ]}
+      videoSrc="https://sripadastudiosdigital.com/wp-content/uploads/2025/05/lilbeez1-mp4-2.mp4"
+      poster="https://sripadastudiosdigital.com/wp-content/uploads/2025/05/Untitled-design-59.png"
+      accentFrom="#7C3AED"
+      accentTo="#9F7AEA"
+      ctaLabel="Explore More"
+      backgroundImage="/shared-light-pattern-bg.png"
+    />
 
     <section className="pm-services">
-      <h2 className="pm-section-title">OUR SERVICES</h2>
+      <style>{`
+        @keyframes cardIn {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeDown {
+          from { opacity: 0; transform: translateY(-20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes traceBorder {
+          0% { stroke-dashoffset: 2000; }
+          100% { stroke-dashoffset: 0; }
+        }
+        .pm-services {
+          min-height: 100vh;
+          background: #0a0a0a;
+          padding: 60px 20px 100px;
+          position: relative;
+          overflow: hidden;
+        }
+        .pm-services .heading-text {
+          animation: fadeDown 0.8s ease both;
+          text-align: center;
+          font-size: clamp(32px, 5vw, 52px);
+          font-weight: 800;
+          color: #a855f7;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin: 0 0 50px;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        }
+        .pm-services-grid {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+          padding: 0;
+        }
+        .service-card {
+          position: relative;
+          border-radius: 16px;
+          padding: 40px 28px 36px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          cursor: default;
+          opacity: 0;
+          animation: cardIn 0.6s ease both;
+          border: 1px solid rgba(0,0,0,0.06);
+        }
+        .service-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        .border-svg {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+          pointer-events: none;
+          overflow: visible;
+        }
+        .border-rect {
+          fill: none;
+          stroke: url(#beamGradient);
+          stroke-width: 6;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke-dasharray: 2000;
+          stroke-dashoffset: 2000;
+          filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.6));
+        }
+        .beam-active .border-rect {
+          animation: traceBorder 1.2s cubic-bezier(.4,0,.2,1) forwards;
+        }
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.17s; }
+        .service-card:nth-child(3) { animation-delay: 0.24s; }
+        .service-card:nth-child(4) { animation-delay: 0.31s; }
+        .service-card:nth-child(5) { animation-delay: 0.38s; }
+        .service-card:nth-child(6) { animation-delay: 0.45s; }
+        .service-card:nth-child(7) { animation-delay: 0.52s; }
+        .service-card:nth-child(8) { animation-delay: 0.59s; }
+        .service-card:nth-child(9) { animation-delay: 0.66s; }
+        @media (max-width: 900px) {
+          .pm-services-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+        @media (min-width: 901px) and (max-width: 1100px) {
+          .pm-services-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+      `}</style>
+      <svg style={{ position: 'absolute', width: 0, height: 0 }}>
+        <defs>
+          <linearGradient id="beamGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#a855f7" />
+            <stop offset="50%" stopColor="#e9d5ff" />
+            <stop offset="100%" stopColor="#a855f7" />
+          </linearGradient>
+        </defs>
+      </svg>
+      <h2 className="heading-text">Our Services</h2>
       <div className="pm-services-grid">
-        {services.map((s, i) => (
-          <div className="pm-service-card" key={i}>
-            <div className="pm-service-icon" aria-hidden="true">{s.icon}</div>
-            <div>
-              <h3>{s.title}</h3>
-              <p>{s.desc}</p>
-            </div>
-          </div>
+        {services.map((service) => (
+          <ServiceCard key={service.num} service={service} />
         ))}
       </div>
     </section>
@@ -290,15 +1072,90 @@ const PerformanceMarketing = () => (
     </section>
 
     <section className="pm-process">
-      <h1 className="pm-chart-title">Performance Marketing Process</h1>
-      <div className="pm-zigzag-chart">
-        <div className="pm-zigzag-line" />
+      <style>{`
+        @keyframes fadeDown {
+          from { opacity: 0; transform: translateY(-20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-badge {
+          animation: fadeDown 0.6s ease both;
+        }
+        .hero-title {
+          animation: fadeDown 0.6s 0.1s ease both;
+        }
+        .hero-sub {
+          animation: fadeDown 0.6s 0.2s ease both;
+        }
+        @media (max-width: 768px) {
+          .step-row {
+            padding: 20px 20px !important;
+            justify-content: center !important;
+          }
+          .step-row > div {
+            max-width: 100% !important;
+          }
+        }
+        .steps-container {
+          position: relative;
+        }
+      `}</style>
+
+      <div
+        style={{
+          textAlign: 'center',
+          padding: '80px 40px 60px',
+        }}
+      >
+        <span
+          className="hero-badge"
+          style={{
+            display: 'inline-block',
+            fontSize: 12,
+            fontWeight: 600,
+            color: '#7c3aed',
+            textTransform: 'uppercase',
+            letterSpacing: 3,
+            marginBottom: 20,
+            background: 'rgba(168,85,247,0.08)',
+            padding: '8px 24px',
+            borderRadius: 100,
+          }}
+        >
+          Our Workflow
+        </span>
+
+        <h1
+          className="hero-title"
+          style={{
+            fontSize: 'clamp(32px, 5vw, 52px)',
+            fontWeight: 800,
+            color: '#7c3aed',
+            letterSpacing: '-1px',
+            margin: '0 0 20px',
+            lineHeight: 1.15,
+          }}
+        >
+          Performance Marketing Process
+        </h1>
+
+        <p
+          className="hero-sub"
+          style={{
+            fontSize: 17,
+            lineHeight: 1.7,
+            color: '#555',
+            maxWidth: 600,
+            margin: '0 auto',
+          }}
+        >
+          A clean, data-led system that takes campaigns from planning to scale without losing clarity,
+          speed, or performance.
+        </p>
+      </div>
+
+      <div className="steps-container">
         {zigzagSteps.map((step, i) => (
-          <div key={i} className={`pm-zigzag-step ${i % 2 === 0 ? 'pm-zigzag-left' : 'pm-zigzag-right'}`}>
-            <div className={`pm-zigzag-dot ${i % 2 === 0 ? 'pm-dot-left' : 'pm-dot-right'}`} />
-            <h3 className="pm-zigzag-title">{step.title}</h3>
-            <p className="pm-zigzag-desc">{step.desc}</p>
-          </div>
+          <WorkflowStepCard key={step.title} step={step} index={i} />
         ))}
       </div>
     </section>

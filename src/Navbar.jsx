@@ -244,7 +244,7 @@ const Navbar = () => {
         </ul>
         <div className="mobile-footer">
           <a href="https://sripadastudiosdigital.com/contact/" className="btn-cta">
-            Get Started ->
+            Get Started {'->'}
           </a>
           <a href="tel:+919980687439" className="phone-btn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

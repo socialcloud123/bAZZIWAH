@@ -139,7 +139,7 @@ const Services = () => (
             <h3 className="service-card-title">{service.title}</h3>
             <p className="service-card-text">{service.text}</p>
             <span className="service-card-cta">
-              View service ->
+              View service {'->'}
             </span>
           </div>
         </a>
@@ -218,7 +218,7 @@ const Services = () => (
         />
         <div className="footer-cta-text">Ready To Get Started</div>
         <button className="footer-cta-button" type="button">
-          Get Started ->
+          Get Started {'->'}
         </button>
       </div>
 
