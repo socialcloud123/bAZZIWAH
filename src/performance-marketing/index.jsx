@@ -878,6 +878,15 @@ const PerformanceMarketing = () => (
                 </li>
               ))}
             </ul>
+            <div className="pm-highlight-cta-wrap">
+              <a
+                href="#"
+                className="pm-highlight-cta"
+                onClick={(e) => e.preventDefault()}
+              >
+                Know More
+              </a>
+            </div>
           </div>
         </article>
       </div>
