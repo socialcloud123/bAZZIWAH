@@ -641,7 +641,12 @@ const zigzagSteps = [
 
 const pmHighlight = {
   title: 'Instant Visibility. Immediate Results.',
-  desc: "Get to the top of search engine results the moment your campaign goes live, reaching high-intent audiences exactly when they're ready to act.",
+  intro: 'Rank on the top of the search engine results page and start driving results instantly after setting up an ad campaign.',
+  points: [
+    'Be in front of those who need you. Target relevant audiences based on location, demographic, interest, and more.',
+    'Reach more people and generate quality leads, increase your sales, and achieve goals with paid marketing.',
+    'Track results, analyse, and get insight into what ad is working best for your target audience.',
+  ],
 };
 
 const pmFaqs = [
@@ -794,6 +799,13 @@ const WorkflowStepCard = ({ step, index }) => {
 const PerformanceMarketing = () => (
   <div className="pm-page im-font">
     <style>{`
+      @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
+
+      .pm-page,
+      .pm-page * {
+        font-family: 'Nunito Sans', sans-serif !important;
+      }
+
       @keyframes fadeUp {
         from { opacity: 0; transform: translateY(36px); }
         to { opacity: 1; transform: translateY(0); }
@@ -848,18 +860,24 @@ const PerformanceMarketing = () => (
     </section>
 
     <section className="pm-section2">
-      <div className="pm-section2-header">
-        <p className="pm-section2-kicker">Why Performance Marketing</p>
-        <h2>Why do you need Performance Marketing?</h2>
-      </div>
-      <div className="pm-section2-grid">
+      <div className="pm-section2-shell">
         <article className="pm-highlight-card">
-          <div className="pm-highlight-copy">
-            <h3>{pmHighlight.title}</h3>
-            <p>{pmHighlight.desc}</p>
-          </div>
           <div className="pm-highlight-visual">
             <img src="/performance-marketing-section2-illustration.png" alt={pmHighlight.title} />
+          </div>
+          <div className="pm-highlight-copy">
+            <p className="pm-section2-kicker">Why Performance Marketing</p>
+            <h2 className="pm-section2-title">Why do you need Performance Marketing?</h2>
+            <h3>{pmHighlight.title}</h3>
+            <p>{pmHighlight.intro}</p>
+            <ul className="growth-list pm-highlight-points">
+              {pmHighlight.points.map((point) => (
+                <li key={point}>
+                  <span className="growth-list-icon" aria-hidden="true">✦</span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </article>
       </div>
