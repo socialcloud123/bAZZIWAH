@@ -22,13 +22,13 @@ body {
 }
 
 .ssd-hero {
-  background: url("/SSD_Website%20(12).png") center/cover no-repeat;
+  background: url("/shared-footer-bg.png") center/cover no-repeat;
   position: relative;
   overflow: hidden;
 }
 
 .ssd-grid-wrap {
-  background: url("/SSD_Website%20(12).png") center/cover no-repeat;
+  background: url("/shared-footer-bg.png") center/cover no-repeat;
   position: relative;
   overflow: hidden;
 }
@@ -195,7 +195,7 @@ body {
   width: 100%;
   min-height: 700px;
   position: relative;
-  background: url("/SSD_Website%20(10).png") center/cover no-repeat;
+  background: url("/shared-light-pattern-bg.png") center/cover no-repeat;
   overflow: hidden;
 }
 
@@ -279,7 +279,7 @@ body {
 .clientele-section {
   padding: 80px 20px 90px;
   overflow: hidden;
-  background: url("/SSD_Website%20(10).png") center/cover no-repeat;
+  background: url("/shared-light-pattern-bg.png") center/cover no-repeat;
   border-top: 0;
   border-bottom: 0;
   color: #fff;
@@ -453,7 +453,7 @@ body {
   max-width: 100%;
   margin: 0;
   overflow: hidden;
-  background: url("/SSD_Website (12).png") center/cover no-repeat;
+  background: url("/shared-footer-bg.png") center/cover no-repeat;
 }
 
 .case-studies-track {
@@ -638,13 +638,25 @@ body {
   margin: 0;
   line-height: 0.98;
   letter-spacing: -0.04em;
-  max-width: 10ch;
+  max-width: 14ch;
+}
+
+.growth-title-main {
+  display: block;
+  white-space: nowrap;
+  font-size: clamp(0.68em, 0.8vw, 0.84em);
+}
+
+.growth-title-with {
+  color: #f8f5ff;
 }
 
 .growth-title-accent {
   display: block;
   margin-top: 8px;
   color: #c8f041;
+  font-size: 0.74em;
+  line-height: 1.05;
 }
 
 .growth-lead {
@@ -781,6 +793,10 @@ body {
   .growth-title {
     max-width: 100%;
   }
+  .growth-title-main {
+    white-space: normal;
+    font-size: 0.82em;
+  }
 }
 
 @media (max-width: 768px) {
@@ -797,6 +813,9 @@ body {
   .growth-title {
     font-size: 2.35rem;
     line-height: 1.02;
+  }
+  .growth-title-accent {
+    font-size: 0.82em;
   }
   .growth-lead {
     font-size: 0.98rem;
@@ -831,7 +850,7 @@ body {
 
 .visibility-section {
   padding: 90px 20px;
-  background: url("/SSD_Website (12).png") center/cover no-repeat;
+  background: url("/shared-footer-bg.png") center/cover no-repeat;
   color: #2b2b2b;
   text-align: center;
 }
@@ -1147,51 +1166,58 @@ body {
 }
 
 .faq-showcase {
-  padding: 30px 20px;
-  background: #eaffc6 url("/SSD_Website%20(10).png") center/cover no-repeat;
+  padding: 72px 20px;
+  background: #eaffc6 url("/shared-light-pattern-bg.png") center/cover no-repeat;
   color: #2a213a;
   position: relative;
+  overflow: hidden;
 }
 
 .faq-inner {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .faq-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 24px;
+  gap: 40px;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 36px;
 }
 
 .faq-title-block h2 {
-  font-size: 2rem;
+  font-size: clamp(2rem, 4vw, 3.1rem);
   font-weight: 800;
-  color: #6d28d9;
+  color: #6a2fff;
   font-family: 'Geom', sans-serif;
   margin: 0;
+  line-height: 1.02;
 }
 
 .faq-title-block h3 {
-  font-size: 1.8rem;
+  font-size: clamp(1.8rem, 3.7vw, 2.9rem);
   font-weight: 800;
-  color: #7c3aed;
+  color: #1b1b1b;
   font-family: 'Geom', sans-serif;
   margin: 0;
+  line-height: 1.02;
 }
 
 .faq-intro {
-  color: rgba(42, 33, 58, 0.78);
-  max-width: 520px;
-  font-size: 0.9rem;
+  color: #4b4b4b;
+  max-width: 560px;
+  font-size: 0.98rem;
+  line-height: 1.8;
 }
 
 .faq-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 16px;
+  align-items: start;
 }
 
 .faq-columns {
@@ -1209,16 +1235,25 @@ body {
 }
 
 .faq-card {
-  background: #ffffff;
-  color: #2a213a;
-  border-radius: 14px;
-  padding: 12px 16px;
-  box-shadow: 0 16px 30px rgba(109,40,217,0.12);
-  border: 1px solid rgba(109,40,217,0.12);
+  background: rgba(255,255,255,0.92);
+  color: #1f1632;
+  border-radius: 20px;
+  padding: 18px 20px;
+  box-shadow: 0 20px 50px rgba(106,47,255,0.12);
+  border: 1px solid rgba(106,47,255,0.12);
+  backdrop-filter: blur(14px);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  align-self: start;
 }
 
 .faq-column .faq-card {
   width: 100%;
+}
+
+.faq-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(200,240,65,0.24);
+  box-shadow: 0 24px 56px rgba(0,0,0,0.34);
 }
 
 .faq-question {
@@ -1226,37 +1261,59 @@ body {
   justify-content: space-between;
   align-items: center;
   font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.45;
   width: 100%;
   background: transparent;
   border: 0;
   color: inherit;
   padding: 0;
   cursor: pointer;
+  text-align: left;
 }
 
 .faq-arrow {
-  font-size: 0.85rem;
-  transition: transform .2s ease;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(106,47,255,0.08);
+  border: 1px solid rgba(106,47,255,0.14);
+  color: #6a2fff;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  transition: transform .28s ease, background-color .28s ease, border-color .28s ease;
 }
 
 .faq-answer {
-  font-size: 0.85rem;
-  line-height: 1.5;
-  color: rgba(42,33,58,0.78);
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: #4b4b4b;
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition: max-height .25s ease, opacity .25s ease;
+  transform: translateY(-8px);
+  transition: max-height .35s ease, opacity .3s ease, transform .3s ease, margin-top .3s ease;
 }
 
 .faq-card.open .faq-answer {
-  max-height: 200px;
+  max-height: 220px;
   opacity: 1;
-  margin-top: 8px;
+  transform: translateY(0);
+  margin-top: 12px;
 }
 
 .faq-card.open .faq-arrow {
   transform: rotate(180deg);
+  background: rgba(106,47,255,0.14);
+  border-color: rgba(106,47,255,0.24);
+}
+
+.faq-card.open {
+  border-color: rgba(106,47,255,0.22);
+  background: #ffffff;
 }
 
 @media (max-width: 980px) {
@@ -1271,9 +1328,29 @@ body {
   }
 }
 
+@media (max-width: 640px) {
+  .faq-showcase {
+    padding: 56px 16px;
+  }
+  .faq-header {
+    gap: 22px;
+    margin-bottom: 24px;
+  }
+  .faq-card {
+    padding: 16px 16px;
+    border-radius: 16px;
+  }
+  .faq-question {
+    font-size: 0.94rem;
+  }
+  .faq-answer {
+    font-size: 0.88rem;
+  }
+}
+
 .contact-cta {
   padding: 90px 20px;
-  background: #eaffc6 url("/SSD_Website%20(10).png") center/cover no-repeat;
+  background: #eaffc6 url("/shared-light-pattern-bg.png") center/cover no-repeat;
   position: relative;
   color: #111111;
   overflow: hidden;
@@ -1351,7 +1428,7 @@ body {
 .social-follow {
   padding: 90px 20px;
   overflow: hidden;
-  background: url("/SSD_Website (12).png") center/cover no-repeat;
+  background: url("/shared-footer-bg.png") center/cover no-repeat;
   color: #111111;
 }
 
@@ -1439,12 +1516,14 @@ body {
 
 .contact-form-section {
   padding: 40px 30px 0;
-  background: #eaffc6 url("/SSD_Website%20(10).png") center/cover no-repeat;
+  background: #eaffc6 url("/shared-light-pattern-bg.png") center/cover no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #1b1b1b;
   min-height: 90vh;
+  position: relative;
+  z-index: 2;
 }
 
 .contact-form-inner {
@@ -1468,7 +1547,9 @@ body {
   justify-content: flex-start;
   align-items: flex-end;
   position: relative;
-  margin-bottom: -1px;
+  margin-bottom: 0;
+  transform: translateY(72px);
+  z-index: 3;
 }
 
 .contact-form-image img {
@@ -1477,6 +1558,7 @@ body {
   height: auto;
   object-fit: contain;
   align-self: flex-end;
+  display: block;
 }
 
 .contact-form-header h2 {
@@ -1501,7 +1583,7 @@ body {
   box-shadow: 0 24px 50px rgba(106,47,255,0.15);
   border: 1px solid rgba(106,47,255,0.15);
   max-width: 760px;
-  margin: 0 auto 60px;
+  margin: 48px auto 60px;
 }
 
 .form-row {
@@ -1562,6 +1644,11 @@ body {
   .contact-form-inner {
     grid-template-columns: 1fr;
   }
+  .contact-form-image {
+    justify-content: center;
+    margin-bottom: 0;
+    transform: translateY(36px);
+  }
   .form-row.two {
     grid-template-columns: 1fr;
   }
@@ -1571,58 +1658,86 @@ body {
 }
 
 .site-footer {
-  background: url("/SSD_Website%20(12).png") center/cover no-repeat;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(200,240,65,0.1), transparent 20%),
+    radial-gradient(circle at 88% 10%, rgba(124,58,237,0.16), transparent 24%),
+    linear-gradient(180deg, rgba(11,9,23,0.92) 0%, rgba(8,7,18,0.98) 100%),
+    url("/shared-footer-bg.png") center/cover no-repeat;
   color: #ffffff;
-  padding: 70px 20px 40px;
+  padding: 120px 20px 40px;
   width: 100%;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(1200px, calc(100% - 40px));
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent 0%, rgba(200,240,65,0.45) 50%, transparent 100%);
+  pointer-events: none;
 }
 
 .footer-cta {
   max-width: 1200px;
-  margin: 0 auto 24px;
+  margin: 0 auto 28px;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 24px;
+  gap: 28px;
+  padding: 24px 28px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.03) 100%);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 28px 80px rgba(0,0,0,0.24);
+  backdrop-filter: blur(16px);
 }
 
 .footer-logo {
   width: 180px;
   height: auto;
   object-fit: contain;
+  filter: drop-shadow(0 10px 24px rgba(0,0,0,0.18));
 }
 
 .footer-cta-text {
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: clamp(1.15rem, 2vw, 1.6rem);
+  font-weight: 800;
   text-align: center;
+  letter-spacing: -0.02em;
 }
 
 .footer-cta-button {
-  border: none;
-  background: #8dd01c;
+  border: 1px solid rgba(200,240,65,0.18);
+  background: linear-gradient(135deg, #c8f041 0%, #9bdb2f 100%);
   color: #111111;
-  padding: 12px 24px;
-  border-radius: 10px;
+  padding: 13px 24px;
+  border-radius: 999px;
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  border: 2px solid transparent;
+  letter-spacing: 0.01em;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease, border-color 0.25s ease;
+  box-shadow: 0 14px 34px rgba(141,208,28,0.2);
 }
 
 .footer-cta-button:hover {
   background: #ffffff;
   color: #6a2fff;
-  border-color: #ffffff;
+  border-color: rgba(255,255,255,0.8);
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(255,255,255,0.2);
+  box-shadow: 0 16px 34px rgba(255,255,255,0.14);
 }
 
 .footer-divider {
   max-width: 1200px;
   height: 1px;
-  background: rgba(255,255,255,0.12);
-  margin: 24px auto;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.14) 20%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.14) 80%, transparent 100%);
+  margin: 26px auto;
 }
 
 .footer-grid {
@@ -1630,13 +1745,29 @@ body {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 28px;
+  gap: 18px;
+}
+
+.footer-col {
+  padding: 18px 18px 16px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.045) 0%, rgba(255,255,255,0.02) 100%);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.footer-col:hover {
+  transform: translateY(-3px);
+  border-color: rgba(200,240,65,0.18);
+  background: linear-gradient(180deg, rgba(124,58,237,0.08) 0%, rgba(255,255,255,0.03) 100%);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.2);
 }
 
 .footer-col h4 {
   font-size: 0.9rem;
-  margin-bottom: 14px;
-  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+  letter-spacing: 0.12em;
+  color: rgba(200,240,65,0.95);
 }
 
 .footer-col ul {
@@ -1644,7 +1775,7 @@ body {
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 8px;
+  gap: 10px;
   color: rgba(255,255,255,0.8);
   font-size: 0.85rem;
 }
@@ -1664,7 +1795,7 @@ body {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #8dd01c;
+  background: #c8f041;
   opacity: 0.6;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
@@ -1685,25 +1816,37 @@ body {
 
 .footer-input {
   width: 100%;
-  background: rgba(17,17,17,0.15);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: #111111;
-  padding: 10px 12px;
-  border-radius: 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: #ffffff;
+  padding: 12px 14px;
+  border-radius: 12px;
   margin-bottom: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.footer-input::placeholder {
+  color: rgba(255,255,255,0.45);
+}
+
+.footer-input:focus {
+  outline: none;
+  border-color: rgba(200,240,65,0.32);
+  box-shadow: 0 0 0 3px rgba(200,240,65,0.08);
+  background: rgba(255,255,255,0.1);
 }
 
 .footer-subscribe {
   width: 100%;
   border: none;
-  background: #6a2fff;
+  background: linear-gradient(135deg, #6a2fff 0%, #7f3dff 100%);
   color: #ffffff;
-  padding: 10px 12px;
-  border-radius: 6px;
+  padding: 12px 14px;
+  border-radius: 12px;
   font-weight: 700;
   cursor: pointer;
   transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  border: 2px solid transparent;
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .footer-subscribe:hover {
@@ -1722,6 +1865,7 @@ body {
   align-items: center;
   color: rgba(255,255,255,0.7);
   font-size: 0.85rem;
+  gap: 20px;
 }
 
 .footer-socials {
@@ -1732,12 +1876,12 @@ body {
 .footer-social {
   width: 32px;
   height: 32px;
-  border-radius: 6px;
-  background: #111111;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.06);
   display: grid;
   place-items: center;
   font-size: 0.75rem;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.12);
   transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -1747,6 +1891,11 @@ body {
   border-color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 8px 16px rgba(255,255,255,0.2);
+}
+
+.footer-copy {
+  color: rgba(255,255,255,0.62);
+  letter-spacing: 0.02em;
 }
 
 .im-font, .im-font * {
@@ -1828,15 +1977,19 @@ body {
 }
 
 @media (max-width: 980px) {
+  .site-footer {
+    padding-top: 96px;
+  }
   .footer-cta {
     grid-template-columns: 1fr;
     text-align: center;
+    padding: 22px 20px;
   }
   .footer-cta-text {
     text-align: center;
   }
   .footer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .footer-bottom {
     flex-direction: column;
@@ -1844,8 +1997,33 @@ body {
   }
 }
 
+@media (max-width: 640px) {
+  .site-footer {
+    padding: 84px 16px 32px;
+  }
+  .footer-cta {
+    gap: 18px;
+    padding: 18px 16px;
+    border-radius: 22px;
+  }
+  .footer-logo {
+    width: 148px;
+  }
+  .footer-cta-text {
+    font-size: 1.05rem;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .footer-col {
+    padding: 16px 16px 14px;
+    border-radius: 16px;
+  }
+}
+
 .bbbbb-hero-section {
-  background: #5b21b6 url("/SSD_Website%20(16).png") center/cover no-repeat;
+  background: #5b21b6 url("/shared-purple-grid-bg.png") center/cover no-repeat;
   color: #f5f0ff;
   font-family: 'DM Sans', sans-serif;
   overflow: hidden;

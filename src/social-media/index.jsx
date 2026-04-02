@@ -402,7 +402,7 @@ const IgPhone = () => {
 };
 
 const Section5 = () => (
-  <section className="px-10 py-16" style={{ background: "url('/SSD_Website (10).png') center/cover no-repeat" }}>
+  <section className="px-10 py-16" style={{ background: "url('/shared-light-pattern-bg.png') center/cover no-repeat" }}>
     <div className="mb-12 text-center">
       <p className="text-[15px] leading-[1.7] text-[#333]">
         Creating a brand and establishing is quite a job.<br />
@@ -588,7 +588,7 @@ const ReelPhone = () => {
 };
 
 const Section7 = () => (
-  <section className="px-10 py-16" style={{ background: "url('/SSD_Website (10).png') center/cover no-repeat" }}>
+  <section className="px-10 py-16" style={{ background: "url('/shared-light-pattern-bg.png') center/cover no-repeat" }}>
     <div className="mx-auto grid max-w-[1100px] grid-cols-2 items-start gap-16">
       <div className="flex flex-col items-start gap-6">
         <h2 className="font-['Montserrat'] text-[clamp(52px,8vw,96px)] font-black leading-[0.95] text-[#7c3aed]">
@@ -634,7 +634,7 @@ const carouselImages = [
 ];
 
 const Section8 = () => (
-  <section className="py-16" style={{ background: "url('/SSD_Website (18).png') center/cover no-repeat" }}>
+  <section className="py-16" style={{ background: "url('/social-media-viral-section-bg.png') center/cover no-repeat" }}>
     <div className="mb-10 px-10 text-center">
       <h2 className="font-['Montserrat'] text-[clamp(24px,4vw,48px)] font-black text-[#7c3aed]">
         SPECIAL DAY CREATIVE

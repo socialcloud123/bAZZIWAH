@@ -113,7 +113,7 @@ const Branding = () => {
       <section className="relative z-[2] m-0 w-full p-0 leading-none">
         <img
           className="block h-auto w-full"
-          src="/banners/SSD_Banners (2).png"
+          src="/banners/branding-page-banner.png"
           alt="Branding banner"
         />
       </section>
@@ -121,7 +121,7 @@ const Branding = () => {
       <section
         className="relative z-[1] -mt-[200px] px-10 pb-10 pt-[210px] text-center"
         style={{
-          backgroundImage: "url('/SSD_Website%20(16).png')",
+          backgroundImage: "url('/shared-purple-grid-bg.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

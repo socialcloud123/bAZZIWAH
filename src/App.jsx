@@ -11,6 +11,7 @@ import WebsiteDevelopment from './website-development';
 import PerformanceMarketing from './performance-marketing';
 import SEO from './seo';
 import Services from './services';
+import PageEnding from './components/PageEnding';
 import './App.css'
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
       : path === '/seo' ? <SEO />
       : path === '/services' ? <Services />
       : <Home />}
+      <PageEnding showContactForm={path !== '/contact'} />
     </>
   )
 }

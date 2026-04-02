@@ -52,7 +52,7 @@ const IMFAQCard = ({ f, i }) => {
 };
 
 const IMFAQ = () => (
-  <section className="faq-showcase" style={{ backgroundImage: "url('/SSD_Website (10).png')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+  <section className="faq-showcase" style={{ backgroundImage: "url('/shared-light-pattern-bg.png')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
     <div className="faq-inner">
       <div className="faq-header">
         <div className="faq-title-block">
@@ -71,7 +71,7 @@ const IMFAQ = () => (
 const InfluencerPage = () => (
   <div className="im-font">
     <section style={{ width: '100%', margin: 0, padding: 0, lineHeight: 0, position: 'relative', zIndex: 2 }}>
-      <img src="/banners/SSD_Banners (4).png" alt="Influencer Marketing" style={{ width: '100%', height: 'auto', display: 'block' }} />
+      <img src="/banners/influencer-marketing-page-banner.png" alt="Influencer Marketing" style={{ width: '100%', height: 'auto', display: 'block' }} />
     </section>
 
     <section style={{ background: 'linear-gradient(135deg, #5b21b6 0%, #7c3aed 50%, #5b21b6 100%)', padding: '80px 40px', position: 'relative', overflow: 'hidden', marginTop: '-238px', paddingTop: '210px', zIndex: 1 }}>
@@ -79,7 +79,7 @@ const InfluencerPage = () => (
       <div style={{ position: 'absolute', right: '-60px', top: '50%', transform: 'translateY(-50%)', width: '220px', height: '220px', background: 'rgba(131,205,21,0.15)', borderRadius: '50%', filter: 'blur(40px)' }} />
       <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1, display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(320px,1fr))', gap: '36px', alignItems: 'center' }}>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <img src="/SSD_Website 21 (1).png" alt="Influencer marketing visual" style={{ width: '100%', maxWidth: '520px', height: 'auto', display: 'block', borderRadius: '26px', objectFit: 'cover' }} />
+          <img src="/influencer-marketing-hero-illustration.png" alt="Influencer marketing visual" style={{ width: '100%', maxWidth: '520px', height: 'auto', display: 'block', borderRadius: '26px', objectFit: 'cover' }} />
         </div>
         <div style={{ color: '#fff', display: 'flex', flexDirection: 'column', gap: '14px' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '6px 14px', borderRadius: '999px', background: 'rgba(255,255,255,0.65)', border: '1px solid rgba(255,255,255,0.4)', width: 'fit-content', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', fontSize: '11px', color: '#1a0533' }}>
@@ -125,7 +125,7 @@ const InfluencerPage = () => (
       </div>
       <div className="contact-form-inner">
         <div className="contact-form-image">
-          <img src="/SSD_Website (14).png" alt="Contact" />
+          <img src="/shared-contact-section-illustration.png" alt="Contact" />
         </div>
         <div>
           <form className="contact-form">

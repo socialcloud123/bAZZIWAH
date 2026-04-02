@@ -18,7 +18,7 @@ const VisibleOnlineSection = () => {
         </div>
 
         <h2 className="von-h1">
-          Make Your Business<br />
+          <span className="von-h1-main">Make Your Business</span>
           <span className="von-grad">Visible Online</span>
         </h2>
 
@@ -79,7 +79,7 @@ const VisibleOnlineSection = () => {
       {/* RIGHT */}
       <div className="von-right">
         <div className="von-img-wrap">
-          <img src="/CC_01.png" alt="Buzzivah" />
+          <img src="/home-buzziwah-hero-visual.png" alt="Buzzivah" />
         </div>
 
         <div className="von-card von-card1">

@@ -230,7 +230,7 @@ const VideoProductionPage = () => (
   <>
     <section style={{ width: '100%', margin: 0, padding: 0, lineHeight: 0, position: 'relative', zIndex: 2 }}>
       <img
-        src="/banners/SSD_Banners (3).png"
+        src="/banners/video-production-page-banner.png"
         alt="Video Production & Editing"
         style={{ width: '100%', height: 'auto', display: 'block' }}
       />

@@ -6,7 +6,7 @@ const services = [
     title: 'Social Media Management',
     text: 'Content, community, and growth strategies to keep your brand active and loved.',
     href: '/social-media',
-    image: encodeURI('/SSD_Website (16).png'),
+    image: encodeURI('/shared-purple-grid-bg.png'),
     icon: (
       <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
@@ -19,7 +19,7 @@ const services = [
     title: 'Performance Marketing',
     text: 'ROI-first paid campaigns across search, social, and display with transparent reporting.',
     href: '/performance-marketing',
-    image: encodeURI('/SSD_Website (16).png'),
+    image: encodeURI('/shared-purple-grid-bg.png'),
     icon: (
       <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 12h-4l-3 9-4-18-3 9H2" />
@@ -30,7 +30,7 @@ const services = [
     title: 'Branding & Identity',
     text: 'Build memorable brands with naming, visual systems, and clear messaging.',
     href: '/branding',
-    image: encodeURI('/SSD_Website (16).png'),
+    image: encodeURI('/shared-purple-grid-bg.png'),
     icon: (
       <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 22 9 20.8l-3 .9-.9-3L2 16l1.9-2.8L2 10l3-.9.9-3L9 7l3-1 3 1 2.1-1.9.9 3L22 10l-1.9 3L22 16l-3 .9-.9 3L16 20.8 12 22Z" />
@@ -42,7 +42,7 @@ const services = [
     title: 'Website Development',
     text: 'Fast, beautiful, conversion-focused websites engineered for growth.',
     href: '/website-development',
-    image: encodeURI('/SSD_Website (16).png'),
+    image: encodeURI('/shared-purple-grid-bg.png'),
     icon: (
       <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="16 18 22 12 16 6" />
@@ -54,7 +54,7 @@ const services = [
     title: 'Video Production',
     text: 'Cinematic storytelling, ads, and product films that stop the scroll.',
     href: '/video-production',
-    image: encodeURI('/SSD_Website (16).png'),
+    image: encodeURI('/shared-purple-grid-bg.png'),
     icon: (
       <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2Z" />
@@ -66,7 +66,7 @@ const services = [
     title: 'Search Engine Optimization',
     text: 'Technical and on-page optimization to keep your brand discoverable.',
     href: '/seo',
-    image: encodeURI('/SSD_Website (16).png'),
+    image: encodeURI('/shared-purple-grid-bg.png'),
     icon: (
       <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="11" cy="11" r="7" />
@@ -79,7 +79,7 @@ const services = [
     title: 'Influencer Marketing',
     text: 'Creator partnerships that build trust and amplify reach.',
     href: '/influencer-marketing',
-    image: encodeURI('/SSD_Website (16).png'),
+    image: encodeURI('/shared-purple-grid-bg.png'),
     icon: (
       <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
@@ -93,7 +93,7 @@ const services = [
     title: 'Content Solutions',
     text: 'Strategy, copy, and creative assets tailored to your brand voice.',
     href: '/content-solution',
-    image: encodeURI('/SSD_Website (16).png'),
+    image: encodeURI('/shared-purple-grid-bg.png'),
     icon: (
       <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -110,7 +110,7 @@ const Services = () => (
     <section className="services-hero">
       <img
         className="services-hero-image"
-        src={encodeURI('/banners/SSD_Performance Marketing Webpage (6).png')}
+        src={encodeURI('/banners/services-page-banner.png')}
         alt="Services banner"
       />
     </section>
@@ -153,7 +153,7 @@ const Services = () => (
       </div>
       <div className="contact-form-inner">
         <div className="contact-form-image">
-          <img src="/SSD_Website (14).png" alt="Contact" />
+          <img src="/shared-contact-section-illustration.png" alt="Contact" />
         </div>
 
         <div>

@@ -45,7 +45,7 @@ const DigitalMarketingSection = () => {
         <div className="bbbbb-hero-left">
             <img
               className="bbbbb-hero-person-img"
-              src="/SSD_Website 10.png"
+              src="/home-digital-marketing-hero-image.png"
               alt="Buzziwah"
             />
 

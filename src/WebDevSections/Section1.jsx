@@ -172,7 +172,7 @@ const Section1 = () => (
       }}
     >
       <img
-        src="/webdev-sec1.png"
+        src="/shared-web-content-hero-illustration.png"
         alt="Web Development Illustration"
         style={{
           width: "100%",

@@ -220,12 +220,12 @@ const PerformanceMarketing = () => (
   <div className="pm-page im-font">
 
     <section className="relative z-[2] m-0 w-full p-0 leading-none">
-      <img src="/banners/SSD_Banners.png" alt="Performance Marketing Banner" className="block h-auto w-full" />
+      <img src="/banners/performance-marketing-page-banner.png" alt="Performance Marketing Banner" className="block h-auto w-full" />
     </section>
 
     <section className="pm-section2">
       <div className="pm-section2-left">
-        <img src="/SSD_Website 20 (1).png" alt="SEO" />
+        <img src="/performance-marketing-section2-illustration.png" alt="SEO" />
       </div>
       <div className="pm-section2-right">
         <div className="paid-marketing-section">
@@ -321,82 +321,6 @@ const PerformanceMarketing = () => (
         </div>
       </div>
     </section>
-
-    <footer className="site-footer">
-      <div className="footer-cta">
-        <img
-          className="footer-logo"
-          src="https://sripadastudiosdigital.com/wp-content/uploads/2024/01/Copy-of-About-Us-Page-SSD-WEBSITE-DESIGN-1366-x-768-px-3.png"
-          alt="Sripada Studios Digital"
-        />
-        <div className="footer-cta-text">Ready To Get Started</div>
-        <button className="footer-cta-button" type="button">
-          Get Started →
-        </button>
-      </div>
-
-      <div className="footer-divider" />
-
-      <div className="footer-grid">
-        <div className="footer-col">
-          <h4>SUBSCRIBE TO OUR NEWSLETTER</h4>
-          <input className="footer-input" type="text" placeholder="Name" />
-          <input className="footer-input" type="email" placeholder="Email Address" />
-          <button className="footer-subscribe" type="button">
-            Subscribe
-          </button>
-        </div>
-
-        <div className="footer-col">
-          <h4>SERVICES</h4>
-          <ul>
-            <li>Performance Marketing</li>
-            <li>Social Media Management</li>
-            <li>Website Development</li>
-            <li>Branding and Re-branding</li>
-          </ul>
-        </div>
-
-        <div className="footer-col">
-          <h4>ABOUT</h4>
-          <ul>
-            <li>Our Story</li>
-            <li>Benefits</li>
-            <li>Team</li>
-            <li>Careers</li>
-          </ul>
-        </div>
-
-        <div className="footer-col">
-          <h4>NAVIGATION</h4>
-          <ul>
-            <li>Content Solution</li>
-            <li>Video Production</li>
-            <li>Search Engine Optimization</li>
-            <li>Influencer Marketing</li>
-          </ul>
-        </div>
-
-        <div className="footer-col">
-          <h4>HELP</h4>
-          <ul>
-            <li>FAQs</li>
-            <li>Contact Us</li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="footer-divider" />
-
-      <div className="footer-bottom">
-        <div className="footer-socials">
-          <span className="footer-social">f</span>
-          <span className="footer-social">ig</span>
-          <span className="footer-social">yt</span>
-        </div>
-        <div className="footer-copy">2026 Buzziwah.com | All Rights Reserved</div>
-      </div>
-    </footer>
   </div>
 );
 

@@ -114,7 +114,12 @@
   opacity: 0;
   animation: von-up 0.8s 0.22s forwards;
 }
+.von-h1-main {
+  display: block;
+  white-space: nowrap;
+}
 .von-grad {
+  display: block;
   background: linear-gradient(110deg, #76b812, #76b812 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

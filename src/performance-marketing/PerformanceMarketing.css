@@ -6,7 +6,7 @@
   gap: 40px;
   padding: 210px 5% 90px;
   margin-top: -200px;
-  background: url('/SSD_Website (10).png') center/cover no-repeat;
+  background: url('/shared-light-pattern-bg.png') center/cover no-repeat;
   position: relative;
   z-index: 1;
 }
@@ -174,7 +174,7 @@
 }
 .pm-flip-card-front img { width: 100%; height: 100%; object-fit: cover; }
 
-.pm-process { padding: 80px 5%; background: url("/Copy%20of%20BUZZIWAH_PORTFOLIO%20(2).png") center/cover no-repeat; }
+.pm-process { padding: 80px 5%; background: url("/performance-marketing-process-bg.png") center/cover no-repeat; }
 .pm-chart-title {
   font-family: 'Nunito', sans-serif;
   text-align: center;

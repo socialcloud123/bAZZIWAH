@@ -78,7 +78,7 @@ const HeroSection = () => {
       {/* RIGHT */}
       <div className="hz-hero-right">
         <div className="hz-img-wrap">
-          <img src="/CC_01.png" alt="Buzzivah" />
+          <img src="/home-buzziwah-hero-visual.png" alt="Buzzivah" />
         </div>
 
         <div className="hz-card hz-card1">

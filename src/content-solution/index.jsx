@@ -264,7 +264,7 @@ const Section1 = () => (
 
       {/* RIGHT — image */}
       <div className="cm-hero-image">
-        <img src="/webdev-sec1.png" alt="Content Marketing" />
+        <img src="/shared-web-content-hero-illustration.png" alt="Content Marketing" />
       </div>
 
       <style>{`

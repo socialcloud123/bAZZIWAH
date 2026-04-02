@@ -35,7 +35,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="w-full py-16 px-6" style={{ background: "url('/SSD_Website (10).png') center/cover no-repeat" }}>
+      <section className="w-full py-16 px-6" style={{ background: "url('/shared-light-pattern-bg.png') center/cover no-repeat" }}>
         <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
           <div className="flex justify-center fade-up" style={{ '--delay': '0s' }}>
             <img
@@ -287,7 +287,7 @@ const About = () => {
         </div>
         <div className="contact-form-inner">
           <div className="contact-form-image">
-            <img src="/SSD_Website (14).png" alt="Contact" />
+            <img src="/shared-contact-section-illustration.png" alt="Contact" />
           </div>
 
           <div>
