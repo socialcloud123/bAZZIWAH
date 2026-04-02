@@ -45,7 +45,7 @@ const About = () => {
             />
           </div>
 
-          <div className="boys-card font-google-sans text-[#1f1f1f] fade-up" style={{ '--delay': '0.1s', marginTop: '56px' }}>
+          <div className="boys-card font-google-sans text-[#1f1f1f] fade-up" style={{ '--delay': '0.1s', marginTop: '140px' }}>
             <h2 className="boys-title">
               THE BOYS STORY!
             </h2>
