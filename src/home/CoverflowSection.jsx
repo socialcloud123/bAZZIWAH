@@ -35,8 +35,16 @@ const CoverflowSection = () => {
       <h2 className="coverflow-heading">WHY CHOOSE US</h2>
 
       <div className="oooocoverflow">
-        <button className="oooo-arrow oooo-arrow-left" onClick={goPrev} aria-label="Previous">&#10094;</button>
-        <button className="oooo-arrow oooo-arrow-right" onClick={goNext} aria-label="Next">&#10095;</button>
+        <button className="oooo-arrow oooo-arrow-left" type="button" onClick={goPrev} aria-label="Previous">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M15 6l-6 6 6 6" />
+          </svg>
+        </button>
+        <button className="oooo-arrow oooo-arrow-right" type="button" onClick={goNext} aria-label="Next">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 6l6 6-6 6" />
+          </svg>
+        </button>
 
         {items.map((src, idx) => {
           const pos = mod(idx - activeIndex, items.length);

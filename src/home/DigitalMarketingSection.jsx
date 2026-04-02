@@ -27,7 +27,7 @@ const DigitalMarketingSection = () => {
           </h1>
 
           <p className="bbbbb-sub bbbbb-fiu" style={{ '--fiu-delay': '0.38s' }}>
-            SS Digital — the creative and performance marketing arm of Sripada Studios. Bold
+            Buzziwah — the creative and performance marketing arm of Sripada Studios. Bold
             branding, sharp campaigns, and cinema-to-digital expertise. All in one place.
           </p>
 
@@ -43,16 +43,16 @@ const DigitalMarketingSection = () => {
         </div>
 
         <div className="bbbbb-hero-left">
-          <img
-            className="bbbbb-hero-person-img"
-            src="/SSD_Website 10.png"
-            alt="SS Digital — Buzziwah"
-          />
+            <img
+              className="bbbbb-hero-person-img"
+              src="/SSD_Website 10.png"
+              alt="Buzziwah"
+            />
 
           <div className="bbbbb-phone-video-overlay">
             <iframe
               src="https://www.youtube.com/embed/S4QYOZeCPfw?autoplay=1&mute=1&rel=0&modestbranding=1&controls=0&loop=1&playlist=S4QYOZeCPfw&playsinline=1"
-              title="Buzziwah — SS Digital"
+              title="Buzziwah"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
