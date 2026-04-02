@@ -37,15 +37,15 @@ const About = () => {
 
       <section className="w-full py-16 px-6" style={{ background: "url('/shared-light-pattern-bg.png') center/cover no-repeat" }}>
         <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
-          <div className="flex justify-center fade-up" style={{ '--delay': '0s' }}>
+          <div className="flex justify-center fade-up" style={{ '--delay': '0s', marginTop: '36px' }}>
             <img
-              className="w-full max-w-md rounded-2xl object-cover"
-              src="/about page/SSD_Performance-Marketing-Webpage-17.png"
+              className="w-full max-w-xl rounded-2xl object-cover"
+              src="/founders image about us.png"
               alt="The Boys Story"
             />
           </div>
 
-          <div className="boys-card font-google-sans text-[#1f1f1f] fade-up" style={{ '--delay': '0.1s' }}>
+          <div className="boys-card font-google-sans text-[#1f1f1f] fade-up" style={{ '--delay': '0.1s', marginTop: '56px' }}>
             <h2 className="boys-title">
               THE BOYS STORY!
             </h2>
