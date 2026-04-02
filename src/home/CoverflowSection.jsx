@@ -4,14 +4,12 @@ const images = [
   '/SSD_Performance-Marketing-Webpage-3.png',
   '/SSD_Performance-Marketing-Webpage-4.png',
   '/SSD_Performance-Marketing-Webpage-5.png',
-  '/SSD_Performance-Marketing-Webpage-3.png',
-  '/SSD_Performance-Marketing-Webpage-4.png',
 ];
 
 const mod = (n, m) => ((n % m) + m) % m;
 
 const CoverflowSection = () => {
-  const [activeIndex, setActiveIndex] = useState(2);
+  const [activeIndex, setActiveIndex] = useState(1);
 
   const items = useMemo(() => images, []);
 

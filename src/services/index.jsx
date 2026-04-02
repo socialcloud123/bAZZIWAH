@@ -148,7 +148,7 @@ const Services = () => (
 
     <section className="contact-form-section" id="contact">
       <div className="contact-form-header">
-        <h2>Contact us</h2>
+        <h2>Contact Us</h2>
         <p>Tell us about your project and we will get back to you quickly.</p>
       </div>
       <div className="contact-form-inner">

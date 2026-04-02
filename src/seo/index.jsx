@@ -3,11 +3,31 @@ import './SEO.css';
 import '../home/Home.css';
 
 const seoServices = [
-  { img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-27.png', title: 'Search-Ready Websites', desc: '1. Deep site health check\n2. Technical performance audit\n3. Site Infrastructure Review\n4. SEO Foundations Audit' },
-  { img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-28.png', title: 'Targeted Keyword Optimization', desc: '1. Competitor Keyword Insights\n2. Precision Keyword Research\n3. Hyperlocal Keyword Targeting\n4. Keyword Performance Tracking' },
-  { img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-29.png', title: 'ON–Page SEO', desc: '1. Content Built to Rank\n2. Optimized Meta Titles & Tags\n3. Smart Site Linking\n4. Enhanced Search Appearance' },
-  { img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-30.png', title: 'Regional SEO Solutions', desc: '1. Google business profile enhancements\n2. Location-Based Directory Linking\n3. Online Reputation Management\n4. Geo-targeted listing management'},
-  { img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-31.png', title: 'Backlink Strategy', desc: '1. Power Domain Links\n2. Content-Driven Outreach\n3. Trusted Page links\n4. Backlink Gap Analysis' },
+  {
+    img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-27.png',
+    title: 'Search-Ready Websites',
+    desc: 'Deep site health check, technical performance audit, site infrastructure review, and SEO foundations audit to ensure your website is built to rank.',
+  },
+  {
+    img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-28.png',
+    title: 'Targeted Keyword Optimization',
+    desc: 'Competitor keyword insights, precision keyword research, hyperlocal keyword targeting, and keyword performance tracking for maximum reach.',
+  },
+  {
+    img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-29.png',
+    title: 'On-Page SEO',
+    desc: 'Content built to rank, optimized meta titles and tags, smart site linking, and enhanced search appearance for every page.',
+  },
+  {
+    img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-30.png',
+    title: 'Regional SEO Solutions',
+    desc: 'Google Business Profile enhancements, location-based directory linking, online reputation management, and geo-targeted listing management.',
+  },
+  {
+    img: 'https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-31.png',
+    title: 'Backlink Strategy',
+    desc: 'Power domain links, content-driven outreach, trusted page links, and backlink gap analysis to build your domain authority.',
+  },
 ];
 
 const howCards = [
@@ -50,7 +70,10 @@ const howCards = [
 ];
 
 const seoFaqs = [
-  { q: 'Can You Redesign Or Develop A Website For My Brand?', a: 'Absolutely. We handle everything from scratch — concept, design, development, and launch — tailored to your brand identity and goals.' },
+  {
+    q: 'Can You Redesign Or Develop A Website For My Brand?',
+    a: 'Absolutely. We handle everything from scratch - concept, design, development, and launch - tailored to your brand identity and goals.',
+  },
   { q: 'Do You Offer SEO Services?', a: 'Yes. Every website we build is SEO-optimized with proper structure, meta tags, performance tuning, and mobile responsiveness baked in.' },
   { q: 'What Kind Of Support Do You Offer After A Campaign Is Launched?', a: 'We provide ongoing monitoring, A/B testing, performance reports, and optimization to ensure your campaigns keep delivering results.' },
   { q: 'Why Should I Choose SS Digital For My Digital Marketing Needs?', a: 'We combine creative strategy, data-driven execution, and transparent reporting to deliver measurable ROI for businesses of all sizes.' },
@@ -62,7 +85,7 @@ const SEOFaqCard = ({ faq, idx }) => {
     <div className={`faq-card ${open ? 'open' : ''}`}>
       <button className="faq-question" type="button" onClick={() => setOpen(!open)} aria-expanded={open}>
         <span>{`${idx + 1}. ${faq.q}`}</span>
-        <span className="faq-arrow">⌄</span>
+        <span className="faq-arrow">{open ? '-' : '+'}</span>
       </button>
       <div className="faq-answer">{faq.a}</div>
     </div>
@@ -77,13 +100,30 @@ const SEO = () => (
     </section>
 
     <section className="seo-section2">
+      <div className="seo-orb seo-orb-1" />
+      <div className="seo-orb seo-orb-2" />
       <div className="seo-s2-left">
         <div className="seo-s2-image-shell">
-          <img src="https://sripadastudiosdigital.com/wp-content/uploads/2026/03/Social-Media-Management-3.png" alt="SEO" />
+          <div className="seo-img-frame">
+            <div className="seo-img-glow" />
+            <img src="https://sripadastudiosdigital.com/wp-content/uploads/2026/03/Social-Media-Management-3.png" alt="SEO" />
+            <div className="seo-img-badge seo-img-badge--tl">
+              <span className="seo-img-badge-dot" />
+              SEO Optimised
+            </div>
+            <div className="seo-img-badge seo-img-badge--br">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#83cd15" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+              Rankings ↑
+            </div>
+          </div>
         </div>
       </div>
       <div className="seo-s2-right">
         <div className="iuuui-section">
+          <div className="iuuui-badge">
+            <span className="iuuui-dot" />
+            <span>What We Do</span>
+          </div>
           <div className="iuuui-banner">We don't just optimise for search engines, we optimise for impact</div>
           <p className="iuuui-intro">SEO is required to increase the visibility of your website on search engines, attract the audience and grow your reach across platforms.</p>
           <h2 className="iuuui-subheading">Why Sripada Studios?</h2>
@@ -100,15 +140,35 @@ const SEO = () => (
         <div className="yyyyy-wrapper">
           <h2 className="yyyyy-title">SEO Services We Offer</h2>
           <div className="yyyyy-grid">
-            <div className="yyyyy-card"><h3>1. Comprehensive SEO Services</h3><p>From on-page, off-page SEO to technical audits we have got you covered</p></div>
-            <div className="yyyyy-card"><h3>2. Hyperlocal SEO Solutions</h3><p>Deep understanding of search patterns and solutions tailored to your regional needs</p></div>
-            <div className="yyyyy-card"><h3>3. Results Backed by Data</h3><p>Every strategy we make is backed by data and driven by results</p></div>
-            <div className="yyyyy-card"><h3>4. Client-Centric Mindset</h3><p>We put "you" first and make sure every strategy we create is carefully aligned with your goals and tailored to your business needs.</p></div>
+            {[
+              { n: '01', h: 'Comprehensive SEO Services', p: 'From on-page, off-page SEO to technical audits we have got you covered.' },
+              { n: '02', h: 'Hyperlocal SEO Solutions', p: 'Deep understanding of search patterns and solutions tailored to your regional needs.' },
+              { n: '03', h: 'Results Backed by Data', p: 'Every strategy we make is backed by data and driven by results.' },
+              { n: '04', h: 'Client-Centric Mindset', p: 'We put you first and make sure every strategy we create is aligned with your goals.' },
+            ].map((card) => (
+              <div className="yyyyy-card" key={card.n}>
+                <div className="yyyyy-num">{card.n}</div>
+                <h3>{card.h}</h3>
+                <p>{card.p}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
       <div className="seo-s3-right">
-        <img src="https://sripadastudiosdigital.com/wp-content/uploads/2026/03/Social-Media-Management-6.png" alt="SEO Services" />
+        <div className="seo-s3-visual">
+          <div className="seo-s3-glow" />
+          <img src="https://sripadastudiosdigital.com/wp-content/uploads/2026/03/Social-Media-Management-6.png" alt="SEO Services" />
+          <div className="seo-s3-stat seo-s3-stat--tl">
+            <div className="seo-s3-stat-val">3.2×</div>
+            <div className="seo-s3-stat-label">Avg. Traffic Lift</div>
+          </div>
+          <div className="seo-s3-stat seo-s3-stat--br">
+            <div className="seo-s3-stat-val">#1</div>
+            <div className="seo-s3-stat-label">Page Rankings</div>
+          </div>
+          <div className="seo-s3-ring" />
+        </div>
       </div>
     </section>
 
@@ -118,6 +178,7 @@ const SEO = () => (
         {seoServices.slice(0, 3).map((s, i) => (
           <div className="seo-service-container" key={i}>
             <div className="seo-service-card">
+              <div className="seo-card-shimmer" />
               {!s.noImg && (
                 <div className="seo-icon-container">
                   <img src={s.img} alt={s.title} />
@@ -125,7 +186,7 @@ const SEO = () => (
               )}
               <div className={`seo-service-content${s.noImg ? ' seo-no-img' : ''}`}>
                 <div className="seo-service-title">{s.title}</div>
-                <p className="seo-service-desc">{s.desc.split('\n').map((line, j) => <span key={j}>{line}<br /></span>)}</p>
+                <p className="seo-service-desc">{s.desc}</p>
               </div>
             </div>
           </div>
@@ -135,6 +196,7 @@ const SEO = () => (
         {seoServices.slice(3).map((s, i) => (
           <div className="seo-service-container" key={i}>
             <div className="seo-service-card">
+              <div className="seo-card-shimmer" />
               {!s.noImg && (
                 <div className="seo-icon-container">
                   <img src={s.img} alt={s.title} />
@@ -142,7 +204,7 @@ const SEO = () => (
               )}
               <div className={`seo-service-content${s.noImg ? ' seo-no-img' : ''}`}>
                 <div className="seo-service-title">{s.title}</div>
-                <p className="seo-service-desc">{s.desc.split('\n').map((line, j) => <span key={j}>{line}<br /></span>)}</p>
+                <p className="seo-service-desc">{s.desc}</p>
               </div>
             </div>
           </div>
@@ -151,16 +213,28 @@ const SEO = () => (
     </section>
 
     <section className="seo-section5">
-      <h2 className="seo-section-title">How we make SEO work for you</h2>
-      <p className="seo-section-sub">Our creative and innovative approach is what made us aficionados.</p>
-      <div className="seo-how-grid">
-        {howCards.map((c, i) => (
-          <div className="seo-how-card" key={i}>
-            <div className="seo-how-icon" aria-hidden="true">{c.icon}</div>
-            <h3>{c.title}</h3>
-            <p>{c.desc}</p>
-          </div>
-        ))}
+      <div className="seo-s5-orb seo-s5-orb1" />
+      <div className="seo-s5-orb seo-s5-orb2" />
+      <div className="seo-s5-inner">
+        <div className="seo-s5-label"><span className="seo-s5-label-dot" />Our Playbook</div>
+        <h2 className="seo-s5-heading">How we make <span className="seo-s5-hl">SEO work</span><br />for you</h2>
+        <p className="seo-s5-sub">A lean, repeatable system that blends research, action, and iteration to win every search battle.</p>
+        <div className="seo-s5-pills">
+          {['Research → Strategy → Ship → Learn', 'Transparent KPIs & reporting', 'Always-on optimisation'].map((t) => (
+            <div className="seo-s5-pill" key={t}>{t}</div>
+          ))}
+        </div>
+        <div className="seo-s5-cards">
+          {howCards.map((c, i) => (
+            <div className="seo-s5-card" key={i}>
+              <div className="seo-s5-card-line" />
+              <div className="seo-s5-card-num">0{i + 1}</div>
+              <h3>{c.title}</h3>
+              <p>{c.desc}</p>
+              <div className="seo-s5-badge"><span className="seo-s5-badge-dot" />Measurable lifts in visibility &amp; engagement</div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
 
@@ -172,9 +246,7 @@ const SEO = () => (
             <h3>We got you.</h3>
           </div>
           <p className="faq-intro">
-            Have something on your mind? Whether it's about our services, process, timelines, or
-            pricing — we've answered the most common questions to help you move forward with
-            clarity and confidence.
+            Have something on your mind? Whether it's about our services, process, timelines, or pricing - we've answered the most common questions to help you move forward with clarity and confidence.
           </p>
         </div>
         <div className="faq-grid">
@@ -191,7 +263,7 @@ const SEO = () => (
       <div className="footer-cta">
         <img className="footer-logo" src="https://sripadastudiosdigital.com/wp-content/uploads/2024/01/Copy-of-About-Us-Page-SSD-WEBSITE-DESIGN-1366-x-768-px-3.png" alt="Sripada Studios Digital" />
         <div className="footer-cta-text">Ready To Get Started</div>
-        <button className="footer-cta-button" type="button">Get Started →</button>
+        <button className="footer-cta-button" type="button">Get Started</button>
       </div>
       <div className="footer-divider" />
       <div className="footer-grid">

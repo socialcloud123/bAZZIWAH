@@ -178,12 +178,16 @@ body {
   }
   .ssd-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 14px;
   }
   .c1,.c2,.c3,.c4,.c5,.c6,.c7,.c8 {
     grid-column: auto;
     grid-row: auto;
-    height: 350px;
+    height: 260px;
+  }
+  .ssd-card__img {
+    object-fit: contain;
+    transform: scale(1);
   }
 }
 
@@ -362,11 +366,11 @@ body {
 
 @keyframes marquee-left {
   from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
+  to { transform: translateX(-50%); }
 }
 
 @keyframes marquee-right {
-  from { transform: translateX(-100%); }
+  from { transform: translateX(-50%); }
   to { transform: translateX(0); }
 }
 
@@ -683,6 +687,24 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .growth-section {
+    height: auto;
+    padding: 60px 16px;
+  }
+  .growth-inner {
+    gap: 20px;
+  }
+  .growth-title,
+  .growth-title-secondary {
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+  .growth-image {
+    max-width: 90%;
+  }
+}
+
 .visibility-section {
   padding: 90px 20px;
   background: url("/SSD_Website (12).png") center/cover no-repeat;
@@ -846,6 +868,20 @@ body {
 
   .ttt-testimonials-slider {
     height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .ttt-testimonials-container {
+    padding: 32px 16px 14px;
+    margin: 20px auto 0;
+  }
+  .ttt-testimonials-slider {
+    height: auto;
+    padding-bottom: 0;
+  }
+  .ttt-testimonials-track {
+    gap: 16px;
   }
 }
 
@@ -1075,7 +1111,7 @@ body {
 }
 
 .faq-arrow {
-  font-size: 1.1rem;
+  font-size: 0.85rem;
   transition: transform .2s ease;
 }
 
@@ -2065,6 +2101,28 @@ body {
   }
 }
 
+@media (max-width: 640px) {
+  .bbbbb-cta-row {
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+  .bbbbb-cta-primary {
+    font-size: 13px;
+    padding: 12px 20px;
+    white-space: nowrap;
+  }
+  .bbbbb-cta-secondary {
+    font-size: 12px;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .bbbbb-cta-arrow {
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
+  }
+}
+
 .ooooitem.left1 {
   opacity: 1;
   transform: translateX(-420px) rotateY(30deg) scale(0.9);
@@ -2089,11 +2147,11 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 32px;
+  font-size: 22px;
   background: rgba(0,0,0,0.55);
   color: #fff;
   border-radius: 50%;
-  padding: 10px 16px;
+  padding: 8px 10px;
   cursor: pointer;
   z-index: 5;
   transition: 0.3s;
@@ -2116,7 +2174,12 @@ body {
 
 @media (max-width: 600px) {
   .oooocoverflow {
-    height: 450px;
+    height: 360px;
+  }
+
+  .coverflow-heading {
+    font-size: 1.8rem;
+    margin-bottom: 14px;
   }
 
   .ooooitem img {
@@ -2137,19 +2200,19 @@ body {
   }
 
   .oooo-arrow {
-    font-size: 22px;
-    padding: 8px 14px;
+    font-size: 16px;
+    padding: 6px 8px;
   }
 
   .oooo-arrow-left {
-    left: -20px;
+    left: 8px;
   }
 
   .oooo-arrow-right {
-    right: -20px;
+    right: 8px;
   }
 
-.content-sales-section .content-sales-inner {
+  .content-sales-section .content-sales-inner {
     flex-direction: column;
   }
 
@@ -2157,6 +2220,16 @@ body {
   .content-sales-section .content-sales-text {
     width: 100%;
     margin: 0;
+  }
+  .content-sales-section {
+    padding-top: 50px;
+  }
+  .content-sales-image {
+    min-height: 280px;
+  }
+  .content-sales-image img {
+    width: 80%;
+    max-height: 320px;
   }
 }
 

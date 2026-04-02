@@ -49,8 +49,10 @@ const clienteleLogos = [
 ];
 
 const ClienteleSection = () => {
-  const baseSpeedSeconds = 180;
-  const speedStepSeconds = 25;
+  const uniqueLogos = Array.from(new Set(clienteleLogos));
+  const baseSpeedSeconds = 90;
+  const speedStepSeconds = 16;
+  const rows = 2;
 
   return (
     <section className="clientele-section">
@@ -60,9 +62,10 @@ const ClienteleSection = () => {
       </div>
 
       <div className="clientele-marquee">
-        {[0, 1, 2, 3].map((rowIndex) => {
-          const offset = (rowIndex * 6) % clienteleLogos.length;
-          const rowItems = clienteleLogos.slice(offset).concat(clienteleLogos.slice(0, offset));
+        {[...Array(rows)].map((_, rowIndex) => {
+          const offset = (rowIndex * 5) % uniqueLogos.length;
+          const rowItems = uniqueLogos.slice(offset).concat(uniqueLogos.slice(0, offset));
+          const loopItems = rowItems.concat(rowItems);
           const duration = baseSpeedSeconds + rowIndex * speedStepSeconds;
 
           return (
@@ -72,8 +75,8 @@ const ClienteleSection = () => {
               key={`clientele-row-${rowIndex}`}
             >
               <div className="clientele-track">
-                {rowItems.map((item, idx) => (
-                  <div className="clientele-card" key={`${item}-${idx}-a`}>
+                {loopItems.map((item, idx) => (
+                  <div className="clientele-card" key={`${item}-${idx}`}>
                     <img
                       className="clientele-logo"
                       src={encodeURI(`/clientlogos/${item}`)}

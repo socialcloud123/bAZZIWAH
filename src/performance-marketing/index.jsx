@@ -225,7 +225,7 @@ const PerformanceMarketing = () => (
 
     <section className="pm-section2">
       <div className="pm-section2-left">
-        <img src="https://sripadastudiosdigital.com/wp-content/uploads/2026/03/SEO-F.png" alt="SEO" />
+        <img src="/SSD_Website 20 (1).png" alt="SEO" />
       </div>
       <div className="pm-section2-right">
         <div className="paid-marketing-section">
