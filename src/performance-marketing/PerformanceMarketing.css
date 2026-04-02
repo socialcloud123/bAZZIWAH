@@ -29,28 +29,19 @@
   color: #5b21b6;
 }
 .pm-section2-grid {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 26px 48px;
-  align-items: start;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+  gap: 40px;
+  align-items: center;
 }
 .pm-highlight-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 18px;
-}
-.pm-highlight-card-offset {
-  margin-top: 150px;
-}
-.pm-highlight-card-image-first {
-  flex-direction: column-reverse;
+  display: contents;
 }
 .pm-highlight-copy {
-  max-width: 480px;
-  text-align: center;
+  max-width: 560px;
+  text-align: left;
 }
 .pm-highlight-copy h3 {
   margin: 0 0 12px;
@@ -71,6 +62,7 @@
   border-radius: 22px;
   overflow: hidden;
   box-shadow: 0 22px 54px rgba(163, 230, 53, 0.14);
+  justify-self: end;
 }
 .pm-highlight-visual img {
   width: 100%;
@@ -269,7 +261,9 @@
 
 .pm-process {
   min-height: 100vh;
-  background: linear-gradient(180deg, #f5f7e8 0%, #f9fbe7 30%, #f5f7e8 60%, #fafce9 100%);
+  background:
+    url('/shared-light-pattern-bg.png') left center / 50% 100% no-repeat,
+    url('/shared-light-pattern-bg.png') right center / 50% 100% no-repeat;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
   padding-bottom: 100px;
 }
@@ -284,15 +278,15 @@
   }
   .pm-section2-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 24px;
   }
-  .pm-highlight-card-offset {
-    margin-top: 0;
+  .pm-highlight-copy {
+    text-align: center;
+    max-width: none;
+    margin: 0 auto;
   }
-  .pm-highlight-card,
-  .pm-highlight-card-image-first {
-    flex-direction: column;
-    align-items: center;
+  .pm-highlight-visual {
+    justify-self: center;
   }
   .pm-services-header {
     padding: 64px 20px 36px;

@@ -1167,7 +1167,7 @@ body {
 
 .faq-showcase {
   padding: 72px 20px;
-  background: #eaffc6 url("/shared-light-pattern-bg.png") center/cover no-repeat;
+  background: #13082a url("/shared-purple-grid-bg.png") center center / 260% no-repeat;
   color: #2a213a;
   position: relative;
   overflow: hidden;
@@ -1191,7 +1191,7 @@ body {
 .faq-title-block h2 {
   font-size: clamp(2rem, 4vw, 3.1rem);
   font-weight: 800;
-  color: #6a2fff;
+  color: #c8f041;
   font-family: 'Geom', sans-serif;
   margin: 0;
   line-height: 1.02;
@@ -1200,14 +1200,14 @@ body {
 .faq-title-block h3 {
   font-size: clamp(1.8rem, 3.7vw, 2.9rem);
   font-weight: 800;
-  color: #1b1b1b;
+  color: #ffffff;
   font-family: 'Geom', sans-serif;
   margin: 0;
   line-height: 1.02;
 }
 
 .faq-intro {
-  color: #4b4b4b;
+  color: rgba(255,255,255,0.78);
   max-width: 560px;
   font-size: 0.98rem;
   line-height: 1.8;

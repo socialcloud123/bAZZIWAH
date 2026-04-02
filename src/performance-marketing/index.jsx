@@ -639,28 +639,10 @@ const zigzagSteps = [
   },
 ];
 
-const pmHighlights = [
-  {
-    title: 'Instant Visibility. Immediate Results.',
-    desc: "Get to the top of search engine results the moment your campaign goes live, reaching high-intent audiences exactly when they're ready to act.",
-    imageFirst: false,
-  },
-  {
-    title: 'Reach the Right People, Every Time.',
-    desc: 'Go beyond broad targeting. Pinpoint your ideal audience by location, demographics, interests, and behavior so every impression has purpose.',
-    imageFirst: true,
-  },
-  {
-    title: 'Scale Further. Convert Smarter.',
-    desc: 'Expand your reach beyond organic limits. Paid marketing puts your brand in front of more of the right people, generating quality leads and driving sales.',
-    imageFirst: false,
-  },
-  {
-    title: 'Track Better. Improve Faster.',
-    desc: 'Monitor every click, lead, and conversion with clear reporting, then optimize campaigns continuously for stronger ROI and long-term growth.',
-    imageFirst: true,
-  },
-];
+const pmHighlight = {
+  title: 'Instant Visibility. Immediate Results.',
+  desc: "Get to the top of search engine results the moment your campaign goes live, reaching high-intent audiences exactly when they're ready to act.",
+};
 
 const pmFaqs = [
   { q: 'What is Sripada Studios Digital?', a: 'Sripada Studios Digital is a Bengaluru-based conglomerate specializing in filmmaking, digital marketing, and research. We deliver creative and strategic solutions across three core verticals to help brands and individuals connect meaningfully with their audiences.' },
@@ -871,20 +853,15 @@ const PerformanceMarketing = () => (
         <h2>Why do you need Performance Marketing?</h2>
       </div>
       <div className="pm-section2-grid">
-        {pmHighlights.map((item, index) => (
-          <article
-            key={item.title}
-            className={`pm-highlight-card ${index % 2 === 1 ? 'pm-highlight-card-offset' : ''} ${item.imageFirst ? 'pm-highlight-card-image-first' : ''}`}
-          >
-            <div className="pm-highlight-copy">
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
-            </div>
-            <div className="pm-highlight-visual">
-              <img src="/performance-marketing-section2-illustration.png" alt={item.title} />
-            </div>
-          </article>
-        ))}
+        <article className="pm-highlight-card">
+          <div className="pm-highlight-copy">
+            <h3>{pmHighlight.title}</h3>
+            <p>{pmHighlight.desc}</p>
+          </div>
+          <div className="pm-highlight-visual">
+            <img src="/performance-marketing-section2-illustration.png" alt={pmHighlight.title} />
+          </div>
+        </article>
       </div>
     </section>
 
