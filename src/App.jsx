@@ -20,18 +20,32 @@ function App() {
   return (
     <>
       <Navbar />
-      {path === '/about' ? <About />
-      : path === '/contact' ? <Contact />
-      : path === '/branding' ? <Branding />
-      : path === '/social-media' ? <SocialMedia />
-      : path === '/content-solution' ? <ContentSolution />
-      : path === '/influencer-marketing' ? <InfluencerPage />
-      : path === '/video-production' ? <VideoProductionPage />
-      : path === '/website-development' ? <WebsiteDevelopment />
-      : path === '/performance-marketing' ? <PerformanceMarketing />
-      : path === '/seo' ? <SEO />
-      : path === '/services' ? <Services />
-      : <Home />}
+      switch (path) {
+        case '/about':
+          return <About />;
+        case '/contact':
+          return <Contact />;
+        case '/branding':
+          return <Branding />;
+        case '/social-media':
+          return <SocialMedia />;
+        case '/content-solution':
+          return <ContentSolution />;
+        case '/influencer-marketing':
+          return <InfluencerPage />;
+        case '/video-production':
+          return <VideoProductionPage />;
+        case '/website-development':
+          return <WebsiteDevelopment />;
+        case '/performance-marketing':
+          return <PerformanceMarketing />;
+        case '/seo':
+          return <SEO />;
+        case '/services':
+          return <Services />;
+        default:
+          return <Home />;
+      }
       <PageEnding showContactForm={path !== '/contact'} />
     </>
   )
