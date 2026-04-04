@@ -19,34 +19,38 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      switch (path) {
-        case '/about':
-          return <About />;
-        case '/contact':
-          return <Contact />;
-        case '/branding':
-          return <Branding />;
-        case '/social-media':
-          return <SocialMedia />;
-        case '/content-solution':
-          return <ContentSolution />;
-        case '/influencer-marketing':
-          return <InfluencerPage />;
-        case '/video-production':
-          return <VideoProductionPage />;
-        case '/website-development':
-          return <WebsiteDevelopment />;
-        case '/performance-marketing':
-          return <PerformanceMarketing />;
-        case '/seo':
-          return <SEO />;
-        case '/services':
-          return <Services />;
-        default:
-          return <Home />;
-      }
-      <PageEnding showContactForm={path !== '/contact'} />
+      <>
+        <Navbar />
+        {(() => {
+          switch (path) {
+            case '/about':
+              return <About />;
+            case '/contact':
+              return <Contact />;
+            case '/branding':
+              return <Branding />;
+            case '/social-media':
+              return <SocialMedia />;
+            case '/content-solution':
+              return <ContentSolution />;
+            case '/influencer-marketing':
+              return <InfluencerPage />;
+            case '/video-production':
+              return <VideoProductionPage />;
+            case '/website-development':
+              return <WebsiteDevelopment />;
+            case '/performance-marketing':
+              return <PerformanceMarketing />;
+            case '/seo':
+              return <SEO />;
+            case '/services':
+              return <Services />;
+            default:
+              return <Home />;
+          }
+        })()}
+        <PageEnding showContactForm={path !== '/contact'} />
+      </>
     </>
   )
 }
