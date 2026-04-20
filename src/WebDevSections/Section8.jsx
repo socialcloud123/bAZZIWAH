@@ -10,12 +10,14 @@ const Section8 = () => {
   const cardsRef = useRef([]);
 
   const features = [
-    { title: "Custom Web Design", desc: "Pixel-perfect, brand-focused designs crafted to convert visitors into customers." },
-    { title: "Full-Stack Expertise", desc: "From frontend to backend, we build scalable and high-performance applications." },
-    { title: "SEO & Performance", desc: "Optimized for speed, ranking, and visibility to grow your online presence." },
-    { title: "Mobile-First Approach", desc: "Responsive designs that look stunning on every device." },
-    { title: "Secure & Reliable", desc: "We follow best practices to ensure security, stability, and uptime." },
-    { title: "Conversion-Focused", desc: "Every element is designed to drive engagement and maximize conversions." },
+    { title: "Website Planning & Structure", desc: "Strategic planning and information architecture that creates intuitive user journeys and clear navigation paths." },
+    { title: "UI/UX Design", desc: "Beautiful, user-centered interfaces that blend aesthetics with functionality for seamless experiences." },
+    { title: "Responsive Website Development", desc: "Fully responsive websites that adapt perfectly to all devices, from mobile to desktop." },
+    { title: "Landing Pages for Campaigns", desc: "High-converting landing pages designed specifically for your marketing campaigns and lead generation." },
+    { title: "Content & Messaging", desc: "Compelling copy and strategic messaging that resonates with your audience and drives action." },
+    { title: "SEO-ready Setup", desc: "Built-in SEO optimization from the ground up to ensure your website ranks well and gets discovered." },
+    { title: "Speed & Performance Optimisation", desc: "Lightning-fast load times and optimized performance for better user experience and conversions." },
+    { title: "Ongoing Support", desc: "Continuous maintenance, updates, and support to keep your website running smoothly and securely." },
   ];
 
   useEffect(() => {
@@ -115,7 +117,7 @@ const Section8 = () => {
               color: "#ffffff",
             }}
           >
-            Why Choose Us
+            Narrate your brand story through the website
           </h2>
           <p
             className="wc8-anim-head"
@@ -126,10 +128,7 @@ const Section8 = () => {
               color: "rgba(255,255,255,0.78)",
             }}
           >
-            We leverage our profound expertise in web design and e-commerce,
-            providing tailored services that prioritize your success. Our
-            innovative solutions challenge the norm, supported by a proven track
-            record of excellence and strategic execution.
+            From strategic planning to ongoing support, we deliver comprehensive web solutions that bring your brand story to life and drive meaningful results.
           </p>
         </div>
 

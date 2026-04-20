@@ -228,34 +228,45 @@ const Section1 = () => (
           margin: '0 0 28px', textTransform: 'uppercase',
           color: '#1a1a1a',
         }}>
-          WHY{' '}
-          <span style={{ color: '#7c3aed' }}>CONTENT MARKETING?</span>
+          WE TELL YOUR{' '}
+          <span style={{ color: '#7c3aed' }}>BRAND'S STORY</span>
         </h1>
 
         <h3 className="cm-hero-subtitle" style={{
           fontWeight: 800, color: '#1a1a1a',
           margin: '0 0 18px',
         }}>
-          Think Content Marketing is outdated?
+          Content is not just what is written.
         </h3>
 
         <p className="cm-hero-text" style={{
           color: '#444',
           margin: '0 0 14px', maxWidth: 460,
         }}>
-          This is exactly what's{' '}
-          <span style={{ color: '#7c3aed', fontWeight: 600 }}>holding your brand back</span>.
-          {' '}Agree, it's old – but it's stood the test of time because{' '}
-          <span style={{ color: '#7c3aed', fontWeight: 600 }}>it works</span>.
+          It's how a brand speaks, shows up and stays relevant. A content solution brings structure to:
         </p>
 
-        <p className="cm-hero-text" style={{
-          color: '#444',
-          margin: '0 0 36px', maxWidth: 460,
+        <ul style={{
+          listStyle: 'none',
+          padding: 0,
+          margin: '0 0 36px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px',
         }}>
-          In a world flooded with short and punchy copies, long-form and valuable
-          content builds credibility — the kind your brand has been missing for a long time.
-        </p>
+          <li style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#7c3aed', fontWeight: 600, fontSize: '16px' }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#7c3aed', flexShrink: 0 }} />
+            What to say?
+          </li>
+          <li style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#7c3aed', fontWeight: 600, fontSize: '16px' }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#7c3aed', flexShrink: 0 }} />
+            How to say?
+          </li>
+          <li style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#7c3aed', fontWeight: 600, fontSize: '16px' }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#7c3aed', flexShrink: 0 }} />
+            Where to say?
+          </li>
+        </ul>
 
         <div className="cm-hero-actions">
           <PillBtn>Start With A Free Content Brief</PillBtn>
@@ -303,23 +314,28 @@ const Section2 = () => null;
 
 const Section2Cards = () => {
   const bulletPoints = [
-    "CONTENT CREATION: FROM PLANNING TO EXECUTION, WE CREATE SCROLL-STOPPING CONTENT THAT TURNS YOUR AUDIENCE INTO CUSTOMERS.",
-    "COPYWRITING & CAPTIONS: OUR BRAINSTORMING COPIES DON'T JUST ATTRACT AN AUDIENCE — THEY KEEP THEM HOOKED WITH PURPOSE-DRIVEN MESSAGING.",
-    "STRATEGY & PLANNING: WITH GROWTH IN MIND, WE DON'T JUST POST AND PRAY — WE BUILD, PLAN, AND GROW USING DATA AND INSIGHT."
+    "Content Strategy & Brand Messaging",
+    "Website Content (structure, copy, landing pages)",
+    "Social Media Content (reels, carousels, statics)",
+    "Video Content (ads, brand films, explainers)",
+    "Performance Ad Creatives",
+    "Copywriting for Campaigns & Promotions",
+    "SEO & Search-driven Content",
+    "Platform-specific Content (Instagram, YouTube, Google, etc.)"
   ];
   const cards = [
-    { title: "ADVERTISING CONTENT", intro: "WE CREATE SCROLL-STOPPING CONTENT THAT TURNS YOUR AUDIENCE INTO CUSTOMERS.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" /></svg> },
-    { title: "BLOG CONTENT", intro: "FROM LONG-FORM DEPTH TO SHORT-FORM PUNCH, WE EXCEL AT CRAFTING CONTENT THAT DELIVERS RESULTS.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg> },
-    { title: "SOCIAL MEDIA CONTENT", intro: "WE CREATE SCROLL-STOPPING CONTENT THAT TURNS YOUR AUDIENCE INTO CUSTOMERS.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg> },
-    { title: "WEBSITE CONTENT", intro: "WE GIVE LIFE TO YOUR IMAGINATION THROUGH WORDS", icon: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg> },
-    { title: "ADVERTISING CONTENT", intro: "WE CREATE SCROLL-STOPPING CONTENT THAT TURNS YOUR AUDIENCE INTO CUSTOMERS.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" /></svg> },
+    { title: "CONTENT STRATEGY", intro: "Strategic brand messaging that defines what to say, how to say it, and where to say it.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" /></svg> },
+    { title: "WEBSITE CONTENT", intro: "Complete website copy including structure, landing pages, and conversion-focused messaging.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg> },
+    { title: "SOCIAL MEDIA CONTENT", intro: "Engaging reels, carousels, and static posts designed to stop the scroll and drive action.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg> },
+    { title: "VIDEO CONTENT", intro: "Compelling video scripts for ads, brand films, and explainer videos that tell your story.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg> },
+    { title: "PERFORMANCE ADS", intro: "High-converting ad creatives and copy optimized for campaigns and promotions.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg> },
   ];
   return (
     <section style={{ position: 'relative', width: '100%', minHeight: '100vh', background: '#0d0914', overflow: 'hidden', padding: '80px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
       <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: 800, height: 600, background: 'rgba(88,28,135,0.2)', borderRadius: '50%', filter: 'blur(120px)', pointerEvents: 'none' }} />
       <div style={{ textAlign: 'center', zIndex: 10, marginBottom: 64 }}>
-        <h2 style={{ color: '#fff', fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 700, letterSpacing: '0.05em', marginBottom: 16, fontFamily: "'Syne', sans-serif" }}>WHY DO YOU NEED CONTENT MARKETING?</h2>
-        <p style={{ color: '#d1d5db', fontSize: 14, maxWidth: 600, margin: '0 auto', lineHeight: 1.7 }}>We turn ideas into content that attracts, engages, and converts.<br />No fluff — just strategy, words, and results.</p>
+        <h2 style={{ color: '#fff', fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 700, letterSpacing: '0.05em', marginBottom: 16, fontFamily: "'Syne', sans-serif" }}>What's in a Brand Kit?</h2>
+        <p style={{ color: '#d1d5db', fontSize: 14, maxWidth: 600, margin: '0 auto', lineHeight: 1.7 }}>Everything your brand needs to communicate clearly, consistently, and effectively across all platforms.</p>
       </div>
       <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 16, maxWidth: 1400 }}>
         {cards.map((card, index) => {
@@ -431,8 +447,8 @@ const Section3Cards = () => (
         </svg>
       </div>
       <div className="cm-header">
-        <h1>Why Do You Need Content Marketing?</h1>
-        <p>We turn ideas into content that attracts, engages, and converts. No fluff — just strategy, words, and results.</p>
+        <h1>What's in a Brand Kit?</h1>
+        <p>Everything your brand needs to communicate clearly, consistently, and effectively across all platforms.</p>
       </div>
       <div className="cm-cards-row">
         {services.map((s, i) => (

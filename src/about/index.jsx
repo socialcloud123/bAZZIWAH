@@ -20,15 +20,15 @@ const About = () => {
 
   return (
     <>
-      <section className="w-full bg-[#f0f0f0] overflow-hidden mt-12">
+      <section className="w-full bg-[#f0f0f0] overflow-hidden mt-12 pt-8">
         <div className="h-[50vh]">
-          <div className="flex w-max aaaa-animate">
+          <div className="flex w-max aaaa-animate gap-4">
             {loopImages.map((src, idx) => (
               <div
-                className="flex-shrink-0 h-[50vh] w-[280px] md:w-[360px] lg:w-[460px]"
+                className="flex-shrink-0 h-[50vh]"
                 key={`${src}-${idx}`}
               >
-                <img className="h-full w-full object-cover" src={src} alt={`Carousel ${idx + 1}`} />
+                <img className="h-full w-auto object-cover" src={src} alt={`Carousel ${idx + 1}`} />
               </div>
             ))}
           </div>
@@ -348,7 +348,7 @@ const About = () => {
           <img
             className="footer-logo"
             src="https://sripadastudiosdigital.com/wp-content/uploads/2024/01/Copy-of-About-Us-Page-SSD-WEBSITE-DESIGN-1366-x-768-px-3.png"
-            alt="Sripada Studios Digital"
+            alt="Buzziwah"
           />
           <div className="footer-cta-text">Ready To Get Started</div>
           <button className="footer-cta-button" type="button">

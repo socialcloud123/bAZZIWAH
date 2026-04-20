@@ -164,28 +164,49 @@ const SocialMediaPage = () => {
           </div>
           <div className="max-w-[580px] text-left translate-y-6 lg:translate-y-10 bbbbb-fiu" style={{ '--fiu-delay': '0.1s' }}>
             <h2 className="mb-5 font-['Montserrat'] text-[clamp(24px,3vw,40px)] font-bold leading-tight text-[#83cd15]">
-              Social Media Management
+              Being Present Vs. Being Positioned
             </h2>
             <p className="mb-6 text-[16px] font-medium leading-[1.8] text-white/90">
-              We all know it&apos;s not just about posting; it&apos;s about crafting messages that resonate
-              deeply with your audience and move them to action.
+              Social media management is a continuous process of telling your audience who you are and positioning your brand in their minds.
+            </p>
+            <p className="mb-6 text-[16px] font-medium leading-[1.8] text-white/90">
+              Which means showing up, where they already are, and where they actually interact.
+            </p>
+            <p className="mb-6 text-[18px] font-bold leading-[1.8] text-[#83cd15]">
+              How you look is how you're seen
             </p>
             <ul className="growth-list mb-9 !max-w-none">
               <li>
                 <span className="growth-list-icon" aria-hidden="true">✦</span>
-                <span>The real magic lies in the right communication and strategy, tailored to capture attention and inspire action.</span>
+                <span>Content Planning & Calendar</span>
               </li>
               <li>
                 <span className="growth-list-icon" aria-hidden="true">✦</span>
-                <span>Lasting social media relationships are built through a blend of technical expertise and creative thinking.</span>
+                <span>Reels, Carousels & Static Creatives</span>
               </li>
               <li>
                 <span className="growth-list-icon" aria-hidden="true">✦</span>
-                <span>By engaging authentically and sharing value-driven content, you foster trust, loyalty, and stronger brand recall.</span>
+                <span>Captions & Copywriting</span>
               </li>
               <li>
                 <span className="growth-list-icon" aria-hidden="true">✦</span>
-                <span>That consistency transforms followers into brand advocates who engage, return, and convert.</span>
+                <span>Posting & Scheduling</span>
+              </li>
+              <li>
+                <span className="growth-list-icon" aria-hidden="true">✦</span>
+                <span>Community Management (comments & DMs)</span>
+              </li>
+              <li>
+                <span className="growth-list-icon" aria-hidden="true">✦</span>
+                <span>Trend-based Content</span>
+              </li>
+              <li>
+                <span className="growth-list-icon" aria-hidden="true">✦</span>
+                <span>Performance Tracking & Insights</span>
+              </li>
+              <li>
+                <span className="growth-list-icon" aria-hidden="true">✦</span>
+                <span>Platform Management (Instagram, YouTube, etc.)</span>
               </li>
             </ul>
             <a

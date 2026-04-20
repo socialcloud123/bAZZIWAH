@@ -116,10 +116,13 @@ const CSS4 = `
    DATA
 ══════════════════════════════════════════════════════ */
 const mainServices = [
-  { title: "1. Comprehensive SEO Services", body: "From on-page, off-page SEO to technical audits we have got you covered" },
-  { title: "2. Local SEO & Google My Business", body: "Dominate local search results and drive foot traffic to your business" },
-  { title: "3. Content Strategy & Marketing", body: "Data-driven content that ranks, engages and converts your target audience" },
-  { title: "4. Link Building & Authority", body: "High-quality backlinks that boost your domain authority and search rankings" },
+  { title: "Keyword Research & Strategy", body: "Strategic keyword analysis and planning to target the right audience and maximize visibility" },
+  { title: "On-page SEO", body: "Content, meta tags, and site structure optimization for better search engine rankings" },
+  { title: "Technical SEO", body: "Speed optimization, indexing improvements, and technical fixes for peak performance" },
+  { title: "Website Optimization", body: "Complete website enhancement for improved user experience and search rankings" },
+  { title: "Content Optimization", body: "Strategic content refinement to engage readers and rank higher in search results" },
+  { title: "SEO for Blogs & Pages", body: "Targeted optimization for individual pages and blog posts to drive organic traffic" },
+  { title: "Performance Tracking & Reporting", body: "Comprehensive analytics and insights to measure success and guide strategy" },
 ];
 
 const seoDetailedServices = [
@@ -227,8 +230,8 @@ export default function SEOPage() {
               <span className="seo-pill-dot" />
               <span className="seo-pill-text">Search Engine Optimization</span>
             </div>
-            <h1 className="seo-headline">We don&apos;t just optimise for <span className="seo-purple">Search Engines</span>,<br />We optimise for <span className="seo-amber">Impact</span></h1>
-            <p className="seo-body">SEO is required to increase the visibility of your website on search engines, attract the audience and grow your reach across platforms.</p>
+            <h1 className="seo-headline">What is a <span className="seo-purple">Website Today?</span></h1>
+            <p className="seo-body">SEO is how your brand gets found without paying for every click. When someone searches, your brand should show up. That's what SEO does.</p>
             <h2 className="seo-why-title">Why Sripada Studios?</h2>
             <p className="seo-why-body">Because nobody handles it better than us. <a href="#" className="seo-link-purple">True SEO</a> means being <a href="#" className="seo-link-ul">found and remembered</a>.</p>
             <div className="seo-cta">
@@ -245,7 +248,7 @@ export default function SEOPage() {
         <div className="svc-tablet svc-tablet-1" /><div className="svc-tablet svc-tablet-2" /><div className="svc-tablet svc-tablet-3" /><div className="svc-tablet svc-tablet-4" /><div className="svc-tablet svc-tablet-5" /><div className="svc-tablet svc-tablet-6" />
         <div className="svc-inner">
           <div className="svc-left">
-            <h2 className="svc-title">Services We Offer</h2>
+            <h2 className="svc-title">SEO in Action</h2>
             <div className="svc-grid">
               {mainServices.map((s, i) => (
                 <div className="svc-card" key={i}>

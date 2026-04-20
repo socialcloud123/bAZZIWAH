@@ -2,7 +2,13 @@
 
 
 const Section7 = () => {
-  const steps = ['DISCOVER', 'DESIGN', 'BUILD', 'LAUNCH', 'GROW'];
+  const steps = [
+    { title: 'Idea to Website', desc: '' },
+    { title: 'Design', desc: 'structure, layout, user experience' },
+    { title: 'Development', desc: 'building, functionality, responsiveness' },
+    { title: 'Testing', desc: 'performance, bugs, usability' },
+    { title: 'Deployment', desc: 'going live' },
+  ];
 
   return (
     <section style={{
@@ -45,7 +51,7 @@ const Section7 = () => {
         maxWidth: 1440,
         margin: '0 auto'
       }}>
-        {steps.map((text, i) => {
+        {steps.map((step, i) => {
           let clipPath = '';
           if (i === 0) {
             clipPath = 'polygon(0% 0%, 92% 0%, 100% 50%, 92% 100%, 0% 100%)';
@@ -61,7 +67,16 @@ const Section7 = () => {
               className="timeline-step"
               style={{ clipPath }}
             >
-              {text}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                <span style={{ fontSize: 36, fontWeight: 700, letterSpacing: '0.03em' }}>
+                  {step.title}
+                </span>
+                {step.desc && (
+                  <span style={{ fontSize: 14, fontWeight: 500, opacity: 0.9, letterSpacing: '0.01em' }}>
+                    {step.desc}
+                  </span>
+                )}
+              </div>
             </div>
           );
         })}
@@ -72,11 +87,8 @@ const Section7 = () => {
           background: #6428c4;
           color: #fff;
           padding: 0 42px;
-          font-size: 36px;
-          font-weight: 700;
-          letter-spacing: 0.03em;
           height: 92px;
-          width: 260px;
+          width: 320px;
           text-align: center;
           margin: 0 -7px 0 0;
           display: flex;
@@ -89,10 +101,15 @@ const Section7 = () => {
             gap: 12px !important;
           }
           .timeline-step {
-            width: 220px !important;
+            width: 280px !important;
             height: 78px !important;
-            font-size: 28px !important;
             margin: 0 !important;
+          }
+          .timeline-step span:first-child {
+            font-size: 28px !important;
+          }
+          .timeline-step span:last-child {
+            font-size: 12px !important;
           }
         }
         @media (max-width: 768px) {
@@ -103,10 +120,17 @@ const Section7 = () => {
           }
           .timeline-step {
             width: min(92vw, 360px) !important;
-            height: 66px !important;
-            font-size: 22px !important;
+            height: auto !important;
+            min-height: 66px !important;
+            padding: 12px 20px !important;
             clip-path: none !important;
             border-radius: 10px !important;
+          }
+          .timeline-step span:first-child {
+            font-size: 22px !important;
+          }
+          .timeline-step span:last-child {
+            font-size: 11px !important;
           }
         }
       `}</style>

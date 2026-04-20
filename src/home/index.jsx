@@ -49,17 +49,17 @@ const Home = () => {
         <div className="case-studies-scroll">
           <div className="case-studies-track">
             {[
-              'ChatGPT-Image-Mar-18_-2026_-12_23_51-PM.png',
-              'SSD_Performance-Marketing-Webpage-13-1.png',
-              'SSD_Performance-Marketing-Webpage-7.png',
-              'SSD_Performance-Marketing-Webpage-8.png',
-              'SSD_Performance-Marketing-Webpage-9.png',
-              'SSD_Website 7.png',
-            ].map((img, idx) => (
+              { img: 'ChatGPT-Image-Mar-18_-2026_-12_23_51-PM.png', pill: 'Cohesive Brand Identity', tag: 'Branding' },
+              { img: 'hearfon.png', pill: 'HearFon', tag: 'Ad Production' },
+              { img: 'wmn.png', pill: 'WMN', tag: 'Website, Content Marketing, Performance Marketing' },
+              { img: 'tc.png', pill: 'Tent Cinema', tag: 'Social Media Marketing, Campaign & Lead Generation' },
+              { img: 'kovedaa.png', pill: 'Kovedaa', tag: 'Branding, E-Commerce Website, Product shoot, Content Marketing' },
+              { img: 'sc.png', pill: 'Sri Chakra Jewellery', tag: 'Branding, Website, Product Creative Shoot' },
+            ].map((item, idx) => (
               <div className="case-card" key={`case-${idx}`}>
                 <div
                   className="case-media"
-                  style={{ backgroundImage: `url(${encodeURI(`/best works/${img}`)})` }}
+                  style={{ backgroundImage: `url(${encodeURI(`/best works/${item.img}`)})` }}
                 />
                 <div className="case-overlay">
                   <div className="case-icon" aria-hidden="true">
@@ -67,25 +67,25 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="case-tags">
-                  <span className="case-pill">Cohesive Brand Identity</span>
+                  <span className="case-pill">{item.pill}</span>
                   <div className="case-bottom-bar">
-                    <span>Branding</span>
+                    <span>{item.tag}</span>
                   </div>
                 </div>
               </div>
             ))}
             {[
-              'ChatGPT-Image-Mar-18_-2026_-12_23_51-PM.png',
-              'SSD_Performance-Marketing-Webpage-13-1.png',
-              'SSD_Performance-Marketing-Webpage-7.png',
-              'SSD_Performance-Marketing-Webpage-8.png',
-              'SSD_Performance-Marketing-Webpage-9.png',
-              'SSD_Website 7.png',
-            ].map((img, idx) => (
+              { img: 'ChatGPT-Image-Mar-18_-2026_-12_23_51-PM.png', pill: 'Cohesive Brand Identity', tag: 'Branding' },
+              { img: 'hearfon.png', pill: 'HearFon', tag: 'Ad Production' },
+              { img: 'wmn.png', pill: 'WMN', tag: 'Website, Content Marketing, Performance Marketing' },
+              { img: 'tc.png', pill: 'Tent Cinema', tag: 'Social Media Marketing, Campaign & Lead Generation' },
+              { img: 'kovedaa.png', pill: 'Kovedaa', tag: 'Branding, E-Commerce Website, Product shoot, Content Marketing' },
+              { img: 'sc.png', pill: 'Sri Chakra Jewellery', tag: 'Branding, Website, Product Creative Shoot' },
+            ].map((item, idx) => (
               <div className="case-card" key={`case-${idx}-dup`}>
                 <div
                   className="case-media"
-                  style={{ backgroundImage: `url(${encodeURI(`/best works/${img}`)})` }}
+                  style={{ backgroundImage: `url(${encodeURI(`/best works/${item.img}`)})` }}
                 />
                 <div className="case-overlay">
                   <div className="case-icon" aria-hidden="true">
@@ -93,9 +93,9 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="case-tags">
-                  <span className="case-pill">Cohesive Brand Identity</span>
+                  <span className="case-pill">{item.pill}</span>
                   <div className="case-bottom-bar">
-                    <span>Branding</span>
+                    <span>{item.tag}</span>
                   </div>
                 </div>
               </div>
@@ -178,12 +178,12 @@ const Home = () => {
           {(() => {
             const faqItems = [
               {
-                question: 'What is Sripada Studios Digital?',
+                question: 'What is Buzziwah?',
                 answer:
-                  'Sripada Studios Digital is a Bengaluru-based conglomerate specializing in filmmaking, digital marketing, and research. We deliver creative and strategic solutions across three core verticals to help brands and individuals connect meaningfully with their audiences.',
+                  'Buzziwah is a Bengaluru-based conglomerate specializing in filmmaking, digital marketing, and research. We deliver creative and strategic solutions across three core verticals to help brands and individuals connect meaningfully with their audiences.',
               },
               {
-                question: 'What services does Sripada Studios Digital offer?',
+                question: 'What services does Buzziwah offer?',
                 answer:
                   'Filmmaking: Short films, documentaries, promotional videos, and corporate films. Digital Marketing: Social media management, performance marketing, content creation, branding, and online reputation management. Research & Reach: Data-driven audience analysis, campaign planning, and customized strategies for better outreach.',
               },
@@ -193,7 +193,7 @@ const Home = () => {
                   'We cater to small businesses, multinational corporations, startups, personal branding clients, and large-scale brands across industries.',
               },
               {
-                question: 'What makes Sripada Studios Digital unique?',
+                question: 'What makes Buzziwah unique?',
                 answer:
                   'We combine creativity with strategy to deliver innovative solutions tailored to each project. Our young, dynamic team excels at breaking monotony and crafting imaginative campaigns that resonate deeply with the target audience.',
               },

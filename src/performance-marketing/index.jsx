@@ -483,57 +483,51 @@ const FlipCard = ({ src, alt }) => {
 const services = [
   {
     num: '01',
-    title: 'Social Media Marketing',
-    desc: "We build your brand's presence through strategic content and targeted campaigns that convert casual scrollers into loyal customers.",
+    title: 'Campaign Strategy & Planning',
+    desc: "We map out your campaign goals, audience, and funnel strategy to ensure every ad dollar is spent with purpose and precision.",
     img: 'https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-32.png',
   },
   {
     num: '02',
-    title: 'Account Audit & Strategy',
-    desc: 'We audit your digital footprint, uncover inefficiencies, and craft a focused strategy that stretches every rupee of your marketing budget.',
+    title: 'Paid Ads (Google, Meta, YouTube)',
+    desc: 'We create and manage high-performing ad campaigns across Google, Meta, and YouTube to maximize reach and conversions.',
     img: 'https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-33.png',
   },
   {
     num: '03',
-    title: 'Search Engine Marketing',
-    desc: 'Our SEM campaigns place your brand at the top of every relevant search — guiding prospects from discovery to purchase, every time.',
+    title: 'Audience Targeting & Segmentation',
+    desc: 'We identify and target the right audience segments based on behavior, demographics, and intent for better campaign performance.',
     img: 'https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-34.png',
   },
   {
     num: '04',
-    title: 'Dynamic Remarketing & Product Listing Ads',
-    desc: 'We re-engage high-intent visitors with personalised ad experiences that bring them back and turn browsing into buying.',
+    title: 'Ad Creatives & Copy',
+    desc: 'We design scroll-stopping visuals and write compelling ad copy that captures attention and drives action.',
     img: 'https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-35.png',
   },
   {
     num: '05',
-    title: 'Catalogue & Shopping Ads',
-    desc: 'We put your products in front of ready-to-buy customers — with the right image, price, and detail at the exact moment it matters.',
+    title: 'Landing Page Optimisation',
+    desc: 'We optimize your landing pages for conversions, ensuring seamless user experience from click to conversion.',
     img: 'https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-36.png',
   },
   {
     num: '06',
-    title: 'WhatsApp Marketing',
-    desc: "We deliver personalised, real-time messages directly to your audience's hands — driving engagement and conversions where attention is highest.",
+    title: 'A/B Testing & Experimentation',
+    desc: 'We continuously test ad variations, creatives, and messaging to identify what works best and scale winning campaigns.',
     img: 'https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-37.png',
   },
   {
     num: '07',
-    title: 'Conversion Rate Optimisation',
-    desc: 'We analyse your user journey — copy, design, and flow — to remove friction and turn more of your existing traffic into revenue.',
+    title: 'Conversion Tracking & Analytics',
+    desc: 'We implement precise tracking systems to measure every conversion, click, and customer action across all platforms.',
     img: 'https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-38.png',
   },
   {
     num: '08',
-    title: 'YouTube Ads',
-    desc: 'We create data-led video campaigns that capture attention, tell your story, and drive measurable results across every stage of the funnel.',
+    title: 'Performance Monitoring & Reporting',
+    desc: 'We provide transparent, data-driven reports that show exactly how your campaigns are performing and where to improve.',
     img: 'https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-39.png',
-  },
-  {
-    num: '09',
-    title: 'LinkedIn Ads',
-    desc: 'We connect B2B brands with the right decision-makers using precise targeting and strategic placements that make every impression count.',
-    img: 'https://buzziwah.com/wp-content/uploads/2026/03/SSD_Performance-Marketing-Webpage-40.png',
   },
 ];
 
@@ -640,20 +634,20 @@ const zigzagSteps = [
 ];
 
 const pmHighlight = {
-  title: 'Instant Visibility. Immediate Results.',
-  intro: 'Rank on the top of the search engine results page and start driving results instantly after setting up an ad campaign.',
+  title: 'Campaigns that pay off',
+  intro: 'Creative + data + continuous optimization. Knowing what works, what doesn\'t, and refining every step along the way from targeting the right audience to optimising creatives and tracking real outcomes.',
   points: [
-    'Be in front of those who need you. Target relevant audiences based on location, demographic, interest, and more.',
-    'Reach more people and generate quality leads, increase your sales, and achieve goals with paid marketing.',
+    'We build and manage campaigns that are designed to deliver outcomes, not just impressions, in both Meta and Google Ads.',
+    'From targeting the right audience to optimising campaigns in real-time, everything is focused on performance.',
     'Track results, analyse, and get insight into what ad is working best for your target audience.',
   ],
 };
 
 const pmFaqs = [
-  { q: 'What is Sripada Studios Digital?', a: 'Sripada Studios Digital is a Bengaluru-based conglomerate specializing in filmmaking, digital marketing, and research. We deliver creative and strategic solutions across three core verticals to help brands and individuals connect meaningfully with their audiences.' },
-  { q: 'What services does Sripada Studios Digital offer?', a: 'Filmmaking: Short films, documentaries, promotional videos, and corporate films. Digital Marketing: Social media management, performance marketing, content creation, branding, and online reputation management. Research & Reach: Data-driven audience analysis, campaign planning, and customized strategies for better outreach.' },
+  { q: 'What is Buzziwah?', a: 'Buzziwah is a Bengaluru-based conglomerate specializing in filmmaking, digital marketing, and research. We deliver creative and strategic solutions across three core verticals to help brands and individuals connect meaningfully with their audiences.' },
+  { q: 'What services does Buzziwah offer?', a: 'Filmmaking: Short films, documentaries, promotional videos, and corporate films. Digital Marketing: Social media management, performance marketing, content creation, branding, and online reputation management. Research & Reach: Data-driven audience analysis, campaign planning, and customized strategies for better outreach.' },
   { q: 'Who are your clients?', a: 'We cater to small businesses, multinational corporations, startups, personal branding clients, and large-scale brands across industries.' },
-  { q: 'What makes Sripada Studios Digital unique?', a: 'We combine creativity with strategy to deliver innovative solutions tailored to each project. Our young, dynamic team excels at breaking monotony and crafting imaginative campaigns that resonate deeply with the target audience.' },
+  { q: 'What makes Buzziwah unique?', a: 'We combine creativity with strategy to deliver innovative solutions tailored to each project. Our young, dynamic team excels at breaking monotony and crafting imaginative campaigns that resonate deeply with the target audience.' },
   { q: 'Do you specialize in Kannada film promotions?', a: 'Yes. Under Sripada Studios Designs, we focus exclusively on Kannada films, handling logo creation, promotional videos, posters, social media management, event coverage, and more to align with filmmakers’ vision and audience.' },
   { q: 'Can you handle end-to-end digital marketing campaigns?', a: 'Absolutely. From social media marketing and performance ads to website design and content marketing, we provide end-to-end digital marketing solutions customized to your goals.' },
   { q: 'How experienced is your team?', a: 'Our team includes creative writers, editors, filmmakers, and digital marketing professionals with years of experience, all driven by a shared passion for storytelling and impactful campaigns.' },
@@ -866,8 +860,6 @@ const PerformanceMarketing = () => (
             <img src="/performance-marketing-section2-illustration.png" alt={pmHighlight.title} />
           </div>
           <div className="pm-highlight-copy">
-            <p className="pm-section2-kicker">Why Performance Marketing</p>
-            <h2 className="pm-section2-title">Why do you need Performance Marketing?</h2>
             <h3>{pmHighlight.title}</h3>
             <p>{pmHighlight.intro}</p>
             <ul className="growth-list pm-highlight-points">
@@ -1055,7 +1047,7 @@ const PerformanceMarketing = () => (
           </linearGradient>
         </defs>
       </svg>
-      <h2 className="heading-text">Our Services</h2>
+      <h2 className="heading-text">Ad Plans that kick off</h2>
       <div className="pm-services-grid">
         {services.map((service) => (
           <ServiceCard key={service.num} service={service} />

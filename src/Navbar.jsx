@@ -148,7 +148,7 @@ const Navbar = () => {
           <a href="/" className="logo">
             <img
               src="https://sripadastudiosdigital.com/wp-content/uploads/2024/01/Copy-of-About-Us-Page-SSD-WEBSITE-DESIGN-1366-x-768-px-3.png"
-              alt="Sripada Studios Digital"
+              alt="Buzziwah"
             />
           </a>
 

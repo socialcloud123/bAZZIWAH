@@ -17,7 +17,7 @@ const Section9 = () => (
         textTransform: 'uppercase',
         marginBottom: 8,
       }}>
-        What We Do
+        What's Website Maintenance?
       </p>
       {/* Decorative center divider */}
       <div style={{
@@ -46,8 +46,8 @@ const Section9 = () => (
           lineHeight: 1.25,
           margin: 0,
         }}>
-          Our Work Delivers{' '}
-          <span style={{ color: '#5f2cb8' }}>Innovative Solutions and Impressive Results</span>
+          A website is not a{' '}
+          <span style={{ color: '#5f2cb8' }}>one-time build</span>
         </p>
       </div>
       <div>
@@ -58,10 +58,9 @@ const Section9 = () => (
           margin: 0,
           fontWeight: 700,
         }}>
-          Our portfolio highlights creative{' '}
-          <span style={{ color: '#5f2cb8', fontWeight: 700 }}>web design, high-conversion e-commerce platforms, and impactful digital marketing</span>.
-          {' '}Each project reflects our passion for excellence, strategic execution, and commitment to
-          achieving client success with bold, innovative solutions.
+          It needs to stay{' '}
+          <span style={{ color: '#5f2cb8', fontWeight: 700 }}>updated, secure, and functional</span>.
+          {' '}Because an outdated website doesn't just look bad, it affects trust, performance, and user experience.
         </p>
       </div>
     </div>

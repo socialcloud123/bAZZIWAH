@@ -90,13 +90,16 @@ const InfluencerPage = () => (
         </div>
         <div style={{ color: '#fff', display: 'flex', flexDirection: 'column', gap: '18px', fontFamily: "'Nunito Sans', sans-serif" }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '6px 14px', borderRadius: '999px', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.25)', width: 'fit-content', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', fontSize: '11px', color: '#ffffff' }}>
-            Why Influencer Marketing Is Needed?
+            Credible Collaborations
           </div>
           <h2 style={{ fontFamily: "'Nunito Sans', sans-serif", fontSize: 'clamp(22px, 2.1vw, 30px)', fontWeight: 800, lineHeight: 1.1, margin: 0, color: '#98dd2d', maxWidth: '24ch' }}>
-            Build trust with voices your audience already follows.
+            People trust people more than brands.
           </h2>
           <p style={{ fontSize: '18px', lineHeight: 1.6, color: 'rgba(255,255,255,0.92)', margin: 0 }}>
-            Influencer marketing connects your brand to communities through authentic storytellers. It sparks higher engagement, delivers targeted reach, and drives conversions that traditional ads struggle to match.
+            And the right voice can make your brand feel real, relatable and trusted. We connect your brand with the right creators— not just based on reach, but relevance and alignment.
+          </p>
+          <p style={{ fontSize: '18px', lineHeight: 1.6, color: 'rgba(255,255,255,0.92)', margin: 0 }}>
+            From identifying influencers to managing collaborations and content, we handle everything end-to-end.
           </p>
           <ul style={{ margin: '4px 0 0', padding: 0, listStyle: 'none', display: 'grid', gap: '12px', color: 'rgba(255,255,255,0.95)', fontSize: '16px' }}>
             {['Credibility through trusted creators', 'Precision targeting with niche audiences', 'Content that blends seamlessly into feeds', 'Actionable insights and measurable growth'].map((item) => (
@@ -197,7 +200,7 @@ const InfluencerPage = () => (
 
     <footer className="site-footer">
       <div className="footer-cta">
-        <img className="footer-logo" src="https://sripadastudiosdigital.com/wp-content/uploads/2024/01/Copy-of-About-Us-Page-SSD-WEBSITE-DESIGN-1366-x-768-px-3.png" alt="Sripada Studios Digital" />
+        <img className="footer-logo" src="https://sripadastudiosdigital.com/wp-content/uploads/2024/01/Copy-of-About-Us-Page-SSD-WEBSITE-DESIGN-1366-x-768-px-3.png" alt="Buzziwah" />
         <div className="footer-cta-text">Ready To Get Started</div>
         <button className="footer-cta-button" type="button">Get Started →</button>
       </div>

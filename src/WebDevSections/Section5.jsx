@@ -36,7 +36,7 @@ const Section5 = () => (
         letterSpacing: '0.06em', textTransform: 'uppercase',
         marginBottom: 18,
       }}>
-        What We Offer
+        Types of Websites We Do
       </p>
       <p style={{
         fontSize: 'clamp(22px, 2.8vw, 34px)',
@@ -44,8 +44,7 @@ const Section5 = () => (
         maxWidth: 930, margin: '0 auto',
         fontWeight: 500
       }}>
-        We align strategy with digital innovation to propel your success.
-        Begin your journey with us and discover our comprehensive solutions
+        From custom-coded solutions to high-converting landing pages, we create websites tailored to your unique business goals and audience needs.
       </p>
     </div>
 

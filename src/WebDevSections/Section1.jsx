@@ -106,8 +106,7 @@ const Section1 = () => (
           color: "#ffffff",
         }}
       >
-        WEBSITES THAT DEVELOP<br />
-        <span style={{ color: "#7c4dcc" }}>YOUR BUSINESS &amp; FAME!</span>
+        What is a Website <span style={{ color: "#7c4dcc" }}>Today?</span>
       </h1>
 
       {/* Body text */}
@@ -122,9 +121,7 @@ const Section1 = () => (
           textAlign: "left",
         }}
       >
-        Worried about upscaling your business digitally? With SEO-based content,
-        Attractive Videos, and Eye-catching Design, your website will stand out
-        in the market.
+        A website is your digital validation, a space where trust begins, and credibility is built. A dynamic, well-crafted website says more about your brand than any introduction ever could.
       </p>
 
       {/* Buttons */}
