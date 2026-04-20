@@ -21,14 +21,15 @@ const DigitalMarketingSection = () => {
           </div>
 
           <h1 className="bbbbb-h1 bbbbb-fiu" style={{ '--fiu-delay': '0.2s' }}>
-            Step Into
-            <span className="bbbbb-accent">Digital</span>
-            <span className="bbbbb-dim-word">Marketing</span>
+            We&apos;re the people
+            <span className="bbbbb-accent">who think sharp</span>
+            <span className="bbbbb-dim-word">and move with swag.</span>
           </h1>
 
-          <p className="bbbbb-sub bbbbb-fiu" style={{ '--fiu-delay': '0.38s' }}>
-            Buzziwah — the creative and performance marketing arm of Sripada Studios. Bold
-            branding, sharp campaigns, and cinema-to-digital expertise. All in one place.
+          <p className="bbbbb-sub bbbbb-fiu" style={{ '--fiu-delay': '0.38s', textAlign: 'justify' }}>
+            This isn&apos;t your usual &ldquo;we post and pray&rdquo; agency. Buzziwah powered by Sripada Studios brings cinema-level storytelling into digital that actually converts.
+            <br />
+            <strong>Because looking good is easy&hellip; getting results isn&apos;t.</strong>
           </p>
 
           <div className="bbbbb-cta-row bbbbb-fiu" style={{ '--fiu-delay': '0.52s' }}>
@@ -62,31 +63,22 @@ const DigitalMarketingSection = () => {
 
       <div className="bbbbb-stats-bar">
         <div className="bbbbb-s-cell">
-          <div className="bbbbb-s-num">
-            200<em>+</em>
-          </div>
-          <div className="bbbbb-s-label">Happy Clients</div>
+          <div className="bbbbb-s-num">100<em>+</em></div>
+          <div className="bbbbb-s-label" style={{ color: '#c8f041' }}>Brands</div>
         </div>
         <div className="bbbbb-s-cell">
-          <div className="bbbbb-s-num bbbbb-s-num-small">
-            Happening
-            <br />
-            <span>Conglomerate</span>
-          </div>
+          <div className="bbbbb-s-num bbbbb-s-num-small">600,000<em>+</em><br /><span>leads. Not by accident.</span></div>
         </div>
         <div className="bbbbb-s-cell">
-          <div className="bbbbb-s-num bbbbb-s-num-small">
-            Cinema
-            <br />
-            <span>to Digital</span>
-          </div>
+          <div className="bbbbb-s-num bbbbb-s-num-small">50M<em>+</em><br /><span style={{ whiteSpace: 'nowrap' }}>views. Every year. Consistently.</span></div>
         </div>
         <div className="bbbbb-s-cell">
-          <div className="bbbbb-s-num">
-            BLR<em>.</em>
-          </div>
-          <div className="bbbbb-s-label">Bengaluru Based</div>
+          <div className="bbbbb-s-num bbbbb-s-num-small">300<em>%</em><br /><span style={{ whiteSpace: 'nowrap' }}>organic growth. Because strategy &gt; luck.</span></div>
         </div>
+      </div>
+
+      <div className="bbbbb-stats-tagline">
+        Best in the market? We&apos;ll let the results answer that.
       </div>
 
       <div className="bbbbb-marquee-wrap">

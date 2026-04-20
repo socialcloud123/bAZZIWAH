@@ -112,33 +112,33 @@ const Home = () => {
               <span>Driven by Passion. Quality. Dedication.</span>
             </div>
             <h2 className="growth-title bbbbb-fiu" style={{ '--fiu-delay': '0.18s' }}>
-              <span className="growth-title-main">Grow Your Business <span className="growth-title-with">with</span></span>
-              <span className="growth-title-accent">Sripada Studios</span>
+              <span className="growth-title-main">Grow with</span>
+              <span className="growth-title-accent">Buzziwah</span>
             </h2>
             <p className="growth-lead bbbbb-fiu" style={{ '--fiu-delay': '0.36s' }}>
-              You’re focused on growth — we help you achieve it through powerful digital solutions.
+              Because “trying” isn’t a growth strategy.
             </p>
 
             <ul className="growth-list bbbbb-fiu" style={{ '--fiu-delay': '0.46s' }}>
               <li>
                 <span className="growth-list-icon" aria-hidden="true">✦</span>
-                <span>Stay digitally visible to your customers anytime</span>
+                <span>A presence that stays visible—consistently, confidently</span>
               </li>
               <li>
                 <span className="growth-list-icon" aria-hidden="true">✦</span>
-                <span>Build strong brand reputation and credibility</span>
+                <span>A brand that builds trust, not just attention</span>
               </li>
               <li>
                 <span className="growth-list-icon" aria-hidden="true">✦</span>
-                <span>Get cost-effective marketing with better ROI</span>
+                <span>Smarter investments that deliver real returns</span>
               </li>
               <li>
                 <span className="growth-list-icon" aria-hidden="true">✦</span>
-                <span>Reach and target customers globally</span>
+                <span>Reach that’s precise, not wasted</span>
               </li>
               <li>
                 <span className="growth-list-icon" aria-hidden="true">✦</span>
-                <span>Improve faster with data-driven analytics</span>
+                <span>Decisions driven by data, not assumptions</span>
               </li>
             </ul>
 

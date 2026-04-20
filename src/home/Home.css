@@ -644,7 +644,7 @@ body {
 }
 
 .growth-title-main {
-  display: block;
+  display: inline;
   white-space: nowrap;
   font-size: clamp(0.68em, 0.8vw, 0.84em);
 }
@@ -654,8 +654,8 @@ body {
 }
 
 .growth-title-accent {
-  display: block;
-  margin-top: 8px;
+  display: inline;
+  margin-left: 12px;
   color: #c8f041;
   font-size: 0.74em;
   line-height: 1.05;
@@ -2119,7 +2119,7 @@ body {
 
 .bbbbb-h1 {
   font-family: 'Geom', sans-serif;
-  font-size: clamp(50px, 8vw, 110px);
+  font-size: clamp(30px, 4.5vw, 60px);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -3px;
@@ -2265,10 +2265,19 @@ body {
 
 .bbbbb-stats-bar {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr 1fr 1fr 1.6fr;
   border-top: 1px solid rgba(245, 240, 255, 0.1);
   max-width: 100%;
   margin: 0;
+}
+
+.bbbbb-stats-tagline {
+  text-align: center;
+  padding: 16px 24px;
+  font-size: 15px;
+  font-style: italic;
+  color: rgba(245, 240, 255, 0.55);
+  border-top: 1px solid rgba(245, 240, 255, 0.1);
 }
 
 .bbbbb-s-cell {
@@ -2308,6 +2317,9 @@ body {
 
 .bbbbb-s-num-small span {
   color: #c8f041;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 .bbbbb-s-label {
@@ -2404,7 +2416,7 @@ body {
     gap: 40px;
   }
   .bbbbb-h1 {
-    font-size: clamp(52px, 13vw, 80px);
+    font-size: clamp(26px, 7.5vw, 46px);
   }
   .bbbbb-stats-bar {
     grid-template-columns: 1fr 1fr;
