@@ -49,7 +49,7 @@ function App() {
               return <Home />;
           }
         })()}
-        <PageEnding showContactForm={path !== '/contact'} />
+        {path !== '/about' && <PageEnding showContactForm={path !== '/contact'} />}
       </>
     </>
   )
