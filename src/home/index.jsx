@@ -1,5 +1,4 @@
 import React from 'react';
-import HeroSection from './HeroSection';
 import ServicesGrid from './ServicesGrid';
 import MobileServicesGrid from './MobileServicesGrid';
 import CoverflowSection from './CoverflowSection';
@@ -13,8 +12,6 @@ const Home = () => {
   const [openFaqIndex, setOpenFaqIndex] = React.useState(0);
   return (
     <div className="bg-black">
-      <HeroSection />
-
       <DigitalMarketingSection />
 
       <div className="desktop-only">
