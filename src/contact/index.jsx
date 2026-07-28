@@ -320,13 +320,13 @@ export default function Contact() {
 
             {/* Social Circle Links */}
             <div className="flex gap-4">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="modern-social">
+              <a href="https://instagram.com/buzziwah" target="_blank" rel="noreferrer" className="modern-social">
                 <FaInstagram size={18} />
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="modern-social">
+              <a href="https://facebook.com/share/1GNdsTUeQs" target="_blank" rel="noreferrer" className="modern-social">
                 <FaFacebookF size={18} />
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noreferrer" className="modern-social">
+              <a href="https://www.youtube.com/@Buzziwah" target="_blank" rel="noreferrer" className="modern-social">
                 <FaYoutube size={18} />
               </a>
               <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="modern-social">
