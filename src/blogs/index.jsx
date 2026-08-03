@@ -10,7 +10,7 @@ export const BLOGS_DATA = {
     readTime: "4 min read",
     author: "Buzziwah",
     category: "SEO",
-    image: "/blog_imgs/6 keys seo.png",
+    image: "/blog_imgs/6 keys you need for seo.png",
     description: "SEO (Search Engine Optimization) is simply the practice of making your website easier for search engines to find, understand, and trust enough to show to the right people.",
     content: (
       <div className="blog-content-body">
