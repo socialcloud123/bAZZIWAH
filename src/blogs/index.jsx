@@ -3,6 +3,104 @@ import { useEffect } from "react";
 import "./Blogs.css";
 
 export const BLOGS_DATA = {
+  "what-is-seo-and-what-are-the-different-types-of-seo": {
+    title: "What Is SEO and What Are the Different Types of SEO?",
+    slug: "what-is-seo-and-what-are-the-different-types-of-seo",
+    date: "August 3, 2026",
+    readTime: "4 min read",
+    author: "Buzziwah",
+    category: "SEO",
+    image: "/blog_imgs/6 keys seo.png",
+    description: "SEO (Search Engine Optimization) is simply the practice of making your website easier for search engines to find, understand, and trust enough to show to the right people.",
+    content: (
+      <div className="blog-content-body">
+        <p>
+          Ask five business owners what SEO means and you&apos;ll likely get five different half-answers — &quot;getting on Google,&quot; &quot;using keywords,&quot; &quot;something my website guy handles.&quot; All partially right, none quite complete. SEO (Search Engine Optimization) is simply the practice of making your website easier for search engines to find, understand, and trust enough to show to the right people. But that simple definition hides a lot of moving parts, which is why it often feels vaguer than it needs to be.
+        </p>
+        <p>
+          Here&apos;s SEO broken down properly — what it actually is, and the distinct types that make it up, so the term stops being a catch-all and starts being something you can actually plan around.
+        </p>
+
+        <h2>What SEO actually does</h2>
+        <p>
+          When someone searches for something on Google, the search engine is trying to answer one question: out of millions of possible pages, which ones best match what this person is actually looking for? SEO is the work of making sure your website is one of the answers Google chooses — and ideally, one of the first few.
+        </p>
+        <p>
+          This isn&apos;t about tricking Google. Modern search engines are built to reward genuinely useful, well-structured, trustworthy content and penalize attempts to game the system. So good SEO and good business practice end up looking a lot alike: be clear about what you offer, be genuinely useful to the person searching, and make your website easy to navigate.
+        </p>
+        <p>
+          SEO breaks down into a few distinct types, each solving a different part of the &quot;getting found&quot; problem.
+        </p>
+
+        <h2>1. On-Page SEO</h2>
+        <p>
+          This covers everything you control directly on a specific page of your website — the words, structure, and elements search engines read to understand what that page is about.
+        </p>
+        <p>
+          This includes: page titles and meta descriptions that clearly describe the content, headings structured logically (not just bold text), content that actually answers the question someone searched for, images with descriptive alt text, and internal links connecting related pages on your site.
+        </p>
+        <p>
+          Think of on-page SEO as making sure each individual page is clearly labeled and genuinely useful — the digital equivalent of a well-organized shop with clear signage, rather than a pile of products with no labels.
+        </p>
+
+        <h2>2. Off-Page SEO</h2>
+        <p>
+          This covers everything that happens outside your own website but still affects how search engines see it — mainly, how much the rest of the internet seems to trust and reference you.
+        </p>
+        <p>
+          The biggest piece here is backlinks — other credible websites linking to yours. Each credible link acts a bit like a vote of confidence: if a well-regarded local publication or industry site links to your business, Google reads that as a signal you&apos;re worth trusting too. Off-page SEO also includes brand mentions, social signals, and guest content on other reputable sites.
+        </p>
+        <p>
+          This is generally the slowest, hardest-to-fake type of SEO — which is exactly why it carries real weight when it&apos;s genuine.
+        </p>
+
+        <h2>3. Technical SEO</h2>
+        <p>
+          This is the behind-the-scenes plumbing that makes sure search engines can actually crawl, read, and index your site properly in the first place. It doesn&apos;t matter how good your content is if technical issues are quietly blocking search engines from seeing it clearly.
+        </p>
+        <p>
+          This includes: site speed, mobile-friendliness, a clean and logical site structure (so both users and search engines can navigate it), secure HTTPS setup, no broken links or duplicate content issues, and a properly configured XML sitemap.
+        </p>
+        <p>
+          Technical SEO is invisible to most visitors but foundational — a beautifully written page sitting on a technically broken site is a bit like a great shop with a locked front door.
+        </p>
+
+        <h2>4. Local SEO</h2>
+        <p>
+          This is a specialized branch focused on getting found for location-based searches — &quot;near me,&quot; specific neighbourhoods, or city names attached to a service. For any Bengaluru business serving local customers, this is often the single highest-leverage type of SEO, since it targets people actively looking to buy nearby, right now.
+        </p>
+        <p>
+          This includes: a fully optimized Google Business Profile, consistent business name/address/phone details across the web, location-specific content and pages, and genuine customer reviews.
+        </p>
+
+        <h2>5. Content SEO</h2>
+        <p>
+          Sometimes treated as part of on-page SEO, but worth calling out separately: this is the strategy of building content specifically designed to answer real questions your potential customers are searching for — blog posts, guides, FAQs — rather than just optimizing your core service pages.
+        </p>
+        <p>
+          This is where the &quot;answer the question, don&apos;t just sell&quot; mindset matters most. A blog post genuinely answering &quot;how do I choose a preschool in Bengaluru&quot; earns trust and traffic in a way a page that just says &quot;enroll now&quot; never will.
+        </p>
+
+        <h2>6. E-commerce SEO</h2>
+        <p>
+          A more specific variant for online stores — optimizing product pages, category structures, and product descriptions specifically for how people search when they&apos;re ready to buy something, not just research it. This includes things like structured product data, review integration, and handling duplicate content issues that are common across large product catalogs.
+        </p>
+
+        <h2>How these types work together</h2>
+        <p>
+          None of these operate in isolation. A perfectly written blog post (content SEO) won&apos;t rank if the site is painfully slow (technical SEO). A technically flawless site won&apos;t outrank competitors if nobody else on the internet links to it (off-page SEO). And none of it matters for local customers if the Google Business Profile is incomplete (local SEO).
+        </p>
+        <p>
+          This is why SEO often feels harder than it should for small businesses — not because any one piece is complicated, but because real results require several of these types working together, not just one done really well.
+        </p>
+
+        <h2>Where to actually start</h2>
+        <p>
+          If SEO feels overwhelming, start with the two types that give the fastest, most controllable wins for a small local business: <strong>on-page SEO</strong> (clean up your existing pages) and <strong>local SEO</strong> (complete your Google Business Profile properly). Technical and off-page SEO matter, but they compound over a longer timeline — getting the fundamentals right first gives you a foundation the rest can build on.
+        </p>
+      </div>
+    )
+  },
   "social-proof-isnt-just-reviews-5-ways-to-show-it-without-asking-for-a-testimonial": {
     title: "Social Proof Isn't Just Reviews: 5 Ways to Show It Without Asking for a Testimonial",
     slug: "social-proof-isnt-just-reviews-5-ways-to-show-it-without-asking-for-a-testimonial",
@@ -535,7 +633,7 @@ export const BLOGS_DATA = {
         <p>
           Instead of planning post-by-post, plan by bucket. Assign each day of the week a content type, and you never start from a blank page.
         </p>
-        
+
         <h3>Monday — Educational</h3>
         <p>
           Answer one question your customers actually ask you. A skincare clinic might post &ldquo;how often should you actually get a facial.&rdquo; A consultancy might post &ldquo;the one metric most founders ignore.&rdquo; This builds authority and is your most shareable content type.
@@ -640,7 +738,7 @@ export const BLOGS_DATA = {
         <p>
           Don&apos;t let the calendar become 80% promotional. If every post is &ldquo;book now,&rdquo; you&apos;re asking for attention without earning it first. The 1-in-5 offer ratio above exists because service businesses need to demonstrate expertise and trust before asking for the sale — unlike impulse-buy products.
         </p>
-        
+
         <hr className="my-8 border-gray-700" />
 
         <p>
