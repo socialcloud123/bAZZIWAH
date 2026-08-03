@@ -8,22 +8,7 @@ export default defineConfig({
   build: {
     target: 'es2018',
     minify: 'esbuild',
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (id.includes('node_modules/react-dom')) return 'react-dom';
-          if (id.includes('node_modules/react/')) return 'react-core';
-          if (id.includes('node_modules/framer-motion') || id.includes('node_modules/motion')) return 'framer';
-          if (id.includes('node_modules/gsap')) return 'gsap';
-          if (id.includes('node_modules/lenis')) return 'lenis';
-          if (id.includes('node_modules/react-icons')) return 'icons';
-          if (id.includes('node_modules/')) return 'vendor';
-        },
-        chunkFileNames: 'assets/[name]-[hash].js',
-        entryFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash].[ext]',
-      },
-    },
+    // rollupOptions removed to fix build hanging issue
     chunkSizeWarningLimit: 600,
     cssCodeSplit: true,
     sourcemap: false,
