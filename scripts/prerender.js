@@ -1,5 +1,3 @@
-import puppeteer from 'puppeteer';
-import express from 'express';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -7,102 +5,107 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const PORT = 3000;
 const DIST_DIR = path.resolve(__dirname, '../dist');
+const BASE_URL = 'https://www.buzziwah.com';
 
-// Read all URLs from the generated sitemap
-function getRoutesFromSitemap() {
-  const sitemapPath = path.join(DIST_DIR, 'sitemap.xml');
-  const xml = fs.readFileSync(sitemapPath, 'utf-8');
-  const locRegex = /<loc>https:\/\/www\.buzziwah\.com(.*?)<\/loc>/g;
-  const routes = [];
+function extractData(filePath) {
+  const content = fs.readFileSync(filePath, 'utf-8');
+  const items = {};
+  
+  // Basic regex to find slugs
+  const slugRegex = /^[ ]+"([a-z0-9-]+)":\s*\{/gm;
   let match;
-  while ((match = locRegex.exec(xml)) !== null) {
-    routes.push(match[1] === '' ? '/' : match[1]);
-  }
-  return routes;
-}
-
-async function runPrerender() {
-  console.log('Starting prerender static site generation...');
-  
-  // 1. Serve the built assets
-  const app = express();
-  
-  // Custom middleware to serve index.html for all non-file requests (SPA fallback)
-  app.use(express.static(DIST_DIR, { index: false }));
-  app.use((req, res) => {
-    res.sendFile(path.join(DIST_DIR, 'index.html'));
-  });
-
-  const server = app.listen(PORT, () => {
-    console.log(`Server listening on http://localhost:${PORT}`);
-  });
-
-  // 2. Launch Puppeteer
-  const browser = await puppeteer.launch({
-    headless: "new",
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
-  });
-
-  const routes = getRoutesFromSitemap();
-  console.log(`Found ${routes.length} routes to prerender.`);
-
-  // 3. Crawl and save HTML for each route
-  for (const route of routes) {
-    console.log(`Prerendering ${route}...`);
-    const page = await browser.newPage();
+  while ((match = slugRegex.exec(content)) !== null) {
+    const slug = match[1];
     
-    // Intercept unnecessary requests to speed up rendering
-    await page.setRequestInterception(true);
-    page.on('request', (req) => {
-      const resourceType = req.resourceType();
-      if (['image', 'media', 'font'].includes(resourceType)) {
-        req.abort();
-      } else {
-        req.continue();
-      }
-    });
-
-    try {
-      await page.goto(`http://localhost:${PORT}${route}`, {
-        waitUntil: 'networkidle0', // Wait until React renders and network requests finish
-        timeout: 30000,
-      });
-
-      // Wait an extra brief moment to ensure `useSEO` finishes updating the DOM
-      await new Promise(r => setTimeout(r, 500));
-
-      const html = await page.content();
-
-      // Ensure directory exists
-      let destPath;
-      if (route === '/') {
-        destPath = path.join(DIST_DIR, 'index.html');
-      } else {
-        const routeDir = path.join(DIST_DIR, route);
-        if (!fs.existsSync(routeDir)) {
-          fs.mkdirSync(routeDir, { recursive: true });
-        }
-        destPath = path.join(routeDir, 'index.html');
-      }
-
-      fs.writeFileSync(destPath, html, 'utf-8');
-      console.log(`✅ Saved ${route}`);
-    } catch (e) {
-      console.error(`❌ Failed to prerender ${route}`, e);
-    } finally {
-      await page.close();
-    }
+    // Extract block for this slug
+    const blockStart = match.index;
+    let blockEnd = content.indexOf('content:', blockStart);
+    if (blockEnd === -1) blockEnd = content.length;
+    
+    const block = content.substring(blockStart, blockEnd);
+    
+    const titleMatch = block.match(/title:\s*"([^"]+)"/);
+    const descMatch = block.match(/description:\s*"([^"]+)"/);
+    const imgMatch = block.match(/image:\s*"([^"]+)"/);
+    
+    items[slug] = {
+      title: titleMatch ? titleMatch[1] : 'Buzziwah',
+      description: descMatch ? descMatch[1] : 'Buzziwah - Creative Marketing Agency',
+      image: imgMatch ? imgMatch[1] : '/favicon.ico'
+    };
   }
-
-  // 4. Cleanup
-  await browser.close();
-  server.close();
-  console.log('Prerendering complete!');
+  
+  return items;
 }
 
-runPrerender().catch(err => {
-  console.error(err);
-  process.exit(1);
-});
+function runPrerender() {
+  console.log('Starting lightweight SSG...');
+  
+  const templatePath = path.join(DIST_DIR, 'index.html');
+  if (!fs.existsSync(templatePath)) {
+    console.error('dist/index.html not found. Did you run vite build?');
+    process.exit(1);
+  }
+  const templateHtml = fs.readFileSync(templatePath, 'utf-8');
+  
+  const blogsData = extractData(path.resolve(__dirname, '../src/blogs/index.jsx'));
+  const caseStudiesData = extractData(path.resolve(__dirname, '../src/case-studies/index.jsx'));
+  
+  // Combine all routes
+  const routesToRender = [];
+  
+  for (const [slug, data] of Object.entries(blogsData)) {
+    routesToRender.push({ path: `/blog/${slug}`, ...data });
+  }
+  for (const [slug, data] of Object.entries(caseStudiesData)) {
+    routesToRender.push({ path: `/case-study/${slug}`, ...data });
+  }
+  
+  // Add static main routes just to have directories fallback nicely
+  const staticRoutes = [
+    { path: '/about', title: 'About Us | Buzziwah', description: 'About Buzziwah Marketing' },
+    { path: '/services', title: 'Services | Buzziwah', description: 'Our Services' },
+    { path: '/blogs', title: 'Blogs | Buzziwah', description: 'Read our latest insights' },
+    { path: '/case-studies', title: 'Case Studies | Buzziwah', description: 'See our previous work' }
+  ];
+  
+  routesToRender.push(...staticRoutes);
+
+  for (const route of routesToRender) {
+    const routeDir = path.join(DIST_DIR, route.path);
+    if (!fs.existsSync(routeDir)) {
+      fs.mkdirSync(routeDir, { recursive: true });
+    }
+    
+    const pageUrl = `${BASE_URL}${route.path}`;
+    const imgUrl = route.image ? (route.image.startsWith('http') ? route.image : `${BASE_URL}${route.image}`) : `${BASE_URL}/favicon.ico`;
+    
+    // Inject Meta Tags
+    let html = templateHtml;
+    html = html.replace(/<title>(.*?)<\/title>/, `<title>${route.title}</title>`);
+    
+    const metaTags = `
+      <meta name="description" content="${route.description}" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="${pageUrl}" />
+      <meta property="og:title" content="${route.title}" />
+      <meta property="og:description" content="${route.description}" />
+      <meta property="og:image" content="${imgUrl}" />
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:url" content="${pageUrl}" />
+      <meta property="twitter:title" content="${route.title}" />
+      <meta property="twitter:description" content="${route.description}" />
+      <meta property="twitter:image" content="${imgUrl}" />
+    `;
+    
+    html = html.replace('</head>', `${metaTags}\n</head>`);
+    
+    fs.writeFileSync(path.join(routeDir, 'index.html'), html, 'utf-8');
+    console.log(`✅ Statically injected tags for ${route.path}`);
+  }
+  
+  console.log('Lightweight SSG complete!');
+}
+
+runPrerender();
