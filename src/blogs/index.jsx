@@ -3,6 +3,78 @@ import { useEffect } from "react";
 import "./Blogs.css";
 
 export const BLOGS_DATA = {
+  "why-your-reels-get-views-but-no-comments-and-how-to-fix-it": {
+    title: "Why Your Reels Get Views but No Comments (And How to Fix It)",
+    slug: "why-your-reels-get-views-but-no-comments-and-how-to-fix-it",
+    date: "August 19, 2026",
+    readTime: "4 min read",
+    author: "Buzziwah",
+    category: "Social Media",
+    image: "/blog_imgs/comments.png",
+    description: "You post a Reel. The view count climbs — a few hundred, maybe a few thousand. You wait for the comments to follow. They don't. No likes worth mentioning either.",
+    content: (
+      <div className="blog-content-body">
+        <p>
+          You post a Reel. The view count climbs — a few hundred, maybe a few thousand. You wait for the comments to follow. They don't. No likes worth mentioning either. Just a number that looks like success sitting next to an engagement section that looks empty.
+        </p>
+        <p>
+          This is one of the most confusing patterns in Reels performance, because it feels contradictory: if people are watching, why isn't anyone reacting? The honest answer is that views were never actually measuring what you think they were — and chasing comments specifically is usually solving the wrong problem.
+        </p>
+
+        <h2>Views tell you almost nothing about interest anymore</h2>
+        <p>
+          A view is recorded the moment your Reel starts playing, often through autoplay as someone scrolls past — sometimes before they've even consciously registered what they're looking at. Instagram's own ranking systems have gotten noticeably better at telling the difference between a view that came from someone genuinely watching and a view that came from passive, scroll-through exposure that never converted into real attention.
+        </p>
+        <p>
+          This is exactly why a Reel can rack up views while generating almost nothing else: the algorithm gave it a wide initial push based on early signals, people's thumbs stopped just long enough to register a view, and then they kept scrolling before the content actually landed. The view happened. The engagement never had a chance to.
+        </p>
+
+        <h2>Comments were never the main signal to begin with</h2>
+        <p>
+          Here's the part that changes how you should think about fixing this: in 2026, comments alone aren't even the strongest engagement signal Instagram is weighing. Shares — specifically, someone sending your Reel directly to another person via DM — now carry several times the algorithmic weight of a like, and increasingly outweigh comment count too. A Reel with a modest number of likes but a strong number of DM sends will often get pushed further than one with plenty of comments but nothing being shared onward.
+        </p>
+        <p>
+          So &quot;no comments&quot; isn't really the core diagnosis. It's one visible symptom of a Reel that isn't compelling enough to make someone stop, feel something, and act — whether that action is a comment, a share, a save, or watching it twice.
+        </p>
+
+        <h2>What's actually happening when views are high but nothing else follows</h2>
+        <p>
+          <strong>The hook is doing its job, but the content isn't.</strong> A strong opening frame or first line will reliably earn a view — it stops the thumb. But if what follows doesn't deliver on that opening moment, viewers watch passively (or drop off) rather than feeling compelled to react. This is the single most common cause: a good hook attached to a forgettable middle.
+        </p>
+        <p>
+          <strong>There's nothing built into the content that prompts a reaction.</strong> Comments, shares, and saves are rarely accidental — they usually happen because a Reel gave someone a specific reason to react: a relatable frustration, a surprising fact, a checklist worth saving, an opinion worth agreeing or disagreeing with. A Reel that's pleasant but neutral can hold attention without ever giving anyone a reason to actually do something once it ends.
+        </p>
+        <p>
+          <strong>The first hour after posting was left unattended.</strong> Early engagement — especially genuine back-and-forth in the comments within the first 60-90 minutes — signals to the algorithm that the content is generating real conversation, not just passive viewing. A Reel posted and then left alone loses this window; by the time anyone from the business replies to an early comment hours later, that momentum signal is largely gone.
+        </p>
+        <p>
+          <strong>The content doesn't ask for anything.</strong> It sounds almost too simple, but Reels that explicitly invite a reaction — a direct question, an intentional point of disagreement, an instruction to save for later — consistently outperform Reels that just present information and stop. If you never ask, most viewers won't volunteer.
+        </p>
+
+        <h2>How to actually fix it, in order of impact</h2>
+        <p>
+          <strong>1. Audit watch-through rate before anything else.</strong> Open Insights and check where viewers are dropping off. If most of the audience leaves before the halfway point, the issue lives in your pacing or middle section, not your engagement tactics — no amount of &quot;comment below!&quot; will fix content people aren't finishing.
+        </p>
+        <p>
+          <strong>2. Build in a specific reason to react.</strong> Don't end a Reel on pure information. End it on a question, a mild disagreement, a genuinely useful takeaway worth saving, or a moment that invites a &quot;wait, same here&quot; reaction. This is the single highest-leverage content fix.
+        </p>
+        <p>
+          <strong>3. Own the first hour after posting.</strong> Reply to every early comment with something substantive, not just an emoji — this keeps the conversation thread active, which is itself a signal the algorithm reads. Share the Reel to your Stories immediately after posting to prompt fast initial engagement from your existing followers.
+        </p>
+        <p>
+          <strong>4. Design specifically for saves and shares, not just comments.</strong> A useful checklist, a surprising stat, or a relatable business problem tends to generate saves and shares even when it doesn't generate much conversation — and those signals now often matter more for distribution than comments do.
+        </p>
+        <p>
+          <strong>5. Give people something worth sending to someone else.</strong> Before publishing, ask: would anyone actually forward this to a specific person they know? Content built with a specific recipient in mind — &quot;tag someone who needs to see this&quot; territory, without the cliché phrasing — tends to earn the DM sends that move the needle most in 2026.
+        </p>
+
+        <h2>The takeaway</h2>
+        <p>
+          High views with no engagement isn't a mysterious algorithm glitch — it's usually a content that earns attention but doesn't ask anything of it. Comments are a visible symptom worth noticing, but they're not the actual target. Build content that gives people a specific reason to react, own the first hour after it goes live, and the comments — along with the saves and shares that matter even more — tend to follow on their own.
+        </p>
+      </div>
+    )
+  },
   "best-time-to-post-reels-for-maximum-reach": {
     title: "Best Time to Post Reels for Maximum Reach (Is There Really One?)",
     slug: "best-time-to-post-reels-for-maximum-reach",
